@@ -2,1245 +2,1178 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CSGOSHOP | CS2 SKINS</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
 
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
 :root{
- --red:#ff1744;
- --red2:#b0002c;
- --black:#050505;
- --panel:#0d0d0d;
- --line:#242424;
+    --red:#ff173f;
+    --red2:#b9002d;
+    --dark:#050505;
+    --card:#101010;
+    --line:#292929;
+    --text:#fff;
+    --muted:#888;
 }
 
-html{scroll-behavior:smooth}
+html{
+    scroll-behavior:smooth;
+}
 
 body{
- font-family:Vazirmatn,sans-serif;
- background:
- radial-gradient(circle at 80% 10%,rgba(255,0,50,.18),transparent 28%),
- radial-gradient(circle at 10% 80%,rgba(255,0,50,.1),transparent 30%),
- #050505;
- color:#fff;
- min-height:100vh;
- overflow-x:hidden;
+    font-family:Vazirmatn,Arial,sans-serif;
+    background:
+        radial-gradient(circle at 50% -10%,rgba(255,0,40,.22),transparent 35%),
+        radial-gradient(circle at 90% 40%,rgba(255,0,40,.08),transparent 30%),
+        #050505;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* ================= BACKGROUND ================= */
+
 body:before{
- content:"";
- position:fixed;
- inset:0;
- pointer-events:none;
- z-index:-2;
- opacity:.08;
- background-image:
- linear-gradient(rgba(255,0,50,.5) 1px,transparent 1px),
- linear-gradient(90deg,rgba(255,0,50,.5) 1px,transparent 1px);
- background-size:55px 55px;
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-5;
+    opacity:.07;
+    background:
+        linear-gradient(90deg,rgba(255,0,50,.4) 1px,transparent 1px),
+        linear-gradient(rgba(255,0,50,.4) 1px,transparent 1px);
+    background-size:60px 60px;
 }
 
-#particles{
- position:fixed;
- inset:0;
- pointer-events:none;
- z-index:-1;
+.particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
 }
 
 .particle{
- position:absolute;
- width:3px;
- height:3px;
- border-radius:50%;
- background:var(--red);
- box-shadow:0 0 12px var(--red);
- animation:float 5s infinite ease-in-out;
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:#ff1744;
+    box-shadow:0 0 12px #ff1744;
+    animation:particle 6s infinite ease-in-out;
 }
 
-@keyframes float{
- 0%,100%{transform:translateY(0);opacity:.1}
- 50%{transform:translateY(-80px);opacity:1}
+@keyframes particle{
+    0%,100%{
+        transform:translateY(0);
+        opacity:.1;
+    }
+    50%{
+        transform:translateY(-90px);
+        opacity:1;
+    }
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 header{
- height:82px;
- position:sticky;
- top:0;
- z-index:1000;
- display:flex;
- align-items:center;
- justify-content:space-between;
- padding:0 4%;
- background:rgba(5,5,5,.9);
- backdrop-filter:blur(20px);
- border-bottom:1px solid rgba(255,23,68,.35);
+    height:76px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 4%;
+    background:rgba(5,5,5,.92);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,23,68,.3);
 }
 
 .logo{
- display:flex;
- align-items:center;
- gap:8px;
- direction:ltr;
- font-size:25px;
- font-weight:900;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    direction:ltr;
+    font-size:24px;
+    font-weight:900;
+}
+
+.logo span{
+    color:white;
 }
 
 .logo .red{
- color:var(--red);
- text-shadow:0 0 20px rgba(255,23,68,.7);
+    color:var(--red);
+    text-shadow:0 0 25px rgba(255,23,68,.7);
 }
 
-.agent{
- color:var(--red);
- font-size:34px;
- animation:agent 2s infinite;
-}
-
-@keyframes agent{
- 0%,100%{filter:drop-shadow(0 0 2px var(--red))}
- 50%{filter:drop-shadow(0 0 15px var(--red))}
+.logo-icon{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:2px solid var(--red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--red);
+    font-size:19px;
+    box-shadow:0 0 18px rgba(255,0,50,.25);
 }
 
 .nav{
- display:flex;
- gap:32px;
+    display:flex;
+    gap:35px;
 }
 
-.nav a{
- color:#999;
- text-decoration:none;
- font-size:13px;
- transition:.3s;
+.nav button{
+    border:0;
+    background:none;
+    color:#aaa;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:13px;
+    transition:.3s;
 }
 
-.nav a:hover{color:var(--red)}
-
-/* PROFILE */
-.profile{
- display:flex;
- align-items:center;
- gap:10px;
- padding:7px 12px;
- background:#101010;
- border:1px solid #292929;
- border-radius:14px;
- cursor:pointer;
- transition:.3s;
+.nav button:hover{
+    color:var(--red);
 }
 
-.profile:hover{
- border-color:var(--red);
- box-shadow:0 0 25px rgba(255,0,50,.15);
+/* ================= PROFILE HEADER ================= */
+
+.profile-mini{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:6px 10px;
+    background:#101010;
+    border:1px solid #292929;
+    border-radius:13px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.profile-mini:hover{
+    border-color:var(--red);
+    box-shadow:0 0 25px rgba(255,0,50,.15);
 }
 
 .avatar{
- width:44px;
- height:44px;
- border-radius:50%;
- display:flex;
- align-items:center;
- justify-content:center;
- overflow:hidden;
- background:linear-gradient(135deg,var(--red),#650018);
- border:2px solid rgba(255,23,68,.5);
- font-weight:900;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff1744,#4b0013);
+    border:2px solid #ff1744;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    font-weight:900;
 }
 
 .avatar img{
- width:100%;
- height:100%;
- object-fit:cover;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-.profile-info small{
- display:block;
- color:#666;
- font-size:9px;
+.mini-info small{
+    color:#666;
+    display:block;
+    font-size:9px;
 }
 
-.profile-info strong{
- display:block;
- font-size:12px;
+.mini-info strong{
+    display:block;
+    font-size:12px;
 }
 
-.profile-info span{
- display:block;
- color:#777;
- font-size:9px;
- direction:ltr;
- text-align:right;
+.mini-info span{
+    display:block;
+    direction:ltr;
+    color:#777;
+    font-size:9px;
+    text-align:right;
 }
 
-/* HERO */
+/* ================= HERO ================= */
+
 .hero{
- width:92%;
- max-width:1400px;
- height:390px;
- margin:35px auto;
- position:relative;
- overflow:hidden;
- border-radius:25px;
- border:1px solid rgba(255,0,50,.4);
- background:
- linear-gradient(90deg,#030303 0%,rgba(3,3,3,.82) 35%,rgba(3,3,3,.15)),
- radial-gradient(circle at 70% 50%,rgba(255,0,40,.5),transparent 35%),
- #090909;
+    width:92%;
+    max-width:1450px;
+    height:420px;
+    margin:30px auto;
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(255,23,68,.5);
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #060606 0%,
+            rgba(6,6,6,.85) 32%,
+            rgba(6,6,6,.25) 70%,
+            #050505 100%
+        ),
+        radial-gradient(
+            circle at 70% 50%,
+            rgba(255,0,50,.5),
+            transparent 35%
+        );
 }
 
-.hero-agent{
- position:absolute;
- left:8%;
- bottom:-35px;
- font-size:300px;
- line-height:1;
- color:#18050a;
- text-shadow:
- 0 0 5px #ff1744,
- 0 0 30px rgba(255,0,50,.35);
- transform:scaleX(-1);
- opacity:.9;
- animation:agentHero 4s infinite ease-in-out;
+.hero:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            transparent 49%,
+            rgba(255,0,40,.08) 50%,
+            transparent 51%
+        );
+    background-size:100% 8px;
+    pointer-events:none;
 }
 
-@keyframes agentHero{
- 0%,100%{transform:scaleX(-1) translateY(0)}
- 50%{transform:scaleX(-1) translateY(-10px)}
+/* terrorist graphic */
+
+.terrorist{
+    position:absolute;
+    left:4%;
+    bottom:-40px;
+    width:530px;
+    height:450px;
+    animation:terroristFloat 4s ease-in-out infinite;
 }
+
+@keyframes terroristFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+.head{
+    position:absolute;
+    left:220px;
+    top:45px;
+    width:125px;
+    height:145px;
+    border-radius:48% 48% 42% 42%;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            #262626 0 7px,
+            #101010 8px 13px
+        );
+    border:3px solid #171717;
+    box-shadow:
+        0 0 30px rgba(255,0,40,.25),
+        inset 0 0 25px #000;
+    transform:rotate(-5deg);
+}
+
+.glasses{
+    position:absolute;
+    top:54px;
+    left:16px;
+    width:92px;
+    height:37px;
+    display:flex;
+    gap:5px;
+}
+
+.glass{
+    width:43px;
+    height:28px;
+    background:#050505;
+    border:3px solid #555;
+    border-radius:7px;
+    box-shadow:0 0 10px #000;
+}
+
+.face-mask{
+    position:absolute;
+    bottom:0;
+    left:10px;
+    width:105px;
+    height:80px;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            #292929 0 8px,
+            #111 9px 14px
+        );
+    border-radius:25px 25px 45px 45px;
+}
+
+.body{
+    position:absolute;
+    left:130px;
+    top:165px;
+    width:300px;
+    height:260px;
+    background:
+        linear-gradient(90deg,#171717,#303030,#101010);
+    clip-path:polygon(25% 0,75% 0,100% 100%,0 100%);
+    border:2px solid #181818;
+}
+
+.vest{
+    position:absolute;
+    left:205px;
+    top:195px;
+    width:150px;
+    height:190px;
+    border:3px solid #252525;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #111 0 30px,
+            #292929 31px 35px
+        );
+}
+
+.arm{
+    position:absolute;
+    width:85px;
+    height:230px;
+    background:#202020;
+    border-radius:40px;
+}
+
+.arm.one{
+    left:105px;
+    top:190px;
+    transform:rotate(38deg);
+}
+
+.arm.two{
+    left:385px;
+    top:190px;
+    transform:rotate(-32deg);
+}
+
+.rifle{
+    position:absolute;
+    left:155px;
+    top:245px;
+    width:360px;
+    height:32px;
+    background:#111;
+    border:4px solid #292929;
+    transform:rotate(-13deg);
+    box-shadow:
+        0 0 20px rgba(255,0,40,.2);
+}
+
+.rifle:before{
+    content:"";
+    position:absolute;
+    left:-65px;
+    top:5px;
+    width:75px;
+    height:15px;
+    background:#0b0b0b;
+}
+
+.rifle:after{
+    content:"";
+    position:absolute;
+    right:70px;
+    top:25px;
+    width:70px;
+    height:90px;
+    background:#151515;
+    transform:skew(-15deg);
+}
+
+.muzzle{
+    position:absolute;
+    right:-17px;
+    top:8px;
+    width:25px;
+    height:17px;
+    background:#050505;
+}
+
+/* hero text */
 
 .hero-content{
- position:absolute;
- z-index:2;
- right:55px;
- top:70px;
- max-width:650px;
+    position:absolute;
+    z-index:5;
+    right:7%;
+    top:75px;
+    max-width:650px;
 }
 
 .badge{
- display:inline-block;
- color:var(--red);
- border:1px solid var(--red);
- background:rgba(255,0,45,.08);
- padding:7px 15px;
- border-radius:30px;
- font-size:10px;
+    display:inline-block;
+    padding:7px 15px;
+    border:1px solid var(--red);
+    color:var(--red);
+    border-radius:30px;
+    background:rgba(255,0,50,.06);
+    font-size:10px;
 }
 
 .hero h1{
- margin-top:22px;
- font-size:clamp(40px,5vw,68px);
- line-height:1.05;
- font-weight:900;
+    margin-top:22px;
+    font-size:58px;
+    line-height:1.05;
+    font-weight:900;
 }
 
 .hero h1 span{
- color:var(--red);
- text-shadow:0 0 30px rgba(255,0,50,.5);
+    color:var(--red);
+    text-shadow:0 0 35px rgba(255,0,50,.5);
 }
 
 .hero p{
- color:#aaa;
- margin-top:18px;
- line-height:2;
- font-size:13px;
+    margin-top:18px;
+    color:#aaa;
+    font-size:13px;
+    line-height:2;
 }
 
-/* SHOP */
+.hero-button{
+    margin-top:20px;
+    padding:13px 25px;
+    color:white;
+    background:linear-gradient(135deg,var(--red),var(--red2));
+    border:0;
+    border-radius:10px;
+    cursor:pointer;
+    font-family:inherit;
+    font-weight:800;
+    transition:.3s;
+}
+
+.hero-button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(255,0,50,.3);
+}
+
+/* ================= SHOP ================= */
+
 .shop{
- width:92%;
- max-width:1400px;
- margin:auto;
+    width:92%;
+    max-width:1450px;
+    margin:40px auto 100px;
 }
 
-.shop-header{
- display:flex;
- align-items:center;
- justify-content:space-between;
- margin-bottom:22px;
+.shop-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
 }
 
-.title{
- font-size:28px;
- font-weight:900;
+.shop-title{
+    font-size:28px;
+    font-weight:900;
 }
 
-.title span{color:var(--red)}
+.shop-title span{
+    color:var(--red);
+}
 
 .search{
- width:290px;
- padding:13px 18px;
- color:#fff;
- background:#0e0e0e;
- border:1px solid #292929;
- border-radius:12px;
- outline:none;
- transition:.3s;
+    width:300px;
+    padding:13px 17px;
+    border-radius:11px;
+    border:1px solid #292929;
+    background:#101010;
+    color:white;
+    outline:none;
+    font-family:inherit;
 }
 
 .search:focus{
- border-color:var(--red);
- box-shadow:0 0 20px rgba(255,0,50,.1);
+    border-color:var(--red);
 }
 
-/* CARDS */
+/* ================= CATEGORIES ================= */
+
+.categories{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+    overflow-x:auto;
+    padding-bottom:5px;
+}
+
+.category{
+    flex:0 0 auto;
+    padding:12px 20px;
+    color:#999;
+    background:#101010;
+    border:1px solid #292929;
+    border-radius:10px;
+    cursor:pointer;
+    font-family:inherit;
+    transition:.3s;
+}
+
+.category:hover,
+.category.active{
+    color:white;
+    background:linear-gradient(135deg,var(--red),#9c0026);
+    border-color:var(--red);
+}
+
+/* ================= PRODUCTS ================= */
+
 .products{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:20px;
- padding-bottom:100px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
 }
 
 .card{
- position:relative;
- padding:12px;
- background:linear-gradient(145deg,#131313,#080808);
- border:1px solid #252525;
- border-radius:18px;
- overflow:hidden;
- cursor:pointer;
- transition:.4s;
- animation:cardIn .6s ease both;
-}
-
-@keyframes cardIn{
- from{opacity:0;transform:translateY(25px)}
- to{opacity:1;transform:translateY(0)}
+    position:relative;
+    padding:10px;
+    border:1px solid #292929;
+    border-radius:16px;
+    background:
+        linear-gradient(145deg,#151515,#080808);
+    overflow:hidden;
+    cursor:pointer;
+    transition:.4s;
 }
 
 .card:hover{
- transform:translateY(-9px);
- border-color:var(--red);
- box-shadow:
- 0 20px 55px rgba(0,0,0,.7),
- 0 0 30px rgba(255,0,50,.13);
+    transform:translateY(-8px);
+    border-color:var(--red);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.6),
+        0 0 25px rgba(255,0,50,.13);
 }
 
-.card:after{
- content:"";
- position:absolute;
- width:180%;
- height:1px;
- background:var(--red);
- box-shadow:0 0 15px var(--red);
- left:-40%;
- top:50%;
- opacity:0;
- transform:rotate(-25deg);
- transition:.6s;
+.weapon-box{
+    height:190px;
+    border-radius:12px;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,0,50,.25),
+            transparent 65%
+        ),
+        #080808;
 }
 
-.card:hover:after{
- opacity:.5;
- transform:rotate(-25deg) translateX(30%);
+.weapon-box:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            135deg,
+            transparent 40%,
+            rgba(255,0,50,.08),
+            transparent 60%
+        );
+    pointer-events:none;
 }
 
-.weapon{
- height:190px;
- border-radius:13px;
- background:
- radial-gradient(circle,rgba(255,0,50,.17),transparent 65%),
- #070707;
- display:flex;
- align-items:center;
- justify-content:center;
- overflow:hidden;
+.weapon-svg{
+    width:100%;
+    height:100%;
+    transition:.5s;
+    filter:drop-shadow(0 20px 12px #000);
 }
 
-.weapon svg{
- width:94%;
- height:94%;
- filter:drop-shadow(0 15px 12px #000);
- transition:.5s;
+.card:hover .weapon-svg{
+    transform:scale(1.08) rotate(-2deg);
 }
 
-.card:hover .weapon svg{
- transform:scale(1.08) rotate(-2deg);
+.card-name{
+    direction:ltr;
+    text-align:right;
+    margin:14px 4px 4px;
+    font-weight:800;
+    font-size:14px;
 }
 
-.card h3{
- margin:15px 3px 5px;
- font-size:14px;
- direction:ltr;
- text-align:right;
+.card-model{
+    color:var(--red);
+    font-size:10px;
+    margin:0 4px;
 }
 
-.card-desc{
- color:#666;
- font-size:10px;
+.details{
+    width:100%;
+    margin-top:12px;
+    padding:10px;
+    border-radius:9px;
+    border:1px solid #3a3a3a;
+    background:#131313;
+    color:white;
+    cursor:pointer;
+    font-family:inherit;
+    transition:.3s;
 }
 
-.card-button{
- width:100%;
- margin-top:15px;
- padding:11px;
- color:#fff;
- background:#141414;
- border:1px solid #333;
- border-radius:9px;
- cursor:pointer;
- transition:.3s;
+.card:hover .details{
+    background:var(--red);
+    border-color:var(--red);
 }
 
-.card:hover .card-button{
- background:var(--red);
- border-color:var(--red);
+/* ================= PRODUCT DETAIL ================= */
+
+#productPage{
+    display:none;
 }
 
-/* FLOAT TELEGRAM */
-.telegram{
- position:fixed;
- right:22px;
- bottom:22px;
- z-index:3000;
- display:flex;
- align-items:center;
- gap:9px;
- padding:12px 17px;
- color:#fff;
- text-decoration:none;
- background:linear-gradient(135deg,var(--red),var(--red2));
- border:1px solid rgba(255,255,255,.12);
- border-radius:14px;
- box-shadow:0 10px 35px rgba(0,0,0,.5);
- animation:telegram 2.5s infinite;
+#productPage.show{
+    display:block;
+    animation:fadeIn .35s ease;
 }
 
-@keyframes telegram{
- 0%,100%{box-shadow:0 10px 35px rgba(0,0,0,.5)}
- 50%{box-shadow:0 10px 35px rgba(255,0,50,.35)}
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-/* PAGE */
-.page{
- display:none;
-}
-
-.page.active{
- display:block;
- animation:pageIn .35s ease;
-}
-
-@keyframes pageIn{
- from{opacity:0;transform:translateY(15px)}
- to{opacity:1;transform:translateY(0)}
-}
-
-.product-page{
- width:92%;
- max-width:1250px;
- margin:40px auto 100px;
+.product-detail{
+    width:92%;
+    max-width:1400px;
+    margin:35px auto 100px;
 }
 
 .back{
- display:inline-flex;
- padding:10px 17px;
- color:#aaa;
- background:#101010;
- border:1px solid #292929;
- border-radius:10px;
- cursor:pointer;
- transition:.3s;
+    border:1px solid #292929;
+    background:#111;
+    color:#aaa;
+    padding:10px 17px;
+    border-radius:10px;
+    cursor:pointer;
+    font-family:inherit;
 }
 
 .back:hover{
- color:#fff;
- border-color:var(--red);
+    color:white;
+    border-color:var(--red);
 }
 
-.product-layout{
- display:grid;
- grid-template-columns:1.1fr 1fr;
- gap:30px;
- margin-top:25px;
+.detail-grid{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:25px;
+    margin-top:25px;
 }
 
-.product-image{
- height:510px;
- border-radius:23px;
- border:1px solid #292929;
- background:
- radial-gradient(circle,rgba(255,0,50,.2),transparent 65%),
- #080808;
- display:flex;
- align-items:center;
- justify-content:center;
- overflow:hidden;
+.detail-image{
+    min-height:520px;
+    border:1px solid #292929;
+    border-radius:20px;
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,0,50,.22),
+            transparent 65%
+        ),
+        #080808;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
 }
 
-.product-image svg{
- width:95%;
- height:95%;
- filter:drop-shadow(0 25px 25px #000);
- animation:weaponFloat 4s infinite ease-in-out;
+.detail-image svg{
+    width:94%;
+    height:94%;
+    filter:drop-shadow(0 25px 20px #000);
 }
 
-@keyframes weaponFloat{
- 0%,100%{transform:translateY(0)}
- 50%{transform:translateY(-9px)}
+.detail-box{
+    padding:30px;
+    border:1px solid #292929;
+    border-radius:20px;
+    background:linear-gradient(145deg,#151515,#090909);
 }
 
-.product-info{
- padding:30px;
- background:linear-gradient(145deg,#121212,#080808);
- border:1px solid #292929;
- border-radius:23px;
+.detail-box h2{
+    direction:ltr;
+    text-align:right;
+    font-size:30px;
 }
 
-.product-info h1{
- direction:ltr;
- text-align:right;
- font-size:30px;
- margin-bottom:10px;
+.detail-type{
+    color:var(--red);
+    margin-top:7px;
+    font-size:12px;
 }
 
-.desc{
- color:#777;
- font-size:12px;
- line-height:2;
- margin-bottom:25px;
+.detail-description{
+    margin-top:20px;
+    color:#777;
+    line-height:2;
+    font-size:12px;
 }
 
-.choose{
- color:#aaa;
- font-size:13px;
- margin-bottom:12px;
+.condition-title{
+    margin-top:25px;
+    margin-bottom:12px;
+    color:#aaa;
 }
 
 .conditions{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:10px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
 }
 
 .condition{
- padding:14px;
- background:#101010;
- border:1px solid #292929;
- border-radius:11px;
- cursor:pointer;
- transition:.3s;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #292929;
+    background:#111;
+    cursor:pointer;
+    transition:.3s;
 }
 
 .condition:hover{
- border-color:var(--red);
+    border-color:var(--red);
 }
 
 .condition.selected{
- border-color:var(--red);
- background:rgba(255,0,50,.08);
- box-shadow:0 0 20px rgba(255,0,50,.08);
+    border-color:var(--red);
+    background:rgba(255,0,50,.1);
+    box-shadow:0 0 20px rgba(255,0,50,.1);
 }
 
-.condition b{
- display:block;
- font-size:12px;
+.condition-name{
+    display:block;
+    font-size:11px;
 }
 
-.condition span{
- display:block;
- color:var(--red);
- font-size:16px;
- font-weight:900;
- margin-top:5px;
+.condition-price{
+    display:block;
+    color:var(--red);
+    font-size:16px;
+    font-weight:900;
+    margin-top:4px;
 }
 
-.selected-info{
- margin-top:20px;
- padding:15px;
- background:#101010;
- border:1px solid #252525;
- border-radius:11px;
+.current-selection{
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    border:1px solid #292929;
+    background:#0e0e0e;
 }
 
-.selected-row{
- display:flex;
- justify-content:space-between;
- color:#777;
- font-size:11px;
- padding:5px 0;
+.row{
+    display:flex;
+    justify-content:space-between;
+    padding:5px 0;
+    font-size:11px;
+    color:#777;
 }
 
-.selected-row strong{color:#fff}
+.row strong{
+    color:white;
+}
 
 .buy{
- width:100%;
- margin-top:20px;
- padding:16px;
- color:#fff;
- background:linear-gradient(135deg,var(--red),var(--red2));
- border:0;
- border-radius:12px;
- font-weight:900;
- cursor:pointer;
- transition:.3s;
+    width:100%;
+    margin-top:20px;
+    padding:15px;
+    border:0;
+    border-radius:11px;
+    color:white;
+    background:linear-gradient(135deg,var(--red),var(--red2));
+    font-family:inherit;
+    font-weight:900;
+    cursor:pointer;
+    transition:.3s;
 }
 
 .buy:hover{
- transform:translateY(-3px);
- box-shadow:0 15px 35px rgba(255,0,50,.3);
+    transform:translateY(-3px);
+    box-shadow:0 15px 30px rgba(255,0,50,.3);
 }
 
 .buy.locked{
- background:#242424;
- color:#777;
- cursor:not-allowed;
+    background:#252525;
+    color:#777;
+    cursor:not-allowed;
+    box-shadow:none;
 }
 
-.lock{
- margin-top:10px;
- padding:11px;
- text-align:center;
- border-radius:10px;
- background:rgba(255,0,50,.05);
- border:1px solid rgba(255,0,50,.13);
- color:#ff6680;
- font-size:10px;
+/* ================= PROFILE MODAL ================= */
+
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    z-index:5000;
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(10px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
 }
 
-/* MODAL */
-.overlay{
- position:fixed;
- inset:0;
- z-index:5000;
- display:none;
- align-items:center;
- justify-content:center;
- padding:20px;
- background:rgba(0,0,0,.84);
- backdrop-filter:blur(12px);
+.modal-overlay.open{
+    display:flex;
 }
 
-.overlay.active{display:flex}
-
-.modal{
- width:100%;
- max-width:480px;
- position:relative;
- padding:28px;
- background:#0d0d0d;
- border:1px solid var(--red);
- border-radius:23px;
- box-shadow:0 30px 100px #000,0 0 50px rgba(255,0,50,.12);
- animation:modal .3s ease;
+.profile-modal{
+    width:100%;
+    max-width:430px;
+    padding:28px;
+    position:relative;
+    background:#0d0d0d;
+    border:1px solid var(--red);
+    border-radius:20px;
+    box-shadow:
+        0 30px 100px #000,
+        0 0 45px rgba(255,0,50,.15);
+    animation:modalOpen .3s ease;
 }
 
-@keyframes modal{
- from{opacity:0;transform:scale(.9)}
- to{opacity:1;transform:scale(1)}
+@keyframes modalOpen{
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
 .close{
- position:absolute;
- left:17px;
- top:17px;
- width:33px;
- height:33px;
- border:0;
- border-radius:50%;
- background:#191919;
- color:#fff;
- cursor:pointer;
- font-size:18px;
+    position:absolute;
+    left:15px;
+    top:15px;
+    width:33px;
+    height:33px;
+    border:0;
+    border-radius:50%;
+    background:#191919;
+    color:white;
+    cursor:pointer;
+    font-size:18px;
 }
 
-.upload{
- text-align:center;
+.profile-modal h2{
+    text-align:center;
+    margin-top:10px;
 }
 
-.upload-circle{
- width:90px;
- height:90px;
- margin:auto;
- border-radius:50%;
- overflow:hidden;
- display:flex;
- align-items:center;
- justify-content:center;
- background:linear-gradient(135deg,var(--red),#650018);
- border:2px solid var(--red);
- cursor:pointer;
- font-size:30px;
+.modal-sub{
+    text-align:center;
+    color:#666;
+    font-size:10px;
+    margin-top:7px;
 }
 
-.upload-circle img{
- width:100%;
- height:100%;
- object-fit:cover;
+.photo-area{
+    text-align:center;
+    margin-top:15px;
 }
 
-.file{display:none}
-
-.upload-text{
- color:#777;
- font-size:10px;
- margin-top:8px;
+.photo-circle{
+    width:95px;
+    height:95px;
+    margin:auto;
+    border-radius:50%;
+    border:2px solid var(--red);
+    background:linear-gradient(135deg,#ff1744,#47000f);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    cursor:pointer;
+    font-size:30px;
 }
 
-.modal h2{
- text-align:center;
- margin-top:15px;
+.photo-circle img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-.modal-desc{
- text-align:center;
- color:#777;
- font-size:11px;
- margin-top:7px;
+#photoInput{
+    display:none;
 }
 
 .input{
- width:100%;
- margin-top:15px;
- padding:14px;
- color:#fff;
- background:#111;
- border:1px solid #292929;
- border-radius:11px;
- outline:none;
+    width:100%;
+    margin-top:13px;
+    padding:13px;
+    border:1px solid #292929;
+    border-radius:10px;
+    background:#111;
+    color:white;
+    outline:none;
+    font-family:inherit;
 }
 
-.input:focus{border-color:var(--red)}
-
-.save{
- width:100%;
- margin-top:15px;
- padding:14px;
- border:0;
- border-radius:11px;
- color:#fff;
- background:linear-gradient(135deg,var(--red),var(--red2));
- cursor:pointer;
- font-weight:900;
+.input:focus{
+    border-color:var(--red);
 }
 
-.status{
- margin-top:15px;
- padding:12px;
- text-align:center;
- border-radius:10px;
- color:#ff5b75;
- background:rgba(255,0,50,.05);
- font-size:10px;
+.save-profile{
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    border:0;
+    border-radius:10px;
+    background:linear-gradient(135deg,var(--red),var(--red2));
+    color:white;
+    font-family:inherit;
+    font-weight:900;
+    cursor:pointer;
 }
 
-.status.ok{
- color:#2be69b;
- background:rgba(0,255,160,.05);
- border:1px solid rgba(0,255,160,.12);
+.profile-status{
+    margin-top:13px;
+    padding:10px;
+    border-radius:9px;
+    background:#151515;
+    color:#777;
+    font-size:10px;
+    text-align:center;
 }
 
-/* FOOTER */
+.profile-status.ok{
+    color:#31e89a;
+}
+
+/* ================= TELEGRAM ================= */
+
+.telegram{
+    position:fixed;
+    z-index:4000;
+    right:20px;
+    bottom:20px;
+    padding:12px 18px;
+    border-radius:14px;
+    color:white;
+    text-decoration:none;
+    background:linear-gradient(135deg,#ff1744,#a60029);
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 10px 35px rgba(0,0,0,.5);
+    animation:telegramPulse 2.5s infinite;
+    font-size:11px;
+}
+
+@keyframes telegramPulse{
+    50%{
+        box-shadow:
+            0 10px 40px rgba(255,0,50,.4);
+    }
+}
+
+/* ================= FOOTER ================= */
+
 footer{
- border-top:1px solid #1d1d1d;
- padding:35px;
- text-align:center;
- color:#555;
- font-size:11px;
+    padding:35px;
+    border-top:1px solid #222;
+    text-align:center;
+    color:#555;
+    font-size:10px;
 }
 
-footer span{color:var(--red)}
-
-/* MOBILE */
-@media(max-width:1000px){
- .products{grid-template-columns:repeat(2,1fr)}
- .nav{display:none}
- .product-layout{grid-template-columns:1fr}
+footer span{
+    color:var(--red);
 }
 
-@media(max-width:600px){
- header{height:70px;padding:0 3%}
- .logo{font-size:18px}
- .agent{font-size:25px}
- .profile-info{display:none}
- .profile{padding:5px}
- .hero{height:350px}
- .hero-content{right:25px;top:55px}
- .hero-agent{font-size:190px;left:2%;bottom:0}
- .hero h1{font-size:40px}
- .shop-header{
-  flex-direction:column;
-  align-items:stretch;
-  gap:15px
- }
- .search{width:100%}
- .products{gap:10px}
- .weapon{height:135px}
- .card{padding:8px}
- .card h3{font-size:11px}
- .product-image{height:310px}
- .product-info{padding:18px}
- .product-info h1{font-size:23px}
- .conditions{grid-template-columns:1fr}
- .telegram{
-  right:14px;
-  bottom:14px;
-  padding:10px 13px;
-  font-size:10px
- }
+/* ================= MOBILE ================= */
+
+@media(max-width:1050px){
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .detail-grid{
+        grid-template-columns:1fr;
+    }
+
+    .nav{
+        display:none;
+    }
+
+    .terrorist{
+        opacity:.3;
+        left:-100px;
+    }
+}
+
+@media(max-width:650px){
+
+    header{
+        padding:0 3%;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    .mini-info{
+        display:none;
+    }
+
+    .hero{
+        height:430px;
+    }
+
+    .hero-content{
+        right:25px;
+        top:55px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        max-width:280px;
+    }
+
+    .terrorist{
+        transform:scale(.7);
+        transform-origin:bottom left;
+        left:-80px;
+    }
+
+    .shop-top{
+        flex-direction:column;
+        align-items:stretch;
+        gap:15px;
+    }
+
+    .search{
+        width:100%;
+    }
+
+    .products{
+        grid-template-columns:1fr 1fr;
+        gap:9px;
+    }
+
+    .weapon-box{
+        height:135px;
+    }
+
+    .card{
+        padding:7px;
+    }
+
+    .card-name{
+        font-size:11px;
+    }
+
+    .detail-image{
+        min-height:300px;
+    }
+
+    .detail-box{
+        padding:18px;
+    }
+
+    .conditions{
+        grid-template-columns:1fr;
+    }
+
+    .telegram{
+        right:12px;
+        bottom:12px;
+        padding:10px 13px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div id="particles"></div>
+<div class="particles" id="particles"></div>
+
+<!-- ================= HEADER ================= -->
 
 <header>
 
- <div class="logo">
-   <span class="agent">☠</span>
-   <span>CSGO<span class="red">SHOP</span></span>
- </div>
+    <div class="logo">
+        <div class="logo-icon">☠</div>
+        <span>CSGO<span class="red">SHOP</span></span>
+    </div>
 
- <nav class="nav">
-   <a href="#" onclick="showHome()">خانه</a>
-   <a href="#shop" onclick="showHome()">فروشگاه</a>
-   <a href="#" onclick="openProfile()">پروفایل</a>
- </nav>
+    <nav class="nav">
+        <button onclick="goHome()">خانه</button>
+        <button onclick="scrollShop()">فروشگاه</button>
+        <button onclick="openProfile()">پروفایل</button>
+    </nav>
 
- <div class="profile" onclick="openProfile()">
+    <div class="profile-mini" onclick="openProfile()">
 
-   <div class="avatar" id="headerAvatar">
-     A
-   </div>
+        <div class="avatar" id="headerAvatar">A</div>
 
-   <div class="profile-info">
-     <small>حساب کاربری</small>
-     <strong id="headerName">ورود / ثبت‌نام</strong>
-     <span id="headerPhone">شماره وارد نشده</span>
-   </div>
+        <div class="mini-info">
+            <small>کاربر</small>
+            <strong id="headerName">ورود / ثبت‌نام</strong>
+            <span id="headerPhone">شماره وارد نشده</span>
+        </div>
 
- </div>
+    </div>
 
 </header>
 
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
 
-<main id="homePage" class="page active">
+<main id="homePage">
 
- <section class="hero">
+    <section class="hero">
 
-   <div class="hero-agent">☠</div>
+        <!-- terrorist -->
+        <div class="terrorist">
 
-   <div class="hero-content">
+            <div class="head">
+                <div class="glasses">
+                    <div class="glass"></div>
+                    <div class="glass"></div>
+                </div>
+                <div class="face-mask"></div>
+            </div>
 
-     <span class="badge">
-       COUNTER STRIKE 2 MARKET
-     </span>
+            <div class="body"></div>
+            <div class="vest"></div>
 
-     <h1>
-       CSGO<br>
-       <span>SHOP</span>
-     </h1>
+            <div class="arm one"></div>
+            <div class="arm two"></div>
 
-     <p>
-       اسکین مورد علاقه خودت را انتخاب کن،
-       مدل آن را مشخص کن و سفارش خود را ثبت کن.
-     </p>
+            <div class="rifle">
+                <div class="muzzle"></div>
+            </div>
 
-   </div>
+        </div>
 
- </section>
+        <div class="hero-content">
 
-
- <section class="shop" id="shop">
-
-   <div class="shop-header">
-
-     <div class="title">
-       آخرین <span>اسکین‌ها</span>
-     </div>
-
-     <input
-       class="search"
-       id="search"
-       placeholder="🔎 جستجوی گان..."
-     >
-
-   </div>
-
-   <div
-     class="products"
-     id="products">
-   </div>
-
- </section>
-
-</main>
-
-
-<!-- PRODUCT PAGE -->
-
-<main id="productPage" class="page">
-
- <section class="product-page">
-
-   <button
-     class="back"
-     onclick="showHome()">
-     ← بازگشت به فروشگاه
-   </button>
-
-   <div class="product-layout">
-
-     <div class="product-image">
-       <div id="detailWeapon"></div>
-     </div>
-
-     <div class="product-info">
-
-       <h1 id="detailName"></h1>
-
-       <p class="desc">
-         وضعیت اسکین مورد نظر خود را انتخاب کنید.
-         قیمت بر اساس مدل انتخابی نمایش داده می‌شود.
-       </p>
-
-       <div class="choose">
-         انتخاب وضعیت اسکین
-       </div>
-
-       <div
-         class="conditions"
-         id="conditions">
-       </div>
-
-       <div class="selected-info">
-
-         <div class="selected-row">
-           <span>مدل انتخاب شده</span>
-           <strong id="selectedCondition">—</strong>
-         </div>
-
-         <div class="selected-row">
-           <span>قیمت</span>
-           <strong
-             id="selectedPrice"
-             style="color:#ff1744;font-size:18px">
-             —
-           </strong>
-         </div>
-
-       </div>
-
-       <button
-         class="buy locked"
-         id="buyButton"
-         onclick="buyProduct()">
-
-         🔒 تکمیل پروفایل برای خرید
-
-       </button>
-
-       <div
-         class="lock"
-         id="lockMessage">
-
-         برای خرید ابتدا پروفایل خود را تکمیل کنید.
-
-       </div>
-
-     </div>
-
-   </div>
-
- </section>
-
-</main>
-
-
-<!-- TELEGRAM -->
-
-<a
- href="https://t.me/AghoJavaad"
- target="_blank"
- class="telegram">
-
- 💬 @AghoJavaad
-
-</a>
-
-
-<footer>
- CSGOSHOP © 2026
- <br><br>
- Telegram: <span>@AghoJavaad</span>
-</footer>
-
-
-<!-- PROFILE MODAL -->
-
-<div
- class="overlay"
- id="profileOverlay">
-
- <div class="modal">
-
-   <button
-     class="close"
-     onclick="closeProfile()">
-     ×
-   </button>
-
-   <div class="upload">
-
-     <label for="photoInput">
-
-       <div class="upload-circle">
-
-         <img
-           id="preview"
-           style="display:none">
-
-         <span id="uploadIcon">👤</span>
-
-       </div>
-
-     </label>
-
-     <input
-       id="photoInput"
-       class="file"
-       type="file"
-       accept="image/*">
-
-     <div class="upload-text">
-       برای انتخاب عکس پروفایل کلیک کنید
-     </div>
-
-   </div>
-
-
-   <h2>تکمیل پروفایل</h2>
-
-   <p class="modal-desc">
-     برای خرید باید اطلاعات پروفایل کامل باشد.
-   </p>
-
-
-   <input
-     class="input"
-     id="username"
-     type="text"
-     placeholder="نام کاربری">
-
-
-   <input
-     class="input"
-     id="phone"
-     type="tel"
-     placeholder="شماره موبایل"
-     dir="ltr">
-
-
-   <input
-     class="input"
-     id="telegramId"
-     type="text"
-     value="@AghoJavaad"
-     placeholder="Telegram ID"
-     dir="ltr">
-
-
-   <button
-     class="save"
-     onclick="saveProfile()">
-
-     ✓ ذخیره پروفایل
-
-   </button>
-
-
-   <div
-     class="status"
-     id="profileStatus">
-
-     🔒 پروفایل تکمیل نشده است.
-
-   </div>
-
- </div>
-
-</div>
-
-
-<script>
-
-/* ================= PARTICLES ================= */
-
-const particleBox =
-document.getElementById("particles");
-
-for(let i=0;i<45;i++){
-
- const p=document.createElement("div");
-
- p.className="particle";
-
- p.style.left=Math.random()*100+"%";
- p.style.top=Math.random()*100+"%";
- p.style.animationDelay=Math.random()*5+"s";
- p.style.animationDuration=(3+Math.random()*5)+"s";
-
- particleBox.appendChild(p);
-
-}
-
-
-/* ================= WEAPON SVG ================= */
-
-/*
- این SVGها داخل خود سایت هستند،
- بنابراین حتی بدون لینک عکس خارجی هم گان نمایش داده می‌شود.
-*/
-
-function weaponSVG(type){
-
- let accent="#ff1744";
-
- if(type==="usp"){
-
- return `
- <svg viewBox="0 0 700 300">
-   <defs>
-     <linearGradient id="g1">
-       <stop stop-color="#191919"/>
-       <stop offset=".5" stop-color="#555"/>
-       <stop offset="1" stop-color="#111"/>
-     </linearGradient>
-   </defs>
-
-   <g transform="rotate(-4 350 150)">
-
-     <rect x="170" y="105"
-       width="330" height="72"
-       rx="12"
-       fill="url(#g1)"
-       stroke="${accent}"
-       stroke-width="3"/>
-
-     <rect x="115" y="118"
-       width="95" height="42"
-       rx="8"
-       fill="#242424"/>
-
-     <path
-       d="M290 174 L340 174 L375 260 L300 260 Z"
-       fill="#171717"
-       stroke="${accent}"
-       stroke-width="3"/>
-
-     <rect x="205" y="120"
-       width="150" height="12"
-       fill="${accent}"
-       opacity=".7"/>
-
-     <circle cx="450" cy="140"
-       r="13"
-       fill="${accent}"/>
-
-     <text x="380" y="165"
-       fill="#aaa"
-       font-size="20">
-       USP-S
-     </text>
-
-   </g>
- </svg>`;
- }
-
-
- if(type==="r8"){
-
- return `
- <svg viewBox="0 0 700 300">
-
-   <g transform="rotate(-7 350 150)">
-
-     <path
-       d="M120 105 L410 95 L470 135 L390 180 L145 165 Z"
-       fill="#6b4935"
-       stroke="${accent}"
-       stroke-width="4"/>
-
-     <circle
-       cx="270"
-       cy="135"
-       r="52"
-       fill="#171717"
-       stroke="#777"
-       stroke-width="10"/>
-
-     <circle
-       cx="270"
-       cy="135"
-       r="23"
-       fill="#0a0a0a"/>
-
-     <path
-       d="M330 165 L405 170 L450 255 L360 255 Z"
-       fill="#292929"
-       stroke="${accent}"
-       stroke-width="3"/>
-
-     <rect
-       x="425"
-       y="110"
-       width="125"
-       height="38"
-       rx="8"
-       fill="#111"/>
-
-     <circle
-       cx="510"
-       cy="129"
-       r="8"
-       fill="${accent}"/>
-
-   </g>
-
- </svg>`;
- }
-
-
- /* M4 */
-
- return `
- <svg viewBox="0 0 700 300">
-
-   <g transform="rotate(-5 350 150)">
-
-     <path
-       d="M100 112 L410 100 L520 125 L510 155 L390 165 L105 155 Z"
-       fill="#252525"
-       stroke="${accent}"
-       stroke-width="3"/>
-
-     <rect
-       x="185"
-       y="100"
-       width="160"
-       height="15"
-       fill="${accent}"
-       opacity=".7"/>
-
-     <path
-       d="M250 160 L325 160 L360 255 L270 255 Z"
-       fill="#171717"
-       stroke="${accent}"
-       stroke-width="3"/>
-
-     <path
-       d="M105 155 L60 180 L95 195 L145 165"
-       fill="#111"/>
-
-     <rect
-       x="500"
-       y="118"
-       width="11
+         
