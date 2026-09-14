@@ -1,3092 +1,1148 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color"
-content="#07080c">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CS2 SKIN SHOP</title>
 
-
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Tahoma,Arial,sans-serif;
 }
 
 body{
-    font-family:Tahoma,Arial,sans-serif;
-    background:#07080c;
-    color:#fff;
-    min-height:100vh;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(255,0,50,.18),transparent 35%),
+    #070707;
+  color:#fff;
+  min-height:100vh;
 }
 
+button,input{
+  font-family:inherit;
+}
 
-/* =====================================================
-   HEADER
-===================================================== */
+button{
+  cursor:pointer;
+  border:0;
+}
 
 .header{
-    height:72px;
-
-    position:sticky;
-    top:0;
-
-    z-index:100;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:0 6%;
-
-    background:rgba(7,8,12,.94);
-
-    backdrop-filter:blur(18px);
-
-    border-bottom:1px solid #20222b;
+  position:sticky;
+  top:0;
+  z-index:100;
+  height:75px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5%;
+  background:rgba(8,8,8,.9);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(255,0,55,.2);
 }
-
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:11px;
-
-    font-weight:900;
-    font-size:19px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:21px;
+  font-weight:900;
 }
 
-
-.logoIcon{
-    width:48px;
-    height:48px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:12px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #242733,
-            #0d0f14
-        );
-
-    border:1px solid #30333e;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 0 30px rgba(255,30,30,.18);
+.logo-icon{
+  width:45px;
+  height:45px;
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#ff003c,#700018);
+  box-shadow:0 0 25px rgba(255,0,55,.3);
 }
 
-
-/* Butterfly Knife */
-
-.logoIcon img{
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-
-    padding:5px;
-
-    filter:
-        drop-shadow(
-            0 0 8px
-            rgba(255,40,40,.35)
-        );
+.logo-icon svg{
+  width:29px;
+  height:29px;
 }
 
-
-.logo span{
-    color:#ff3434;
+.profile-btn{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  overflow:hidden;
+  background:#171717;
+  border:2px solid #ff1748;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-
-/* =====================================================
-   PROFILE BUTTON
-===================================================== */
-
-.profileBtn{
-    border:1px solid #292c35;
-
-    background:#11131a;
-
-    color:#fff;
-
-    border-radius:30px;
-
-    display:flex;
-    align-items:center;
-
-    gap:9px;
-
-    padding:5px 12px 5px 6px;
-
-    cursor:pointer;
-
-    transition:.2s;
+.profile-btn img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
-
-
-.profileBtn:hover{
-    border-color:#8b2929;
-
-    background:#171921;
-
-    transform:translateY(-1px);
-}
-
-
-.profileBtn img{
-    width:38px;
-    height:38px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:1px solid #3a3d47;
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
 
 .hero{
-    text-align:center;
-
-    padding:75px 20px 45px;
+  text-align:center;
+  padding:75px 20px 45px;
 }
 
+.badge{
+  display:inline-block;
+  padding:8px 15px;
+  border:1px solid rgba(255,0,55,.35);
+  background:rgba(255,0,55,.08);
+  border-radius:30px;
+  color:#ff4168;
+  font-size:13px;
+  margin-bottom:20px;
+}
 
 .hero h1{
-    font-size:clamp(32px,6vw,60px);
-
-    font-weight:900;
-
-    margin-bottom:16px;
+  font-size:clamp(35px,7vw,70px);
+  font-weight:1000;
+  line-height:1.1;
+  background:linear-gradient(90deg,#fff,#ff1748);
+  -webkit-background-clip:text;
+  color:transparent;
 }
-
-
-.hero h1 span{
-    color:#ff3030;
-}
-
 
 .hero p{
-    color:#8e929d;
-
-    line-height:2;
-
-    font-size:14px;
+  color:#999;
+  margin:18px auto 25px;
+  max-width:600px;
+  line-height:2;
 }
 
-
-.telegram{
-    display:inline-block;
-
-    margin-top:24px;
-
-    padding:13px 23px;
-
-    border-radius:12px;
-
-    color:white;
-
-    text-decoration:none;
-
-    font-weight:bold;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff3333,
-            #870b0b
-        );
-
-    transition:.2s;
+.telegram-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 23px;
+  border-radius:13px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  background:linear-gradient(135deg,#ff003c,#97001f);
+  box-shadow:0 10px 30px rgba(255,0,55,.2);
+  transition:.2s;
 }
 
-
-.telegram:hover{
-    transform:translateY(-2px);
-
-    filter:brightness(1.1);
+.telegram-btn:hover{
+  transform:translateY(-3px);
 }
 
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-.searchArea{
-    max-width:1200px;
-
-    margin:auto;
-
-    padding:0 20px 35px;
+.container{
+  width:min(1200px,92%);
+  margin:auto;
 }
 
-
-.search{
-    width:100%;
-
-    padding:16px 20px;
-
-    border-radius:14px;
-
-    border:1px solid #292c35;
-
-    background:#101218;
-
-    color:#fff;
-
-    outline:none;
-
-    font-size:14px;
+.search-box{
+  margin:10px 0 30px;
+  position:relative;
 }
 
-
-.search:focus{
-    border-color:#e52c2c;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(229,44,44,.08);
+.search-box input{
+  width:100%;
+  padding:17px 20px;
+  border-radius:15px;
+  border:1px solid #292929;
+  outline:none;
+  background:#111;
+  color:#fff;
+  font-size:15px;
+  transition:.2s;
 }
 
-
-/* =====================================================
-   PRODUCTS
-===================================================== */
-
-.shop{
-    max-width:1200px;
-
-    margin:auto;
-
-    padding:0 20px 70px;
+.search-box input:focus{
+  border-color:#ff1748;
+  box-shadow:0 0 20px rgba(255,0,55,.1);
 }
 
-
-.grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(245px,1fr)
-        );
-
-    gap:20px;
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:20px;
+  padding-bottom:70px;
 }
-
 
 .card{
-    background:
-        linear-gradient(
-            145deg,
-            #15171e,
-            #0c0e13
-        );
-
-    border:1px solid #20232b;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    transition:.25s;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(145deg,#141414,#0c0c0c);
+  border:1px solid #252525;
+  border-radius:20px;
+  transition:.3s;
 }
-
 
 .card:hover{
-    transform:translateY(-6px);
-
-    border-color:#7f2222;
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.45);
+  transform:translateY(-6px);
+  border-color:#ff1748;
+  box-shadow:0 15px 40px rgba(255,0,55,.12);
 }
 
-
-.imageBox{
-    height:210px;
-
-    padding:15px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:
-        radial-gradient(
-            circle,
-            #292c35 0%,
-            #0c0e13 65%
-        );
+.card-img{
+  height:180px;
+  padding:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle,#222,transparent 65%),
+    #101010;
 }
 
-
-.imageBox img{
-    width:100%;
-
-    height:100%;
-
-    object-fit:contain;
+.card-img img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:.3s;
 }
 
-
-.info{
-    padding:18px;
+.card:hover .card-img img{
+  transform:scale(1.07) rotate(-2deg);
 }
 
-
-.info h3{
-    font-size:15px;
-
-    margin-bottom:10px;
+.card-info{
+  padding:17px;
 }
 
-
-.info p{
-    color:#777c87;
-
-    font-size:11px;
-
-    line-height:2;
-
-    margin-bottom:14px;
+.card-info h3{
+  font-size:15px;
+  margin-bottom:8px;
 }
 
-
-.info strong{
-    color:#ff3d3d;
+.condition{
+  color:#8f8f8f;
+  font-size:12px;
+  margin-bottom:14px;
 }
 
-
-.buyBtn{
-    width:100%;
-
-    padding:13px;
-
-    border:0;
-
-    border-radius:11px;
-
-    color:#fff;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff3434,
-            #9a0d0d
-        );
+.price{
+  color:#ff3158;
+  font-size:20px;
+  font-weight:900;
 }
 
+.buy-btn{
+  width:100%;
+  margin-top:14px;
+  padding:12px;
+  border-radius:11px;
+  color:#fff;
+  font-weight:bold;
+  background:#1c1c1c;
+  border:1px solid #303030;
+  transition:.2s;
+}
 
-/* =====================================================
-   MODAL
-===================================================== */
+.buy-btn:hover{
+  background:#ff003c;
+  border-color:#ff003c;
+}
+
+/* MODAL */
 
 .modal{
-    position:fixed;
-
-    inset:0;
-
-    z-index:1000;
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:15px;
-
-    background:
-        rgba(0,0,0,.84);
-
-    backdrop-filter:blur(12px);
+  position:fixed;
+  inset:0;
+  z-index:500;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(10px);
 }
 
-
-.modal.show{
-    display:flex;
+.modal.active{
+  display:flex;
 }
 
-
-.modalBox{
-    width:100%;
-
-    max-width:540px;
-
-    max-height:92vh;
-
-    overflow-y:auto;
-
-    background:
-        radial-gradient(
-            circle at 100% 0%,
-            rgba(255,30,30,.12),
-            transparent 35%
-        ),
-        #0e1015;
-
-    border:1px solid #292c35;
-
-    border-radius:24px;
-
-    padding:22px;
-
-    box-shadow:
-        0 30px 100px
-        rgba(0,0,0,.7);
+.modal-box{
+  width:min(480px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#111;
+  border:1px solid #292929;
+  border-radius:24px;
+  padding:25px;
+  box-shadow:0 30px 100px rgba(0,0,0,.7);
+  animation:modalIn .25s ease;
 }
 
-
-.modalTop{
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    margin-bottom:20px;
+@keyframes modalIn{
+  from{
+    opacity:0;
+    transform:scale(.94) translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
 }
 
-
-.modalTop h2{
-    font-size:19px;
+.modal-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:25px;
 }
 
-
-.closeBtn{
-    width:36px;
-
-    height:36px;
-
-    border:1px solid #292c35;
-
-    border-radius:50%;
-
-    background:#171920;
-
-    color:#fff;
-
-    font-size:20px;
-
-    cursor:pointer;
+.modal-head h2{
+  font-size:20px;
 }
 
-
-/* =====================================================
-   PRODUCT PREVIEW
-===================================================== */
-
-.preview{
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    padding:13px;
-
-    border-radius:15px;
-
-    background:#090b0f;
-
-    border:1px solid #22252e;
-
-    margin-bottom:22px;
+.close{
+  width:35px;
+  height:35px;
+  border-radius:10px;
+  background:#1d1d1d;
+  color:#aaa;
+  font-size:20px;
 }
 
-
-.preview img{
-    width:105px;
-
-    height:65px;
-
-    object-fit:contain;
+.close:hover{
+  background:#ff003c;
+  color:white;
 }
 
-
-.preview small{
-    display:block;
-
-    color:#666b76;
-
-    margin-top:7px;
+.modal-product{
+  padding:15px;
+  border-radius:17px;
+  background:#181818;
+  border:1px solid #282828;
+  margin-bottom:20px;
 }
 
-
-/* =====================================================
-   WEAR
-===================================================== */
-
-.selectorTitle{
-    font-size:12px;
-
-    color:#aeb2bc;
-
-    margin-bottom:13px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:7px;
+.modal-product h3{
+  margin-bottom:7px;
 }
 
-
-.selectorTitle b{
-    color:#ff3636;
+.modal-product p{
+  color:#ff3158;
+  font-weight:bold;
 }
 
-
-.wearGrid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:10px;
+.section-title{
+  color:#aaa;
+  font-size:13px;
+  margin-bottom:10px;
 }
 
-
-.wearCard{
-    position:relative;
-
-    min-height:86px;
-
-    padding:15px;
-
-    text-align:right;
-
-    border:1px solid #282b34;
-
-    border-radius:16px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #181a21,
-            #0b0d11
-        );
-
-    color:#fff;
-
-    cursor:pointer;
-
-    overflow:hidden;
-
-    transition:.2s ease;
+.wears{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-bottom:20px;
 }
 
-
-.wearCard:before{
-    content:"";
-
-    position:absolute;
-
-    right:0;
-
-    top:0;
-
-    width:4px;
-
-    height:100%;
-
-    background:#363942;
-
-    transition:.2s;
+.wear{
+  padding:13px 10px;
+  border-radius:12px;
+  background:#191919;
+  color:#aaa;
+  border:1px solid #292929;
+  transition:.2s;
 }
 
-
-.wearCard:hover{
-    transform:translateY(-3px);
-
-    border-color:#663030;
+.wear:hover,
+.wear.selected{
+  background:rgba(255,0,55,.12);
+  border-color:#ff1748;
+  color:white;
 }
 
-
-.wearCard.active{
-    border-color:#ff3434;
-
-    background:
-        radial-gradient(
-            circle at 100% 0%,
-            rgba(255,40,40,.25),
-            transparent 55%
-        ),
-        linear-gradient(
-            145deg,
-            #241417,
-            #0c0e12
-        );
-
-    box-shadow:
-        0 0 0 1px
-        rgba(255,40,40,.15),
-
-        0 10px 30px
-        rgba(255,20,20,.12);
+.confirm-buy{
+  width:100%;
+  padding:15px;
+  border-radius:13px;
+  color:white;
+  font-size:15px;
+  font-weight:900;
+  background:linear-gradient(135deg,#ff003c,#98001e);
 }
 
+/* PROFILE */
 
-.wearCard.active:before{
-    background:#ff3030;
-
-    box-shadow:
-        0 0 15px #ff3030;
+.avatar-area{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-bottom:22px;
 }
 
-
-.wearCheck{
-    position:absolute;
-
-    left:10px;
-
-    top:10px;
-
-    width:22px;
-
-    height:22px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:#242730;
-
-    color:transparent;
-
-    font-size:11px;
-
-    font-weight:bold;
+.avatar{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #ff1748;
+  background:#1b1b1b;
+  margin-bottom:12px;
 }
 
-
-.wearCard.active .wearCheck{
-    background:#ff3030;
-
-    color:white;
+.upload-btn{
+  padding:8px 14px;
+  border-radius:9px;
+  background:#202020;
+  color:#ddd;
+  font-size:12px;
 }
 
-
-.wearName{
-    display:block;
-
-    font-size:12px;
-
-    font-weight:900;
-
-    margin-bottom:8px;
+.field{
+  margin-bottom:15px;
 }
 
-
-.wearCode{
-    display:block;
-
-    font-size:10px;
-
-    color:#696e79;
+.field label{
+  display:block;
+  color:#aaa;
+  font-size:12px;
+  margin-bottom:7px;
 }
 
-
-.wearCard.active .wearName{
-    color:#ff4a4a;
+.field input{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #292929;
+  background:#181818;
+  color:#fff;
+  outline:none;
 }
 
-
-.wearCard.active .wearCode{
-    color:#aa7373;
+.field input:focus{
+  border-color:#ff1748;
 }
 
-
-/* =====================================================
-   SELECTED INFO
-===================================================== */
-
-.selectedInfo{
-    margin-top:14px;
-
-    padding:12px 14px;
-
-    border-radius:12px;
-
-    background:#090b0f;
-
-    border:1px solid #20232b;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    font-size:11px;
-
-    color:#777;
+.save-profile{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  background:#ff003c;
+  color:#fff;
+  font-weight:bold;
 }
 
-
-.selectedInfo strong{
-    color:#ff4141;
+.delete-profile{
+  width:100%;
+  margin-top:10px;
+  padding:12px;
+  border-radius:12px;
+  background:#191919;
+  color:#ff526f;
+  border:1px solid #2d2d2d;
 }
 
-
-/* =====================================================
-   SEND BUTTON
-===================================================== */
-
-.sendBtn{
-    width:100%;
-
-    margin-top:16px;
-
-    padding:15px;
-
-    border:0;
-
-    border-radius:13px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff3838,
-            #960b0b
-        );
-
-    color:#fff;
-
-    font-weight:900;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 10px 30px
-        rgba(255,30,30,.14);
-
-    transition:.2s;
+.delete-profile:hover{
+  background:#2a1116;
 }
 
-
-.sendBtn:hover{
-    transform:translateY(-2px);
-
-    filter:brightness(1.12);
+.toast{
+  position:fixed;
+  z-index:1000;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%) translateY(20px);
+  background:#171717;
+  border:1px solid #333;
+  color:white;
+  padding:13px 18px;
+  border-radius:13px;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
 }
 
-
-/* =====================================================
-   PROFILE
-===================================================== */
-
-.avatarArea{
-    text-align:center;
-
-    margin-bottom:20px;
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
 }
 
-
-.bigAvatar{
-    width:95px;
-
-    height:95px;
-
-    object-fit:cover;
-
-    border-radius:50%;
-
-    border:3px solid #ff3030;
-
-    margin-bottom:12px;
+.empty{
+  grid-column:1/-1;
+  text-align:center;
+  padding:50px;
+  color:#777;
 }
 
-
-.upload{
-    display:inline-block;
-
-    padding:10px 15px;
-
-    background:#1b1e26;
-
-    border:1px solid #2a2d36;
-
-    border-radius:10px;
-
-    font-size:11px;
-
-    cursor:pointer;
-}
-
-
-.upload input{
-    display:none;
-}
-
-
-.inputBox{
-    margin-bottom:15px;
-}
-
-
-.inputBox label{
-    display:block;
-
-    color:#858a95;
-
-    font-size:11px;
-
-    margin-bottom:8px;
-}
-
-
-.inputBox input{
-    width:100%;
-
-    padding:14px;
-
-    border-radius:11px;
-
-    border:1px solid #292c35;
-
-    background:#090b0f;
-
-    color:#fff;
-
-    outline:none;
-}
-
-
-.inputBox input:focus{
-    border-color:#e52c2c;
-}
-
-
-.saveBtn{
-    width:100%;
-
-    padding:14px;
-
-    border:0;
-
-    border-radius:11px;
-
-    background:#e62d2d;
-
-    color:#fff;
-
-    font-weight:bold;
-
-    cursor:pointer;
-}
-
-
-.saveBtn:hover{
-    background:#ff3838;
-}
-
-
-/* =====================================================
-   DELETE BUTTON
-===================================================== */
-
-.resetBtn{
-    width:100%;
-
-    margin-top:9px;
-
-    padding:12px;
-
-    border:1px solid #292c35;
-
-    border-radius:11px;
-
-    background:transparent;
-
-    color:#ff5555;
-
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-
-.resetBtn:hover{
-    background:#241214;
-
-    border-color:#7e2929;
-}
-
-
-/* =====================================================
-   PHONE
-===================================================== */
-
-.phoneHint{
-    font-size:10px;
-
-    color:#5e636e;
-
-    margin-top:7px;
-
-    line-height:1.8;
-}
-
-
-/* =====================================================
-   DELETE CONFIRMATION
-===================================================== */
-
-.deleteModal{
-    position:fixed;
-
-    inset:0;
-
-    z-index:2000;
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:20px;
-
-    background:
-        rgba(0,0,0,.88);
-
-    backdrop-filter:blur(14px);
-}
-
-
-.deleteModal.show{
-    display:flex;
-}
-
-
-.deleteBox{
-    width:100%;
-
-    max-width:410px;
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(255,35,35,.15),
-            transparent 55%
-        ),
-        #101217;
-
-    border:1px solid #34252a;
-
-    border-radius:24px;
-
-    padding:28px;
-
-    text-align:center;
-
-    box-shadow:
-        0 30px 100px
-        rgba(0,0,0,.8);
-
-    animation:
-        deleteIn .2s ease;
-}
-
-
-@keyframes deleteIn{
-
-    from{
-        opacity:0;
-        transform:scale(.94) translateY(10px);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1) translateY(0);
-    }
-
-}
-
-
-.deleteIcon{
-    width:65px;
-
-    height:65px;
-
-    margin:0 auto 16px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:20px;
-
-    background:#2a1114;
-
-    border:1px solid #572127;
-
-    color:#ff4141;
-
-    font-size:28px;
-}
-
-
-.deleteBox h3{
-    font-size:20px;
-
-    margin-bottom:10px;
-}
-
-
-.deleteBox p{
-    color:#777d88;
-
-    font-size:12px;
-
-    line-height:2;
-
-    margin-bottom:20px;
-}
-
-
-.deleteActions{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:10px;
-}
-
-
-.deleteActions button{
-    padding:13px;
-
-    border-radius:11px;
-
-    border:0;
-
-    cursor:pointer;
-
-    font-weight:bold;
-}
-
-
-.cancelDelete{
-    background:#252830;
-
-    color:#fff;
-}
-
-
-.cancelDelete:hover{
-    background:#30333d;
-}
-
-
-.confirmDelete{
-    background:
-        linear-gradient(
-            135deg,
-            #e82e2e,
-            #8c0909
-        );
-
-    color:#fff;
-}
-
-
-.confirmDelete:hover{
-    filter:brightness(1.1);
-}
-
-
-/* =====================================================
-   DELETE SUCCESS
-===================================================== */
-
-.successBox{
-    display:none;
-
-    text-align:center;
-}
-
-
-.successBox.show{
-    display:block;
-}
-
-
-.successIcon{
-    width:65px;
-
-    height:65px;
-
-    margin:0 auto 15px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:#102519;
-
-    border:1px solid #255d35;
-
-    color:#52e878;
-
-    font-size:28px;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-    text-align:center;
-
-    border-top:1px solid #181a20;
-
-    padding:30px;
-
-    color:#555;
-
-    font-size:11px;
-}
-
-
-footer a{
-    color:#ff3838;
-
-    text-decoration:none;
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
+/* RESPONSIVE */
 
 @media(max-width:600px){
+  .header{
+    padding:0 18px;
+  }
 
-    .header{
-        padding:0 14px;
-    }
+  .hero{
+    padding-top:50px;
+  }
 
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
 
-    .logo{
-        font-size:13px;
-    }
+  .card-img{
+    height:125px;
+  }
 
+  .card-info{
+    padding:12px;
+  }
 
-    .logoIcon{
-        width:40px;
-        height:40px;
-    }
+  .card-info h3{
+    font-size:12px;
+  }
 
+  .price{
+    font-size:16px;
+  }
 
-    .profileBtn{
-        padding:4px 9px 4px 4px;
-    }
+  .buy-btn{
+    font-size:12px;
+    padding:10px;
+  }
 
-
-    .profileBtn img{
-        width:34px;
-        height:34px;
-    }
-
-
-    .hero{
-        padding:55px 15px 35px;
-    }
-
-
-    .grid{
-        grid-template-columns:
-            repeat(2,minmax(0,1fr));
-
-        gap:11px;
-    }
-
-
-    .imageBox{
-        height:145px;
-
-        padding:9px;
-    }
-
-
-    .info{
-        padding:12px;
-    }
-
-
-    .info h3{
-        font-size:11px;
-
-        line-height:1.7;
-    }
-
-
-    .info p{
-        font-size:9px;
-    }
-
-
-    .buyBtn{
-        font-size:10px;
-
-        padding:10px 4px;
-    }
-
-
-    .modalBox{
-        padding:17px;
-
-        border-radius:20px;
-    }
-
-
-    .wearGrid{
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-
-    .wearCard{
-        min-height:82px;
-
-        padding:13px 10px;
-    }
-
-
-    .wearName{
-        font-size:10px;
-    }
-
-
-    .wearCode{
-        font-size:9px;
-    }
-
-
-    .deleteBox{
-        padding:22px;
-    }
-
+  .wears{
+    grid-template-columns:1fr;
+  }
 }
 
-
-/* =====================================================
-   HIDDEN
-===================================================== */
-
-.hidden{
-    display:none !important;
+@media(max-width:380px){
+  .products{
+    grid-template-columns:1fr;
+  }
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header class="header">
 
-
-    <div class="logo">
-
-
-        <!-- Butterfly Knife -->
-
-        <div class="logoIcon">
-
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Butterfly_knife.jpg/640px-Butterfly_knife.jpg"
-                alt="Butterfly Knife"
-            >
-
-        </div>
-
-
-        <div>
-
-            CS2
-            <span>SKIN SHOP</span>
-
-        </div>
-
-
+  <div class="logo">
+    <div class="logo-icon">
+      <!-- Butterfly Knife -->
+      <svg viewBox="0 0 64 64" fill="none">
+        <path d="M12 18L27 31L12 46L18 51L32 37L46 51L52 46L37 31L52 18L46 13L32 25L18 13L12 18Z"
+              fill="white"/>
+        <path d="M27 31H37" stroke="#ff1748" stroke-width="4" stroke-linecap="round"/>
+      </svg>
     </div>
+    <span>CS2 SKIN SHOP</span>
+  </div>
 
-
-    <button
-        class="profileBtn"
-        onclick="openProfile()"
-    >
-
-        <img
-            id="headerAvatar"
-            alt="Profile"
-        >
-
-        <span id="headerName">
-            پروفایل
-        </span>
-
-    </button>
-
+  <button class="profile-btn" onclick="openProfile()">
+    <img id="headerAvatar" alt="Profile">
+  </button>
 
 </header>
 
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
 <section class="hero">
 
+  <span class="badge">🔥 PREMIUM CS2 SKINS</span>
 
-    <h1>
+  <h1>CS2 SKIN SHOP</h1>
 
-        فروشگاه
-        <span>اسکین CS2</span>
+  <p>
+    بهترین اسکین‌های Counter-Strike 2 با قیمت مناسب.
+    اسکین موردنظرت رو انتخاب کن و برای خرید مستقیم پیام بده.
+  </p>
 
-    </h1>
-
-
-    <p>
-
-        اسکین موردنظر خود را انتخاب کنید
-
-        <br>
-
-        مدل گان را انتخاب کنید و درخواست خرید بفرستید.
-
-    </p>
-
-
-    <a
-        class="telegram"
-        href="https://t.me/aghojavaad"
-        target="_blank"
-    >
-
-        💬 ارتباط در تلگرام
-
-    </a>
-
+  <a class="telegram-btn"
+     href="https://t.me/aghojavaad"
+     target="_blank">
+    💬 تلگرام من
+  </a>
 
 </section>
 
+<main class="container">
 
-
-<!-- =====================================================
-     SEARCH
-===================================================== -->
-
-<div class="searchArea">
-
-
+  <div class="search-box">
     <input
-        id="search"
-        class="search"
-        type="text"
-        placeholder="🔎 جستجوی اسکین..."
-        oninput="searchProducts()"
+      id="search"
+      type="text"
+      placeholder="🔎 جستجوی اسکین..."
+      oninput="searchProducts()"
     >
+  </div>
 
-
-</div>
-
-
-
-<!-- =====================================================
-     PRODUCTS
-===================================================== -->
-
-<main class="shop">
-
-
-    <div
-        id="products"
-        class="grid"
-    ></div>
-
+  <div class="products" id="products"></div>
 
 </main>
 
+<!-- BUY MODAL -->
 
+<div class="modal" id="buyModal">
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+  <div class="modal-box">
 
-<footer>
+    <div class="modal-head">
+      <h2>🛒 خرید اسکین</h2>
+      <button class="close" onclick="closeModal('buyModal')">×</button>
+    </div>
 
-    برای خرید به آیدی زیر پیام دهید:
+    <div class="modal-product">
+      <h3 id="modalName"></h3>
+      <p id="modalPrice"></p>
+    </div>
 
-    <a
-        href="https://t.me/aghojavaad"
-        target="_blank"
-    >
+    <div class="section-title">
+      مدل / Wear را انتخاب کنید
+    </div>
 
-        @aghojavaad
+    <div class="wears">
 
-    </a>
+      <button class="wear" onclick="selectWear(this,'Factory New')">
+        Factory New
+      </button>
 
-</footer>
+      <button class="wear" onclick="selectWear(this,'Minimal Wear')">
+        Minimal Wear
+      </button>
 
+      <button class="wear" onclick="selectWear(this,'Field-Tested')">
+        Field-Tested
+      </button>
 
+      <button class="wear" onclick="selectWear(this,'Well-Worn')">
+        Well-Worn
+      </button>
 
-<!-- =====================================================
-     PROFILE MODAL
-===================================================== -->
-
-<div
-    id="profileModal"
-    class="modal"
->
-
-
-    <div class="modalBox">
-
-
-        <div class="modalTop">
-
-
-            <h2>
-                👤 پروفایل
-            </h2>
-
-
-            <button
-                class="closeBtn"
-                onclick="closeProfile()"
-            >
-
-                ×
-
-            </button>
-
-
-        </div>
-
-
-
-        <!-- Avatar -->
-
-        <div class="avatarArea">
-
-
-            <img
-                id="bigAvatar"
-                class="bigAvatar"
-                alt="Avatar"
-            >
-
-
-            <br>
-
-
-            <label class="upload">
-
-
-                📷 انتخاب عکس پروفایل
-
-
-                <input
-                    type="file"
-                    accept="image/*"
-                    onchange="changeAvatar(event)"
-                >
-
-
-            </label>
-
-
-        </div>
-
-
-
-        <!-- Name -->
-
-        <div class="inputBox">
-
-
-            <label>
-                نام نمایشی
-            </label>
-
-
-            <input
-                id="profileName"
-                maxlength="25"
-                placeholder="مثلاً Javad"
-            >
-
-
-        </div>
-
-
-
-        <!-- Phone -->
-
-        <div class="inputBox">
-
-
-            <label>
-                شماره موبایل
-            </label>
-
-
-            <input
-                id="profilePhone"
-                type="tel"
-                inputmode="numeric"
-                maxlength="15"
-                placeholder="مثلاً 09123456789"
-            >
-
-
-            <div class="phoneHint">
-
-                شماره فقط برای ثبت در پروفایل ذخیره می‌شود.
-                هیچ کد تأیید یا SMS ارسال نمی‌شود.
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- Save -->
-
-        <button
-            class="saveBtn"
-            onclick="saveProfile()"
-        >
-
-            ذخیره پروفایل
-
-        </button>
-
-
-
-        <!-- Delete -->
-
-        <button
-            class="resetBtn"
-            onclick="openDeleteModal()"
-        >
-
-            🗑️ حذف پروفایل
-
-        </button>
-
+      <button class="wear" onclick="selectWear(this,'Battle-Scarred')">
+        Battle-Scarred
+      </button>
 
     </div>
 
+    <button class="confirm-buy" onclick="buyProduct()">
+      ادامه خرید در تلگرام
+    </button>
+
+  </div>
 
 </div>
 
-
-
-<!-- =====================================================
-     BUY MODAL
-===================================================== -->
-
-<div
-    id="buyModal"
-    class="modal"
->
-
-
-    <div class="modalBox">
-
-
-        <div class="modalTop">
-
-
-            <h2>
-                🛒 انتخاب اسکین
-            </h2>
-
-
-            <button
-                class="closeBtn"
-                onclick="closeBuy()"
-            >
-
-                ×
-
-            </button>
-
-
-        </div>
-
-
-
-        <div class="preview">
-
-
-            <img
-                id="buyImage"
-            >
-
-
-            <div>
-
-
-                <strong
-                    id="buyName"
-                ></strong>
-
-
-                <small>
-                    انتخاب مدل برای خرید
-                </small>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="selectorTitle">
-
-
-            <b>✦</b>
-
-
-            مدل اسکین را انتخاب کنید
-
-
-        </div>
-
-
-
-        <div class="wearGrid">
-
-
-            <button
-                type="button"
-                class="wearCard active"
-                data-wear="Factory New"
-                onclick="chooseWear(this)"
-            >
-
-                <span class="wearCheck">
-                    ✓
-                </span>
-
-
-                <span class="wearName">
-                    Factory New
-                </span>
-
-
-                <span class="wearCode">
-                    ۰ تا ۰.۰۷ • نو
-                </span>
-
-
-            </button>
-
-
-
-            <button
-                type="button"
-                class="wearCard"
-                data-wear="Minimal Wear"
-                onclick="chooseWear(this)"
-            >
-
-                <span class="wearCheck">
-                    ✓
-                </span>
-
-
-                <span class="wearName">
-                    Minimal Wear
-                </span>
-
-
-                <span class="wearCode">
-                    ۰.۰۷ تا ۰.۱۵ • کم‌خط
-                </span>
-
-
-            </button>
-
-
-
-            <button
-                type="button"
-                class="wearCard"
-                data-wear="Field-Tested"
-                onclick="chooseWear(this)"
-            >
-
-                <span class="wearCheck">
-                    ✓
-                </span>
-
-
-                <span class="wearName">
-                    Field-Tested
-                </span>
-
-
-                <span class="wearCode">
-                    ۰.۱۵ تا ۰.۳۸ • تست‌شده
-                </span>
-
-
-            </button>
-
-
-
-            <button
-                type="button"
-                class="wearCard"
-                data-wear="Well-Worn"
-                onclick="chooseWear(this)"
-            >
-
-                <span class="wearCheck">
-                    ✓
-                </span>
-
-
-                <span class="wearName">
-                    Well-Worn
-                </span>
-
-
-                <span class="wearCode">
-                    ۰.۳۸ تا ۰.۴۵ • کارکرده
-                </span>
-
-
-            </button>
-
-
-
-            <button
-                type="button"
-                class="wearCard"
-                data-wear="Battle-Scarred"
-                onclick="chooseWear(this)"
-            >
-
-                <span class="wearCheck">
-                    ✓
-                </span>
-
-
-                <span class="wearName">
-                    Battle-Scarred
-                </span>
-
-
-                <span class="wearCode">
-                    ۰.۴۵ تا ۱.۰۰ • فرسوده
-                </span>
-
-
-            </button>
-
-
-        </div>
-
-
-
-        <div class="selectedInfo">
-
-
-            <span>
-                مدل انتخاب‌شده
-            </span>
-
-
-            <strong
-                id="selectedWear"
-            >
-
-                Factory New
-
-            </strong>
-
-
-        </div>
-
-
-
-        <button
-            class="sendBtn"
-            onclick="sendTelegram()"
+<!-- PROFILE MODAL -->
+
+<div class="modal" id="profileModal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2>👤 پروفایل</h2>
+      <button class="close" onclick="closeModal('profileModal')">×</button>
+    </div>
+
+    <div class="avatar-area">
+
+      <img
+        id="profileAvatar"
+        class="avatar"
+        alt="Avatar"
+      >
+
+      <label class="upload-btn">
+        تغییر عکس
+        <input
+          type="file"
+          id="avatarInput"
+          accept="image/*"
+          hidden
+          onchange="changeAvatar(event)"
         >
-
-            📩 ارسال درخواست خرید در تلگرام
-
-        </button>
-
+      </label>
 
     </div>
 
-
-</div>
-
-
-
-<!-- =====================================================
-     MODERN DELETE MODAL
-===================================================== -->
-
-<div
-    id="deleteModal"
-    class="deleteModal"
->
-
-
-    <div class="deleteBox">
-
-
-        <div
-            id="deleteQuestion"
-        >
-
-
-            <div class="deleteIcon">
-
-                🗑️
-
-            </div>
-
-
-            <h3>
-                حذف پروفایل؟
-            </h3>
-
-
-            <p>
-
-                این کار اطلاعات پروفایل،
-                نام، شماره موبایل و عکس شما را
-                از این مرورگر حذف می‌کند.
-
-                <br>
-
-                این عملیات قابل برگشت نیست.
-
-            </p>
-
-
-            <div class="deleteActions">
-
-
-                <button
-                    class="cancelDelete"
-                    onclick="closeDeleteModal()"
-                >
-
-                    انصراف
-
-                </button>
-
-
-                <button
-                    class="confirmDelete"
-                    onclick="askDeleteAgain()"
-                >
-
-                    ادامه
-
-                </button>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <div
-            id="deleteFinal"
-            class="hidden"
-        >
-
-
-            <div class="deleteIcon">
-
-                ⚠️
-
-            </div>
-
-
-            <h3>
-                مطمئنی؟
-            </h3>
-
-
-            <p>
-
-                برای حذف نهایی پروفایل
-                روی «حذف نهایی» بزن.
-
-            </p>
-
-
-            <div class="deleteActions">
-
-
-                <button
-                    class="cancelDelete"
-                    onclick="closeDeleteModal()"
-                >
-
-                    انصراف
-
-                </button>
-
-
-                <button
-                    class="confirmDelete"
-                    onclick="deleteProfile()"
-                >
-
-                    حذف نهایی
-
-                </button>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <div
-            id="deleteSuccess"
-            class="successBox"
-        >
-
-
-            <div class="successIcon">
-
-                ✓
-
-            </div>
-
-
-            <h3>
-                پروفایل حذف شد
-            </h3>
-
-
-            <p>
-
-                اطلاعات پروفایل از این مرورگر
-                حذف شد.
-
-            </p>
-
-
-            <button
-                class="saveBtn"
-                onclick="closeDeleteModal()"
-            >
-
-                بستن
-
-            </button>
-
-
-        </div>
-
-
+    <div class="field">
+      <label>نام نمایشی</label>
+      <input
+        id="profileName"
+        type="text"
+        placeholder="مثلاً Javad"
+      >
     </div>
 
+    <div class="field">
+      <label>شماره موبایل</label>
+      <input
+        id="profilePhone"
+        type="tel"
+        placeholder="شماره موبایل"
+      >
+    </div>
+
+    <button class="save-profile" onclick="saveProfile()">
+      ذخیره اطلاعات
+    </button>
+
+    <button class="delete-profile" onclick="deleteProfile()">
+      حذف اطلاعات پروفایل
+    </button>
+
+  </div>
 
 </div>
 
-
+<div class="toast" id="toast"></div>
 
 <script>
 
+/* ================================
+   TELEGRAM
+================================ */
 
-/* =====================================================
+const TELEGRAM_USERNAME = "aghojavaad";
+
+
+/* ================================
    PRODUCTS
-===================================================== */
+================================ */
 
 const products = [
 
-    {
-        name:"AK-47 | Elite Build",
-        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Elite%20Build.png"
-    },
+  {
+    name:"M4A1 | Naval Shred",
+    price:"120T",
+    condition:"Factory New",
+    image:"https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80"
+  },
 
-    {
-        name:"AK-47 | Redline",
-        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Redline.png"
-    },
+  {
+    name:"StatTrak™ USP-S",
+    price:"135T",
+    condition:"Field-Tested",
+    image:"https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=900&q=80"
+  },
 
-    {
-        name:"AK-47 | Slate",
-        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Slate.png"
-    },
+  {
+    name:"M4A1 | Boreal Forest",
+    price:"110T",
+    condition:"Minimal Wear",
+    image:"https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=900&q=80"
+  },
 
-    {
-        name:"M4A1-S | Boreal Forest",
-        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Boreal%20Forest.png"
-    },
+  {
+    name:"R8 Revolver | Junk Yard",
+    price:"60T",
+    condition:"Field-Tested",
+    image:"https://images.unsplash.com/photo-1588094348336-5b8a4f8f1d6e?auto=format&fit=crop&w=900&q=80"
+  },
 
-    {
-        name:"M4A1-S | Printstream",
-        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Printstream.png"
-    },
+  {
+    name:"AK-47 | Redline",
+    price:"250T",
+    condition:"Field-Tested",
+    image:"https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=900&q=80"
+  },
 
-    {
-        name:"M4A1-S | Leaded Glass",
-        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Leaded%20Glass.png"
-    },
+  {
+    name:"AWP | Asiimov",
+    price:"420T",
+    condition:"Field-Tested",
+    image:"https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80"
+  },
 
-    {
-        name:"Desert Eagle | Blue Ply",
-        image:"https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Blue%20Ply.png"
-    },
+  {
+    name:"Glock-18 | Water Elemental",
+    price:"95T",
+    condition:"Minimal Wear",
+    image:"https://images.unsplash.com/photo-1588094348336-5b8a4f8f1d6e?auto=format&fit=crop&w=900&q=80"
+  },
 
-    {
-        name:"Desert Eagle | Printstream",
-        image:"https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Printstream.png"
-    },
+  {
+    name:"Desert Eagle | Printstream",
+    price:"310T",
+    condition:"Factory New",
+    image:"https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=900&q=80"
+  },
 
-    {
-        name:"Desert Eagle | Mecha Industries",
-        image:"https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Mecha%20Industries.png"
-    },
+  {
+    name:"Karambit | Doppler",
+    price:"900T",
+    condition:"Factory New",
+    image:"https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80"
+  },
 
-    {
-        name:"USP-S | Printstream",
-        image:"https://specs.gg/assets/img/cs2_skins/USP-S/Printstream.png"
-    },
-
-    {
-        name:"USP-S | Cortex",
-        image:"https://specs.gg/assets/img/cs2_skins/USP-S/Cortex.png"
-    },
-
-    {
-        name:"Glock-18 | Water Elemental",
-        image:"https://specs.gg/assets/img/cs2_skins/Glock-18/Water%20Elemental.png"
-    },
-
-    {
-        name:"AWP | Asiimov",
-        image:"https://specs.gg/assets/img/cs2_skins/AWP/Asiimov.png"
-    },
-
-    {
-        name:"AWP | Atheris",
-        image:"https://specs.gg/assets/img/cs2_skins/AWP/Atheris.png"
-    },
-
-    {
-        name:"R8 Revolver | Junk Yard",
-        image:"https://specs.gg/assets/img/cs2_skins/R8%20Revolver/Junk%20Yard.png"
-    },
-
-    {
-        name:"M4A1-S | Naval Shred",
-        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Naval%20Shred.png"
-    },
-
-    {
-        name:"AK-47 | Phantom Disruptor",
-        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Phantom%20Disruptor.png"
-    },
-
-    {
-        name:"AK-47 | Legion of Anubis",
-        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Legion%20of%20Anubis.png"
-    },
-
-    {
-        name:"M4A1-S | Decimator",
-        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Decimator.png"
-    },
-
-    {
-        name:"Glock-18 | Vogue",
-        image:"https://specs.gg/assets/img/cs2_skins/Glock-18/Vogue.png"
-    },
-
-    {
-        name:"USP-S | Cyrex",
-        image:"https://specs.gg/assets/img/cs2_skins/USP-S/Cyrex.png"
-    },
-
-    {
-        name:"AWP | PAW",
-        image:"https://specs.gg/assets/img/cs2_skins/AWP/PAW.png"
-    }
+  {
+    name:"Butterfly Knife | Freehand",
+    price:"650T",
+    condition:"Field-Tested",
+    image:"https://images.unsplash.com/photo-1588094348336-5b8a4f8f1d6e?auto=format&fit=crop&w=900&q=80"
+  }
 
 ];
 
 
-/* =====================================================
-   DEFAULT AVATAR
-===================================================== */
-
-const defaultAvatar =
-"data:image/svg+xml;charset=UTF-8,"+
-encodeURIComponent(`
-
-<svg
-xmlns="http://www.w3.org/2000/svg"
-width="300"
-height="300"
->
-
-<rect
-width="300"
-height="300"
-rx="150"
-fill="#20232b"
-/>
-
-<circle
-cx="150"
-cy="110"
-r="58"
-fill="#777"
-/>
-
-<path
-d="M55 285c8-65 50-100 95-100s87 35 95 100"
-fill="#777"
-/>
-
-</svg>
-
-`);
-
-
-/* =====================================================
-   VARIABLES
-===================================================== */
-
-let selectedProduct = null;
-
-let selectedWear = "Factory New";
-
-let temporaryAvatar =
-    defaultAvatar;
-
-
-/* =====================================================
+/* ================================
    RENDER PRODUCTS
-===================================================== */
+================================ */
 
-function renderProducts(list){
-
-    const grid =
-        document.getElementById(
-            "products"
-        );
-
-    grid.innerHTML = "";
+let currentProducts = products;
+let selectedProduct = null;
+let selectedWear = "";
 
 
-    list.forEach(product => {
+function renderProducts(list = products){
 
-        const realIndex =
-            products.indexOf(product);
+  const box = document.getElementById("products");
 
+  if(!list.length){
 
-        const card =
-            document.createElement(
-                "div"
-            );
+    box.innerHTML = `
+      <div class="empty">
+        اسکینی با این اسم پیدا نشد 😔
+      </div>
+    `;
 
+    return;
+  }
 
-        card.className = "card";
+  box.innerHTML = list.map((p,index)=>`
 
+    <div class="card">
 
-        card.innerHTML = `
+      <div class="card-img">
+        <img
+          src="${p.image}"
+          alt="${p.name}"
+          loading="lazy"
+        >
+      </div>
 
-            <div class="imageBox">
+      <div class="card-info">
 
-                <img
-                    src="${product.image}"
-                    alt="${product.name}"
-                    loading="lazy"
-                >
+        <h3>${p.name}</h3>
 
-            </div>
+        <div class="condition">
+          ${p.condition}
+        </div>
 
+        <div class="price">
+          ${p.price}
+        </div>
 
-            <div class="info">
+        <button
+          class="buy-btn"
+          onclick="openBuy(${index})"
+        >
+          🛒 خرید
+        </button>
 
-                <h3>
-                    ${product.name}
-                </h3>
+      </div>
 
+    </div>
 
-                <p>
-
-                    برای خرید به آیدی زیر پیام دهید:
-
-                    <br>
-
-                    <strong>
-                        @aghojavaad
-                    </strong>
-
-                </p>
-
-
-                <button
-                    class="buyBtn"
-                    onclick="openBuy(${realIndex})"
-                >
-
-                    🛒 انتخاب مدل و خرید
-
-                </button>
-
-            </div>
-
-        `;
-
-
-        grid.appendChild(card);
-
-    });
+  `).join("");
 
 }
 
 
-/* =====================================================
+/* ================================
    SEARCH
-===================================================== */
+================================ */
 
 function searchProducts(){
 
-    const text =
-        document
-        .getElementById("search")
-        .value
-        .toLowerCase()
-        .trim();
+  const value =
+    document
+      .getElementById("search")
+      .value
+      .trim()
+      .toLowerCase();
 
+  currentProducts =
+    products.filter(p =>
+      p.name.toLowerCase().includes(value)
+    );
 
-    const result =
-        products.filter(
-            product =>
-                product.name
-                .toLowerCase()
-                .includes(text)
-        );
-
-
-    renderProducts(result);
-
+  renderProducts(currentProducts);
 }
 
 
-/* =====================================================
-   OPEN BUY
-===================================================== */
+/* ================================
+   BUY
+================================ */
 
 function openBuy(index){
 
-    selectedProduct =
-        products[index];
+  selectedProduct = currentProducts[index];
 
+  selectedWear = "";
 
-    selectedWear =
-        "Factory New";
+  document.getElementById("modalName").textContent =
+    selectedProduct.name;
 
+  document.getElementById("modalPrice").textContent =
+    selectedProduct.price;
 
-    document
-        .getElementById("buyName")
-        .textContent =
-        selectedProduct.name;
+  document.querySelectorAll(".wear")
+    .forEach(x => x.classList.remove("selected"));
 
-
-    document
-        .getElementById("buyImage")
-        .src =
-        selectedProduct.image;
-
-
-    document
-        .getElementById("selectedWear")
-        .textContent =
-        selectedWear;
-
-
-    document
-        .querySelectorAll(
-            ".wearCard"
-        )
-        .forEach(card => {
-
-            card.classList.toggle(
-                "active",
-                card.dataset.wear ===
-                selectedWear
-            );
-
-        });
-
-
-    document
-        .getElementById("buyModal")
-        .classList
-        .add("show");
-
+  document
+    .getElementById("buyModal")
+    .classList.add("active");
 }
 
 
-/* =====================================================
-   CHOOSE WEAR
-===================================================== */
+function selectWear(button,wear){
 
-function chooseWear(element){
+  selectedWear = wear;
 
-    document
-        .querySelectorAll(
-            ".wearCard"
-        )
-        .forEach(card => {
+  document.querySelectorAll(".wear")
+    .forEach(x => x.classList.remove("selected"));
 
-            card.classList.remove(
-                "active"
-            );
-
-        });
-
-
-    element.classList.add(
-        "active"
-    );
-
-
-    selectedWear =
-        element.dataset.wear;
-
-
-    document
-        .getElementById(
-            "selectedWear"
-        )
-        .textContent =
-        selectedWear;
-
+  button.classList.add("selected");
 }
 
 
-/* =====================================================
-   CLOSE BUY
-===================================================== */
+function buyProduct(){
 
-function closeBuy(){
+  if(!selectedProduct){
 
-    document
-        .getElementById(
-            "buyModal"
-        )
-        .classList
-        .remove("show");
+    showToast("اسکین انتخاب نشده");
 
-}
+    return;
+  }
 
+  if(!selectedWear){
 
-/* =====================================================
-   TELEGRAM
-===================================================== */
+    showToast("اول مدل اسکین را انتخاب کن");
 
-function sendTelegram(){
+    return;
+  }
 
-    if(!selectedProduct){
-
-        return;
-
-    }
-
-
-    const message =
+  const message =
 `سلام 👋
+من می‌خوام این اسکین رو خریداری کنم:
 
-این اسکین رو می‌خوام:
+🎮 ${selectedProduct.name}
+💰 قیمت: ${selectedProduct.price}
+🔧 Wear: ${selectedWear}
 
-🎯 ${selectedProduct.name}
+لطفاً راهنمایی کنید.`;
 
-🔧 مدل: ${selectedWear}
+  const url =
+    `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(message)}`;
 
-لطفاً موجودی و شرایط خرید رو اعلام کنید.`;
+  window.open(url,"_blank");
 
-
-    const url =
-        "https://t.me/aghojavaad?text=" +
-        encodeURIComponent(
-            message
-        );
-
-
-    window.open(
-        url,
-        "_blank"
-    );
-
+  closeModal("buyModal");
 }
 
 
-/* =====================================================
-   OPEN PROFILE
-===================================================== */
+/* ================================
+   PROFILE
+================================ */
+
+const defaultAvatar =
+  "data:image/svg+xml;charset=UTF-8," +
+  encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="200"
+         height="200"
+         viewBox="0 0 200 200">
+      <rect width="200" height="200" fill="#181818"/>
+      <circle cx="100" cy="75" r="40" fill="#555"/>
+      <path d="M35 180c8-45 42-65 65-65s57 20 65 65"
+            fill="#555"/>
+    </svg>
+  `);
+
 
 function openProfile(){
 
-    const name =
-        localStorage.getItem(
-            "cs2_profile_name"
-        ) || "";
+  document.getElementById("profileName").value =
+    localStorage.getItem("cs2_profile_name") || "";
 
+  document.getElementById("profilePhone").value =
+    localStorage.getItem("cs2_profile_phone") || "";
 
-    const phone =
-        localStorage.getItem(
-            "cs2_profile_phone"
-        ) || "";
+  const avatar =
+    localStorage.getItem("cs2_profile_avatar") ||
+    defaultAvatar;
 
+  document.getElementById("profileAvatar").src = avatar;
 
-    const avatar =
-        localStorage.getItem(
-            "cs2_profile_avatar"
-        ) || defaultAvatar;
-
-
-    document
-        .getElementById(
-            "profileName"
-        )
-        .value =
-        name;
-
-
-    document
-        .getElementById(
-            "profilePhone"
-        )
-        .value =
-        phone;
-
-
-    document
-        .getElementById(
-            "bigAvatar"
-        )
-        .src =
-        avatar;
-
-
-    temporaryAvatar =
-        avatar;
-
-
-    document
-        .getElementById(
-            "profileModal"
-        )
-        .classList
-        .add("show");
-
+  document
+    .getElementById("profileModal")
+    .classList.add("active");
 }
 
-
-/* =====================================================
-   CLOSE PROFILE
-===================================================== */
-
-function closeProfile(){
-
-    document
-        .getElementById(
-            "profileModal"
-        )
-        .classList
-        .remove("show");
-
-}
-
-
-/* =====================================================
-   CHANGE AVATAR
-===================================================== */
-
-function changeAvatar(event){
-
-    const file =
-        event.target.files[0];
-
-
-    if(!file){
-
-        return;
-
-    }
-
-
-    if(
-        !file.type
-        .startsWith("image/")
-    ){
-
-        alert(
-            "لطفاً یک عکس انتخاب کنید."
-        );
-
-        return;
-
-    }
-
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload =
-    function(e){
-
-        const img =
-            new Image();
-
-
-        img.onload =
-        function(){
-
-            const max = 300;
-
-
-            let w =
-                img.width;
-
-
-            let h =
-                img.height;
-
-
-            if(w > h){
-
-                if(w > max){
-
-                    h =
-                        h * max / w;
-
-                    w =
-                        max;
-
-                }
-
-            }else{
-
-                if(h > max){
-
-                    w =
-                        w * max / h;
-
-                    h =
-                        max;
-
-                }
-
-            }
-
-
-            const canvas =
-                document.createElement(
-                    "canvas"
-                );
-
-
-            canvas.width =
-                w;
-
-
-            canvas.height =
-                h;
-
-
-            const ctx =
-                canvas.getContext(
-                    "2d"
-                );
-
-
-            ctx.drawImage(
-                img,
-                0,
-                0,
-                w,
-                h
-            );
-
-
-            temporaryAvatar =
-                canvas.toDataURL(
-                    "image/jpeg",
-                    .82
-                );
-
-
-            document
-                .getElementById(
-                    "bigAvatar"
-                )
-                .src =
-                temporaryAvatar;
-
-        };
-
-
-        img.src =
-            e.target.result;
-
-    };
-
-
-    reader.readAsDataURL(
-        file
-    );
-
-}
-
-
-/* =====================================================
-   SAVE PROFILE
-===================================================== */
 
 function saveProfile(){
 
-    const name =
-        document
-        .getElementById(
-            "profileName"
-        )
-        .value
-        .trim();
+  const name =
+    document
+      .getElementById("profileName")
+      .value
+      .trim();
 
+  const phone =
+    document
+      .getElementById("profilePhone")
+      .value
+      .trim();
 
-    const phone =
-        document
-        .getElementById(
-            "profilePhone"
-        )
-        .value
-        .trim();
+  localStorage.setItem(
+    "cs2_profile_name",
+    name
+  );
 
+  localStorage.setItem(
+    "cs2_profile_phone",
+    phone
+  );
 
-    if(phone){
+  showToast("پروفایل ذخیره شد ✅");
 
-        const cleanPhone =
-            phone.replace(
-                /[^0-9+]/g,
-                ""
-            );
+  updateHeaderAvatar();
 
-
-        if(
-            cleanPhone.length < 8
-        ){
-
-            alert(
-                "شماره موبایل معتبر نیست."
-            );
-
-            return;
-
-        }
-
-    }
-
-
-    try{
-
-        localStorage.setItem(
-            "cs2_profile_name",
-            name
-        );
-
-
-        localStorage.setItem(
-            "cs2_profile_phone",
-            phone
-        );
-
-
-        localStorage.setItem(
-            "cs2_profile_avatar",
-            temporaryAvatar
-        );
-
-
-        updateHeader();
-
-
-        closeProfile();
-
-
-    }catch(e){
-
-        alert(
-            "ذخیره اطلاعات انجام نشد."
-        );
-
-    }
-
+  setTimeout(()=>{
+    closeModal("profileModal");
+  },700);
 }
 
 
-/* =====================================================
-   OPEN DELETE MODAL
-===================================================== */
+function changeAvatar(event){
 
-function openDeleteModal(){
+  const file = event.target.files[0];
 
-    document
-        .getElementById(
-            "deleteQuestion"
-        )
-        .classList
-        .remove("hidden");
+  if(!file) return;
 
+  if(file.size > 3 * 1024 * 1024){
 
-    document
-        .getElementById(
-            "deleteFinal"
-        )
-        .classList
-        .add("hidden");
+    showToast("حجم عکس باید کمتر از 3MB باشد");
 
+    return;
+  }
 
-    document
-        .getElementById(
-            "deleteSuccess"
-        )
-        .classList
-        .remove("show");
+  const reader = new FileReader();
 
+  reader.onload = function(){
 
-    document
-        .getElementById(
-            "deleteModal"
-        )
-        .classList
-        .add("show");
+    localStorage.setItem(
+      "cs2_profile_avatar",
+      reader.result
+    );
 
+    document.getElementById("profileAvatar").src =
+      reader.result;
+
+    updateHeaderAvatar();
+  };
+
+  reader.readAsDataURL(file);
 }
 
 
-/* =====================================================
-   SECOND DELETE CONFIRMATION
-===================================================== */
+function updateHeaderAvatar(){
 
-function askDeleteAgain(){
+  const avatar =
+    localStorage.getItem("cs2_profile_avatar") ||
+    defaultAvatar;
 
-    document
-        .getElementById(
-            "deleteQuestion"
-        )
-        .classList
-        .add("hidden");
-
-
-    document
-        .getElementById(
-            "deleteFinal"
-        )
-        .classList
-        .remove("hidden");
-
+  document.getElementById("headerAvatar").src =
+    avatar;
 }
 
 
-/* =====================================================
-   CLOSE DELETE MODAL
-===================================================== */
-
-function closeDeleteModal(){
-
-    document
-        .getElementById(
-            "deleteModal"
-        )
-        .classList
-        .remove("show");
-
-}
-
-
-/* =====================================================
+/* ================================
    DELETE PROFILE
-===================================================== */
+================================ */
 
 function deleteProfile(){
 
-    localStorage.removeItem(
-        "cs2_profile_name"
+  const confirmDelete =
+    confirm(
+      "مطمئنی می‌خوای اطلاعات پروفایلت حذف بشه؟"
     );
 
+  if(!confirmDelete) return;
 
-    localStorage.removeItem(
-        "cs2_profile_phone"
-    );
+  localStorage.removeItem("cs2_profile_name");
+  localStorage.removeItem("cs2_profile_phone");
+  localStorage.removeItem("cs2_profile_avatar");
 
+  document.getElementById("profileName").value = "";
+  document.getElementById("profilePhone").value = "";
 
-    localStorage.removeItem(
-        "cs2_profile_avatar"
-    );
+  document.getElementById("profileAvatar").src =
+    defaultAvatar;
 
+  updateHeaderAvatar();
 
-    temporaryAvatar =
-        defaultAvatar;
-
-
-    document
-        .getElementById(
-            "profileName"
-        )
-        .value = "";
-
-
-    document
-        .getElementById(
-            "profilePhone"
-        )
-        .value = "";
-
-
-    document
-        .getElementById(
-            "bigAvatar"
-        )
-        .src =
-        defaultAvatar;
-
-
-    updateHeader();
-
-
-    document
-        .getElementById(
-            "deleteFinal"
-        )
-        .classList
-        .add("hidden");
-
-
-    document
-        .getElementById(
-            "deleteSuccess"
-        )
-        .classList
-        .add("show");
-
+  showToast("اطلاعات پروفایل حذف شد");
 }
 
 
-/* =====================================================
-   UPDATE HEADER
-===================================================== */
+/* ================================
+   MODAL
+================================ */
 
-function updateHeader(){
+function closeModal(id){
 
-    const name =
-        localStorage.getItem(
-            "cs2_profile_name"
-        );
-
-
-    const avatar =
-        localStorage.getItem(
-            "cs2_profile_avatar"
-        );
-
-
-    document
-        .getElementById(
-            "headerName"
-        )
-        .textContent =
-        name ||
-        "پروفایل";
-
-
-    document
-        .getElementById(
-            "headerAvatar"
-        )
-        .src =
-        avatar ||
-        defaultAvatar;
-
+  document
+    .getElementById(id)
+    .classList.remove("active");
 }
 
 
-/* =====================================================
-   CLOSE MODALS BY BACKGROUND
-===================================================== */
+document.querySelectorAll(".modal")
+  .forEach(modal => {
 
-document
-    .getElementById(
-        "buyModal"
-    )
-    .addEventListener(
-        "click",
-        function(e){
+    modal.addEventListener("click",function(e){
 
-            if(
-                e.target === this
-            ){
+      if(e.target === modal){
 
-                closeBuy();
+        modal.classList.remove("active");
 
-            }
+      }
 
-        }
-    );
+    });
+
+  });
 
 
-document
-    .getElementById(
-        "profileModal"
-    )
-    .addEventListener(
-        "click",
-        function(e){
+/* ================================
+   TOAST
+================================ */
 
-            if(
-                e.target === this
-            ){
+let toastTimer;
 
-                closeProfile();
+function showToast(text){
 
-            }
+  const toast =
+    document.getElementById("toast");
 
-        }
-    );
+  toast.textContent = text;
 
+  toast.classList.add("show");
 
-document
-    .getElementById(
-        "deleteModal"
-    )
-    .addEventListener(
-        "click",
-        function(e){
+  clearTimeout(toastTimer);
 
-            if(
-                e.target === this
-            ){
-
-                closeDeleteModal();
-
-            }
-
-        }
-    );
+  toastTimer =
+    setTimeout(()=>{
+      toast.classList.remove("show");
+    },2500);
+}
 
 
-/* =====================================================
-   ESC
-===================================================== */
-
-document.addEventListener(
-    "keydown",
-    function(e){
-
-        if(
-            e.key === "Escape"
-        ){
-
-            closeBuy();
-
-            closeProfile();
-
-            closeDeleteModal();
-
-        }
-
-    }
-);
-
-
-/* =====================================================
+/* ================================
    START
-===================================================== */
+================================ */
 
-updateHeader();
-
-renderProducts(
-    products
-);
+updateHeaderAvatar();
+renderProducts();
 
 </script>
 
-
 </body>
-
 </html>
