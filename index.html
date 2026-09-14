@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>CS2 SKIN SHOP</title>
 
 <style>
@@ -15,7 +15,7 @@
 
 body{
   background:
-    radial-gradient(circle at 50% -10%,rgba(255,0,50,.18),transparent 35%),
+    radial-gradient(circle at 50% -10%,rgba(255,0,55,.18),transparent 35%),
     #070707;
   color:#fff;
   min-height:100vh;
@@ -30,6 +30,8 @@ button{
   border:0;
 }
 
+/* HEADER */
+
 .header{
   position:sticky;
   top:0;
@@ -39,7 +41,7 @@ button{
   align-items:center;
   justify-content:space-between;
   padding:0 5%;
-  background:rgba(8,8,8,.9);
+  background:rgba(8,8,8,.94);
   backdrop-filter:blur(15px);
   border-bottom:1px solid rgba(255,0,55,.2);
 }
@@ -68,24 +70,33 @@ button{
   height:29px;
 }
 
+/* PROFILE BUTTON */
+
 .profile-btn{
   width:45px;
   height:45px;
+  min-width:45px;
   border-radius:50%;
   overflow:hidden;
-  background:#171717;
+  background:#191919;
   border:2px solid #ff1748;
   color:white;
   display:flex;
   align-items:center;
   justify-content:center;
+  padding:0;
+  box-shadow:0 0 15px rgba(255,0,55,.15);
 }
 
 .profile-btn img{
+  display:block;
   width:100%;
   height:100%;
   object-fit:cover;
+  border-radius:50%;
 }
+
+/* HERO */
 
 .hero{
   text-align:center;
@@ -137,6 +148,8 @@ button{
   transform:translateY(-3px);
 }
 
+/* PRODUCTS */
+
 .container{
   width:min(1200px,92%);
   margin:auto;
@@ -144,7 +157,6 @@ button{
 
 .search-box{
   margin:10px 0 30px;
-  position:relative;
 }
 
 .search-box input{
@@ -201,11 +213,6 @@ button{
   width:100%;
   height:100%;
   object-fit:contain;
-  transition:.3s;
-}
-
-.card:hover .card-img img{
-  transform:scale(1.07) rotate(-2deg);
 }
 
 .card-info{
@@ -393,6 +400,7 @@ button{
   background:#202020;
   color:#ddd;
   font-size:12px;
+  cursor:pointer;
 }
 
 .field{
@@ -414,10 +422,51 @@ button{
   background:#181818;
   color:#fff;
   outline:none;
+  transition:.25s;
 }
 
 .field input:focus{
   border-color:#ff1748;
+}
+
+/* PHONE ERROR */
+
+.phone-error{
+  display:none;
+  color:#ff3158;
+  font-size:12px;
+  margin-top:7px;
+  animation:errorIn .25s ease;
+}
+
+.phone-error.show{
+  display:block;
+}
+
+.phone-invalid{
+  border-color:#ff1748 !important;
+  box-shadow:0 0 0 2px rgba(255,23,72,.1);
+  animation:shake .4s ease;
+}
+
+@keyframes shake{
+  0%{transform:translateX(0)}
+  20%{transform:translateX(7px)}
+  40%{transform:translateX(-7px)}
+  60%{transform:translateX(5px)}
+  80%{transform:translateX(-5px)}
+  100%{transform:translateX(0)}
+}
+
+@keyframes errorIn{
+  from{
+    opacity:0;
+    transform:translateY(-5px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 .save-profile{
@@ -443,6 +492,8 @@ button{
   background:#2a1116;
 }
 
+/* TOAST */
+
 .toast{
   position:fixed;
   z-index:1000;
@@ -464,16 +515,10 @@ button{
   transform:translateX(-50%) translateY(0);
 }
 
-.empty{
-  grid-column:1/-1;
-  text-align:center;
-  padding:50px;
-  color:#777;
-}
-
 /* RESPONSIVE */
 
 @media(max-width:600px){
+
   .header{
     padding:0 18px;
   }
@@ -514,9 +559,11 @@ button{
 }
 
 @media(max-width:380px){
+
   .products{
     grid-template-columns:1fr;
   }
+
 }
 </style>
 </head>
@@ -526,56 +573,81 @@ button{
 <header class="header">
 
   <div class="logo">
+
     <div class="logo-icon">
-      <!-- Butterfly Knife -->
       <svg viewBox="0 0 64 64" fill="none">
-        <path d="M12 18L27 31L12 46L18 51L32 37L46 51L52 46L37 31L52 18L46 13L32 25L18 13L12 18Z"
-              fill="white"/>
-        <path d="M27 31H37" stroke="#ff1748" stroke-width="4" stroke-linecap="round"/>
+        <path
+          d="M12 18L27 31L12 46L18 51L32 37L46 51L52 46L37 31L52 18L46 13L32 25L18 13L12 18Z"
+          fill="white"/>
+        <path
+          d="M27 31H37"
+          stroke="#ff1748"
+          stroke-width="4"
+          stroke-linecap="round"/>
       </svg>
     </div>
+
     <span>CS2 SKIN SHOP</span>
+
   </div>
 
+  <!-- PROFILE -->
   <button class="profile-btn" onclick="openProfile()">
-    <img id="headerAvatar" alt="Profile">
+    <img
+      id="headerAvatar"
+      alt="Profile"
+      onerror="this.src=defaultAvatar;"
+    >
   </button>
 
 </header>
 
+
 <section class="hero">
 
-  <span class="badge">🔥 PREMIUM CS2 SKINS</span>
+  <span class="badge">
+    🔥 PREMIUM CS2 SKINS
+  </span>
 
-  <h1>CS2 SKIN SHOP</h1>
+  <h1>
+    CS2 SKIN SHOP
+  </h1>
 
   <p>
     بهترین اسکین‌های Counter-Strike 2 با قیمت مناسب.
     اسکین موردنظرت رو انتخاب کن و برای خرید مستقیم پیام بده.
   </p>
 
-  <a class="telegram-btn"
-     href="https://t.me/aghojavaad"
-     target="_blank">
+  <a
+    class="telegram-btn"
+    href="https://t.me/aghojavaad"
+    target="_blank">
     💬 تلگرام من
   </a>
 
 </section>
 
+
 <main class="container">
 
   <div class="search-box">
+
     <input
       id="search"
       type="text"
       placeholder="🔎 جستجوی اسکین..."
       oninput="searchProducts()"
     >
+
   </div>
 
-  <div class="products" id="products"></div>
+  <div
+    class="products"
+    id="products">
+  </div>
 
 </main>
+
 
 <!-- BUY MODAL -->
 
@@ -584,13 +656,23 @@ button{
   <div class="modal-box">
 
     <div class="modal-head">
+
       <h2>🛒 خرید اسکین</h2>
-      <button class="close" onclick="closeModal('buyModal')">×</button>
+
+      <button
+        class="close"
+        onclick="closeModal('buyModal')">
+        ×
+      </button>
+
     </div>
 
     <div class="modal-product">
+
       <h3 id="modalName"></h3>
+
       <p id="modalPrice"></p>
+
     </div>
 
     <div class="section-title">
@@ -599,35 +681,48 @@ button{
 
     <div class="wears">
 
-      <button class="wear" onclick="selectWear(this,'Factory New')">
+      <button
+        class="wear"
+        onclick="selectWear(this,'Factory New')">
         Factory New
       </button>
 
-      <button class="wear" onclick="selectWear(this,'Minimal Wear')">
+      <button
+        class="wear"
+        onclick="selectWear(this,'Minimal Wear')">
         Minimal Wear
       </button>
 
-      <button class="wear" onclick="selectWear(this,'Field-Tested')">
+      <button
+        class="wear"
+        onclick="selectWear(this,'Field-Tested')">
         Field-Tested
       </button>
 
-      <button class="wear" onclick="selectWear(this,'Well-Worn')">
+      <button
+        class="wear"
+        onclick="selectWear(this,'Well-Worn')">
         Well-Worn
       </button>
 
-      <button class="wear" onclick="selectWear(this,'Battle-Scarred')">
+      <button
+        class="wear"
+        onclick="selectWear(this,'Battle-Scarred')">
         Battle-Scarred
       </button>
 
     </div>
 
-    <button class="confirm-buy" onclick="buyProduct()">
+    <button
+      class="confirm-buy"
+      onclick="buyProduct()">
       ادامه خرید در تلگرام
     </button>
 
   </div>
 
 </div>
+
 
 <!-- PROFILE MODAL -->
 
@@ -636,9 +731,17 @@ button{
   <div class="modal-box">
 
     <div class="modal-head">
+
       <h2>👤 پروفایل</h2>
-      <button class="close" onclick="closeModal('profileModal')">×</button>
+
+      <button
+        class="close"
+        onclick="closeModal('profileModal')">
+        ×
+      </button>
+
     </div>
+
 
     <div class="avatar-area">
 
@@ -646,10 +749,13 @@ button{
         id="profileAvatar"
         class="avatar"
         alt="Avatar"
+        onerror="this.src=defaultAvatar;"
       >
 
       <label class="upload-btn">
+
         تغییر عکس
+
         <input
           type="file"
           id="avatarInput"
@@ -657,33 +763,61 @@ button{
           hidden
           onchange="changeAvatar(event)"
         >
+
       </label>
 
     </div>
 
+
     <div class="field">
-      <label>نام نمایشی</label>
+
+      <label>
+        نام نمایشی
+      </label>
+
       <input
         id="profileName"
         type="text"
         placeholder="مثلاً Javad"
       >
+
     </div>
 
+
     <div class="field">
-      <label>شماره موبایل</label>
+
+      <label>
+        شماره موبایل
+      </label>
+
       <input
         id="profilePhone"
         type="tel"
-        placeholder="شماره موبایل"
+        inputmode="numeric"
+        maxlength="11"
+        placeholder="مثلاً 09123456789"
+        oninput="clearPhoneError()"
       >
+
+      <div
+        class="phone-error"
+        id="phoneError">
+        ❌ شماره موبایل اشتباه است
+      </div>
+
     </div>
 
-    <button class="save-profile" onclick="saveProfile()">
+
+    <button
+      class="save-profile"
+      onclick="saveProfile()">
       ذخیره اطلاعات
     </button>
 
-    <button class="delete-profile" onclick="deleteProfile()">
+
+    <button
+      class="delete-profile"
+      onclick="deleteProfile()">
       حذف اطلاعات پروفایل
     </button>
 
@@ -691,108 +825,167 @@ button{
 
 </div>
 
-<div class="toast" id="toast"></div>
+
+<div
+  class="toast"
+  id="toast">
+</div>
+
 
 <script>
 
-/* ================================
+/* =========================
    TELEGRAM
-================================ */
+========================= */
 
 const TELEGRAM_USERNAME = "aghojavaad";
 
 
-/* ================================
+/* =========================
+   DEFAULT AVATAR
+========================= */
+
+const defaultAvatar =
+"data:image/svg+xml;charset=UTF-8," +
+encodeURIComponent(`
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="200"
+     height="200"
+     viewBox="0 0 200 200">
+
+  <defs>
+
+    <linearGradient
+      id="g"
+      x1="0"
+      y1="0"
+      x2="1"
+      y2="1">
+
+      <stop
+        offset="0%"
+        stop-color="#ff003c"/>
+
+      <stop
+        offset="100%"
+        stop-color="#68001a"/>
+
+    </linearGradient>
+
+  </defs>
+
+  <rect
+    width="200"
+    height="200"
+    rx="100"
+    fill="#151515"/>
+
+  <circle
+    cx="100"
+    cy="75"
+    r="38"
+    fill="url(#g)"/>
+
+  <path
+    d="M38 180c7-43 36-65 62-65s55 22 62 65"
+    fill="url(#g)"/>
+
+</svg>
+`);
+
+
+/* =========================
    PRODUCTS
-================================ */
+========================= */
 
 const products = [
 
-  {
-    name:"M4A1 | Naval Shred",
-    price:"120T",
-    condition:"Factory New",
-    image:"https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80"
-  },
+{
+  name:"M4A1 | Naval Shred",
+  price:"120T",
+  condition:"Factory New",
+  image:"https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80"
+},
 
-  {
-    name:"StatTrak™ USP-S",
-    price:"135T",
-    condition:"Field-Tested",
-    image:"https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=900&q=80"
-  },
+{
+  name:"StatTrak™ USP-S",
+  price:"135T",
+  condition:"Field-Tested",
+  image:"https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=900&q=80"
+},
 
-  {
-    name:"M4A1 | Boreal Forest",
-    price:"110T",
-    condition:"Minimal Wear",
-    image:"https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=900&q=80"
-  },
+{
+  name:"M4A1 | Boreal Forest",
+  price:"110T",
+  condition:"Minimal Wear",
+  image:"https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=900&q=80"
+},
 
-  {
-    name:"R8 Revolver | Junk Yard",
-    price:"60T",
-    condition:"Field-Tested",
-    image:"https://images.unsplash.com/photo-1588094348336-5b8a4f8f1d6e?auto=format&fit=crop&w=900&q=80"
-  },
+{
+  name:"R8 Revolver | Junk Yard",
+  price:"60T",
+  condition:"Field-Tested",
+  image:"https://images.unsplash.com/photo-1588094348336-5b8a4f8f1d6e?auto=format&fit=crop&w=900&q=80"
+},
 
-  {
-    name:"AK-47 | Redline",
-    price:"250T",
-    condition:"Field-Tested",
-    image:"https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=900&q=80"
-  },
+{
+  name:"AK-47 | Redline",
+  price:"250T",
+  condition:"Field-Tested",
+  image:"https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=900&q=80"
+},
 
-  {
-    name:"AWP | Asiimov",
-    price:"420T",
-    condition:"Field-Tested",
-    image:"https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80"
-  },
+{
+  name:"AWP | Asiimov",
+  price:"420T",
+  condition:"Field-Tested",
+  image:"https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80"
+},
 
-  {
-    name:"Glock-18 | Water Elemental",
-    price:"95T",
-    condition:"Minimal Wear",
-    image:"https://images.unsplash.com/photo-1588094348336-5b8a4f8f1d6e?auto=format&fit=crop&w=900&q=80"
-  },
+{
+  name:"Glock-18 | Water Elemental",
+  price:"95T",
+  condition:"Minimal Wear",
+  image:"https://images.unsplash.com/photo-1588094348336-5b8a4f8f1d6e?auto=format&fit=crop&w=900&q=80"
+},
 
-  {
-    name:"Desert Eagle | Printstream",
-    price:"310T",
-    condition:"Factory New",
-    image:"https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=900&q=80"
-  },
+{
+  name:"Desert Eagle | Printstream",
+  price:"310T",
+  condition:"Factory New",
+  image:"https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=900&q=80"
+},
 
-  {
-    name:"Karambit | Doppler",
-    price:"900T",
-    condition:"Factory New",
-    image:"https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80"
-  },
+{
+  name:"Karambit | Doppler",
+  price:"900T",
+  condition:"Factory New",
+  image:"https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80"
+},
 
-  {
-    name:"Butterfly Knife | Freehand",
-    price:"650T",
-    condition:"Field-Tested",
-    image:"https://images.unsplash.com/photo-1588094348336-5b8a4f8f1d6e?auto=format&fit=crop&w=900&q=80"
-  }
+{
+  name:"Butterfly Knife | Freehand",
+  price:"650T",
+  condition:"Field-Tested",
+  image:"https://images.unsplash.com/photo-1588094348336-5b8a4f8f1d6e?auto=format&fit=crop&w=900&q=80"
+}
 
 ];
 
-
-/* ================================
-   RENDER PRODUCTS
-================================ */
 
 let currentProducts = products;
 let selectedProduct = null;
 let selectedWear = "";
 
 
+/* =========================
+   PRODUCTS
+========================= */
+
 function renderProducts(list = products){
 
-  const box = document.getElementById("products");
+  const box =
+    document.getElementById("products");
 
   if(!list.length){
 
@@ -810,11 +1003,13 @@ function renderProducts(list = products){
     <div class="card">
 
       <div class="card-img">
+
         <img
           src="${p.image}"
           alt="${p.name}"
           loading="lazy"
         >
+
       </div>
 
       <div class="card-info">
@@ -831,8 +1026,7 @@ function renderProducts(list = products){
 
         <button
           class="buy-btn"
-          onclick="openBuy(${index})"
-        >
+          onclick="openBuy(${index})">
           🛒 خرید
         </button>
 
@@ -845,9 +1039,9 @@ function renderProducts(list = products){
 }
 
 
-/* ================================
+/* =========================
    SEARCH
-================================ */
+========================= */
 
 function searchProducts(){
 
@@ -867,27 +1061,31 @@ function searchProducts(){
 }
 
 
-/* ================================
+/* =========================
    BUY
-================================ */
+========================= */
 
 function openBuy(index){
 
-  selectedProduct = currentProducts[index];
+  selectedProduct =
+    currentProducts[index];
 
   selectedWear = "";
 
-  document.getElementById("modalName").textContent =
+  document.getElementById("modalName")
+    .textContent =
     selectedProduct.name;
 
-  document.getElementById("modalPrice").textContent =
+  document.getElementById("modalPrice")
+    .textContent =
     selectedProduct.price;
 
   document.querySelectorAll(".wear")
-    .forEach(x => x.classList.remove("selected"));
+    .forEach(x =>
+      x.classList.remove("selected")
+    );
 
-  document
-    .getElementById("buyModal")
+  document.getElementById("buyModal")
     .classList.add("active");
 }
 
@@ -897,7 +1095,9 @@ function selectWear(button,wear){
   selectedWear = wear;
 
   document.querySelectorAll(".wear")
-    .forEach(x => x.classList.remove("selected"));
+    .forEach(x =>
+      x.classList.remove("selected")
+    );
 
   button.classList.add("selected");
 }
@@ -921,6 +1121,7 @@ function buyProduct(){
 
   const message =
 `سلام 👋
+
 من می‌خوام این اسکین رو خریداری کنم:
 
 🎮 ${selectedProduct.name}
@@ -938,44 +1139,98 @@ function buyProduct(){
 }
 
 
-/* ================================
+/* =========================
    PROFILE
-================================ */
-
-const defaultAvatar =
-  "data:image/svg+xml;charset=UTF-8," +
-  encodeURIComponent(`
-    <svg xmlns="http://www.w3.org/2000/svg"
-         width="200"
-         height="200"
-         viewBox="0 0 200 200">
-      <rect width="200" height="200" fill="#181818"/>
-      <circle cx="100" cy="75" r="40" fill="#555"/>
-      <path d="M35 180c8-45 42-65 65-65s57 20 65 65"
-            fill="#555"/>
-    </svg>
-  `);
-
+========================= */
 
 function openProfile(){
 
-  document.getElementById("profileName").value =
+  document.getElementById("profileName")
+    .value =
     localStorage.getItem("cs2_profile_name") || "";
 
-  document.getElementById("profilePhone").value =
+  document.getElementById("profilePhone")
+    .value =
     localStorage.getItem("cs2_profile_phone") || "";
 
   const avatar =
     localStorage.getItem("cs2_profile_avatar") ||
     defaultAvatar;
 
-  document.getElementById("profileAvatar").src = avatar;
+  document.getElementById("profileAvatar")
+    .src = avatar;
 
-  document
-    .getElementById("profileModal")
+  document.getElementById("profileModal")
     .classList.add("active");
 }
 
+
+/* =========================
+   PHONE VALIDATION
+========================= */
+
+function isValidIranPhone(phone){
+
+  /*
+    فرمت‌های قابل قبول:
+
+    09123456789
+    +989123456789
+    00989123456789
+  */
+
+  const clean =
+    phone.replace(/[\s-]/g,"");
+
+  const iranPattern =
+    /^(09\d{9}|\+989\d{9}|00989\d{9})$/;
+
+  return iranPattern.test(clean);
+}
+
+
+function clearPhoneError(){
+
+  const input =
+    document.getElementById("profilePhone");
+
+  const error =
+    document.getElementById("phoneError");
+
+  input.classList.remove("phone-invalid");
+
+  error.classList.remove("show");
+}
+
+
+function showPhoneError(){
+
+  const input =
+    document.getElementById("profilePhone");
+
+  const error =
+    document.getElementById("phoneError");
+
+  input.classList.remove("phone-invalid");
+
+  /*
+    برای اینکه انیمیشن هر بار
+    دوباره اجرا شود
+  */
+
+  void input.offsetWidth;
+
+  input.classList.add("phone-invalid");
+
+  error.classList.add("show");
+
+  input.focus();
+}
+
+
+/* =========================
+   SAVE PROFILE
+========================= */
 
 function saveProfile(){
 
@@ -985,11 +1240,25 @@ function saveProfile(){
       .value
       .trim();
 
+  const phoneInput =
+    document.getElementById("profilePhone");
+
   const phone =
-    document
-      .getElementById("profilePhone")
-      .value
-      .trim();
+    phoneInput.value.trim();
+
+
+  /*
+    اگر شماره وارد شده باشد،
+    باید معتبر باشد.
+  */
+
+  if(phone && !isValidIranPhone(phone)){
+
+    showPhoneError();
+
+    return;
+  }
+
 
   localStorage.setItem(
     "cs2_profile_name",
@@ -1001,9 +1270,11 @@ function saveProfile(){
     phone
   );
 
-  showToast("پروفایل ذخیره شد ✅");
 
   updateHeaderAvatar();
+
+  showToast("پروفایل ذخیره شد ✅");
+
 
   setTimeout(()=>{
     closeModal("profileModal");
@@ -1011,52 +1282,111 @@ function saveProfile(){
 }
 
 
+/* =========================
+   CHANGE AVATAR
+========================= */
+
 function changeAvatar(event){
 
-  const file = event.target.files[0];
+  const file =
+    event.target.files[0];
 
   if(!file) return;
 
-  if(file.size > 3 * 1024 * 1024){
 
-    showToast("حجم عکس باید کمتر از 3MB باشد");
+  if(!file.type.startsWith("image/")){
+
+    showToast("فایل انتخاب‌شده عکس نیست");
 
     return;
   }
 
-  const reader = new FileReader();
+
+  if(file.size > 5 * 1024 * 1024){
+
+    showToast("حجم عکس باید کمتر از 5MB باشد");
+
+    return;
+  }
+
+
+  const reader =
+    new FileReader();
+
 
   reader.onload = function(){
 
-    localStorage.setItem(
-      "cs2_profile_avatar",
-      reader.result
-    );
-
-    document.getElementById("profileAvatar").src =
+    const image =
       reader.result;
 
-    updateHeaderAvatar();
+    localStorage.setItem(
+      "cs2_profile_avatar",
+      image
+    );
+
+
+    document.getElementById("profileAvatar")
+      .src = image;
+
+
+    /*
+      بلافاصله عکس بالا هم آپدیت می‌شود
+    */
+
+    document.getElementById("headerAvatar")
+      .src = image;
+
+
+    showToast("عکس پروفایل تغییر کرد ✅");
   };
+
 
   reader.readAsDataURL(file);
 }
 
 
+/* =========================
+   HEADER AVATAR
+========================= */
+
 function updateHeaderAvatar(){
 
-  const avatar =
-    localStorage.getItem("cs2_profile_avatar") ||
-    defaultAvatar;
+  const header =
+    document.getElementById("headerAvatar");
 
-  document.getElementById("headerAvatar").src =
-    avatar;
+  const avatar =
+    localStorage.getItem("cs2_profile_avatar");
+
+
+  if(avatar){
+
+    header.src = avatar;
+
+  }else{
+
+    header.src = defaultAvatar;
+
+  }
+
+
+  /*
+    اگر عکس خراب یا پاک شده بود
+    دوباره آواتار پیش‌فرض را بگذار
+  */
+
+  header.onerror = function(){
+
+    this.onerror = null;
+
+    this.src = defaultAvatar;
+
+  };
 }
 
 
-/* ================================
+/* =========================
    DELETE PROFILE
-================================ */
+========================= */
 
 function deleteProfile(){
 
@@ -1067,25 +1397,42 @@ function deleteProfile(){
 
   if(!confirmDelete) return;
 
-  localStorage.removeItem("cs2_profile_name");
-  localStorage.removeItem("cs2_profile_phone");
-  localStorage.removeItem("cs2_profile_avatar");
 
-  document.getElementById("profileName").value = "";
-  document.getElementById("profilePhone").value = "";
+  localStorage.removeItem(
+    "cs2_profile_name"
+  );
 
-  document.getElementById("profileAvatar").src =
-    defaultAvatar;
+  localStorage.removeItem(
+    "cs2_profile_phone"
+  );
+
+  localStorage.removeItem(
+    "cs2_profile_avatar"
+  );
+
+
+  document.getElementById("profileName")
+    .value = "";
+
+  document.getElementById("profilePhone")
+    .value = "";
+
+  document.getElementById("profileAvatar")
+    .src = defaultAvatar;
+
 
   updateHeaderAvatar();
 
-  showToast("اطلاعات پروفایل حذف شد");
+
+  showToast(
+    "اطلاعات پروفایل حذف شد"
+  );
 }
 
 
-/* ================================
-   MODAL
-================================ */
+/* =========================
+   MODALS
+========================= */
 
 function closeModal(id){
 
@@ -1095,25 +1442,29 @@ function closeModal(id){
 }
 
 
-document.querySelectorAll(".modal")
+document
+  .querySelectorAll(".modal")
   .forEach(modal => {
 
-    modal.addEventListener("click",function(e){
+    modal.addEventListener(
+      "click",
+      function(e){
 
-      if(e.target === modal){
+        if(e.target === modal){
 
-        modal.classList.remove("active");
+          modal.classList.remove("active");
+
+        }
 
       }
-
-    });
+    );
 
   });
 
 
-/* ================================
+/* =========================
    TOAST
-================================ */
+========================= */
 
 let toastTimer;
 
@@ -1135,11 +1486,12 @@ function showToast(text){
 }
 
 
-/* ================================
+/* =========================
    START
-================================ */
+========================= */
 
 updateHeaderAvatar();
+
 renderProducts();
 
 </script>
