@@ -1,178 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSGO Shop Skins</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<title>CS2 Shop Skins</title>
 
-    body {
-      background: #090909;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
+<style>
 
-    header {
-      background: linear-gradient(90deg, #080808, #220000, #080808);
-      padding: 25px 15px;
-      text-align: center;
-      border-bottom: 2px solid #e00000;
-    }
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    header h1 {
-      color: #ff2020;
-      font-size: 32px;
-      text-shadow: 0 0 15px #ff0000;
-    }
+body{
+  background:#070707;
+  color:white;
+  font-family:Arial,sans-serif;
+}
 
-    header p {
-      color: #aaa;
-      margin-top: 8px;
-    }
+header{
+  height:75px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 25px;
+  background:linear-gradient(90deg,#050505,#210000,#050505);
+  border-bottom:2px solid #e00000;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
 
-    .banner {
-      margin: 25px auto;
-      max-width: 1100px;
-      padding: 45px 20px;
-      text-align: center;
-      border: 1px solid #500000;
-      border-radius: 15px;
-      background: linear-gradient(135deg, #180000, #080808);
-    }
+.logo{
+  font-size:24px;
+  font-weight:bold;
+  color:#ff2020;
+  text-shadow:0 0 15px red;
+}
 
-    .banner h2 {
-      font-size: 35px;
-      color: white;
-    }
+.profile-btn{
+  background:#151515;
+  border:1px solid #ff2020;
+  color:white;
+  padding:10px 15px;
+  border-radius:10px;
+  cursor:pointer;
+}
 
-    .banner span {
-      color: #ff2020;
-    }
+.profile-btn:hover{
+  background:#d60000;
+}
 
-    .products {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
-    }
+.hero{
+  margin:25px auto;
+  max-width:1100px;
+  padding:60px 20px;
+  text-align:center;
+  border-radius:20px;
+  background:linear-gradient(135deg,#230000,#090909);
+  border:1px solid #620000;
+  box-shadow:0 0 30px rgba(255,0,0,.15);
+}
 
-    .card {
-      background: #111;
-      border: 1px solid #333;
-      border-radius: 15px;
-      padding: 15px;
-      transition: 0.3s;
-    }
+.hero h1{
+  font-size:42px;
+  margin-bottom:12px;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #ff2020;
-      box-shadow: 0 0 20px #500000;
-    }
+.hero h1 span{
+  color:#ff2020;
+}
 
-    .card img {
-      width: 100%;
-      height: 150px;
-      object-fit: contain;
-      background: #080808;
-      border-radius: 10px;
-    }
+.hero p{
+  color:#aaa;
+  font-size:17px;
+}
 
-    .card h3 {
-      margin-top: 15px;
-      font-size: 18px;
-    }
+.products{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
+}
 
-    .condition {
-      color: #999;
-      margin: 8px 0;
-    }
+.card{
+  background:linear-gradient(145deg,#151515,#090909);
+  border:1px solid #292929;
+  border-radius:16px;
+  padding:15px;
+  transition:.3s;
+  overflow:hidden;
+}
 
-    .price {
-      color: #ff3030;
-      font-size: 23px;
-      font-weight: bold;
-    }
+.card:hover{
+  transform:translateY(-7px);
+  border-color:#ff2020;
+  box-shadow:0 0 25px rgba(255,0,0,.25);
+}
 
-    .buy {
-      display: block;
-      margin-top: 12px;
-      width: 100%;
-      padding: 11px;
-      border: none;
-      border-radius: 8px;
-      background: #d90000;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.card img{
+  width:100%;
+  height:175px;
+  object-fit:contain;
+  background:#050505;
+  border-radius:12px;
+}
 
-    .buy:hover {
-      background: #ff2020;
-    }
+.card h2{
+  font-size:19px;
+  margin-top:15px;
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      margin-top: 30px;
-      border-top: 1px solid #222;
-      color: #777;
-    }
-  </style>
+.condition{
+  color:#888;
+  margin-top:7px;
+}
+
+.price{
+  color:#ff2525;
+  font-size:25px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.buy{
+  width:100%;
+  margin-top:14px;
+  padding:12px;
+  border:0;
+  border-radius:9px;
+  background:#d90000;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.buy:hover{
+  background:#ff2020;
+}
+
+footer{
+  text-align:center;
+  padding:35px;
+  margin-top:30px;
+  border-top:1px solid #222;
+  color:#777;
+}
+
+/* PROFILE */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  z-index:500;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.profile-box{
+  width:100%;
+  max-width:400px;
+  background:#111;
+  border:1px solid #ff2020;
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 0 35px rgba(255,0,0,.3);
+}
+
+.profile-box h2{
+  color:#ff2020;
+  margin-bottom:20px;
+}
+
+.profile-box input{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border-radius:8px;
+  border:1px solid #333;
+  background:#080808;
+  color:white;
+}
+
+.avatar-preview{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
+  margin:0 auto 15px;
+  border:2px solid #ff2020;
+}
+
+.save{
+  width:100%;
+  padding:12px;
+  background:#d90000;
+  color:white;
+  border:0;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.close{
+  width:100%;
+  margin-top:8px;
+  padding:10px;
+  background:#222;
+  color:white;
+  border:0;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.user-name{
+  text-align:center;
+  margin-bottom:15px;
+  color:#fff;
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>CSGO SHOP SKINS</h1>
-  <p>Premium CS2 Skins</p>
+
+<div class="logo">
+CS2 SHOP
+</div>
+
+<button class="profile-btn" onclick="openProfile()">
+👤 Profile
+</button>
+
 </header>
 
-<section class="banner">
-  <h2>WELCOME TO <span>CS2 SHOP</span></h2>
-  <p>Best skins • Best prices • Fast delivery</p>
+
+<section class="hero">
+
+<h1>
+WELCOME TO <span>CS2 SHOP</span>
+</h1>
+
+<p>
+Premium CS2 Skins • Best Prices • Fast Delivery
+</p>
+
 </section>
+
 
 <section class="products">
 
-  <div class="card">
-    <img src="https://via.placeholder.com/500x300?text=M4A1" alt="M4A1">
-    <h3>M4A1 | Boreal Forest</h3>
-    <p class="condition">Minimal Wear</p>
-    <p class="price">110T</p>
-    <button class="buy">BUY NOW</button>
-  </div>
 
-  <div class="card">
-    <img src="https://via.placeholder.com/500x300?text=USP-S" alt="USP-S">
-    <h3>StatTrak™ USP-S</h3>
-    <p class="condition">Field-Tested</p>
-    <p class="price">135T</p>
-    <button class="buy">BUY NOW</button>
-  </div>
+<!-- AK -->
 
-  <div class="card">
-    <img src="https://via.placeholder.com/500x300?text=R8" alt="R8">
-    <h3>R8 Revolver | Junk Yard</h3>
-    <p class="condition">Field-Tested</p>
-    <p class="price">60T</p>
-    <button class="buy">BUY NOW</button>
-  </div>
+<div class="card">
+
+<img
+src="https://skins-cdn.hltv.org/skin/3G0i-wg36opiIhDdaipE3r.png"
+alt="AK-47 Elite Build">
+
+<h2>
+AK-47 | Elite Build
+</h2>
+
+<p class="condition">
+Factory New
+</p>
+
+<p class="price">
+420 T
+</p>
+
+<button class="buy"
+onclick="buySkin('AK-47 | Elite Build','420 T')">
+BUY NOW
+</button>
+
+</div>
+
+
+<!-- DESERT EAGLE -->
+
+<div class="card">
+
+<img
+src="https://bitskins.com/blog/content/images/2024/10/20241025193440_1.jpg"
+alt="Desert Eagle Blue Ply">
+
+<h2>
+Desert Eagle | Blue Ply
+</h2>
+
+<p class="condition">
+Factory New
+</p>
+
+<p class="price">
+150 T
+</p>
+
+<button class="buy"
+onclick="buySkin('Desert Eagle | Blue Ply','150 T')">
+BUY NOW
+</button>
+
+</div>
+
+
+<!-- M4 -->
+
+<div class="card">
+
+<img
+src="https://via.placeholder.com/500x300?text=M4A1"
+alt="M4A1">
+
+<h2>
+M4A1 | Boreal Forest
+</h2>
+
+<p class="condition">
+Minimal Wear
+</p>
+
+<p class="price">
+110 T
+</p>
+
+<button class="buy"
+onclick="buySkin('M4A1 | Boreal Forest','110 T')">
+BUY NOW
+</button>
+
+</div>
+
+
+<!-- USP -->
+
+<div class="card">
+
+<img
+src="https://via.placeholder.com/500x300?text=USP-S"
+alt="USP-S">
+
+<h2>
+StatTrak™ USP-S
+</h2>
+
+<p class="condition">
+Field-Tested
+</p>
+
+<p class="price">
+135 T
+</p>
+
+<button class="buy"
+onclick="buySkin('StatTrak USP-S','135 T')">
+BUY NOW
+</button>
+
+</div>
+
+
+<!-- R8 -->
+
+<div class="card">
+
+<img
+src="https://via.placeholder.com/500x300?text=R8"
+alt="R8 Revolver">
+
+<h2>
+R8 Revolver | Junk Yard
+</h2>
+
+<p class="condition">
+Field-Tested
+</p>
+
+<p class="price">
+60 T
+</p>
+
+<button class="buy"
+onclick="buySkin('R8 Revolver | Junk Yard','60 T')">
+BUY NOW
+</button>
+
+</div>
+
 
 </section>
 
+
 <footer>
-  © 2026 CS2 Shop Skins
+
+© 2026 CS2 SHOP  
+<br><br>
+Telegram: @aghojavaad
+
 </footer>
+
+
+<!-- PROFILE MODAL -->
+
+<div class="modal" id="profileModal">
+
+<div class="profile-box">
+
+<h2>
+👤 Customize Profile
+</h2>
+
+<img
+id="avatarPreview"
+class="avatar-preview"
+src="https://via.placeholder.com/100"
+>
+
+<p class="user-name" id="profileName">
+Guest
+</p>
+
+<input
+id="nameInput"
+type="text"
+placeholder="Enter your name"
+>
+
+<input
+id="avatarInput"
+type="file"
+accept="image/*"
+onchange="previewAvatar(event)"
+>
+
+<button class="save" onclick="saveProfile()">
+SAVE PROFILE
+</button>
+
+<button class="close" onclick="closeProfile()">
+CLOSE
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+function buySkin(name,price){
+
+  const message =
+  "سلام، من می‌خوام این اسکین رو بخرم:%0A%0A"
+  + "🎮 " + name
+  + "%0A💰 Price: " + price;
+
+  window.open(
+    "https://t.me/aghojavaad?text=" + message,
+    "_blank"
+  );
+}
+
+
+function openProfile(){
+
+  document.getElementById("profileModal").style.display="flex";
+
+  document.getElementById("nameInput").value =
+  localStorage.getItem("profileName") || "";
+
+}
+
+
+function closeProfile(){
+
+  document.getElementById("profileModal").style.display="none";
+
+}
+
+
+function previewAvatar(event){
+
+  const file=event.target.files[0];
+
+  if(!file) return;
+
+  const reader=new FileReader();
+
+  reader.onload=function(e){
+
+    document.getElementById("avatarPreview").src=e.target.result;
+
+    localStorage.setItem(
+      "profileAvatar",
+      e.target.result
+    );
+
+  };
+
+  reader.readAsDataURL(file);
+
+}
+
+
+function saveProfile(){
+
+  const name=
+  document.getElementById("nameInput").value || "Guest";
+
+  localStorage.setItem(
+    "profileName",
+    name
+  );
+
+  document.getElementById("profileName").innerText=name;
+
+  document.getElementById("profileModal").style.display="none";
+
+}
+
+
+window.onload=function(){
+
+  const savedName=
+  localStorage.getItem("profileName");
+
+  const savedAvatar=
+  localStorage.getItem("profileAvatar");
+
+  if(savedName){
+
+    document.getElementById("profileName").innerText=
+    savedName;
+
+  }
+
+  if(savedAvatar){
+
+    document.getElementById("avatarPreview").src=
+    savedAvatar;
+
+  }
+
+}
+
+</script>
 
 </body>
 </html>
