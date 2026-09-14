@@ -2,154 +2,213 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AGHO CS2 SHOP</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CSGOSHOP | CS2 SKINS</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Vazirmatn',sans-serif;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-    background:
-      radial-gradient(circle at 85% 10%,rgba(220,0,35,.16),transparent 25%),
-      radial-gradient(circle at 10% 80%,rgba(220,0,35,.08),transparent 25%),
-      #070707;
+    font-family:Vazirmatn,sans-serif;
+    background:#050505;
     color:#fff;
-    min-height:100vh;
+    overflow-x:hidden;
 }
+
+/* ================= BACKGROUND ================= */
 
 body:before{
     content:"";
     position:fixed;
     inset:0;
-    pointer-events:none;
-    background:linear-gradient(120deg,transparent 45%,rgba(255,0,40,.025) 50%,transparent 55%);
+    z-index:-5;
+    background:
+    radial-gradient(circle at 75% 20%,rgba(255,0,45,.20),transparent 28%),
+    radial-gradient(circle at 10% 80%,rgba(255,0,45,.12),transparent 30%),
+    #050505;
 }
 
-/* HEADER */
+body:after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    opacity:.12;
+    background-image:
+    linear-gradient(rgba(255,0,40,.25) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,0,40,.25) 1px,transparent 1px);
+    background-size:50px 50px;
+    mask-image:linear-gradient(to bottom,black,transparent);
+}
+
+/* PARTICLES */
+
+.particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.particle{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:#ff1744;
+    border-radius:50%;
+    box-shadow:0 0 10px #ff1744;
+    animation:float 5s infinite ease-in-out;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);opacity:.2}
+    50%{transform:translateY(-80px);opacity:1}
+}
+
+/* ================= HEADER ================= */
+
 header{
-    height:82px;
+    height:78px;
+    position:sticky;
+    top:0;
+    z-index:1000;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 5%;
-    border-bottom:1px solid rgba(255,255,255,.07);
-    background:rgba(7,7,7,.82);
-    backdrop-filter:blur(18px);
-    position:sticky;
-    top:0;
-    z-index:100;
+    padding:0 4%;
+    background:rgba(4,4,4,.88);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,0,45,.35);
 }
 
 .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
     font-size:25px;
     font-weight:900;
-    letter-spacing:1px;
+    direction:ltr;
 }
 
 .logo span{
     color:#ff123f;
-    text-shadow:0 0 20px rgba(255,0,50,.5);
+    text-shadow:0 0 20px rgba(255,0,50,.8);
+}
+
+.logo-agent{
+    color:#e90035;
+    font-size:34px;
+    animation:agentPulse 2s infinite;
+}
+
+@keyframes agentPulse{
+    0%,100%{filter:drop-shadow(0 0 3px #ff003c)}
+    50%{filter:drop-shadow(0 0 15px #ff003c)}
 }
 
 .nav{
     display:flex;
-    gap:28px;
+    gap:35px;
 }
 
 .nav a{
     color:#aaa;
     text-decoration:none;
+    font-size:13px;
     transition:.3s;
 }
 
 .nav a:hover{
-    color:#fff;
+    color:#ff1744;
 }
 
-.profile{
+.profile-btn{
     display:flex;
     align-items:center;
-    gap:12px;
-    padding:9px 14px;
-    border:1px solid rgba(255,255,255,.08);
-    background:#111;
-    border-radius:14px;
+    gap:10px;
+    padding:7px 13px;
+    background:#101010;
+    border:1px solid #292929;
+    border-radius:13px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.profile-btn:hover{
+    border-color:#ff1744;
+    box-shadow:0 0 25px rgba(255,0,50,.15);
 }
 
 .avatar{
-    width:38px;
-    height:38px;
+    width:39px;
+    height:39px;
+    border-radius:50%;
     display:grid;
     place-items:center;
-    border-radius:50%;
-    background:linear-gradient(135deg,#ff1744,#72001a);
+    background:linear-gradient(135deg,#ff1744,#72001d);
     font-weight:900;
 }
 
-.profile small{
-    color:#777;
+.profile-text small{
     display:block;
-    font-size:10px;
+    color:#666;
+    font-size:9px;
 }
 
-.profile strong{
-    font-size:13px;
+.profile-text strong{
+    font-size:12px;
 }
 
-/* HERO */
+/* ================= HERO ================= */
+
 .hero{
-    width:90%;
-    max-width:1250px;
-    margin:55px auto 35px;
-    min-height:330px;
-    border:1px solid rgba(255,255,255,.07);
-    border-radius:28px;
-    padding:55px;
-    overflow:hidden;
+    width:92%;
+    max-width:1400px;
+    height:390px;
+    margin:35px auto;
     position:relative;
+    overflow:hidden;
+    border:1px solid rgba(255,0,45,.45);
+    border-radius:25px;
     background:
-      linear-gradient(90deg,rgba(0,0,0,.96),rgba(0,0,0,.72)),
-      url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1800&q=80")
-      center/cover;
+    linear-gradient(90deg,#050505 0%,rgba(5,5,5,.85) 30%,rgba(5,5,5,.2)),
+    url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=2000&q=85")
+    center/cover;
 }
 
 .hero:after{
     content:"";
     position:absolute;
-    width:400px;
-    height:400px;
-    right:-150px;
-    top:-180px;
-    background:#e40035;
-    filter:blur(150px);
-    opacity:.25;
+    width:500px;
+    height:500px;
+    right:30%;
+    top:-150px;
+    background:#ff003c;
+    filter:blur(180px);
+    opacity:.22;
 }
 
 .hero-content{
-    position:relative;
+    position:absolute;
     z-index:2;
-    max-width:650px;
+    top:70px;
+    right:55px;
+    max-width:600px;
 }
 
 .badge{
-    display:inline-block;
-    background:rgba(255,0,50,.12);
-    border:1px solid rgba(255,0,50,.3);
-    color:#ff355b;
-    border-radius:30px;
+    color:#ff1744;
+    border:1px solid #ff1744;
+    background:rgba(255,0,45,.08);
     padding:7px 15px;
-    font-size:12px;
-    margin-bottom:20px;
+    border-radius:30px;
+    font-size:11px;
 }
 
 .hero h1{
+    margin-top:22px;
     font-size:clamp(35px,5vw,65px);
     line-height:1.1;
     font-weight:900;
@@ -157,318 +216,497 @@ header{
 
 .hero h1 span{
     color:#ff1744;
+    text-shadow:0 0 30px rgba(255,0,50,.45);
 }
 
 .hero p{
-    color:#aaa;
     margin-top:18px;
+    color:#aaa;
     line-height:2;
+    font-size:14px;
 }
 
 .telegram{
     display:inline-flex;
-    margin-top:25px;
-    padding:13px 22px;
-    border-radius:13px;
-    color:white;
+    margin-top:22px;
+    padding:12px 20px;
+    border-radius:12px;
     text-decoration:none;
-    background:linear-gradient(135deg,#ff1744,#b00029);
-    box-shadow:0 10px 35px rgba(255,0,50,.18);
+    color:#fff;
+    background:linear-gradient(135deg,#ff1744,#a9002c);
+    box-shadow:0 10px 30px rgba(255,0,50,.18);
     transition:.3s;
 }
 
 .telegram:hover{
-    transform:translateY(-3px);
+    transform:translateY(-4px);
     box-shadow:0 15px 40px rgba(255,0,50,.35);
 }
 
-/* SHOP */
+/* ================= SHOP ================= */
+
 .shop{
-    width:90%;
-    max-width:1250px;
+    width:92%;
+    max-width:1400px;
     margin:auto;
 }
 
-.shop-top{
+.shop-header{
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    margin-bottom:25px;
+    justify-content:space-between;
+    margin-bottom:22px;
 }
 
-.shop-top h2{
-    font-size:27px;
+.shop-title{
+    font-size:28px;
+    font-weight:900;
 }
 
-.shop-top h2 span{
+.shop-title span{
     color:#ff1744;
 }
 
 .search{
-    width:270px;
-    background:#101010;
+    width:280px;
+    padding:13px 18px;
+    color:#fff;
+    background:#0d0d0d;
     border:1px solid #242424;
     border-radius:12px;
-    padding:13px 17px;
-    color:#fff;
     outline:none;
+    transition:.3s;
 }
 
 .search:focus{
-    border-color:#e90039;
+    border-color:#ff1744;
+    box-shadow:0 0 20px rgba(255,0,50,.1);
 }
 
-/* CARDS */
-.grid{
+/* ================= PRODUCTS ================= */
+
+.products{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:18px;
-    padding-bottom:70px;
+    gap:20px;
+    padding-bottom:80px;
 }
 
 .card{
     position:relative;
+    padding:12px;
+    background:linear-gradient(145deg,#121212,#080808);
+    border:1px solid #242424;
+    border-radius:18px;
     overflow:hidden;
-    border:1px solid rgba(255,255,255,.07);
-    background:linear-gradient(145deg,#121212,#0b0b0b);
-    border-radius:19px;
-    padding:13px;
-    transition:.35s;
+    transition:.4s;
+    animation:cardIn .7s ease both;
+}
+
+.card:before{
+    content:"";
+    position:absolute;
+    inset:-100%;
+    background:linear-gradient(
+        120deg,
+        transparent 40%,
+        rgba(255,0,45,.13),
+        transparent 60%
+    );
+    transform:rotate(20deg);
+    transition:.7s;
+}
+
+.card:hover:before{
+    inset:100%;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(255,0,55,.45);
-    box-shadow:0 20px 50px rgba(0,0,0,.55),0 0 35px rgba(255,0,55,.08);
+    transform:translateY(-9px);
+    border-color:#ff1744;
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.7),
+    0 0 30px rgba(255,0,50,.12);
 }
 
-.card-img{
+@keyframes cardIn{
+    from{opacity:0;transform:translateY(25px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.weapon-img{
     height:190px;
+    position:relative;
     border-radius:13px;
-    background:
-      radial-gradient(circle,rgba(255,0,50,.15),transparent 65%),
-      #080808;
     display:flex;
     align-items:center;
     justify-content:center;
+    background:
+    radial-gradient(circle,rgba(255,0,50,.15),transparent 65%),
+    #070707;
     overflow:hidden;
 }
 
-.card-img img{
+.weapon-img:after{
+    content:"";
+    position:absolute;
+    width:150%;
+    height:1px;
+    background:#ff1744;
+    box-shadow:0 0 20px #ff1744;
+    transform:rotate(-30deg);
+    animation:scan 4s linear infinite;
+    opacity:.4;
+}
+
+@keyframes scan{
+    from{transform:translateY(-150px) rotate(-30deg)}
+    to{transform:translateY(250px) rotate(-30deg)}
+}
+
+.weapon-img img{
     width:95%;
     height:95%;
     object-fit:contain;
-    transition:.4s;
-    filter:drop-shadow(0 12px 18px rgba(0,0,0,.8));
+    filter:drop-shadow(0 15px 15px #000);
+    transition:.5s;
+    z-index:2;
 }
 
-.card:hover .card-img img{
-    transform:scale(1.08) rotate(-2deg);
+.card:hover img{
+    transform:scale(1.1) rotate(-2deg);
 }
 
-.tag{
+.new{
     position:absolute;
-    top:22px;
-    right:22px;
+    top:20px;
+    right:20px;
+    z-index:5;
     background:#ff1744;
-    padding:5px 9px;
-    border-radius:7px;
-    font-size:10px;
-    font-weight:800;
+    padding:4px 9px;
+    border-radius:6px;
+    font-size:9px;
+    font-weight:900;
 }
 
 .card h3{
     margin:15px 3px 4px;
-    font-size:15px;
+    font-size:14px;
+    direction:ltr;
+    text-align:right;
 }
 
 .condition{
     color:#777;
-    font-size:11px;
+    font-size:10px;
 }
 
-.bottom{
+.card-bottom{
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    margin-top:15px;
+    justify-content:space-between;
+    margin-top:14px;
 }
 
 .price{
     color:#ff1744;
-    font-size:18px;
+    font-size:21px;
     font-weight:900;
 }
 
-.buy{
-    border:none;
-    cursor:pointer;
+.view{
     color:#fff;
-    background:#191919;
-    border:1px solid #303030;
-    padding:9px 13px;
-    border-radius:9px;
+    border:1px solid #333;
+    background:#151515;
+    padding:8px 13px;
+    border-radius:8px;
+    cursor:pointer;
     transition:.3s;
 }
 
-.buy:hover{
+.view:hover{
     background:#ff1744;
     border-color:#ff1744;
 }
 
-/* MODAL */
-.modal{
+/* ================= PROFILE MODAL ================= */
+
+.overlay{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.78);
-    backdrop-filter:blur(10px);
+    z-index:5000;
     display:none;
     align-items:center;
     justify-content:center;
-    z-index:999;
     padding:20px;
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(12px);
 }
 
-.modal.active{
+.overlay.active{
     display:flex;
 }
 
-.modal-box{
+.modal{
     width:100%;
-    max-width:850px;
-    background:#0d0d0d;
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:25px;
-    padding:22px;
-    box-shadow:0 30px 100px #000;
+    max-width:470px;
     position:relative;
-    animation:show .3s ease;
+    background:#0c0c0c;
+    border:1px solid #ff1744;
+    border-radius:23px;
+    padding:28px;
+    box-shadow:
+    0 30px 100px #000,
+    0 0 60px rgba(255,0,50,.12);
+    animation:modalIn .3s ease;
 }
 
-@keyframes show{
-    from{transform:scale(.92);opacity:0}
-    to{transform:scale(1);opacity:1}
+@keyframes modalIn{
+    from{opacity:0;transform:scale(.88) translateY(20px)}
+    to{opacity:1;transform:scale(1) translateY(0)}
 }
 
 .close{
     position:absolute;
-    left:20px;
-    top:18px;
-    width:35px;
-    height:35px;
+    left:17px;
+    top:17px;
+    width:32px;
+    height:32px;
     border:0;
     border-radius:50%;
-    background:#1b1b1b;
+    background:#191919;
     color:#fff;
     cursor:pointer;
     font-size:18px;
 }
 
-.modal-content{
+.modal-icon{
+    width:70px;
+    height:70px;
+    margin:auto;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff1744,#650018);
+    font-size:30px;
+    box-shadow:0 0 30px rgba(255,0,50,.3);
+}
+
+.modal h2{
+    text-align:center;
+    margin-top:15px;
+}
+
+.modal-desc{
+    text-align:center;
+    color:#777;
+    font-size:11px;
+    margin-top:7px;
+}
+
+.input{
+    width:100%;
+    margin-top:17px;
+    padding:14px;
+    color:#fff;
+    background:#111;
+    border:1px solid #292929;
+    border-radius:11px;
+    outline:none;
+    direction:ltr;
+    text-align:left;
+}
+
+.input:focus{
+    border-color:#ff1744;
+}
+
+.save{
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    border:0;
+    border-radius:11px;
+    color:#fff;
+    background:linear-gradient(135deg,#ff1744,#a6002a);
+    cursor:pointer;
+    font-weight:800;
+    transition:.3s;
+}
+
+.save:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px rgba(255,0,50,.25);
+}
+
+.status{
+    margin-top:18px;
+    padding:13px;
+    border-radius:11px;
+    background:#111;
+    font-size:11px;
+    color:#777;
+}
+
+.status.ok{
+    color:#27e49b;
+    border:1px solid rgba(39,228,155,.2);
+}
+
+.status.no{
+    color:#ff1744;
+    border:1px solid rgba(255,0,50,.2);
+}
+
+/* ================= PRODUCT MODAL ================= */
+
+.product-modal{
+    max-width:850px;
+}
+
+.product-detail{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:30px;
+    gap:25px;
     align-items:center;
 }
 
-.modal-img{
-    height:360px;
-    background:radial-gradient(circle,rgba(255,0,50,.16),transparent 65%),#080808;
-    border-radius:18px;
+.big-img{
+    height:350px;
+    background:
+    radial-gradient(circle,rgba(255,0,50,.15),transparent 65%),
+    #070707;
+    border-radius:17px;
     display:flex;
     align-items:center;
     justify-content:center;
 }
 
-.modal-img img{
+.big-img img{
     width:95%;
     height:95%;
     object-fit:contain;
 }
 
-.details h2{
-    font-size:29px;
-    margin-bottom:12px;
+.detail h2{
+    direction:ltr;
+    text-align:right;
+    font-size:25px;
 }
 
-.details .line{
-    border-bottom:1px solid #202020;
-    padding:13px 0;
+.info{
     display:flex;
     justify-content:space-between;
-    color:#aaa;
+    padding:14px 0;
+    border-bottom:1px solid #222;
+    color:#777;
 }
 
-.details .line b{
+.info b{
     color:#fff;
 }
 
-.modal-price{
-    color:#ff1744!important;
-    font-size:24px;
-    font-weight:900;
-}
-
-.order{
+.buy{
     width:100%;
-    margin-top:22px;
+    margin-top:20px;
     padding:15px;
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
+    border:0;
+    border-radius:11px;
     color:#fff;
-    font-size:15px;
-    font-weight:800;
-    background:linear-gradient(135deg,#ff1744,#a90028);
-    box-shadow:0 10px 30px rgba(255,0,50,.2);
+    background:linear-gradient(135deg,#ff1744,#a7002a);
+    cursor:pointer;
+    font-weight:900;
+    font-size:14px;
+    transition:.3s;
 }
 
-/* FOOTER */
-footer{
-    border-top:1px solid #181818;
-    text-align:center;
-    padding:30px;
-    color:#555;
+.buy:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(255,0,50,.3);
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translate(-50%,120px);
+    background:#111;
+    border:1px solid #ff1744;
+    padding:13px 22px;
+    border-radius:12px;
+    z-index:10000;
+    opacity:0;
+    transition:.4s;
+    box-shadow:0 10px 40px #000;
     font-size:12px;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid #222;
+    padding:30px;
+    text-align:center;
+    color:#555;
+    font-size:11px;
 }
 
 footer span{
     color:#ff1744;
 }
 
-/* MOBILE */
-@media(max-width:950px){
-    .grid{
+/* ================= MOBILE ================= */
+
+@media(max-width:1000px){
+    .products{
         grid-template-columns:repeat(2,1fr);
     }
 
     .nav{
         display:none;
     }
-
-    .hero{
-        padding:35px 25px;
-    }
 }
 
 @media(max-width:600px){
+
     header{
-        padding:0 4%;
-    }
-
-    .profile{
-        padding:6px;
-    }
-
-    .profile div:last-child{
-        display:none;
+        height:70px;
     }
 
     .logo{
-        font-size:20px;
+        font-size:18px;
     }
 
-    .shop-top{
+    .logo-agent{
+        font-size:25px;
+    }
+
+    .profile-text{
+        display:none;
+    }
+
+    .hero{
+        height:350px;
+        margin-top:20px;
+    }
+
+    .hero-content{
+        right:25px;
+        top:55px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .shop-header{
         flex-direction:column;
         align-items:stretch;
         gap:15px;
@@ -478,43 +716,37 @@ footer span{
         width:100%;
     }
 
-    .grid{
-        grid-template-columns:1fr 1fr;
+    .products{
         gap:10px;
     }
 
-    .card{
-        padding:9px;
-    }
-
-    .card-img{
+    .weapon-img{
         height:135px;
     }
 
+    .card{
+        padding:8px;
+    }
+
     .card h3{
-        font-size:12px;
+        font-size:11px;
     }
 
     .price{
-        font-size:14px;
+        font-size:16px;
     }
 
-    .buy{
-        font-size:10px;
+    .view{
         padding:7px;
+        font-size:9px;
     }
 
-    .modal-content{
+    .product-detail{
         grid-template-columns:1fr;
-        gap:15px;
     }
 
-    .modal-img{
+    .big-img{
         height:220px;
-    }
-
-    .details h2{
-        font-size:22px;
     }
 }
 </style>
@@ -522,110 +754,190 @@ footer span{
 
 <body>
 
+<!-- PARTICLES -->
+<div class="particles" id="particles"></div>
+
+<!-- HEADER -->
 <header>
-    <div class="logo">AGHO <span>CS2</span> SHOP</div>
+
+    <div class="logo">
+        <span class="logo-agent">☠</span>
+        <span>CSGO</span>SHOP
+    </div>
 
     <nav class="nav">
         <a href="#">خانه</a>
-        <a href="#shop">اسکین‌ها</a>
-        <a href="#contact">ارتباط با ما</a>
+        <a href="#shop">فروشگاه</a>
+        <a href="#">اسکین‌ها</a>
+        <a href="#contact">پشتیبانی</a>
     </nav>
 
-    <div class="profile">
-        <div class="avatar">A</div>
-        <div>
-            <small>پروفایل</small>
-            <strong>ورود / ثبت‌نام</strong>
+    <div class="profile-btn" onclick="openProfile()">
+
+        <div class="avatar" id="avatar">
+            A
         </div>
+
+        <div class="profile-text">
+            <small>حساب کاربری</small>
+            <strong id="profileName">ورود / ثبت‌نام</strong>
+        </div>
+
     </div>
+
 </header>
 
+
+<!-- HERO -->
 <section class="hero">
+
     <div class="hero-content">
-        <span class="badge">CS2 SKIN MARKET</span>
+
+        <span class="badge">COUNTER STRIKE 2 MARKET</span>
 
         <h1>
-            اسکین مورد علاقه‌ات<br>
-            <span>اینجاست.</span>
+            CS2<br>
+            <span>SKINS SHOP</span>
         </h1>
 
         <p>
-            خرید و فروش اسکین‌های Counter-Strike 2
-            با طراحی مدرن و تجربه‌ای سریع و ساده.
+            اسکین‌های خاص، قیمت مناسب و خرید سریع.
+            برای مشاهده و خرید اسکین‌های موجود وارد حساب خود شوید.
         </p>
 
-        <a class="telegram" href="https://t.me/aghojavaad" target="_blank">
+        <a href="https://t.me/aghojavaad"
+           target="_blank"
+           class="telegram">
             💬 پشتیبانی تلگرام @aghojavaad
         </a>
+
     </div>
+
 </section>
 
+
+<!-- SHOP -->
 <section class="shop" id="shop">
 
-    <div class="shop-top">
-        <h2>آخرین <span>اسکین‌ها</span></h2>
+    <div class="shop-header">
+
+        <div class="shop-title">
+            آخرین <span>اسکین‌ها</span>
+        </div>
 
         <input
             class="search"
             id="search"
-            type="text"
-            placeholder="🔎 جستجوی گان..."
+            placeholder="🔎 جستجوی اسکین..."
         >
+
     </div>
 
-    <div class="grid" id="products"></div>
+    <div class="products" id="products"></div>
 
 </section>
 
+
 <footer id="contact">
-    AGHO CS2 SHOP — تمامی حقوق محفوظ است
+    CSGOSHOP © 2026
     <br><br>
-    Telegram: <span>@aghojavaad</span>
+    Telegram:
+    <span>@aghojavaad</span>
 </footer>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-    <div class="modal-box">
 
-        <button class="close" onclick="closeModal()">×</button>
+<!-- ================= PROFILE ================= -->
 
-        <div class="modal-content">
+<div class="overlay" id="profileOverlay">
 
-            <div class="modal-img">
-                <img id="modalImage" src="">
+    <div class="modal">
+
+        <button class="close" onclick="closeProfile()">×</button>
+
+        <div class="modal-icon">👤</div>
+
+        <h2>حساب کاربری</h2>
+
+        <p class="modal-desc">
+            برای خرید اسکین ابتدا پروفایل خود را تکمیل کنید.
+        </p>
+
+        <input
+            class="input"
+            id="phone"
+            type="tel"
+            placeholder="09123456789"
+            maxlength="15"
+        >
+
+        <input
+            class="input"
+            id="username"
+            type="text"
+            placeholder="نام کاربری"
+            maxlength="30"
+        >
+
+        <button class="save" onclick="saveProfile()">
+            ✓ تکمیل پروفایل
+        </button>
+
+        <div class="status no" id="profileStatus">
+            🔒 پروفایل شما تکمیل نشده است.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= PRODUCT ================= -->
+
+<div class="overlay" id="productOverlay">
+
+    <div class="modal product-modal">
+
+        <button class="close" onclick="closeProduct()">×</button>
+
+        <div class="product-detail">
+
+            <div class="big-img">
+                <img id="bigImage">
             </div>
 
-            <div class="details">
-                <h2 id="modalName"></h2>
+            <div class="detail">
 
-                <div class="line">
+                <h2 id="bigName"></h2>
+
+                <div class="info">
                     <span>وضعیت</span>
-                    <b id="modalCondition"></b>
+                    <b id="bigCondition"></b>
                 </div>
 
-                <div class="line">
+                <div class="info">
                     <span>قیمت</span>
-                    <b class="modal-price" id="modalPrice"></b>
+                    <b id="bigPrice" style="color:#ff1744;font-size:23px"></b>
                 </div>
 
-                <button class="order" onclick="orderProduct()">
-                    🛒 ثبت سفارش
+                <button class="buy" onclick="buyProduct()">
+                    🛒 خرید این اسکین
                 </button>
 
-                <a
-                    class="telegram"
-                    style="width:100%;justify-content:center"
-                    href="https://t.me/aghojavaad"
-                    target="_blank">
-                    💬 سفارش در تلگرام
-                </a>
             </div>
 
         </div>
+
     </div>
+
 </div>
 
+
+<div class="toast" id="toast"></div>
+
+
 <script>
+
+/* ================= PRODUCTS ================= */
 
 const products = [
 
@@ -659,99 +971,341 @@ const products = [
 
 ];
 
-const productsContainer = document.getElementById("products");
-const search = document.getElementById("search");
 
-function renderProducts(list){
+/* ================= PARTICLES ================= */
 
-    productsContainer.innerHTML = "";
+const particleBox=document.getElementById("particles");
 
-    list.forEach((product,index)=>{
+for(let i=0;i<35;i++){
 
-        const card = document.createElement("div");
-        card.className = "card";
+    const p=document.createElement("div");
 
-        card.innerHTML = `
-            <span class="tag">CS2</span>
+    p.className="particle";
 
-            <div class="card-img">
-                <img src="${product.image}" alt="${product.name}">
+    p.style.left=Math.random()*100+"%";
+    p.style.top=Math.random()*100+"%";
+    p.style.animationDelay=Math.random()*5+"s";
+    p.style.animationDuration=(3+Math.random()*5)+"s";
+
+    particleBox.appendChild(p);
+}
+
+
+/* ================= RENDER ================= */
+
+const productsBox=document.getElementById("products");
+
+function render(list){
+
+    productsBox.innerHTML="";
+
+    list.forEach((item,index)=>{
+
+        const card=document.createElement("div");
+
+        card.className="card";
+
+        card.innerHTML=`
+
+            <span class="new">CS2</span>
+
+            <div class="weapon-img">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                >
+
             </div>
 
-            <h3>${product.name}</h3>
+            <h3>${item.name}</h3>
 
             <div class="condition">
-                ${product.condition}
+                ● ${item.condition}
             </div>
 
-            <div class="bottom">
-                <div class="price">${product.price}</div>
+            <div class="card-bottom">
 
-                <button class="buy" onclick="openModal(${index})">
-                    مشاهده
+                <div class="price">
+                    ${item.price}
+                </div>
+
+                <button
+                    class="view"
+                    onclick="openProduct(${index})">
+                    مشاهده جزئیات
                 </button>
+
             </div>
+
         `;
 
-        productsContainer.appendChild(card);
+        productsBox.appendChild(card);
+
     });
 }
 
-renderProducts(products);
+render(products);
 
-search.addEventListener("input",()=>{
 
-    const value = search.value.toLowerCase();
+/* ================= SEARCH ================= */
 
-    const filtered = products.filter(product =>
-        product.name.toLowerCase().includes(value) ||
-        product.condition.toLowerCase().includes(value)
+document.getElementById("search")
+.addEventListener("input",function(){
+
+    const value=this.value.toLowerCase();
+
+    render(
+        products.filter(x =>
+            x.name.toLowerCase().includes(value) ||
+            x.condition.toLowerCase().includes(value)
+        )
     );
 
-    renderProducts(filtered);
 });
 
-let selectedProduct = null;
 
-function openModal(index){
+/* ================= PROFILE ================= */
 
-    selectedProduct = products[index];
+let userProfile =
+JSON.parse(localStorage.getItem("csgoshop_profile")) || null;
 
-    document.getElementById("modalImage").src = selectedProduct.image;
-    document.getElementById("modalName").innerText = selectedProduct.name;
-    document.getElementById("modalCondition").innerText = selectedProduct.condition;
-    document.getElementById("modalPrice").innerText = selectedProduct.price;
 
-    document.getElementById("modal").classList.add("active");
-}
+function updateProfile(){
 
-function closeModal(){
-    document.getElementById("modal").classList.remove("active");
-}
+    const name=document.getElementById("profileName");
+    const avatar=document.getElementById("avatar");
 
-function orderProduct(){
+    if(userProfile){
 
-    if(!selectedProduct) return;
+        name.innerText=userProfile.username || "کاربر";
 
-    const message =
-        "سلام، برای خرید این اسکین پیام میدم:%0A%0A" +
-        "🎮 " + selectedProduct.name +
-        "%0A📦 " + selectedProduct.condition +
-        "%0A💰 " + selectedProduct.price;
+        avatar.innerText=
+        (userProfile.username || "A")
+        .charAt(0)
+        .toUpperCase();
 
-    window.open(
-        "https://t.me/aghojavaad?text=" + message,
-        "_blank"
-    );
-}
+    }else{
 
-document.getElementById("modal").addEventListener("click",(e)=>{
+        name.innerText="ورود / ثبت‌نام";
+        avatar.innerText="A";
 
-    if(e.target.id === "modal"){
-        closeModal();
     }
 
+}
+
+
+function openProfile(){
+
+    document.getElementById("profileOverlay")
+    .classList.add("active");
+
+    if(userProfile){
+
+        document.getElementById("phone").value=
+        userProfile.phone || "";
+
+        document.getElementById("username").value=
+        userProfile.username || "";
+
+        document.getElementById("profileStatus").className=
+        "status ok";
+
+        document.getElementById("profileStatus").innerText=
+        "✓ پروفایل شما تکمیل شده است.";
+
+    }
+
+}
+
+
+function closeProfile(){
+
+    document.getElementById("profileOverlay")
+    .classList.remove("active");
+
+}
+
+
+function saveProfile(){
+
+    const phone=
+    document.getElementById("phone").value.trim();
+
+    const username=
+    document.getElementById("username").value.trim();
+
+
+    /* PHONE VALIDATION */
+
+    const phoneRegex=/^(09|\+989)\d{9}$/;
+
+    if(!phoneRegex.test(phone)){
+
+        showToast("❌ شماره موبایل معتبر وارد کنید.");
+
+        return;
+    }
+
+
+    if(username.length < 3){
+
+        showToast("❌ نام کاربری حداقل ۳ حرف باشد.");
+
+        return;
+    }
+
+
+    userProfile={
+        phone:phone,
+        username:username
+    };
+
+
+    localStorage.setItem(
+        "csgoshop_profile",
+        JSON.stringify(userProfile)
+    );
+
+
+    updateProfile();
+
+
+    document.getElementById("profileStatus")
+    .className="status ok";
+
+    document.getElementById("profileStatus")
+    .innerText=
+    "✓ پروفایل تکمیل شد؛ اکنون می‌توانید خرید کنید.";
+
+    showToast("✓ پروفایل با موفقیت تکمیل شد.");
+
+}
+
+
+/* ================= PRODUCT ================= */
+
+let selectedProduct=null;
+
+
+function openProduct(index){
+
+    selectedProduct=products[index];
+
+    document.getElementById("bigImage").src=
+    selectedProduct.image;
+
+    document.getElementById("bigName").innerText=
+    selectedProduct.name;
+
+    document.getElementById("bigCondition").innerText=
+    selectedProduct.condition;
+
+    document.getElementById("bigPrice").innerText=
+    selectedProduct.price;
+
+    document.getElementById("productOverlay")
+    .classList.add("active");
+
+}
+
+
+function closeProduct(){
+
+    document.getElementById("productOverlay")
+    .classList.remove("active");
+
+}
+
+
+/* ================= PURCHASE LOCK ================= */
+
+function buyProduct(){
+
+    /*
+       اگر پروفایل کامل نباشد،
+       اجازه خرید داده نمی‌شود.
+    */
+
+    if(!userProfile){
+
+        closeProduct();
+
+        showToast(
+            "🔒 برای خرید ابتدا پروفایل خود را تکمیل کنید."
+        );
+
+        setTimeout(()=>{
+
+            openProfile();
+
+        },500);
+
+        return;
+    }
+
+
+    /*
+       در اینجا بعداً لینک زرین‌پال
+       قرار می‌گیرد.
+    */
+
+    const message =
+    "سلام، برای خرید اسکین پیام میدم:%0A%0A" +
+    "🎮 " + selectedProduct.name +
+    "%0A📦 " + selectedProduct.condition +
+    "%0A💰 " + selectedProduct.price +
+    "%0A📱 شماره: " + userProfile.phone;
+
+
+    window.open(
+        "https://t.me/aghojavaad?text="+message,
+        "_blank"
+    );
+
+}
+
+
+/* ================= TOAST ================= */
+
+function showToast(text){
+
+    const toast=document.getElementById("toast");
+
+    toast.innerText=text;
+
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+        toast.classList.remove("show");
+    },3000);
+
+}
+
+
+/* ================= CLOSE ON BACKDROP ================= */
+
+document.getElementById("profileOverlay")
+.addEventListener("click",function(e){
+
+    if(e.target===this)
+        closeProfile();
+
 });
+
+
+document.getElementById("productOverlay")
+.addEventListener("click",function(e){
+
+    if(e.target===this)
+        closeProduct();
+
+});
+
+
+/* ================= INITIAL ================= */
+
+updateProfile();
 
 </script>
 
