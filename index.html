@@ -1976,3 +1976,117 @@ renderProducts(products);
 
 </body>
 </html>
+<style>
+/* ===== CS2 SHOP FINAL VISUAL FIX ===== */
+
+/* نایف بالا سمت راست */
+.profile-button::before,
+.profile-btn::before {
+  content: "🔪";
+  font-size: 22px;
+  margin-right: 6px;
+  filter: drop-shadow(0 0 7px rgba(255, 0, 40, .7));
+}
+
+/* عکس تمام گان‌ها */
+.product-card img,
+.skin-card img,
+.product-image img,
+.weapon-image img,
+.card img {
+  width: 100% !important;
+  height: 220px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+  image-rendering: auto !important;
+  background: transparent !important;
+}
+
+/* کادر عکس */
+.product-image,
+.weapon-image,
+.product-card .image,
+.skin-card .image {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+/* قیمت زیر کارت‌ها مخفی */
+.product-card .price,
+.skin-card .price,
+.product-card .product-price,
+.skin-card .product-price,
+.product-card [class*="price"],
+.skin-card [class*="price"] {
+  display: none !important;
+}
+
+/* دکمه خرید */
+.product-card button,
+.skin-card button,
+.buy-button {
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.product-card button:hover,
+.skin-card button:hover,
+.buy-button:hover {
+  transform: translateY(-2px);
+}
+</style>
+
+<script>
+/* ===== TELEGRAM BUY ===== */
+
+const TELEGRAM_USERNAME = "aghojavaad";
+
+function goToTelegram(name, price, wear) {
+  const message =
+    "سلام، برای خرید این اسکین پیام میدم:%0A%0A" +
+    "🔫 Skin: " + encodeURIComponent(name) +
+    "%0A💰 Price: " + encodeURIComponent(price) +
+    "%0A📦 Wear: " + encodeURIComponent(wear || "نامشخص");
+
+  window.location.href =
+    "https://t.me/" + TELEGRAM_USERNAME + "?text=" + message;
+}
+
+/* هر دکمه‌ای که متن خرید داشته باشد */
+document.addEventListener("click", function(e) {
+
+  const btn = e.target.closest(
+    ".buy-button, .buy-btn, .purchase-btn, [data-buy]"
+  );
+
+  if (!btn) return;
+
+  const card = btn.closest(
+    ".product-card, .skin-card, .product"
+  );
+
+  if (!card) return;
+
+  const name =
+    card.dataset.name ||
+    card.querySelector(".product-name, .skin-name, h3, h2")?.textContent?.trim() ||
+    "CS2 Skin";
+
+  const price =
+    card.dataset.price ||
+    card.querySelector(".price, .product-price")?.textContent?.trim() ||
+    "";
+
+  const wear =
+    card.dataset.wear ||
+    card.querySelector(".wear, .condition")?.textContent?.trim() ||
+    "";
+
+  e.preventDefault();
+
+  goToTelegram(name, price, wear);
+}, true);
+</script>
