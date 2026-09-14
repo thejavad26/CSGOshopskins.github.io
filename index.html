@@ -1,237 +1,595 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CS2 Shop Skins</title>
+<title>CS2 SHOP</title>
 
 <style>
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-  background:#070707;
-  color:white;
-  font-family:Arial,sans-serif;
+    background:#070707;
+    color:#fff;
+    font-family:Arial,Tahoma,sans-serif;
+    min-height:100vh;
 }
 
+/* HEADER */
+
 header{
-  height:75px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 25px;
-  background:linear-gradient(90deg,#050505,#210000,#050505);
-  border-bottom:2px solid #e00000;
-  position:sticky;
-  top:0;
-  z-index:100;
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    height:75px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 20px;
+
+    background:
+    linear-gradient(90deg,#050505,#220000,#050505);
+
+    border-bottom:2px solid #e00000;
+
+    box-shadow:0 5px 25px rgba(0,0,0,.5);
 }
 
 .logo{
-  font-size:24px;
-  font-weight:bold;
-  color:#ff2020;
-  text-shadow:0 0 15px red;
+    color:#ff2020;
+    font-size:25px;
+    font-weight:900;
+
+    text-shadow:
+    0 0 10px rgba(255,0,0,.7),
+    0 0 25px rgba(255,0,0,.4);
 }
 
-.profile-btn{
-  background:#151515;
-  border:1px solid #ff2020;
-  color:white;
-  padding:10px 15px;
-  border-radius:10px;
-  cursor:pointer;
+/* PROFILE BUTTON */
+
+.profile-button{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    padding:7px 12px;
+
+    background:#111;
+    border:1px solid #ff2020;
+    border-radius:12px;
+
+    color:#fff;
+    cursor:pointer;
+
+    transition:.25s;
 }
 
-.profile-btn:hover{
-  background:#d60000;
+.profile-button:hover{
+    background:#c90000;
 }
+
+.header-avatar{
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid #ff2020;
+
+    background:#222;
+}
+
+/* HERO */
 
 .hero{
-  margin:25px auto;
-  max-width:1100px;
-  padding:60px 20px;
-  text-align:center;
-  border-radius:20px;
-  background:linear-gradient(135deg,#230000,#090909);
-  border:1px solid #620000;
-  box-shadow:0 0 30px rgba(255,0,0,.15);
+    max-width:1100px;
+
+    margin:25px auto;
+
+    padding:65px 20px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    background:
+    radial-gradient(circle at center,#350000,#110000 45%,#080808 80%);
+
+    border:1px solid #600000;
+
+    box-shadow:
+    0 0 40px rgba(255,0,0,.12);
 }
 
 .hero h1{
-  font-size:42px;
-  margin-bottom:12px;
+    font-size:42px;
+    font-weight:900;
+
+    margin-bottom:15px;
 }
 
 .hero h1 span{
-  color:#ff2020;
+    color:#ff2020;
+
+    text-shadow:
+    0 0 15px rgba(255,0,0,.7);
 }
 
 .hero p{
-  color:#aaa;
-  font-size:17px;
+    color:#aaa;
+    font-size:17px;
 }
+
+/* TELEGRAM */
+
+.telegram-box{
+    max-width:600px;
+
+    margin:20px auto;
+
+    padding:16px;
+
+    text-align:center;
+
+    background:#111;
+
+    border:1px solid #2d2d2d;
+
+    border-radius:14px;
+}
+
+.telegram-box strong{
+    color:#ff3030;
+}
+
+.telegram-id{
+    direction:ltr;
+
+    display:inline-block;
+
+    margin-top:8px;
+
+    color:#fff;
+
+    font-weight:bold;
+}
+
+/* PRODUCTS */
 
 .products{
-  max-width:1100px;
-  margin:auto;
-  padding:20px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:22px;
+    width:100%;
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:20px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(245px,1fr));
+
+    gap:22px;
 }
 
+/* CARD */
+
 .card{
-  background:linear-gradient(145deg,#151515,#090909);
-  border:1px solid #292929;
-  border-radius:16px;
-  padding:15px;
-  transition:.3s;
-  overflow:hidden;
+    background:
+    linear-gradient(145deg,#151515,#090909);
+
+    border:1px solid #292929;
+
+    border-radius:17px;
+
+    padding:14px;
+
+    overflow:hidden;
+
+    transition:.3s;
 }
 
 .card:hover{
-  transform:translateY(-7px);
-  border-color:#ff2020;
-  box-shadow:0 0 25px rgba(255,0,0,.25);
+    transform:translateY(-6px);
+
+    border-color:#ff2020;
+
+    box-shadow:
+    0 0 30px rgba(255,0,0,.2);
 }
 
-.card img{
-  width:100%;
-  height:175px;
-  object-fit:contain;
-  background:#050505;
-  border-radius:12px;
+/* IMAGE AREA */
+
+.image-box{
+    width:100%;
+    height:190px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    radial-gradient(circle,#1b1b1b,#050505);
+
+    border-radius:13px;
+
+    overflow:hidden;
 }
+
+.image-box img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    padding:12px;
+
+    transition:.3s;
+}
+
+.card:hover .image-box img{
+    transform:scale(1.06);
+}
+
+/* CARD TEXT */
 
 .card h2{
-  font-size:19px;
-  margin-top:15px;
+    margin-top:16px;
+
+    font-size:19px;
+
+    direction:ltr;
+    text-align:left;
 }
 
 .condition{
-  color:#888;
-  margin-top:7px;
+    color:#888;
+
+    margin-top:8px;
+
+    direction:ltr;
+    text-align:left;
 }
 
-.price{
-  color:#ff2525;
-  font-size:25px;
-  font-weight:bold;
-  margin-top:10px;
+.buy-text{
+    margin-top:14px;
+
+    padding:12px;
+
+    text-align:center;
+
+    background:#160707;
+
+    border:1px solid #420000;
+
+    border-radius:9px;
+
+    color:#ddd;
+
+    font-size:14px;
+
+    line-height:1.7;
 }
 
-.buy{
-  width:100%;
-  margin-top:14px;
-  padding:12px;
-  border:0;
-  border-radius:9px;
-  background:#d90000;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
+.buy-text strong{
+    display:block;
+
+    color:#ff3030;
+
+    direction:ltr;
 }
 
-.buy:hover{
-  background:#ff2020;
+/* BUY BUTTON */
+
+.buy-button{
+    width:100%;
+
+    margin-top:10px;
+
+    padding:12px;
+
+    border:0;
+
+    border-radius:9px;
+
+    background:#d90000;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
 }
+
+.buy-button:hover{
+    background:#ff2020;
+
+    box-shadow:
+    0 0 20px rgba(255,0,0,.4);
+}
+
+/* FOOTER */
 
 footer{
-  text-align:center;
-  padding:35px;
-  margin-top:30px;
-  border-top:1px solid #222;
-  color:#777;
+    margin-top:35px;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    color:#777;
+
+    border-top:1px solid #222;
+
+    background:#050505;
 }
 
-/* PROFILE */
+footer strong{
+    color:#ff3030;
+
+    direction:ltr;
+
+    display:inline-block;
+}
+
+/* PROFILE MODAL */
 
 .modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.8);
-  z-index:500;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+    position:fixed;
+
+    inset:0;
+
+    z-index:5000;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.85);
+
+    backdrop-filter:blur(5px);
+}
+
+.modal.show{
+    display:flex;
 }
 
 .profile-box{
-  width:100%;
-  max-width:400px;
-  background:#111;
-  border:1px solid #ff2020;
-  border-radius:18px;
-  padding:25px;
-  box-shadow:0 0 35px rgba(255,0,0,.3);
+    width:100%;
+    max-width:400px;
+
+    background:#111;
+
+    border:1px solid #ff2020;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:
+    0 0 40px rgba(255,0,0,.35);
+
+    text-align:center;
 }
 
 .profile-box h2{
-  color:#ff2020;
-  margin-bottom:20px;
-}
+    color:#ff3030;
 
-.profile-box input{
-  width:100%;
-  padding:12px;
-  margin-bottom:12px;
-  border-radius:8px;
-  border:1px solid #333;
-  background:#080808;
-  color:white;
+    margin-bottom:20px;
 }
 
 .avatar-preview{
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  object-fit:cover;
-  display:block;
-  margin:0 auto 15px;
-  border:2px solid #ff2020;
+    width:110px;
+    height:110px;
+
+    display:block;
+
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    background:#222;
+
+    border:3px solid #ff2020;
 }
 
-.save{
-  width:100%;
-  padding:12px;
-  background:#d90000;
-  color:white;
-  border:0;
-  border-radius:8px;
-  font-weight:bold;
-  cursor:pointer;
+.profile-box input[type="text"]{
+    width:100%;
+
+    padding:13px;
+
+    margin-top:10px;
+
+    background:#080808;
+
+    color:#fff;
+
+    border:1px solid #333;
+
+    border-radius:9px;
+
+    outline:none;
+
+    text-align:center;
 }
 
-.close{
-  width:100%;
-  margin-top:8px;
-  padding:10px;
-  background:#222;
-  color:white;
-  border:0;
-  border-radius:8px;
-  cursor:pointer;
+.profile-box input[type="text"]:focus{
+    border-color:#ff2020;
 }
 
-.user-name{
-  text-align:center;
-  margin-bottom:15px;
-  color:#fff;
+.file-label{
+    display:block;
+
+    margin-top:12px;
+
+    padding:12px;
+
+    background:#202020;
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    color:#ddd;
+}
+
+.file-label:hover{
+    background:#2a2a2a;
+}
+
+#avatarFile{
+    display:none;
+}
+
+.save-button{
+    width:100%;
+
+    margin-top:15px;
+
+    padding:13px;
+
+    border:0;
+
+    border-radius:9px;
+
+    background:#d90000;
+
+    color:white;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    cursor:pointer;
+}
+
+.close-button{
+    width:100%;
+
+    margin-top:8px;
+
+    padding:11px;
+
+    border:0;
+
+    border-radius:9px;
+
+    background:#222;
+
+    color:#fff;
+
+    cursor:pointer;
+}
+
+.delete-button{
+    width:100%;
+
+    margin-top:8px;
+
+    padding:9px;
+
+    border:0;
+
+    border-radius:9px;
+
+    background:transparent;
+
+    color:#777;
+
+    cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    header{
+        height:68px;
+        padding:0 12px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .hero{
+        margin:15px 12px;
+
+        padding:45px 15px;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .products{
+        padding:12px;
+
+        grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+        gap:12px;
+    }
+
+    .card{
+        padding:9px;
+    }
+
+    .image-box{
+        height:125px;
+    }
+
+    .card h2{
+        font-size:14px;
+    }
+
+    .condition{
+        font-size:12px;
+    }
+
+    .buy-text{
+        font-size:11px;
+    }
+
+    .buy-button{
+        font-size:13px;
+        padding:10px;
+    }
 }
 
 </style>
+
 </head>
 
 <body>
+
+
+<!-- HEADER -->
 
 <header>
 
@@ -239,36 +597,69 @@ footer{
 CS2 SHOP
 </div>
 
-<button class="profile-btn" onclick="openProfile()">
-👤 Profile
+<button class="profile-button" onclick="openProfile()">
+
+<img
+id="headerAvatar"
+class="header-avatar"
+src="https://i.imgur.com/6VBx3io.png"
+alt="Profile">
+
+<span id="headerName">
+Profile
+</span>
+
 </button>
 
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero">
 
 <h1>
-WELCOME TO <span>CS2 SHOP</span>
+به <span>CS2 SHOP</span> خوش آمدید
 </h1>
 
 <p>
-Premium CS2 Skins • Best Prices • Fast Delivery
+بهترین اسکین‌های CS2 با خرید سریع و مطمئن
 </p>
 
 </section>
 
 
+<!-- TELEGRAM -->
+
+<div class="telegram-box">
+
+برای خرید هر اسکین به آیدی زیر پیام دهید
+
+<br>
+
+<strong class="telegram-id">
+@aghojavaad
+</strong>
+
+</div>
+
+
+<!-- PRODUCTS -->
+
 <section class="products">
 
 
-<!-- AK -->
+<!-- AK ELITE BUILD -->
 
 <div class="card">
 
+<div class="image-box">
+
 <img
-src="https://skins-cdn.hltv.org/skin/3G0i-wg36opiIhDdaipE3r.png"
+src="https://specs.gg/assets/img/cs2_skins/AK-47/Elite%20Build.png"
 alt="AK-47 Elite Build">
+
+</div>
 
 <h2>
 AK-47 | Elite Build
@@ -278,25 +669,105 @@ AK-47 | Elite Build
 Factory New
 </p>
 
-<p class="price">
-420 T
-</p>
+<div class="buy-text">
+برای خرید به آیدی زیر پیام دهید
+<strong>@aghojavaad</strong>
+</div>
 
-<button class="buy"
-onclick="buySkin('AK-47 | Elite Build','420 T')">
-BUY NOW
+<button
+class="buy-button"
+onclick="buySkin('AK-47 | Elite Build')">
+
+پیام برای خرید
+
 </button>
 
 </div>
 
 
-<!-- DESERT EAGLE -->
+<!-- AK REDLINE -->
 
 <div class="card">
 
+<div class="image-box">
+
 <img
-src="https://bitskins.com/blog/content/images/2024/10/20241025193440_1.jpg"
+src="https://specs.gg/assets/img/cs2_skins/AK-47/Redline.png"
+alt="AK-47 Redline">
+
+</div>
+
+<h2>
+AK-47 | Redline
+</h2>
+
+<p class="condition">
+Field-Tested
+</p>
+
+<div class="buy-text">
+برای خرید به آیدی زیر پیام دهید
+<strong>@aghojavaad</strong>
+</div>
+
+<button
+class="buy-button"
+onclick="buySkin('AK-47 | Redline')">
+
+پیام برای خرید
+
+</button>
+
+</div>
+
+
+<!-- AK SLATE -->
+
+<div class="card">
+
+<div class="image-box">
+
+<img
+src="https://specs.gg/assets/img/cs2_skins/AK-47/Slate.png"
+alt="AK-47 Slate">
+
+</div>
+
+<h2>
+AK-47 | Slate
+</h2>
+
+<p class="condition">
+Minimal Wear
+</p>
+
+<div class="buy-text">
+برای خرید به آیدی زیر پیام دهید
+<strong>@aghojavaad</strong>
+</div>
+
+<button
+class="buy-button"
+onclick="buySkin('AK-47 | Slate')">
+
+پیام برای خرید
+
+</button>
+
+</div>
+
+
+<!-- DESERT EAGLE BLUE PLY -->
+
+<div class="card">
+
+<div class="image-box">
+
+<img
+src="https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Blue%20Ply.png"
 alt="Desert Eagle Blue Ply">
+
+</div>
 
 <h2>
 Desert Eagle | Blue Ply
@@ -306,69 +777,197 @@ Desert Eagle | Blue Ply
 Factory New
 </p>
 
-<p class="price">
-150 T
-</p>
+<div class="buy-text">
+برای خرید به آیدی زیر پیام دهید
+<strong>@aghojavaad</strong>
+</div>
 
-<button class="buy"
-onclick="buySkin('Desert Eagle | Blue Ply','150 T')">
-BUY NOW
+<button
+class="buy-button"
+onclick="buySkin('Desert Eagle | Blue Ply')">
+
+پیام برای خرید
+
 </button>
 
 </div>
 
 
-<!-- M4 -->
+<!-- DESERT EAGLE PRINTSTREAM -->
 
 <div class="card">
 
+<div class="image-box">
+
 <img
-src="https://via.placeholder.com/500x300?text=M4A1"
-alt="M4A1">
-
-<h2>
-M4A1 | Boreal Forest
-</h2>
-
-<p class="condition">
-Minimal Wear
-</p>
-
-<p class="price">
-110 T
-</p>
-
-<button class="buy"
-onclick="buySkin('M4A1 | Boreal Forest','110 T')">
-BUY NOW
-</button>
+src="https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Printstream.png"
+alt="Desert Eagle Printstream">
 
 </div>
 
-
-<!-- USP -->
-
-<div class="card">
-
-<img
-src="https://via.placeholder.com/500x300?text=USP-S"
-alt="USP-S">
-
 <h2>
-StatTrak™ USP-S
+Desert Eagle | Printstream
 </h2>
 
 <p class="condition">
 Field-Tested
 </p>
 
-<p class="price">
-135 T
+<div class="buy-text">
+برای خرید به آیدی زیر پیام دهید
+<strong>@aghojavaad</strong>
+</div>
+
+<button
+class="buy-button"
+onclick="buySkin('Desert Eagle | Printstream')">
+
+پیام برای خرید
+
+</button>
+
+</div>
+
+
+<!-- M4 BOREAL -->
+
+<div class="card">
+
+<div class="image-box">
+
+<img
+src="https://specs.gg/assets/img/cs2_skins/M4A1-S/Boreal%20Forest.png"
+alt="M4A1-S Boreal Forest">
+
+</div>
+
+<h2>
+M4A1-S | Boreal Forest
+</h2>
+
+<p class="condition">
+Minimal Wear
 </p>
 
-<button class="buy"
-onclick="buySkin('StatTrak USP-S','135 T')">
-BUY NOW
+<div class="buy-text">
+برای خرید به آیدی زیر پیام دهید
+<strong>@aghojavaad</strong>
+</div>
+
+<button
+class="buy-button"
+onclick="buySkin('M4A1-S | Boreal Forest')">
+
+پیام برای خرید
+
+</button>
+
+</div>
+
+
+<!-- M4 PRINTSTREAM -->
+
+<div class="card">
+
+<div class="image-box">
+
+<img
+src="https://specs.gg/assets/img/cs2_skins/M4A1-S/Printstream.png"
+alt="M4A1-S Printstream">
+
+</div>
+
+<h2>
+M4A1-S | Printstream
+</h2>
+
+<p class="condition">
+Field-Tested
+</p>
+
+<div class="buy-text">
+برای خرید به آیدی زیر پیام دهید
+<strong>@aghojavaad</strong>
+</div>
+
+<button
+class="buy-button"
+onclick="buySkin('M4A1-S | Printstream')">
+
+پیام برای خرید
+
+</button>
+
+</div>
+
+
+<!-- USP PRINTSTREAM -->
+
+<div class="card">
+
+<div class="image-box">
+
+<img
+src="https://specs.gg/assets/img/cs2_skins/USP-S/Printstream.png"
+alt="USP-S Printstream">
+
+</div>
+
+<h2>
+USP-S | Printstream
+</h2>
+
+<p class="condition">
+Field-Tested
+</p>
+
+<div class="buy-text">
+برای خرید به آیدی زیر پیام دهید
+<strong>@aghojavaad</strong>
+</div>
+
+<button
+class="buy-button"
+onclick="buySkin('USP-S | Printstream')">
+
+پیام برای خرید
+
+</button>
+
+</div>
+
+
+<!-- AWP ASIIMOV -->
+
+<div class="card">
+
+<div class="image-box">
+
+<img
+src="https://specs.gg/assets/img/cs2_skins/AWP/Asiimov.png"
+alt="AWP Asiimov">
+
+</div>
+
+<h2>
+AWP | Asiimov
+</h2>
+
+<p class="condition">
+Field-Tested
+</p>
+
+<div class="buy-text">
+برای خرید به آیدی زیر پیام دهید
+<strong>@aghojavaad</strong>
+</div>
+
+<button
+class="buy-button"
+onclick="buySkin('AWP | Asiimov')">
+
+پیام برای خرید
+
 </button>
 
 </div>
@@ -378,9 +977,13 @@ BUY NOW
 
 <div class="card">
 
+<div class="image-box">
+
 <img
-src="https://via.placeholder.com/500x300?text=R8"
-alt="R8 Revolver">
+src="https://specs.gg/assets/img/cs2_skins/R8%20Revolver/Junk%20Yard.png"
+alt="R8 Revolver Junk Yard">
+
+</div>
 
 <h2>
 R8 Revolver | Junk Yard
@@ -390,13 +993,17 @@ R8 Revolver | Junk Yard
 Field-Tested
 </p>
 
-<p class="price">
-60 T
-</p>
+<div class="buy-text">
+برای خرید به آیدی زیر پیام دهید
+<strong>@aghojavaad</strong>
+</div>
 
-<button class="buy"
-onclick="buySkin('R8 Revolver | Junk Yard','60 T')">
-BUY NOW
+<button
+class="buy-button"
+onclick="buySkin('R8 Revolver | Junk Yard')">
+
+پیام برای خرید
+
 </button>
 
 </div>
@@ -405,54 +1012,90 @@ BUY NOW
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
-© 2026 CS2 SHOP  
+<p>
+برای خرید اسکین‌ها از طریق تلگرام با ما در ارتباط باشید
+</p>
+
+<br>
+
+<strong>
+@aghojavaad
+</strong>
+
 <br><br>
-Telegram: @aghojavaad
+
+© 2026 CS2 SHOP
 
 </footer>
 
 
 <!-- PROFILE MODAL -->
 
-<div class="modal" id="profileModal">
+<div
+class="modal"
+id="profileModal"
+onclick="closeModalOutside(event)">
 
-<div class="profile-box">
+<div
+class="profile-box"
+onclick="event.stopPropagation()">
 
 <h2>
-👤 Customize Profile
+👤 پروفایل من
 </h2>
 
 <img
 id="avatarPreview"
 class="avatar-preview"
-src="https://via.placeholder.com/100"
->
-
-<p class="user-name" id="profileName">
-Guest
-</p>
+src="https://i.imgur.com/6VBx3io.png"
+alt="Avatar">
 
 <input
 id="nameInput"
 type="text"
-placeholder="Enter your name"
->
+maxlength="30"
+placeholder="اسم خودت را وارد کن">
+
+<label
+class="file-label"
+for="avatarFile">
+
+📷 انتخاب عکس پروفایل
+
+</label>
 
 <input
-id="avatarInput"
+id="avatarFile"
 type="file"
-accept="image/*"
-onchange="previewAvatar(event)"
->
+accept="image/png,image/jpeg,image/webp"
+onchange="handleAvatar(event)">
 
-<button class="save" onclick="saveProfile()">
-SAVE PROFILE
+<button
+class="save-button"
+onclick="saveProfile()">
+
+ذخیره پروفایل
+
 </button>
 
-<button class="close" onclick="closeProfile()">
-CLOSE
+<button
+class="close-button"
+onclick="closeProfile()">
+
+بستن
+
+</button>
+
+<button
+class="delete-button"
+onclick="resetProfile()">
+
+حذف پروفایل
+
 </button>
 
 </div>
@@ -462,101 +1105,228 @@ CLOSE
 
 <script>
 
-function buySkin(name,price){
+/* TELEGRAM */
 
-  const message =
-  "سلام، من می‌خوام این اسکین رو بخرم:%0A%0A"
-  + "🎮 " + name
-  + "%0A💰 Price: " + price;
+function buySkin(skinName){
 
-  window.open(
-    "https://t.me/aghojavaad?text=" + message,
-    "_blank"
-  );
+    const message =
+    "سلام 👋%0A%0A"+
+    "من برای خرید این اسکین پیام دادم:%0A"+
+    "🎮 "+encodeURIComponent(skinName)+
+    "%0A%0A"+
+    "لطفاً موجودی و شرایط خرید را اعلام کنید.";
+
+    window.open(
+        "https://t.me/aghojavaad?text="+message,
+        "_blank"
+    );
 }
+
+
+/* PROFILE */
+
+const defaultAvatar =
+"https://i.imgur.com/6VBx3io.png";
 
 
 function openProfile(){
 
-  document.getElementById("profileModal").style.display="flex";
+    const modal =
+    document.getElementById("profileModal");
 
-  document.getElementById("nameInput").value =
-  localStorage.getItem("profileName") || "";
+    const savedName =
+    localStorage.getItem("cs2_profile_name");
 
+    const savedAvatar =
+    localStorage.getItem("cs2_profile_avatar");
+
+    document.getElementById("nameInput").value =
+    savedName || "";
+
+    document.getElementById("avatarPreview").src =
+    savedAvatar || defaultAvatar;
+
+    modal.classList.add("show");
 }
 
 
 function closeProfile(){
 
-  document.getElementById("profileModal").style.display="none";
-
+    document
+    .getElementById("profileModal")
+    .classList.remove("show");
 }
 
 
-function previewAvatar(event){
+function closeModalOutside(event){
 
-  const file=event.target.files[0];
+    if(
+        event.target ===
+        document.getElementById("profileModal")
+    ){
 
-  if(!file) return;
+        closeProfile();
 
-  const reader=new FileReader();
-
-  reader.onload=function(e){
-
-    document.getElementById("avatarPreview").src=e.target.result;
-
-    localStorage.setItem(
-      "profileAvatar",
-      e.target.result
-    );
-
-  };
-
-  reader.readAsDataURL(file);
-
+    }
 }
 
+
+/* AVATAR */
+
+function handleAvatar(event){
+
+    const file =
+    event.target.files[0];
+
+    if(!file){
+        return;
+    }
+
+    if(!file.type.startsWith("image/")){
+        alert("لطفاً فقط عکس انتخاب کنید.");
+        return;
+    }
+
+    const maxSize =
+    5 * 1024 * 1024;
+
+    if(file.size > maxSize){
+
+        alert("حجم عکس باید کمتر از 5MB باشد.");
+
+        event.target.value = "";
+
+        return;
+    }
+
+    const reader =
+    new FileReader();
+
+    reader.onload = function(){
+
+        document
+        .getElementById("avatarPreview")
+        .src = reader.result;
+
+    };
+
+    reader.readAsDataURL(file);
+}
+
+
+/* SAVE PROFILE */
 
 function saveProfile(){
 
-  const name=
-  document.getElementById("nameInput").value || "Guest";
+    const name =
+    document
+    .getElementById("nameInput")
+    .value
+    .trim();
 
-  localStorage.setItem(
-    "profileName",
-    name
-  );
+    const avatar =
+    document
+    .getElementById("avatarPreview")
+    .src;
 
-  document.getElementById("profileName").innerText=name;
+    const finalName =
+    name || "Profile";
 
-  document.getElementById("profileModal").style.display="none";
+    try{
+
+        localStorage.setItem(
+            "cs2_profile_name",
+            finalName
+        );
+
+        localStorage.setItem(
+            "cs2_profile_avatar",
+            avatar
+        );
+
+    }catch(error){
+
+        alert(
+            "ذخیره عکس انجام نشد. لطفاً عکس کوچک‌تری انتخاب کنید."
+        );
+
+        return;
+    }
+
+    updateProfileUI();
+
+    closeProfile();
 
 }
 
 
-window.onload=function(){
+/* UPDATE PROFILE */
 
-  const savedName=
-  localStorage.getItem("profileName");
+function updateProfileUI(){
 
-  const savedAvatar=
-  localStorage.getItem("profileAvatar");
+    const savedName =
+    localStorage.getItem("cs2_profile_name");
 
-  if(savedName){
+    const savedAvatar =
+    localStorage.getItem("cs2_profile_avatar");
 
-    document.getElementById("profileName").innerText=
-    savedName;
+    document
+    .getElementById("headerName")
+    .textContent =
+    savedName || "Profile";
 
-  }
+    document
+    .getElementById("headerAvatar")
+    .src =
+    savedAvatar || defaultAvatar;
+}
 
-  if(savedAvatar){
 
-    document.getElementById("avatarPreview").src=
-    savedAvatar;
+/* RESET */
 
-  }
+function resetProfile(){
+
+    const confirmReset =
+    confirm(
+        "پروفایل پاک شود؟"
+    );
+
+    if(!confirmReset){
+        return;
+    }
+
+    localStorage.removeItem(
+        "cs2_profile_name"
+    );
+
+    localStorage.removeItem(
+        "cs2_profile_avatar"
+    );
+
+    updateProfileUI();
+
+    document
+    .getElementById("nameInput")
+    .value = "";
+
+    document
+    .getElementById("avatarPreview")
+    .src =
+    defaultAvatar;
 
 }
+
+
+/* LOAD */
+
+window.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        updateProfileUI();
+
+    }
+);
 
 </script>
 
