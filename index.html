@@ -2,45 +2,54 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CSGOSHOP | CS2 SKINS</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
     font-family:Vazirmatn,sans-serif;
     background:#050505;
     color:#fff;
+    min-height:100vh;
     overflow-x:hidden;
 }
 
-/* ================= BACKGROUND ================= */
+/* BACKGROUND */
 
 body:before{
     content:"";
     position:fixed;
     inset:0;
-    z-index:-5;
+    z-index:-3;
     background:
-    radial-gradient(circle at 75% 20%,rgba(255,0,45,.20),transparent 28%),
-    radial-gradient(circle at 10% 80%,rgba(255,0,45,.12),transparent 30%),
-    #050505;
+        radial-gradient(circle at 80% 10%,rgba(255,0,50,.18),transparent 27%),
+        radial-gradient(circle at 10% 80%,rgba(255,0,50,.12),transparent 30%),
+        #050505;
 }
 
 body:after{
     content:"";
     position:fixed;
     inset:0;
-    z-index:-4;
-    opacity:.12;
+    z-index:-2;
+    opacity:.09;
     background-image:
-    linear-gradient(rgba(255,0,40,.25) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,0,40,.25) 1px,transparent 1px);
-    background-size:50px 50px;
-    mask-image:linear-gradient(to bottom,black,transparent);
+        linear-gradient(rgba(255,0,50,.4) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,0,50,.4) 1px,transparent 1px);
+    background-size:55px 55px;
+    mask-image:linear-gradient(to bottom,#000,transparent);
 }
 
 /* PARTICLES */
@@ -56,65 +65,85 @@ body:after{
     position:absolute;
     width:3px;
     height:3px;
-    background:#ff1744;
     border-radius:50%;
-    box-shadow:0 0 10px #ff1744;
+    background:#ff1744;
+    box-shadow:0 0 12px #ff1744;
     animation:float 5s infinite ease-in-out;
 }
 
 @keyframes float{
-    0%,100%{transform:translateY(0);opacity:.2}
-    50%{transform:translateY(-80px);opacity:1}
+    0%,100%{
+        transform:translateY(0);
+        opacity:.1;
+    }
+
+    50%{
+        transform:translateY(-90px);
+        opacity:1;
+    }
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 header{
-    height:78px;
+    height:80px;
     position:sticky;
     top:0;
     z-index:1000;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     padding:0 4%;
-    background:rgba(4,4,4,.88);
+
+    background:rgba(4,4,4,.9);
     backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(255,0,45,.35);
+
+    border-bottom:1px solid rgba(255,0,50,.35);
 }
 
 .logo{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:8px;
+
+    direction:ltr;
+
     font-size:25px;
     font-weight:900;
-    direction:ltr;
+    letter-spacing:.5px;
 }
 
-.logo span{
-    color:#ff123f;
-    text-shadow:0 0 20px rgba(255,0,50,.8);
+.logo .red{
+    color:#ff1744;
+    text-shadow:0 0 25px rgba(255,0,50,.7);
 }
 
-.logo-agent{
-    color:#e90035;
-    font-size:34px;
-    animation:agentPulse 2s infinite;
+.agent{
+    color:#ff1744;
+    font-size:30px;
+
+    animation:agentGlow 2s infinite;
 }
 
-@keyframes agentPulse{
-    0%,100%{filter:drop-shadow(0 0 3px #ff003c)}
-    50%{filter:drop-shadow(0 0 15px #ff003c)}
+@keyframes agentGlow{
+    0%,100%{
+        filter:drop-shadow(0 0 2px #ff1744);
+    }
+
+    50%{
+        filter:drop-shadow(0 0 15px #ff1744);
+    }
 }
 
 .nav{
     display:flex;
-    gap:35px;
+    gap:32px;
 }
 
 .nav a{
-    color:#aaa;
+    color:#999;
     text-decoration:none;
     font-size:13px;
     transition:.3s;
@@ -124,130 +153,173 @@ header{
     color:#ff1744;
 }
 
-.profile-btn{
+/* PROFILE */
+
+.profile{
     display:flex;
     align-items:center;
     gap:10px;
-    padding:7px 13px;
+
+    padding:7px 12px;
+
     background:#101010;
     border:1px solid #292929;
-    border-radius:13px;
+
+    border-radius:14px;
+
     cursor:pointer;
+
     transition:.3s;
 }
 
-.profile-btn:hover{
+.profile:hover{
     border-color:#ff1744;
-    box-shadow:0 0 25px rgba(255,0,50,.15);
+    box-shadow:0 0 25px rgba(255,0,50,.12);
 }
 
-.avatar{
-    width:39px;
-    height:39px;
+.profile-photo{
+    width:43px;
+    height:43px;
+
     border-radius:50%;
-    display:grid;
-    place-items:center;
-    background:linear-gradient(135deg,#ff1744,#72001d);
+
+    object-fit:cover;
+
+    background:
+        linear-gradient(135deg,#ff1744,#670018);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
     font-weight:900;
+    font-size:16px;
+
+    border:2px solid rgba(255,23,68,.5);
 }
 
-.profile-text small{
+.profile-info small{
     display:block;
     color:#666;
     font-size:9px;
 }
 
-.profile-text strong{
+.profile-info strong{
+    display:block;
     font-size:12px;
 }
 
-/* ================= HERO ================= */
+.profile-info span{
+    display:block;
+    color:#777;
+    font-size:9px;
+    direction:ltr;
+}
+
+/* HERO */
 
 .hero{
     width:92%;
     max-width:1400px;
+
     height:390px;
+
     margin:35px auto;
+
     position:relative;
     overflow:hidden;
-    border:1px solid rgba(255,0,45,.45);
+
     border-radius:25px;
+
+    border:1px solid rgba(255,0,50,.4);
+
     background:
-    linear-gradient(90deg,#050505 0%,rgba(5,5,5,.85) 30%,rgba(5,5,5,.2)),
-    url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=2000&q=85")
-    center/cover;
+        linear-gradient(
+            90deg,
+            #040404 0%,
+            rgba(4,4,4,.86) 30%,
+            rgba(4,4,4,.15) 100%
+        ),
+        url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=2000&q=85")
+        center/cover;
 }
 
 .hero:after{
     content:"";
+
     position:absolute;
-    width:500px;
-    height:500px;
+
+    width:550px;
+    height:550px;
+
     right:30%;
-    top:-150px;
+    top:-180px;
+
     background:#ff003c;
-    filter:blur(180px);
-    opacity:.22;
+
+    filter:blur(190px);
+
+    opacity:.2;
 }
 
 .hero-content{
     position:absolute;
     z-index:2;
-    top:70px;
+
     right:55px;
+    top:75px;
+
     max-width:600px;
 }
 
 .badge{
+    display:inline-block;
+
     color:#ff1744;
+
     border:1px solid #ff1744;
+
     background:rgba(255,0,45,.08);
+
     padding:7px 15px;
+
     border-radius:30px;
-    font-size:11px;
+
+    font-size:10px;
 }
 
 .hero h1{
     margin-top:22px;
-    font-size:clamp(35px,5vw,65px);
-    line-height:1.1;
+
+    font-size:clamp(38px,5vw,67px);
+
+    line-height:1.05;
+
     font-weight:900;
 }
 
 .hero h1 span{
     color:#ff1744;
+
     text-shadow:0 0 30px rgba(255,0,50,.45);
 }
 
 .hero p{
-    margin-top:18px;
     color:#aaa;
+
+    margin-top:18px;
+
     line-height:2;
-    font-size:14px;
+
+    font-size:13px;
 }
 
-.telegram{
-    display:inline-flex;
-    margin-top:22px;
-    padding:12px 20px;
-    border-radius:12px;
-    text-decoration:none;
-    color:#fff;
-    background:linear-gradient(135deg,#ff1744,#a9002c);
-    box-shadow:0 10px 30px rgba(255,0,50,.18);
-    transition:.3s;
-}
-
-.telegram:hover{
-    transform:translateY(-4px);
-    box-shadow:0 15px 40px rgba(255,0,50,.35);
-}
-
-/* ================= SHOP ================= */
+/* SHOP */
 
 .shop{
     width:92%;
     max-width:1400px;
+
     margin:auto;
 }
 
@@ -255,6 +327,7 @@ header{
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     margin-bottom:22px;
 }
 
@@ -268,179 +341,502 @@ header{
 }
 
 .search{
-    width:280px;
+    width:290px;
+
     padding:13px 18px;
-    color:#fff;
-    background:#0d0d0d;
-    border:1px solid #242424;
+
+    background:#0e0e0e;
+
+    border:1px solid #272727;
+
     border-radius:12px;
+
+    color:#fff;
+
     outline:none;
+
     transition:.3s;
 }
 
 .search:focus{
     border-color:#ff1744;
+
     box-shadow:0 0 20px rgba(255,0,50,.1);
 }
 
-/* ================= PRODUCTS ================= */
+/* PRODUCTS */
 
 .products{
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:20px;
-    padding-bottom:80px;
+
+    padding-bottom:90px;
 }
 
 .card{
     position:relative;
+
     padding:12px;
-    background:linear-gradient(145deg,#121212,#080808);
+
+    background:
+        linear-gradient(145deg,#131313,#080808);
+
     border:1px solid #242424;
+
     border-radius:18px;
+
     overflow:hidden;
+
+    cursor:pointer;
+
     transition:.4s;
+
     animation:cardIn .7s ease both;
 }
 
-.card:before{
-    content:"";
-    position:absolute;
-    inset:-100%;
-    background:linear-gradient(
-        120deg,
-        transparent 40%,
-        rgba(255,0,45,.13),
-        transparent 60%
-    );
-    transform:rotate(20deg);
-    transition:.7s;
-}
+@keyframes cardIn{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
 
-.card:hover:before{
-    inset:100%;
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .card:hover{
     transform:translateY(-9px);
+
     border-color:#ff1744;
+
     box-shadow:
-    0 20px 50px rgba(0,0,0,.7),
-    0 0 30px rgba(255,0,50,.12);
+        0 20px 55px rgba(0,0,0,.7),
+        0 0 30px rgba(255,0,50,.13);
 }
 
-@keyframes cardIn{
-    from{opacity:0;transform:translateY(25px)}
-    to{opacity:1;transform:translateY(0)}
-}
-
-.weapon-img{
-    height:190px;
-    position:relative;
-    border-radius:13px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:
-    radial-gradient(circle,rgba(255,0,50,.15),transparent 65%),
-    #070707;
-    overflow:hidden;
-}
-
-.weapon-img:after{
+.card:before{
     content:"";
+
     position:absolute;
+
     width:150%;
     height:1px;
+
+    left:-30%;
+    top:50%;
+
     background:#ff1744;
-    box-shadow:0 0 20px #ff1744;
-    transform:rotate(-30deg);
-    animation:scan 4s linear infinite;
+
+    box-shadow:0 0 15px #ff1744;
+
+    transform:rotate(-30deg) translateX(-100%);
+
+    transition:.8s;
+
     opacity:.4;
 }
 
-@keyframes scan{
-    from{transform:translateY(-150px) rotate(-30deg)}
-    to{transform:translateY(250px) rotate(-30deg)}
+.card:hover:before{
+    transform:rotate(-30deg) translateX(100%);
 }
 
-.weapon-img img{
+.weapon{
+    height:190px;
+
+    border-radius:13px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,0,50,.17),
+            transparent 65%
+        ),
+        #070707;
+
+    overflow:hidden;
+}
+
+.weapon img{
     width:95%;
     height:95%;
+
     object-fit:contain;
+
     filter:drop-shadow(0 15px 15px #000);
+
     transition:.5s;
-    z-index:2;
 }
 
-.card:hover img{
+.card:hover .weapon img{
     transform:scale(1.1) rotate(-2deg);
-}
-
-.new{
-    position:absolute;
-    top:20px;
-    right:20px;
-    z-index:5;
-    background:#ff1744;
-    padding:4px 9px;
-    border-radius:6px;
-    font-size:9px;
-    font-weight:900;
 }
 
 .card h3{
     margin:15px 3px 4px;
-    font-size:14px;
+
     direction:ltr;
     text-align:right;
+
+    font-size:14px;
 }
 
-.condition{
-    color:#777;
+.card-sub{
+    color:#666;
+
     font-size:10px;
+
+    margin-top:4px;
 }
 
-.card-bottom{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-top:14px;
-}
+.card-button{
+    width:100%;
 
-.price{
-    color:#ff1744;
-    font-size:21px;
-    font-weight:900;
-}
+    margin-top:15px;
 
-.view{
+    padding:11px;
+
     color:#fff;
+
+    background:#141414;
+
     border:1px solid #333;
-    background:#151515;
-    padding:8px 13px;
-    border-radius:8px;
+
+    border-radius:9px;
+
     cursor:pointer;
+
     transition:.3s;
 }
 
-.view:hover{
+.card:hover .card-button{
     background:#ff1744;
+
     border-color:#ff1744;
 }
 
-/* ================= PROFILE MODAL ================= */
+/* FLOATING TELEGRAM */
+
+.telegram-float{
+    position:fixed;
+
+    right:25px;
+    bottom:25px;
+
+    z-index:3000;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:12px 18px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    background:linear-gradient(
+        135deg,
+        #ff1744,
+        #a4002a
+    );
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:15px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.5),
+        0 0 25px rgba(255,0,50,.2);
+
+    animation:telegramPulse 2.5s infinite;
+
+    transition:.3s;
+}
+
+.telegram-float:hover{
+    transform:translateY(-5px) scale(1.03);
+}
+
+@keyframes telegramPulse{
+    0%,100%{
+        box-shadow:
+            0 12px 35px rgba(0,0,0,.5),
+            0 0 10px rgba(255,0,50,.15);
+    }
+
+    50%{
+        box-shadow:
+            0 12px 35px rgba(0,0,0,.5),
+            0 0 30px rgba(255,0,50,.4);
+    }
+}
+
+/* ================= PRODUCT PAGE ================= */
+
+.product-page{
+    width:92%;
+    max-width:1250px;
+
+    margin:45px auto 90px;
+}
+
+.back{
+    display:inline-flex;
+
+    color:#aaa;
+
+    text-decoration:none;
+
+    padding:10px 15px;
+
+    background:#101010;
+
+    border:1px solid #252525;
+
+    border-radius:10px;
+
+    transition:.3s;
+}
+
+.back:hover{
+    color:#fff;
+    border-color:#ff1744;
+}
+
+.product-layout{
+    display:grid;
+
+    grid-template-columns:1.1fr 1fr;
+
+    gap:30px;
+
+    margin-top:25px;
+}
+
+.product-image{
+    min-height:500px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,0,50,.18),
+            transparent 65%
+        ),
+        #080808;
+
+    border:1px solid #292929;
+
+    border-radius:22px;
+
+    overflow:hidden;
+}
+
+.product-image img{
+    width:95%;
+    height:95%;
+
+    object-fit:contain;
+
+    filter:drop-shadow(0 25px 25px #000);
+
+    animation:weaponFloat 4s infinite ease-in-out;
+}
+
+@keyframes weaponFloat{
+    0%,100%{
+        transform:translateY(0) scale(1);
+    }
+
+    50%{
+        transform:translateY(-8px) scale(1.025);
+    }
+}
+
+.product-info{
+    padding:25px;
+
+    background:linear-gradient(145deg,#111,#090909);
+
+    border:1px solid #292929;
+
+    border-radius:22px;
+}
+
+.product-info h1{
+    direction:ltr;
+    text-align:right;
+
+    font-size:32px;
+
+    margin-bottom:8px;
+}
+
+.product-description{
+    color:#777;
+
+    line-height:2;
+
+    font-size:12px;
+
+    margin-bottom:25px;
+}
+
+.condition-title{
+    font-size:14px;
+
+    margin-bottom:12px;
+
+    color:#aaa;
+}
+
+/* CONDITIONS */
+
+.conditions{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+}
+
+.condition{
+    padding:13px;
+
+    color:#aaa;
+
+    background:#101010;
+
+    border:1px solid #292929;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.condition:hover{
+    border-color:#ff1744;
+
+    color:#fff;
+}
+
+.condition.selected{
+    color:#fff;
+
+    background:rgba(255,0,50,.1);
+
+    border-color:#ff1744;
+
+    box-shadow:
+        inset 0 0 20px rgba(255,0,50,.05),
+        0 0 15px rgba(255,0,50,.1);
+}
+
+.condition strong{
+    display:block;
+
+    color:#fff;
+
+    font-size:12px;
+}
+
+.condition span{
+    display:block;
+
+    margin-top:5px;
+
+    color:#ff1744;
+
+    font-weight:900;
+
+    font-size:15px;
+}
+
+.buy-btn{
+    width:100%;
+
+    margin-top:25px;
+
+    padding:16px;
+
+    border:0;
+
+    border-radius:12px;
+
+    color:#fff;
+
+    background:linear-gradient(
+        135deg,
+        #ff1744,
+        #a4002a
+    );
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.buy-btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(255,0,50,.25);
+}
+
+.lock-message{
+    margin-top:12px;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    color:#ff667f;
+
+    background:rgba(255,0,50,.06);
+
+    border:1px solid rgba(255,0,50,.15);
+
+    font-size:11px;
+
+    text-align:center;
+}
+
+/* PROFILE MODAL */
 
 .overlay{
     position:fixed;
+
     inset:0;
-    z-index:5000;
+
+    z-index:6000;
+
     display:none;
+
     align-items:center;
     justify-content:center;
+
     padding:20px;
-    background:rgba(0,0,0,.78);
-    backdrop-filter:blur(12px);
+
+    background:rgba(0,0,0,.82);
+
+    backdrop-filter:blur(13px);
 }
 
 .overlay.active{
@@ -450,71 +846,138 @@ header{
 .modal{
     width:100%;
     max-width:470px;
+
     position:relative;
-    background:#0c0c0c;
-    border:1px solid #ff1744;
-    border-radius:23px;
+
     padding:28px;
+
+    background:#0d0d0d;
+
+    border:1px solid #ff1744;
+
+    border-radius:23px;
+
     box-shadow:
-    0 30px 100px #000,
-    0 0 60px rgba(255,0,50,.12);
+        0 30px 100px #000,
+        0 0 50px rgba(255,0,50,.13);
+
     animation:modalIn .3s ease;
 }
 
 @keyframes modalIn{
-    from{opacity:0;transform:scale(.88) translateY(20px)}
-    to{opacity:1;transform:scale(1) translateY(0)}
+    from{
+        opacity:0;
+        transform:scale(.9) translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
 }
 
 .close{
     position:absolute;
+
     left:17px;
     top:17px;
+
     width:32px;
     height:32px;
+
     border:0;
+
     border-radius:50%;
-    background:#191919;
+
     color:#fff;
+
+    background:#1b1b1b;
+
     cursor:pointer;
+
     font-size:18px;
 }
 
-.modal-icon{
-    width:70px;
-    height:70px;
+.profile-upload{
+    text-align:center;
+}
+
+.upload-preview{
+    width:90px;
+    height:90px;
+
     margin:auto;
-    display:grid;
-    place-items:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
     border-radius:50%;
-    background:linear-gradient(135deg,#ff1744,#650018);
-    font-size:30px;
-    box-shadow:0 0 30px rgba(255,0,50,.3);
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        #ff1744,
+        #650018
+    );
+
+    border:2px solid #ff1744;
+
+    cursor:pointer;
+}
+
+.upload-preview img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.upload-text{
+    margin-top:8px;
+
+    color:#777;
+
+    font-size:10px;
+}
+
+.file{
+    display:none;
 }
 
 .modal h2{
     text-align:center;
+
     margin-top:15px;
 }
 
 .modal-desc{
     text-align:center;
+
     color:#777;
+
     font-size:11px;
+
     margin-top:7px;
 }
 
 .input{
     width:100%;
-    margin-top:17px;
+
+    margin-top:15px;
+
     padding:14px;
+
     color:#fff;
+
     background:#111;
+
     border:1px solid #292929;
+
     border-radius:11px;
+
     outline:none;
-    direction:ltr;
-    text-align:left;
 }
 
 .input:focus{
@@ -523,138 +986,61 @@ header{
 
 .save{
     width:100%;
-    margin-top:15px;
-    padding:14px;
-    border:0;
-    border-radius:11px;
-    color:#fff;
-    background:linear-gradient(135deg,#ff1744,#a6002a);
-    cursor:pointer;
-    font-weight:800;
-    transition:.3s;
-}
 
-.save:hover{
-    transform:translateY(-2px);
-    box-shadow:0 10px 30px rgba(255,0,50,.25);
+    margin-top:15px;
+
+    padding:14px;
+
+    border:0;
+
+    border-radius:11px;
+
+    color:#fff;
+
+    background:linear-gradient(
+        135deg,
+        #ff1744,
+        #a6002b
+    );
+
+    cursor:pointer;
+
+    font-weight:900;
 }
 
 .status{
-    margin-top:18px;
-    padding:13px;
-    border-radius:11px;
-    background:#111;
-    font-size:11px;
-    color:#777;
+    margin-top:15px;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    font-size:10px;
+
+    text-align:center;
+
+    color:#ff1744;
+
+    background:rgba(255,0,50,.06);
 }
 
 .status.ok{
-    color:#27e49b;
-    border:1px solid rgba(39,228,155,.2);
+    color:#2be69b;
+
+    background:rgba(0,255,160,.05);
 }
 
-.status.no{
-    color:#ff1744;
-    border:1px solid rgba(255,0,50,.2);
-}
-
-/* ================= PRODUCT MODAL ================= */
-
-.product-modal{
-    max-width:850px;
-}
-
-.product-detail{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-    align-items:center;
-}
-
-.big-img{
-    height:350px;
-    background:
-    radial-gradient(circle,rgba(255,0,50,.15),transparent 65%),
-    #070707;
-    border-radius:17px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.big-img img{
-    width:95%;
-    height:95%;
-    object-fit:contain;
-}
-
-.detail h2{
-    direction:ltr;
-    text-align:right;
-    font-size:25px;
-}
-
-.info{
-    display:flex;
-    justify-content:space-between;
-    padding:14px 0;
-    border-bottom:1px solid #222;
-    color:#777;
-}
-
-.info b{
-    color:#fff;
-}
-
-.buy{
-    width:100%;
-    margin-top:20px;
-    padding:15px;
-    border:0;
-    border-radius:11px;
-    color:#fff;
-    background:linear-gradient(135deg,#ff1744,#a7002a);
-    cursor:pointer;
-    font-weight:900;
-    font-size:14px;
-    transition:.3s;
-}
-
-.buy:hover{
-    transform:translateY(-3px);
-    box-shadow:0 12px 30px rgba(255,0,50,.3);
-}
-
-/* ================= TOAST ================= */
-
-.toast{
-    position:fixed;
-    bottom:25px;
-    left:50%;
-    transform:translate(-50%,120px);
-    background:#111;
-    border:1px solid #ff1744;
-    padding:13px 22px;
-    border-radius:12px;
-    z-index:10000;
-    opacity:0;
-    transition:.4s;
-    box-shadow:0 10px 40px #000;
-    font-size:12px;
-}
-
-.toast.show{
-    opacity:1;
-    transform:translate(-50%,0);
-}
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
-    border-top:1px solid #222;
-    padding:30px;
+    padding:35px;
+
     text-align:center;
+
+    border-top:1px solid #1d1d1d;
+
     color:#555;
+
     font-size:11px;
 }
 
@@ -662,9 +1048,10 @@ footer span{
     color:#ff1744;
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:1000px){
+
     .products{
         grid-template-columns:repeat(2,1fr);
     }
@@ -672,29 +1059,37 @@ footer span{
     .nav{
         display:none;
     }
+
+    .product-layout{
+        grid-template-columns:1fr;
+    }
 }
 
 @media(max-width:600px){
 
     header{
         height:70px;
+        padding:0 3%;
     }
 
     .logo{
         font-size:18px;
     }
 
-    .logo-agent{
-        font-size:25px;
+    .agent{
+        font-size:24px;
     }
 
-    .profile-text{
+    .profile-info{
         display:none;
+    }
+
+    .profile{
+        padding:5px;
     }
 
     .hero{
         height:350px;
-        margin-top:20px;
     }
 
     .hero-content{
@@ -703,7 +1098,7 @@ footer span{
     }
 
     .hero h1{
-        font-size:38px;
+        font-size:40px;
     }
 
     .shop-header{
@@ -720,7 +1115,7 @@ footer span{
         gap:10px;
     }
 
-    .weapon-img{
+    .weapon{
         height:135px;
     }
 
@@ -732,21 +1127,29 @@ footer span{
         font-size:11px;
     }
 
-    .price{
-        font-size:16px;
+    .product-image{
+        min-height:300px;
     }
 
-    .view{
-        padding:7px;
-        font-size:9px;
+    .product-info{
+        padding:18px;
     }
 
-    .product-detail{
+    .product-info h1{
+        font-size:23px;
+    }
+
+    .conditions{
         grid-template-columns:1fr;
     }
 
-    .big-img{
-        height:220px;
+    .telegram-float{
+        right:15px;
+        bottom:15px;
+
+        padding:10px 14px;
+
+        font-size:11px;
     }
 }
 </style>
@@ -754,33 +1157,50 @@ footer span{
 
 <body>
 
-<!-- PARTICLES -->
 <div class="particles" id="particles"></div>
 
+
 <!-- HEADER -->
+
 <header>
 
     <div class="logo">
-        <span class="logo-agent">☠</span>
-        <span>CSGO</span>SHOP
+
+        <span class="agent">☠</span>
+
+        <span>CSGO</span>
+        <span class="red">SHOP</span>
+
     </div>
 
+
     <nav class="nav">
-        <a href="#">خانه</a>
+
+        <a href="index.html">خانه</a>
         <a href="#shop">فروشگاه</a>
-        <a href="#">اسکین‌ها</a>
-        <a href="#contact">پشتیبانی</a>
+        <a href="#contact">ارتباط</a>
+
     </nav>
 
-    <div class="profile-btn" onclick="openProfile()">
 
-        <div class="avatar" id="avatar">
+    <div class="profile" onclick="openProfile()">
+
+        <div class="profile-photo" id="profilePhoto">
             A
         </div>
 
-        <div class="profile-text">
+        <div class="profile-info">
+
             <small>حساب کاربری</small>
-            <strong id="profileName">ورود / ثبت‌نام</strong>
+
+            <strong id="profileName">
+                ورود / ثبت‌نام
+            </strong>
+
+            <span id="profilePhone">
+                شماره وارد نشده
+            </span>
+
         </div>
 
     </div>
@@ -789,11 +1209,14 @@ footer span{
 
 
 <!-- HERO -->
+
 <section class="hero">
 
     <div class="hero-content">
 
-        <span class="badge">COUNTER STRIKE 2 MARKET</span>
+        <span class="badge">
+            COUNTER STRIKE 2 MARKET
+        </span>
 
         <h1>
             CS2<br>
@@ -801,15 +1224,9 @@ footer span{
         </h1>
 
         <p>
-            اسکین‌های خاص، قیمت مناسب و خرید سریع.
-            برای مشاهده و خرید اسکین‌های موجود وارد حساب خود شوید.
+            اسکین مورد علاقه خودت رو انتخاب کن،
+            مدلش رو مشخص کن و سفارشت رو ثبت کن.
         </p>
-
-        <a href="https://t.me/aghojavaad"
-           target="_blank"
-           class="telegram">
-            💬 پشتیبانی تلگرام @aghojavaad
-        </a>
 
     </div>
 
@@ -817,6 +1234,7 @@ footer span{
 
 
 <!-- SHOP -->
+
 <section class="shop" id="shop">
 
     <div class="shop-header">
@@ -828,486 +1246,218 @@ footer span{
         <input
             class="search"
             id="search"
-            placeholder="🔎 جستجوی اسکین..."
+            placeholder="🔎 جستجوی گان..."
         >
 
     </div>
+
 
     <div class="products" id="products"></div>
 
 </section>
 
 
+<!-- TELEGRAM -->
+
+<a
+    href="https://t.me/aghojavaad"
+    target="_blank"
+    class="telegram-float">
+
+    💬
+    <span>@aghojavaad</span>
+
+</a>
+
+
 <footer id="contact">
+
     CSGOSHOP © 2026
+
     <br><br>
+
     Telegram:
     <span>@aghojavaad</span>
+
 </footer>
 
 
-<!-- ================= PROFILE ================= -->
+<!-- PROFILE -->
 
 <div class="overlay" id="profileOverlay">
 
     <div class="modal">
 
-        <button class="close" onclick="closeProfile()">×</button>
+        <button
+            class="close"
+            onclick="closeProfile()">
+            ×
+        </button>
 
-        <div class="modal-icon">👤</div>
 
-        <h2>حساب کاربری</h2>
+        <div class="profile-upload">
+
+            <label for="photoInput">
+
+                <div class="upload-preview">
+
+                    <img
+                        id="uploadPreview"
+                        style="display:none"
+                    >
+
+                    <span id="uploadIcon">
+                        👤
+                    </span>
+
+                </div>
+
+            </label>
+
+            <input
+                class="file"
+                id="photoInput"
+                type="file"
+                accept="image/*"
+            >
+
+            <div class="upload-text">
+                برای انتخاب عکس پروفایل کلیک کنید
+            </div>
+
+        </div>
+
+
+        <h2>
+            تکمیل پروفایل
+        </h2>
 
         <p class="modal-desc">
-            برای خرید اسکین ابتدا پروفایل خود را تکمیل کنید.
+            برای خرید اسکین باید پروفایل خود را کامل کنید.
         </p>
 
-        <input
-            class="input"
-            id="phone"
-            type="tel"
-            placeholder="09123456789"
-            maxlength="15"
-        >
 
         <input
             class="input"
             id="username"
             type="text"
             placeholder="نام کاربری"
-            maxlength="30"
         >
 
-        <button class="save" onclick="saveProfile()">
-            ✓ تکمیل پروفایل
+
+        <input
+            class="input"
+            id="phone"
+            type="tel"
+            placeholder="شماره موبایل"
+            dir="ltr"
+        >
+
+
+        <input
+            class="input"
+            id="telegram"
+            type="text"
+            value="@aghojavaad"
+            placeholder="Telegram ID"
+            dir="ltr"
+        >
+
+
+        <button
+            class="save"
+            onclick="saveProfile()">
+
+            ✓ ذخیره و تکمیل پروفایل
+
         </button>
 
-        <div class="status no" id="profileStatus">
-            🔒 پروفایل شما تکمیل نشده است.
-        </div>
 
-    </div>
+        <div
+            class="status"
+            id="profileStatus">
 
-</div>
-
-
-<!-- ================= PRODUCT ================= -->
-
-<div class="overlay" id="productOverlay">
-
-    <div class="modal product-modal">
-
-        <button class="close" onclick="closeProduct()">×</button>
-
-        <div class="product-detail">
-
-            <div class="big-img">
-                <img id="bigImage">
-            </div>
-
-            <div class="detail">
-
-                <h2 id="bigName"></h2>
-
-                <div class="info">
-                    <span>وضعیت</span>
-                    <b id="bigCondition"></b>
-                </div>
-
-                <div class="info">
-                    <span>قیمت</span>
-                    <b id="bigPrice" style="color:#ff1744;font-size:23px"></b>
-                </div>
-
-                <button class="buy" onclick="buyProduct()">
-                    🛒 خرید این اسکین
-                </button>
-
-            </div>
+            🔒 پروفایل تکمیل نشده است.
 
         </div>
 
     </div>
 
 </div>
-
-
-<div class="toast" id="toast"></div>
 
 
 <script>
+
+/* ================= PARTICLES ================= */
+
+const particleBox =
+document.getElementById("particles");
+
+for(let i=0;i<40;i++){
+
+    const p =
+    document.createElement("div");
+
+    p.className="particle";
+
+    p.style.left =
+    Math.random()*100+"%";
+
+    p.style.top =
+    Math.random()*100+"%";
+
+    p.style.animationDelay =
+    Math.random()*5+"s";
+
+    p.style.animationDuration =
+    (3+Math.random()*5)+"s";
+
+    particleBox.appendChild(p);
+}
+
 
 /* ================= PRODUCTS ================= */
 
 const products = [
 
 {
+    id:1,
+
     name:"M4A1 | Naval Shred Camo",
-    condition:"Factory New",
-    price:"120T",
-    image:"https://steamcommunity-a.akamaihd.net/economy/image/class/730/3840391985"
+
+    image:
+    "https://steamcommunity-a.akamaihd.net/economy/image/class/730/3840391985",
+
+    conditions:{
+        "Factory New":"120T",
+        "Minimal Wear":"125T",
+        "Field-Tested":"110T",
+        "Well-Worn":"100T",
+        "Battle-Scarred":"90T"
+    }
 },
 
 {
+    id:2,
+
     name:"StatTrak™ USP-S",
-    condition:"Field-Tested",
-    price:"135T",
-    image:"https://steamcommunity-a.akamaihd.net/economy/image/class/730/619568339"
+
+    image:
+    "https://steamcommunity-a.akamaihd.net/economy/image/class/730/619568339",
+
+    conditions:{
+        "Factory New":"160T",
+        "Minimal Wear":"150T",
+        "Field-Tested":"135T",
+        "Well-Worn":"125T",
+        "Battle-Scarred":"115T"
+    }
 },
 
 {
+    id:3,
+
     name:"M4A1 | Boreal Forest",
-    condition:"Minimal Wear",
-    price:"110T",
-    image:"https://steamcommunity-a.akamaihd.net/economy/image/class/730/619568339"
-},
 
-{
-    name:"R8 Revolver | Junk Yard",
-    condition:"Field-Tested",
-    price:"60T",
-    image:"https://steamcommunity-a.akamaihd.net/economy/image/class/730/619568339"
-}
-
-];
-
-
-/* ================= PARTICLES ================= */
-
-const particleBox=document.getElementById("particles");
-
-for(let i=0;i<35;i++){
-
-    const p=document.createElement("div");
-
-    p.className="particle";
-
-    p.style.left=Math.random()*100+"%";
-    p.style.top=Math.random()*100+"%";
-    p.style.animationDelay=Math.random()*5+"s";
-    p.style.animationDuration=(3+Math.random()*5)+"s";
-
-    particleBox.appendChild(p);
-}
-
-
-/* ================= RENDER ================= */
-
-const productsBox=document.getElementById("products");
-
-function render(list){
-
-    productsBox.innerHTML="";
-
-    list.forEach((item,index)=>{
-
-        const card=document.createElement("div");
-
-        card.className="card";
-
-        card.innerHTML=`
-
-            <span class="new">CS2</span>
-
-            <div class="weapon-img">
-
-                <img
-                    src="${item.image}"
-                    alt="${item.name}"
-                >
-
-            </div>
-
-            <h3>${item.name}</h3>
-
-            <div class="condition">
-                ● ${item.condition}
-            </div>
-
-            <div class="card-bottom">
-
-                <div class="price">
-                    ${item.price}
-                </div>
-
-                <button
-                    class="view"
-                    onclick="openProduct(${index})">
-                    مشاهده جزئیات
-                </button>
-
-            </div>
-
-        `;
-
-        productsBox.appendChild(card);
-
-    });
-}
-
-render(products);
-
-
-/* ================= SEARCH ================= */
-
-document.getElementById("search")
-.addEventListener("input",function(){
-
-    const value=this.value.toLowerCase();
-
-    render(
-        products.filter(x =>
-            x.name.toLowerCase().includes(value) ||
-            x.condition.toLowerCase().includes(value)
-        )
-    );
-
-});
-
-
-/* ================= PROFILE ================= */
-
-let userProfile =
-JSON.parse(localStorage.getItem("csgoshop_profile")) || null;
-
-
-function updateProfile(){
-
-    const name=document.getElementById("profileName");
-    const avatar=document.getElementById("avatar");
-
-    if(userProfile){
-
-        name.innerText=userProfile.username || "کاربر";
-
-        avatar.innerText=
-        (userProfile.username || "A")
-        .charAt(0)
-        .toUpperCase();
-
-    }else{
-
-        name.innerText="ورود / ثبت‌نام";
-        avatar.innerText="A";
-
-    }
-
-}
-
-
-function openProfile(){
-
-    document.getElementById("profileOverlay")
-    .classList.add("active");
-
-    if(userProfile){
-
-        document.getElementById("phone").value=
-        userProfile.phone || "";
-
-        document.getElementById("username").value=
-        userProfile.username || "";
-
-        document.getElementById("profileStatus").className=
-        "status ok";
-
-        document.getElementById("profileStatus").innerText=
-        "✓ پروفایل شما تکمیل شده است.";
-
-    }
-
-}
-
-
-function closeProfile(){
-
-    document.getElementById("profileOverlay")
-    .classList.remove("active");
-
-}
-
-
-function saveProfile(){
-
-    const phone=
-    document.getElementById("phone").value.trim();
-
-    const username=
-    document.getElementById("username").value.trim();
-
-
-    /* PHONE VALIDATION */
-
-    const phoneRegex=/^(09|\+989)\d{9}$/;
-
-    if(!phoneRegex.test(phone)){
-
-        showToast("❌ شماره موبایل معتبر وارد کنید.");
-
-        return;
-    }
-
-
-    if(username.length < 3){
-
-        showToast("❌ نام کاربری حداقل ۳ حرف باشد.");
-
-        return;
-    }
-
-
-    userProfile={
-        phone:phone,
-        username:username
-    };
-
-
-    localStorage.setItem(
-        "csgoshop_profile",
-        JSON.stringify(userProfile)
-    );
-
-
-    updateProfile();
-
-
-    document.getElementById("profileStatus")
-    .className="status ok";
-
-    document.getElementById("profileStatus")
-    .innerText=
-    "✓ پروفایل تکمیل شد؛ اکنون می‌توانید خرید کنید.";
-
-    showToast("✓ پروفایل با موفقیت تکمیل شد.");
-
-}
-
-
-/* ================= PRODUCT ================= */
-
-let selectedProduct=null;
-
-
-function openProduct(index){
-
-    selectedProduct=products[index];
-
-    document.getElementById("bigImage").src=
-    selectedProduct.image;
-
-    document.getElementById("bigName").innerText=
-    selectedProduct.name;
-
-    document.getElementById("bigCondition").innerText=
-    selectedProduct.condition;
-
-    document.getElementById("bigPrice").innerText=
-    selectedProduct.price;
-
-    document.getElementById("productOverlay")
-    .classList.add("active");
-
-}
-
-
-function closeProduct(){
-
-    document.getElementById("productOverlay")
-    .classList.remove("active");
-
-}
-
-
-/* ================= PURCHASE LOCK ================= */
-
-function buyProduct(){
-
-    /*
-       اگر پروفایل کامل نباشد،
-       اجازه خرید داده نمی‌شود.
-    */
-
-    if(!userProfile){
-
-        closeProduct();
-
-        showToast(
-            "🔒 برای خرید ابتدا پروفایل خود را تکمیل کنید."
-        );
-
-        setTimeout(()=>{
-
-            openProfile();
-
-        },500);
-
-        return;
-    }
-
-
-    /*
-       در اینجا بعداً لینک زرین‌پال
-       قرار می‌گیرد.
-    */
-
-    const message =
-    "سلام، برای خرید اسکین پیام میدم:%0A%0A" +
-    "🎮 " + selectedProduct.name +
-    "%0A📦 " + selectedProduct.condition +
-    "%0A💰 " + selectedProduct.price +
-    "%0A📱 شماره: " + userProfile.phone;
-
-
-    window.open(
-        "https://t.me/aghojavaad?text="+message,
-        "_blank"
-    );
-
-}
-
-
-/* ================= TOAST ================= */
-
-function showToast(text){
-
-    const toast=document.getElementById("toast");
-
-    toast.innerText=text;
-
-    toast.classList.add("show");
-
-    setTimeout(()=>{
-        toast.classList.remove("show");
-    },3000);
-
-}
-
-
-/* ================= CLOSE ON BACKDROP ================= */
-
-document.getElementById("profileOverlay")
-.addEventListener("click",function(e){
-
-    if(e.target===this)
-        closeProfile();
-
-});
-
-
-document.getElementById("productOverlay")
-.addEventListener("click",function(e){
-
-    if(e.target===this)
-        closeProduct();
-
-});
-
-
-/* ================= INITIAL ================= */
-
-updateProfile();
-
-</script>
-
-</body>
-</html>
+    image:
+    "https://steamcommunity-a.akamaihd.net/economy/
