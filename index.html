@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>CS2 SHOP</title>
+<meta name="theme-color" content="#08090d">
+<title>CS2 Skin Shop</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -16,1317 +14,1150 @@
 }
 
 body{
-    background:#070707;
+    font-family:Tahoma,Arial,sans-serif;
+    background:
+        radial-gradient(circle at top right,#251313 0,transparent 35%),
+        radial-gradient(circle at bottom left,#10182b 0,transparent 35%),
+        #08090d;
     color:#fff;
-    font-family:Arial,Tahoma,sans-serif;
     min-height:100vh;
 }
 
-/* HEADER */
+button,input,select{
+    font-family:inherit;
+}
 
-header{
+.header{
     position:sticky;
     top:0;
-    z-index:1000;
-
+    z-index:100;
     height:75px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    padding:0 20px;
-
-    background:
-    linear-gradient(90deg,#050505,#220000,#050505);
-
-    border-bottom:2px solid #e00000;
-
-    box-shadow:0 5px 25px rgba(0,0,0,.5);
+    padding:0 6%;
+    background:rgba(8,9,13,.88);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .logo{
-    color:#ff2020;
-    font-size:25px;
-    font-weight:900;
-
-    text-shadow:
-    0 0 10px rgba(255,0,0,.7),
-    0 0 25px rgba(255,0,0,.4);
-}
-
-/* PROFILE BUTTON */
-
-.profile-button{
     display:flex;
     align-items:center;
-    gap:8px;
+    gap:12px;
+    font-size:21px;
+    font-weight:900;
+}
 
-    padding:7px 12px;
-
-    background:#111;
-    border:1px solid #ff2020;
+.logo-icon{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     border-radius:12px;
+    background:linear-gradient(135deg,#ff2d2d,#8d0808);
+    box-shadow:0 0 25px rgba(255,35,35,.25);
+}
 
+.logo span{
+    color:#ff3434;
+}
+
+.profile-btn{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    border:1px solid rgba(255,255,255,.12);
+    background:#111319;
     color:#fff;
+    border-radius:30px;
+    padding:6px 13px 6px 7px;
     cursor:pointer;
-
-    transition:.25s;
 }
 
-.profile-button:hover{
-    background:#c90000;
-}
-
-.header-avatar{
+.profile-avatar{
     width:38px;
     height:38px;
-
     border-radius:50%;
-
     object-fit:cover;
-
-    border:2px solid #ff2020;
-
     background:#222;
 }
 
-/* HERO */
-
 .hero{
-    max-width:1100px;
-
-    margin:25px auto;
-
-    padding:65px 20px;
-
     text-align:center;
-
-    border-radius:20px;
-
-    background:
-    radial-gradient(circle at center,#350000,#110000 45%,#080808 80%);
-
-    border:1px solid #600000;
-
-    box-shadow:
-    0 0 40px rgba(255,0,0,.12);
+    padding:75px 20px 45px;
 }
 
 .hero h1{
-    font-size:42px;
-    font-weight:900;
-
+    font-size:clamp(30px,6vw,58px);
     margin-bottom:15px;
 }
 
 .hero h1 span{
-    color:#ff2020;
-
-    text-shadow:
-    0 0 15px rgba(255,0,0,.7);
+    color:#ff3030;
 }
 
 .hero p{
     color:#aaa;
-    font-size:17px;
+    font-size:15px;
+    line-height:2;
 }
 
-/* TELEGRAM */
-
-.telegram-box{
-    max-width:600px;
-
-    margin:20px auto;
-
-    padding:16px;
-
-    text-align:center;
-
-    background:#111;
-
-    border:1px solid #2d2d2d;
-
-    border-radius:14px;
-}
-
-.telegram-box strong{
-    color:#ff3030;
-}
-
-.telegram-id{
-    direction:ltr;
-
-    display:inline-block;
-
-    margin-top:8px;
-
-    color:#fff;
-
+.telegram-top{
+    display:inline-flex;
+    margin-top:24px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,#ff3030,#9b0c0c);
+    padding:13px 22px;
+    border-radius:12px;
     font-weight:bold;
+    box-shadow:0 10px 35px rgba(255,30,30,.18);
 }
 
-/* PRODUCTS */
-
-.products{
-    width:100%;
-    max-width:1100px;
-
+.tools{
+    max-width:1200px;
     margin:auto;
-
-    padding:20px;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(245px,1fr));
-
-    gap:22px;
+    padding:0 20px 35px;
 }
 
-/* CARD */
+.search{
+    width:100%;
+    background:#111319;
+    border:1px solid rgba(255,255,255,.1);
+    color:#fff;
+    padding:16px 20px;
+    border-radius:14px;
+    outline:none;
+    font-size:14px;
+}
+
+.search:focus{
+    border-color:#e52b2b;
+}
+
+.shop{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px 70px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
+    gap:20px;
+}
 
 .card{
-    background:
-    linear-gradient(145deg,#151515,#090909);
-
-    border:1px solid #292929;
-
-    border-radius:17px;
-
-    padding:14px;
-
     overflow:hidden;
-
-    transition:.3s;
+    background:linear-gradient(180deg,#15171e,#0e1015);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    transition:.25s;
 }
 
 .card:hover{
-    transform:translateY(-6px);
-
-    border-color:#ff2020;
-
-    box-shadow:
-    0 0 30px rgba(255,0,0,.2);
+    transform:translateY(-5px);
+    border-color:rgba(255,50,50,.45);
+    box-shadow:0 18px 45px rgba(0,0,0,.3);
 }
 
-/* IMAGE AREA */
-
 .image-box{
-    width:100%;
-    height:190px;
-
+    height:210px;
+    padding:18px;
     display:flex;
     align-items:center;
     justify-content:center;
-
     background:
-    radial-gradient(circle,#1b1b1b,#050505);
-
-    border-radius:13px;
-
-    overflow:hidden;
+        radial-gradient(circle,#252832 0,transparent 65%),
+        #0b0d11;
 }
 
 .image-box img{
     width:100%;
     height:100%;
-
     object-fit:contain;
-
-    padding:12px;
-
     transition:.3s;
 }
 
 .card:hover .image-box img{
-    transform:scale(1.06);
+    transform:scale(1.05);
 }
 
-/* CARD TEXT */
-
-.card h2{
-    margin-top:16px;
-
-    font-size:19px;
-
-    direction:ltr;
-    text-align:left;
+.info{
+    padding:18px;
 }
 
-.condition{
-    color:#888;
-
-    margin-top:8px;
-
-    direction:ltr;
-    text-align:left;
-}
-
-.buy-text{
-    margin-top:14px;
-
-    padding:12px;
-
-    text-align:center;
-
-    background:#160707;
-
-    border:1px solid #420000;
-
-    border-radius:9px;
-
-    color:#ddd;
-
-    font-size:14px;
-
-    line-height:1.7;
-}
-
-.buy-text strong{
-    display:block;
-
-    color:#ff3030;
-
-    direction:ltr;
-}
-
-/* BUY BUTTON */
-
-.buy-button{
-    width:100%;
-
-    margin-top:10px;
-
-    padding:12px;
-
-    border:0;
-
-    border-radius:9px;
-
-    background:#d90000;
-
-    color:#fff;
-
+.info h3{
     font-size:16px;
+    margin-bottom:9px;
+}
 
-    font-weight:bold;
+.info p{
+    color:#999;
+    font-size:12px;
+    margin-bottom:15px;
+}
 
+.buy{
+    width:100%;
+    border:0;
     cursor:pointer;
-
-    transition:.25s;
+    color:white;
+    font-weight:bold;
+    padding:13px;
+    border-radius:11px;
+    background:linear-gradient(135deg,#ff3535,#a30d0d);
 }
 
-.buy-button:hover{
-    background:#ff2020;
-
-    box-shadow:
-    0 0 20px rgba(255,0,0,.4);
+.buy:hover{
+    filter:brightness(1.12);
 }
 
-/* FOOTER */
-
-footer{
-    margin-top:35px;
-
-    padding:35px 20px;
-
+.empty{
+    display:none;
     text-align:center;
-
-    color:#777;
-
-    border-top:1px solid #222;
-
-    background:#050505;
+    color:#888;
+    padding:50px;
 }
 
-footer strong{
-    color:#ff3030;
-
-    direction:ltr;
-
-    display:inline-block;
-}
-
-/* PROFILE MODAL */
+/* MODAL */
 
 .modal{
     position:fixed;
-
     inset:0;
-
-    z-index:5000;
-
+    z-index:1000;
     display:none;
-
     align-items:center;
     justify-content:center;
-
     padding:20px;
-
-    background:rgba(0,0,0,.85);
-
-    backdrop-filter:blur(5px);
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(8px);
 }
 
-.modal.show{
+.modal.active{
     display:flex;
 }
 
-.profile-box{
+.modal-box{
     width:100%;
-    max-width:400px;
-
-    background:#111;
-
-    border:1px solid #ff2020;
-
+    max-width:430px;
+    background:#12141a;
+    border:1px solid rgba(255,255,255,.1);
     border-radius:20px;
-
-    padding:25px;
-
-    box-shadow:
-    0 0 40px rgba(255,0,0,.35);
-
-    text-align:center;
+    padding:24px;
+    box-shadow:0 25px 80px rgba(0,0,0,.6);
 }
 
-.profile-box h2{
-    color:#ff3030;
+.modal-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:25px;
+}
 
+.modal-head h2{
+    font-size:20px;
+}
+
+.close{
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:50%;
+    background:#252832;
+    color:#fff;
+    cursor:pointer;
+    font-size:20px;
+}
+
+.avatar-upload{
+    text-align:center;
     margin-bottom:20px;
 }
 
-.avatar-preview{
-    width:110px;
-    height:110px;
-
-    display:block;
-
-    margin:0 auto 15px;
-
+.big-avatar{
+    width:90px;
+    height:90px;
     border-radius:50%;
-
     object-fit:cover;
-
-    background:#222;
-
-    border:3px solid #ff2020;
-}
-
-.profile-box input[type="text"]{
-    width:100%;
-
-    padding:13px;
-
-    margin-top:10px;
-
-    background:#080808;
-
-    color:#fff;
-
-    border:1px solid #333;
-
-    border-radius:9px;
-
-    outline:none;
-
-    text-align:center;
-}
-
-.profile-box input[type="text"]:focus{
-    border-color:#ff2020;
+    border:3px solid #e72b2b;
+    margin-bottom:12px;
 }
 
 .file-label{
-    display:block;
-
-    margin-top:12px;
-
-    padding:12px;
-
-    background:#202020;
-
-    border-radius:9px;
-
+    display:inline-block;
+    background:#242730;
+    padding:10px 15px;
+    border-radius:10px;
     cursor:pointer;
-
-    color:#ddd;
+    font-size:12px;
 }
 
-.file-label:hover{
-    background:#2a2a2a;
-}
-
-#avatarFile{
+.file-label input{
     display:none;
 }
 
-.save-button{
-    width:100%;
-
-    margin-top:15px;
-
-    padding:13px;
-
-    border:0;
-
-    border-radius:9px;
-
-    background:#d90000;
-
-    color:white;
-
-    font-weight:bold;
-
-    font-size:16px;
-
-    cursor:pointer;
+.field{
+    margin-bottom:16px;
 }
 
-.close-button{
+.field label{
+    display:block;
+    font-size:12px;
+    color:#aaa;
+    margin-bottom:8px;
+}
+
+.field input,
+.field select{
     width:100%;
-
-    margin-top:8px;
-
-    padding:11px;
-
-    border:0;
-
-    border-radius:9px;
-
-    background:#222;
-
+    padding:14px;
+    background:#090a0e;
+    border:1px solid #292c35;
     color:#fff;
-
-    cursor:pointer;
+    border-radius:10px;
+    outline:none;
 }
 
-.delete-button{
+.save-btn{
     width:100%;
-
-    margin-top:8px;
-
-    padding:9px;
-
     border:0;
-
-    border-radius:9px;
-
-    background:transparent;
-
-    color:#777;
-
+    padding:14px;
+    border-radius:11px;
+    background:#e52b2b;
+    color:#fff;
+    font-weight:bold;
     cursor:pointer;
 }
 
-/* MOBILE */
+.reset-btn{
+    width:100%;
+    margin-top:9px;
+    border:1px solid #333;
+    padding:12px;
+    border-radius:11px;
+    background:transparent;
+    color:#aaa;
+    cursor:pointer;
+}
+
+/* BUY MODAL */
+
+.product-preview{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px;
+    border-radius:12px;
+    background:#0b0d11;
+    margin-bottom:20px;
+}
+
+.product-preview img{
+    width:80px;
+    height:55px;
+    object-fit:contain;
+}
+
+.product-preview strong{
+    font-size:14px;
+}
+
+.condition-note{
+    color:#777;
+    font-size:11px;
+    line-height:1.8;
+    margin-top:8px;
+}
+
+.send-btn{
+    width:100%;
+    margin-top:8px;
+    border:0;
+    padding:14px;
+    border-radius:11px;
+    color:#fff;
+    font-weight:bold;
+    background:linear-gradient(135deg,#ff3333,#a30d0d);
+    cursor:pointer;
+}
+
+.footer{
+    border-top:1px solid rgba(255,255,255,.07);
+    padding:30px 20px;
+    text-align:center;
+    color:#666;
+    font-size:12px;
+}
+
+.footer a{
+    color:#ff3434;
+    text-decoration:none;
+}
 
 @media(max-width:600px){
-
-    header{
-        height:68px;
-        padding:0 12px;
+    .header{
+        padding:0 15px;
     }
 
     .logo{
-        font-size:20px;
+        font-size:16px;
     }
 
     .hero{
-        margin:15px 12px;
-
-        padding:45px 15px;
+        padding-top:50px;
     }
 
-    .hero h1{
-        font-size:30px;
-    }
-
-    .hero p{
-        font-size:14px;
-    }
-
-    .products{
-        padding:12px;
-
-        grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
+    .grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
         gap:12px;
     }
 
-    .card{
-        padding:9px;
-    }
-
     .image-box{
-        height:125px;
-    }
-
-    .card h2{
-        font-size:14px;
-    }
-
-    .condition{
-        font-size:12px;
-    }
-
-    .buy-text{
-        font-size:11px;
-    }
-
-    .buy-button{
-        font-size:13px;
+        height:145px;
         padding:10px;
     }
+
+    .info{
+        padding:12px;
+    }
+
+    .info h3{
+        font-size:12px;
+        line-height:1.7;
+    }
+
+    .info p{
+        font-size:10px;
+    }
+
+    .buy{
+        padding:10px 5px;
+        font-size:11px;
+    }
 }
-
 </style>
-
 </head>
 
 <body>
 
+<header class="header">
 
-<!-- HEADER -->
+    <div class="logo">
+        <div class="logo-icon">🔫</div>
+        <div>CS2 <span>SKIN SHOP</span></div>
+    </div>
 
-<header>
-
-<div class="logo">
-CS2 SHOP
-</div>
-
-<button class="profile-button" onclick="openProfile()">
-
-<img
-id="headerAvatar"
-class="header-avatar"
-src="https://i.imgur.com/6VBx3io.png"
-alt="Profile">
-
-<span id="headerName">
-Profile
-</span>
-
-</button>
+    <button class="profile-btn" onclick="openProfile()">
+        <img id="headerAvatar" class="profile-avatar" alt="Profile">
+        <span id="headerName">پروفایل</span>
+    </button>
 
 </header>
 
-
-<!-- HERO -->
-
 <section class="hero">
 
-<h1>
-به <span>CS2 SHOP</span> خوش آمدید
-</h1>
+    <h1>فروشگاه <span>اسکین CS2</span></h1>
 
-<p>
-بهترین اسکین‌های CS2 با خرید سریع و مطمئن
-</p>
+    <p>
+        بهترین اسکین‌های Counter-Strike 2<br>
+        برای خرید، اسکین موردنظر و مدل آن را انتخاب کنید.
+    </p>
+
+    <a class="telegram-top"
+       href="https://t.me/aghojavaad"
+       target="_blank">
+       💬 ارتباط در تلگرام
+    </a>
 
 </section>
 
-
-<!-- TELEGRAM -->
-
-<div class="telegram-box">
-
-برای خرید هر اسکین به آیدی زیر پیام دهید
-
-<br>
-
-<strong class="telegram-id">
-@aghojavaad
-</strong>
-
+<div class="tools">
+    <input
+        id="searchInput"
+        class="search"
+        type="text"
+        placeholder="🔎 جستجوی نام گان..."
+        oninput="searchProducts()"
+    >
 </div>
 
+<main class="shop">
 
-<!-- PRODUCTS -->
+    <div id="productsGrid" class="grid"></div>
 
-<section class="products">
+    <div id="empty" class="empty">
+        اسکینی با این نام پیدا نشد 😕
+    </div>
 
+</main>
 
-<!-- AK ELITE BUILD -->
-
-<div class="card">
-
-<div class="image-box">
-
-<img
-src="https://specs.gg/assets/img/cs2_skins/AK-47/Elite%20Build.png"
-alt="AK-47 Elite Build">
-
-</div>
-
-<h2>
-AK-47 | Elite Build
-</h2>
-
-<p class="condition">
-Factory New
-</p>
-
-<div class="buy-text">
-برای خرید به آیدی زیر پیام دهید
-<strong>@aghojavaad</strong>
-</div>
-
-<button
-class="buy-button"
-onclick="buySkin('AK-47 | Elite Build')">
-
-پیام برای خرید
-
-</button>
-
-</div>
-
-
-<!-- AK REDLINE -->
-
-<div class="card">
-
-<div class="image-box">
-
-<img
-src="https://specs.gg/assets/img/cs2_skins/AK-47/Redline.png"
-alt="AK-47 Redline">
-
-</div>
-
-<h2>
-AK-47 | Redline
-</h2>
-
-<p class="condition">
-Field-Tested
-</p>
-
-<div class="buy-text">
-برای خرید به آیدی زیر پیام دهید
-<strong>@aghojavaad</strong>
-</div>
-
-<button
-class="buy-button"
-onclick="buySkin('AK-47 | Redline')">
-
-پیام برای خرید
-
-</button>
-
-</div>
-
-
-<!-- AK SLATE -->
-
-<div class="card">
-
-<div class="image-box">
-
-<img
-src="https://specs.gg/assets/img/cs2_skins/AK-47/Slate.png"
-alt="AK-47 Slate">
-
-</div>
-
-<h2>
-AK-47 | Slate
-</h2>
-
-<p class="condition">
-Minimal Wear
-</p>
-
-<div class="buy-text">
-برای خرید به آیدی زیر پیام دهید
-<strong>@aghojavaad</strong>
-</div>
-
-<button
-class="buy-button"
-onclick="buySkin('AK-47 | Slate')">
-
-پیام برای خرید
-
-</button>
-
-</div>
-
-
-<!-- DESERT EAGLE BLUE PLY -->
-
-<div class="card">
-
-<div class="image-box">
-
-<img
-src="https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Blue%20Ply.png"
-alt="Desert Eagle Blue Ply">
-
-</div>
-
-<h2>
-Desert Eagle | Blue Ply
-</h2>
-
-<p class="condition">
-Factory New
-</p>
-
-<div class="buy-text">
-برای خرید به آیدی زیر پیام دهید
-<strong>@aghojavaad</strong>
-</div>
-
-<button
-class="buy-button"
-onclick="buySkin('Desert Eagle | Blue Ply')">
-
-پیام برای خرید
-
-</button>
-
-</div>
-
-
-<!-- DESERT EAGLE PRINTSTREAM -->
-
-<div class="card">
-
-<div class="image-box">
-
-<img
-src="https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Printstream.png"
-alt="Desert Eagle Printstream">
-
-</div>
-
-<h2>
-Desert Eagle | Printstream
-</h2>
-
-<p class="condition">
-Field-Tested
-</p>
-
-<div class="buy-text">
-برای خرید به آیدی زیر پیام دهید
-<strong>@aghojavaad</strong>
-</div>
-
-<button
-class="buy-button"
-onclick="buySkin('Desert Eagle | Printstream')">
-
-پیام برای خرید
-
-</button>
-
-</div>
-
-
-<!-- M4 BOREAL -->
-
-<div class="card">
-
-<div class="image-box">
-
-<img
-src="https://specs.gg/assets/img/cs2_skins/M4A1-S/Boreal%20Forest.png"
-alt="M4A1-S Boreal Forest">
-
-</div>
-
-<h2>
-M4A1-S | Boreal Forest
-</h2>
-
-<p class="condition">
-Minimal Wear
-</p>
-
-<div class="buy-text">
-برای خرید به آیدی زیر پیام دهید
-<strong>@aghojavaad</strong>
-</div>
-
-<button
-class="buy-button"
-onclick="buySkin('M4A1-S | Boreal Forest')">
-
-پیام برای خرید
-
-</button>
-
-</div>
-
-
-<!-- M4 PRINTSTREAM -->
-
-<div class="card">
-
-<div class="image-box">
-
-<img
-src="https://specs.gg/assets/img/cs2_skins/M4A1-S/Printstream.png"
-alt="M4A1-S Printstream">
-
-</div>
-
-<h2>
-M4A1-S | Printstream
-</h2>
-
-<p class="condition">
-Field-Tested
-</p>
-
-<div class="buy-text">
-برای خرید به آیدی زیر پیام دهید
-<strong>@aghojavaad</strong>
-</div>
-
-<button
-class="buy-button"
-onclick="buySkin('M4A1-S | Printstream')">
-
-پیام برای خرید
-
-</button>
-
-</div>
-
-
-<!-- USP PRINTSTREAM -->
-
-<div class="card">
-
-<div class="image-box">
-
-<img
-src="https://specs.gg/assets/img/cs2_skins/USP-S/Printstream.png"
-alt="USP-S Printstream">
-
-</div>
-
-<h2>
-USP-S | Printstream
-</h2>
-
-<p class="condition">
-Field-Tested
-</p>
-
-<div class="buy-text">
-برای خرید به آیدی زیر پیام دهید
-<strong>@aghojavaad</strong>
-</div>
-
-<button
-class="buy-button"
-onclick="buySkin('USP-S | Printstream')">
-
-پیام برای خرید
-
-</button>
-
-</div>
-
-
-<!-- AWP ASIIMOV -->
-
-<div class="card">
-
-<div class="image-box">
-
-<img
-src="https://specs.gg/assets/img/cs2_skins/AWP/Asiimov.png"
-alt="AWP Asiimov">
-
-</div>
-
-<h2>
-AWP | Asiimov
-</h2>
-
-<p class="condition">
-Field-Tested
-</p>
-
-<div class="buy-text">
-برای خرید به آیدی زیر پیام دهید
-<strong>@aghojavaad</strong>
-</div>
-
-<button
-class="buy-button"
-onclick="buySkin('AWP | Asiimov')">
-
-پیام برای خرید
-
-</button>
-
-</div>
-
-
-<!-- R8 -->
-
-<div class="card">
-
-<div class="image-box">
-
-<img
-src="https://specs.gg/assets/img/cs2_skins/R8%20Revolver/Junk%20Yard.png"
-alt="R8 Revolver Junk Yard">
-
-</div>
-
-<h2>
-R8 Revolver | Junk Yard
-</h2>
-
-<p class="condition">
-Field-Tested
-</p>
-
-<div class="buy-text">
-برای خرید به آیدی زیر پیام دهید
-<strong>@aghojavaad</strong>
-</div>
-
-<button
-class="buy-button"
-onclick="buySkin('R8 Revolver | Junk Yard')">
-
-پیام برای خرید
-
-</button>
-
-</div>
-
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<p>
-برای خرید اسکین‌ها از طریق تلگرام با ما در ارتباط باشید
-</p>
-
-<br>
-
-<strong>
-@aghojavaad
-</strong>
-
-<br><br>
-
-© 2026 CS2 SHOP
-
+<footer class="footer">
+    برای خرید به آیدی زیر پیام دهید:
+    <a href="https://t.me/aghojavaad" target="_blank">@aghojavaad</a>
 </footer>
 
 
 <!-- PROFILE MODAL -->
 
-<div
-class="modal"
-id="profileModal"
-onclick="closeModalOutside(event)">
+<div id="profileModal" class="modal">
 
-<div
-class="profile-box"
-onclick="event.stopPropagation()">
+    <div class="modal-box">
 
-<h2>
-👤 پروفایل من
-</h2>
+        <div class="modal-head">
+            <h2>👤 پروفایل</h2>
+            <button class="close" onclick="closeProfile()">×</button>
+        </div>
 
-<img
-id="avatarPreview"
-class="avatar-preview"
-src="https://i.imgur.com/6VBx3io.png"
-alt="Avatar">
+        <div class="avatar-upload">
 
-<input
-id="nameInput"
-type="text"
-maxlength="30"
-placeholder="اسم خودت را وارد کن">
+            <img id="bigAvatar" class="big-avatar" alt="Avatar">
 
-<label
-class="file-label"
-for="avatarFile">
+            <br>
 
-📷 انتخاب عکس پروفایل
+            <label class="file-label">
+                📷 انتخاب عکس پروفایل
+                <input
+                    id="avatarInput"
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp"
+                    onchange="changeAvatar(event)"
+                >
+            </label>
 
-</label>
+        </div>
 
-<input
-id="avatarFile"
-type="file"
-accept="image/png,image/jpeg,image/webp"
-onchange="handleAvatar(event)">
+        <div class="field">
 
-<button
-class="save-button"
-onclick="saveProfile()">
+            <label>نام نمایشی</label>
 
-ذخیره پروفایل
+            <input
+                id="profileName"
+                type="text"
+                maxlength="25"
+                placeholder="مثلاً Javad"
+            >
 
-</button>
+        </div>
 
-<button
-class="close-button"
-onclick="closeProfile()">
+        <button class="save-btn" onclick="saveProfile()">
+            ذخیره پروفایل
+        </button>
 
-بستن
+        <button class="reset-btn" onclick="resetProfile()">
+            حذف اطلاعات پروفایل
+        </button>
 
-</button>
-
-<button
-class="delete-button"
-onclick="resetProfile()">
-
-حذف پروفایل
-
-</button>
+    </div>
 
 </div>
+
+
+<!-- BUY MODAL -->
+
+<div id="buyModal" class="modal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+            <h2>🛒 درخواست خرید</h2>
+            <button class="close" onclick="closeBuy()">×</button>
+        </div>
+
+        <div class="product-preview">
+
+            <img id="buyImage" alt="Skin">
+
+            <div>
+                <strong id="buyProductName"></strong>
+            </div>
+
+        </div>
+
+        <div class="field">
+
+            <label>مدل / Condition را انتخاب کنید</label>
+
+            <select id="conditionSelect">
+
+                <option value="Factory New">Factory New</option>
+                <option value="Minimal Wear">Minimal Wear</option>
+                <option value="Field-Tested">Field-Tested</option>
+                <option value="Well-Worn">Well-Worn</option>
+                <option value="Battle-Scarred">Battle-Scarred</option>
+
+            </select>
+
+            <div class="condition-note">
+                مدل موردنظر خود را انتخاب کنید و سپس روی ارسال درخواست خرید بزنید.
+            </div>
+
+        </div>
+
+        <button class="send-btn" onclick="sendTelegram()">
+            📩 ارسال درخواست خرید در تلگرام
+        </button>
+
+    </div>
 
 </div>
 
 
 <script>
 
-/* TELEGRAM */
+/* =========================
+   PRODUCTS
+========================= */
 
-function buySkin(skinName){
+const products = [
 
-    const message =
-    "سلام 👋%0A%0A"+
-    "من برای خرید این اسکین پیام دادم:%0A"+
-    "🎮 "+encodeURIComponent(skinName)+
-    "%0A%0A"+
-    "لطفاً موجودی و شرایط خرید را اعلام کنید.";
+    {
+        name: "AK-47 | Elite Build",
+        image: "https://specs.gg/assets/img/cs2_skins/AK-47/Elite%20Build.png"
+    },
 
-    window.open(
-        "https://t.me/aghojavaad?text="+message,
-        "_blank"
-    );
+    {
+        name: "AK-47 | Redline",
+        image: "https://specs.gg/assets/img/cs2_skins/AK-47/Redline.png"
+    },
+
+    {
+        name: "AK-47 | Slate",
+        image: "https://specs.gg/assets/img/cs2_skins/AK-47/Slate.png"
+    },
+
+    {
+        name: "M4A1-S | Boreal Forest",
+        image: "https://specs.gg/assets/img/cs2_skins/M4A1-S/Boreal%20Forest.png"
+    },
+
+    {
+        name: "M4A1-S | Printstream",
+        image: "https://specs.gg/assets/img/cs2_skins/M4A1-S/Printstream.png"
+    },
+
+    {
+        name: "M4A1-S | Leaded Glass",
+        image: "https://specs.gg/assets/img/cs2_skins/M4A1-S/Leaded%20Glass.png"
+    },
+
+    {
+        name: "Desert Eagle | Blue Ply",
+        image: "https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Blue%20Ply.png"
+    },
+
+    {
+        name: "Desert Eagle | Printstream",
+        image: "https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Printstream.png"
+    },
+
+    {
+        name: "Desert Eagle | Mecha Industries",
+        image: "https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Mecha%20Industries.png"
+    },
+
+    {
+        name: "USP-S | Printstream",
+        image: "https://specs.gg/assets/img/cs2_skins/USP-S/Printstream.png"
+    },
+
+    {
+        name: "USP-S | Cortex",
+        image: "https://specs.gg/assets/img/cs2_skins/USP-S/Cortex.png"
+    },
+
+    {
+        name: "Glock-18 | Water Elemental",
+        image: "https://specs.gg/assets/img/cs2_skins/Glock-18/Water%20Elemental.png"
+    },
+
+    {
+        name: "AWP | Asiimov",
+        image: "https://specs.gg/assets/img/cs2_skins/AWP/Asiimov.png"
+    },
+
+    {
+        name: "AWP | Atheris",
+        image: "https://specs.gg/assets/img/cs2_skins/AWP/Atheris.png"
+    },
+
+    {
+        name: "R8 Revolver | Junk Yard",
+        image: "https://specs.gg/assets/img/cs2_skins/R8%20Revolver/Junk%20Yard.png"
+    },
+
+    {
+        name: "M4A1-S | Naval Shred",
+        image: "https://specs.gg/assets/img/cs2_skins/M4A1-S/Naval%20Shred.png"
+    }
+
+];
+
+
+/* =========================
+   DEFAULT AVATAR
+========================= */
+
+const defaultAvatar =
+"data:image/svg+xml;charset=UTF-8," +
+encodeURIComponent(`
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
+<rect width="300" height="300" rx="150" fill="#20232b"/>
+<circle cx="150" cy="115" r="58" fill="#777"/>
+<path d="M55 285c8-65 50-100 95-100s87 35 95 100" fill="#777"/>
+</svg>
+`);
+
+
+/* =========================
+   STATE
+========================= */
+
+let selectedProduct = null;
+let temporaryAvatar = null;
+
+
+/* =========================
+   RENDER PRODUCTS
+========================= */
+
+function renderProducts(list = products){
+
+    const grid = document.getElementById("productsGrid");
+    const empty = document.getElementById("empty");
+
+    grid.innerHTML = "";
+
+    if(list.length === 0){
+
+        empty.style.display = "block";
+        return;
+
+    }
+
+    empty.style.display = "none";
+
+    list.forEach((product,index)=>{
+
+        const card = document.createElement("article");
+
+        card.className = "card";
+
+        card.innerHTML = `
+
+            <div class="image-box">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                    loading="lazy"
+                    onerror="this.style.opacity='0.25'"
+                >
+
+            </div>
+
+            <div class="info">
+
+                <h3>${product.name}</h3>
+
+                <p>
+                    برای خرید به آیدی زیر پیام دهید:
+                    <br>
+                    <strong>@aghojavaad</strong>
+                </p>
+
+                <button
+                    class="buy"
+                    onclick="openBuy(${index})"
+                >
+                    🛒 انتخاب مدل و خرید
+                </button>
+
+            </div>
+
+        `;
+
+        grid.appendChild(card);
+
+    });
+
 }
 
 
-/* PROFILE */
+/* =========================
+   SEARCH
+========================= */
 
-const defaultAvatar =
-"https://i.imgur.com/6VBx3io.png";
+function searchProducts(){
 
+    const text =
+        document
+        .getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const filtered = products.filter(product =>
+        product.name.toLowerCase().includes(text)
+    );
+
+    renderProducts(filtered);
+
+}
+
+
+/* =========================
+   BUY MODAL
+========================= */
+
+function openBuy(index){
+
+    selectedProduct = products[index];
+
+    document.getElementById("buyProductName").textContent =
+        selectedProduct.name;
+
+    document.getElementById("buyImage").src =
+        selectedProduct.image;
+
+    document.getElementById("conditionSelect").value =
+        "Factory New";
+
+    document.getElementById("buyModal").classList.add("active");
+
+}
+
+
+function closeBuy(){
+
+    document
+        .getElementById("buyModal")
+        .classList.remove("active");
+
+    selectedProduct = null;
+
+}
+
+
+/* =========================
+   TELEGRAM MESSAGE
+========================= */
+
+function sendTelegram(){
+
+    if(!selectedProduct){
+        return;
+    }
+
+    const condition =
+        document
+        .getElementById("conditionSelect")
+        .value;
+
+    const message =
+`سلام 👋
+این اسکین رو می‌خوام:
+
+🎯 ${selectedProduct.name}
+
+🔧 مدل: ${condition}
+
+لطفاً موجودی و شرایط خرید رو اعلام کنید.`;
+
+    const telegramURL =
+        "https://t.me/aghojavaad?text=" +
+        encodeURIComponent(message);
+
+    window.open(telegramURL,"_blank");
+
+}
+
+
+/* =========================
+   PROFILE
+========================= */
 
 function openProfile(){
 
-    const modal =
-    document.getElementById("profileModal");
-
     const savedName =
-    localStorage.getItem("cs2_profile_name");
+        localStorage.getItem("cs2_profile_name") || "";
 
     const savedAvatar =
-    localStorage.getItem("cs2_profile_avatar");
+        localStorage.getItem("cs2_profile_avatar") ||
+        defaultAvatar;
 
-    document.getElementById("nameInput").value =
-    savedName || "";
+    document.getElementById("profileName").value =
+        savedName;
 
-    document.getElementById("avatarPreview").src =
-    savedAvatar || defaultAvatar;
+    document.getElementById("bigAvatar").src =
+        savedAvatar;
 
-    modal.classList.add("show");
+    temporaryAvatar = savedAvatar;
+
+    document
+        .getElementById("profileModal")
+        .classList.add("active");
+
 }
 
 
 function closeProfile(){
 
     document
-    .getElementById("profileModal")
-    .classList.remove("show");
+        .getElementById("profileModal")
+        .classList.remove("active");
+
 }
 
 
-function closeModalOutside(event){
+/* =========================
+   CHANGE AVATAR
+========================= */
 
-    if(
-        event.target ===
-        document.getElementById("profileModal")
-    ){
+function changeAvatar(event){
 
-        closeProfile();
-
-    }
-}
-
-
-/* AVATAR */
-
-function handleAvatar(event){
-
-    const file =
-    event.target.files[0];
+    const file = event.target.files[0];
 
     if(!file){
         return;
     }
 
     if(!file.type.startsWith("image/")){
-        alert("لطفاً فقط عکس انتخاب کنید.");
-        return;
-    }
 
-    const maxSize =
-    5 * 1024 * 1024;
-
-    if(file.size > maxSize){
-
-        alert("حجم عکس باید کمتر از 5MB باشد.");
+        alert("لطفاً یک عکس انتخاب کنید.");
 
         event.target.value = "";
 
         return;
+
     }
 
-    const reader =
-    new FileReader();
+    /*
+       عکس را قبل از ذخیره کوچک می‌کنیم
+       تا localStorage پر نشود.
+    */
 
-    reader.onload = function(){
+    const reader = new FileReader();
 
-        document
-        .getElementById("avatarPreview")
-        .src = reader.result;
+    reader.onload = function(e){
+
+        const img = new Image();
+
+        img.onload = function(){
+
+            const maxSize = 300;
+
+            let width = img.width;
+            let height = img.height;
+
+            if(width > height){
+
+                if(width > maxSize){
+
+                    height =
+                        height * maxSize / width;
+
+                    width = maxSize;
+
+                }
+
+            }else{
+
+                if(height > maxSize){
+
+                    width =
+                        width * maxSize / height;
+
+                    height = maxSize;
+
+                }
+
+            }
+
+            const canvas =
+                document.createElement("canvas");
+
+            canvas.width = width;
+            canvas.height = height;
+
+            const ctx =
+                canvas.getContext("2d");
+
+            ctx.drawImage(
+                img,
+                0,
+                0,
+                width,
+                height
+            );
+
+            temporaryAvatar =
+                canvas.toDataURL(
+                    "image/jpeg",
+                    0.82
+                );
+
+            document.getElementById("bigAvatar").src =
+                temporaryAvatar;
+
+        };
+
+        img.src = e.target.result;
 
     };
 
     reader.readAsDataURL(file);
+
 }
 
 
-/* SAVE PROFILE */
+/* =========================
+   SAVE PROFILE
+========================= */
 
 function saveProfile(){
 
     const name =
-    document
-    .getElementById("nameInput")
-    .value
-    .trim();
-
-    const avatar =
-    document
-    .getElementById("avatarPreview")
-    .src;
-
-    const finalName =
-    name || "Profile";
+        document
+        .getElementById("profileName")
+        .value
+        .trim();
 
     try{
 
         localStorage.setItem(
             "cs2_profile_name",
-            finalName
+            name
         );
 
         localStorage.setItem(
             "cs2_profile_avatar",
-            avatar
+            temporaryAvatar || defaultAvatar
         );
+
+        updateHeader();
+
+        closeProfile();
 
     }catch(error){
 
         alert(
-            "ذخیره عکس انجام نشد. لطفاً عکس کوچک‌تری انتخاب کنید."
+            "ذخیره عکس انجام نشد. لطفاً یک عکس کوچک‌تر انتخاب کنید."
         );
 
-        return;
     }
 
-    updateProfileUI();
-
-    closeProfile();
-
 }
 
 
-/* UPDATE PROFILE */
-
-function updateProfileUI(){
-
-    const savedName =
-    localStorage.getItem("cs2_profile_name");
-
-    const savedAvatar =
-    localStorage.getItem("cs2_profile_avatar");
-
-    document
-    .getElementById("headerName")
-    .textContent =
-    savedName || "Profile";
-
-    document
-    .getElementById("headerAvatar")
-    .src =
-    savedAvatar || defaultAvatar;
-}
-
-
-/* RESET */
+/* =========================
+   RESET PROFILE
+========================= */
 
 function resetProfile(){
 
-    const confirmReset =
-    confirm(
-        "پروفایل پاک شود؟"
-    );
+    const ok =
+        confirm(
+            "اطلاعات پروفایل حذف شود؟"
+        );
 
-    if(!confirmReset){
+    if(!ok){
         return;
     }
 
-    localStorage.removeItem(
-        "cs2_profile_name"
-    );
+    localStorage.removeItem("cs2_profile_name");
+    localStorage.removeItem("cs2_profile_avatar");
 
-    localStorage.removeItem(
-        "cs2_profile_avatar"
-    );
+    temporaryAvatar = defaultAvatar;
 
-    updateProfileUI();
+    updateHeader();
 
-    document
-    .getElementById("nameInput")
-    .value = "";
+    document.getElementById("profileName").value = "";
 
-    document
-    .getElementById("avatarPreview")
-    .src =
-    defaultAvatar;
+    document.getElementById("bigAvatar").src =
+        defaultAvatar;
 
 }
 
 
-/* LOAD */
+/* =========================
+   UPDATE HEADER
+========================= */
 
-window.addEventListener(
-    "DOMContentLoaded",
-    function(){
+function updateHeader(){
 
-        updateProfileUI();
+    const name =
+        localStorage.getItem("cs2_profile_name");
+
+    const avatar =
+        localStorage.getItem("cs2_profile_avatar");
+
+    document.getElementById("headerName").textContent =
+        name || "پروفایل";
+
+    document.getElementById("headerAvatar").src =
+        avatar || defaultAvatar;
+
+}
+
+
+/* =========================
+   CLOSE MODALS ON BACKGROUND
+========================= */
+
+document
+    .getElementById("profileModal")
+    .addEventListener("click",function(e){
+
+        if(e.target === this){
+            closeProfile();
+        }
+
+    });
+
+
+document
+    .getElementById("buyModal")
+    .addEventListener("click",function(e){
+
+        if(e.target === this){
+            closeBuy();
+        }
+
+    });
+
+
+/* =========================
+   ESC KEY
+========================= */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Escape"){
+
+        closeProfile();
+        closeBuy();
 
     }
-);
+
+});
+
+
+/* =========================
+   START
+========================= */
+
+document.getElementById("headerAvatar").src =
+    localStorage.getItem("cs2_profile_avatar") ||
+    defaultAvatar;
+
+document.getElementById("headerName").textContent =
+    localStorage.getItem("cs2_profile_name") ||
+    "پروفایل";
+
+renderProducts();
 
 </script>
 
