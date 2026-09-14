@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07080c">
 <title>CS2 SKIN SHOP</title>
 
 <style>
@@ -14,441 +15,606 @@
 
 body{
     font-family:Tahoma,Arial,sans-serif;
-    background:
-        radial-gradient(circle at top right,#300000 0,#090909 35%,#050505 100%);
-    color:white;
+    background:#07080c;
+    color:#fff;
     min-height:100vh;
 }
 
-button,input{
-    font-family:inherit;
-}
+/* ===== HEADER ===== */
 
-header{
-    height:76px;
-    background:rgba(5,5,5,.94);
-    border-bottom:1px solid #292929;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 25px;
+.header{
+    height:72px;
     position:sticky;
     top:0;
     z-index:100;
-    backdrop-filter:blur(15px);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    background:rgba(7,8,12,.94);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid #20222b;
 }
 
 .logo{
     display:flex;
     align-items:center;
-    gap:12px;
-    font-size:22px;
+    gap:11px;
     font-weight:900;
-    letter-spacing:1px;
+    font-size:19px;
 }
 
-.logo span{
-    color:#e60000;
-}
-
-.knife-icon{
-    width:48px;
-    height:48px;
+.logoIcon{
+    width:42px;
+    height:42px;
     display:flex;
     align-items:center;
     justify-content:center;
-    filter:drop-shadow(0 0 10px #ff0000);
+    border-radius:12px;
+    background:linear-gradient(135deg,#ff3030,#760808);
+    box-shadow:0 0 30px rgba(255,30,30,.25);
 }
 
-.knife-icon svg{
-    width:45px;
-    height:45px;
+.logo span{
+    color:#ff3434;
 }
 
-.profile-button{
-    width:48px;
-    height:48px;
-    border-radius:50%;
-    border:2px solid #e00000;
-    background:#111;
-    overflow:hidden;
+.profileBtn{
+    border:1px solid #292c35;
+    background:#11131a;
+    color:#fff;
+    border-radius:30px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:5px 12px 5px 6px;
     cursor:pointer;
-    box-shadow:0 0 15px rgba(255,0,0,.25);
 }
 
-.profile-button img{
-    width:100%;
-    height:100%;
+.profileBtn img{
+    width:38px;
+    height:38px;
+    border-radius:50%;
     object-fit:cover;
-    display:none;
 }
 
-.profile-default{
-    font-size:21px;
-}
+/* ===== HERO ===== */
 
 .hero{
     text-align:center;
-    padding:65px 20px 35px;
+    padding:75px 20px 45px;
 }
 
 .hero h1{
-    font-size:clamp(38px,8vw,76px);
-    font-weight:1000;
-    letter-spacing:4px;
-    text-shadow:0 0 25px rgba(255,0,0,.35);
+    font-size:clamp(32px,6vw,60px);
+    font-weight:900;
+    margin-bottom:16px;
 }
 
 .hero h1 span{
-    color:#ed0000;
+    color:#ff3030;
 }
 
 .hero p{
-    color:#aaa;
-    margin-top:12px;
+    color:#8e929d;
+    line-height:2;
+    font-size:14px;
 }
 
-.telegram-top{
-    display:inline-flex;
-    margin-top:25px;
-    padding:13px 25px;
+.telegram{
+    display:inline-block;
+    margin-top:24px;
+    padding:13px 23px;
     border-radius:12px;
-    background:#e00000;
     color:white;
     text-decoration:none;
     font-weight:bold;
-    transition:.2s;
+    background:linear-gradient(135deg,#ff3333,#870b0b);
 }
 
-.telegram-top:hover{
-    transform:translateY(-2px);
-    box-shadow:0 0 25px rgba(255,0,0,.4);
-}
+/* ===== SEARCH ===== */
 
-.controls{
-    max-width:1150px;
-    margin:15px auto 30px;
-    padding:0 18px;
+.searchArea{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px 35px;
 }
 
 .search{
     width:100%;
-    background:#111;
-    border:1px solid #303030;
-    color:white;
     padding:16px 20px;
-    border-radius:13px;
+    border-radius:14px;
+    border:1px solid #292c35;
+    background:#101218;
+    color:#fff;
     outline:none;
-    font-size:15px;
-    transition:.2s;
+    font-size:14px;
 }
 
 .search:focus{
-    border-color:#d00000;
-    box-shadow:0 0 20px rgba(255,0,0,.12);
+    border-color:#e52c2c;
 }
 
-.products{
-    width:min(1200px,94%);
+/* ===== PRODUCTS ===== */
+
+.shop{
+    max-width:1200px;
     margin:auto;
+    padding:0 20px 70px;
+}
+
+.grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:22px;
-    padding-bottom:70px;
+    grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
+    gap:20px;
 }
 
 .card{
-    background:
-        linear-gradient(145deg,#151515,#090909);
-    border:1px solid #282828;
+    background:linear-gradient(145deg,#15171e,#0c0e13);
+    border:1px solid #20232b;
     border-radius:18px;
     overflow:hidden;
     transition:.25s;
-    position:relative;
 }
 
 .card:hover{
     transform:translateY(-6px);
-    border-color:#d00000;
-    box-shadow:0 15px 40px rgba(0,0,0,.5),0 0 25px rgba(220,0,0,.12);
+    border-color:#7f2222;
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
 }
 
-.gun-image{
-    width:100%;
-    height:225px;
-    padding:22px;
+.imageBox{
+    height:210px;
+    padding:15px;
     display:flex;
     align-items:center;
     justify-content:center;
     background:
-        radial-gradient(circle,#242424 0,#111 55%,#080808 100%);
-    border-bottom:1px solid #222;
+        radial-gradient(circle,#292c35 0%,#0c0e13 65%);
 }
 
-.gun-image img{
+.imageBox img{
     width:100%;
     height:100%;
     object-fit:contain;
-    object-position:center;
-    display:block;
-    filter:drop-shadow(0 12px 12px rgba(0,0,0,.8));
 }
 
-.card-info{
-    padding:17px;
+.info{
+    padding:18px;
 }
 
-.card-info h3{
-    font-size:16px;
-    margin-bottom:9px;
-    direction:ltr;
-    text-align:left;
+.info h3{
+    font-size:15px;
+    margin-bottom:10px;
 }
 
-.condition{
-    color:#aaa;
-    font-size:13px;
+.info p{
+    color:#777c87;
+    font-size:11px;
+    line-height:2;
     margin-bottom:14px;
 }
 
-.buy{
+.info strong{
+    color:#ff3d3d;
+}
+
+.buyBtn{
     width:100%;
+    padding:13px;
     border:0;
-    padding:12px;
-    border-radius:10px;
-    background:linear-gradient(135deg,#ef0000,#9d0000);
-    color:white;
+    border-radius:11px;
+    color:#fff;
     font-weight:bold;
     cursor:pointer;
-    transition:.2s;
+    background:linear-gradient(135deg,#ff3434,#9a0d0d);
 }
 
-.buy:hover{
-    filter:brightness(1.15);
-    transform:scale(1.02);
-}
-
-/* هیچ قیمتی زیر کارت نمایش داده نمی‌شود */
-
-.empty{
-    grid-column:1/-1;
-    text-align:center;
-    color:#888;
-    padding:50px;
-}
-
-/* MODAL */
+/* ===== MODAL ===== */
 
 .modal{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.78);
+    z-index:1000;
     display:none;
     align-items:center;
     justify-content:center;
-    z-index:500;
-    padding:20px;
-    backdrop-filter:blur(8px);
+    padding:15px;
+    background:rgba(0,0,0,.84);
+    backdrop-filter:blur(12px);
 }
 
 .modal.show{
     display:flex;
 }
 
-.modal-box{
-    width:min(470px,100%);
-    background:#101010;
-    border:1px solid #333;
-    border-radius:20px;
-    padding:25px;
-    box-shadow:0 25px 80px rgba(0,0,0,.8);
-    position:relative;
+.modalBox{
+    width:100%;
+    max-width:540px;
+    max-height:92vh;
+    overflow-y:auto;
+    background:
+        radial-gradient(circle at 100% 0%,rgba(255,30,30,.12),transparent 35%),
+        #0e1015;
+    border:1px solid #292c35;
+    border-radius:24px;
+    padding:22px;
+    box-shadow:0 30px 100px rgba(0,0,0,.7);
 }
 
-.close{
-    position:absolute;
-    left:17px;
-    top:14px;
-    background:none;
-    border:0;
-    color:#aaa;
-    font-size:27px;
+.modalTop{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.modalTop h2{
+    font-size:19px;
+}
+
+.closeBtn{
+    width:36px;
+    height:36px;
+    border:1px solid #292c35;
+    border-radius:50%;
+    background:#171920;
+    color:#fff;
+    font-size:20px;
     cursor:pointer;
 }
 
-.modal-title{
-    font-size:21px;
+/* ===== PRODUCT PREVIEW ===== */
+
+.preview{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:13px;
+    border-radius:15px;
+    background:#090b0f;
+    border:1px solid #22252e;
+    margin-bottom:22px;
+}
+
+.preview img{
+    width:105px;
+    height:65px;
+    object-fit:contain;
+}
+
+.preview small{
+    display:block;
+    color:#666b76;
+    margin-top:7px;
+}
+
+/* ===== MODERN WEAR SELECTOR ===== */
+
+.selectorTitle{
+    font-size:12px;
+    color:#aeb2bc;
+    margin-bottom:13px;
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.selectorTitle b{
+    color:#ff3636;
+}
+
+/* اینجا دیگه select معمولی وجود نداره */
+
+.wearGrid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.wearCard{
+    position:relative;
+    min-height:86px;
+    padding:15px;
+    text-align:right;
+    border:1px solid #282b34;
+    border-radius:16px;
+    background:
+        linear-gradient(145deg,#181a21,#0b0d11);
+    color:#fff;
+    cursor:pointer;
+    overflow:hidden;
+    transition:.2s ease;
+}
+
+.wearCard:before{
+    content:"";
+    position:absolute;
+    right:0;
+    top:0;
+    width:4px;
+    height:100%;
+    background:#363942;
+    transition:.2s;
+}
+
+.wearCard:hover{
+    transform:translateY(-3px);
+    border-color:#663030;
+}
+
+.wearCard.active{
+    border-color:#ff3434;
+    background:
+        radial-gradient(circle at 100% 0%,rgba(255,40,40,.25),transparent 55%),
+        linear-gradient(145deg,#241417,#0c0e12);
+    box-shadow:
+        0 0 0 1px rgba(255,40,40,.15),
+        0 10px 30px rgba(255,20,20,.12);
+}
+
+.wearCard.active:before{
+    background:#ff3030;
+    box-shadow:0 0 15px #ff3030;
+}
+
+.wearCheck{
+    position:absolute;
+    left:10px;
+    top:10px;
+    width:22px;
+    height:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#242730;
+    color:transparent;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.wearCard.active .wearCheck{
+    background:#ff3030;
+    color:white;
+}
+
+.wearName{
+    display:block;
+    font-size:12px;
     font-weight:900;
     margin-bottom:8px;
 }
 
-.modal-sub{
-    color:#999;
-    font-size:13px;
-    margin-bottom:22px;
+.wearCode{
+    display:block;
+    font-size:10px;
+    color:#696e79;
 }
 
-.modal-input,
-.select{
+.wearCard.active .wearName{
+    color:#ff4a4a;
+}
+
+.wearCard.active .wearCode{
+    color:#aa7373;
+}
+
+/* ===== SELECTED INFO ===== */
+
+.selectedInfo{
+    margin-top:14px;
+    padding:12px 14px;
+    border-radius:12px;
+    background:#090b0f;
+    border:1px solid #20232b;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:11px;
+    color:#777;
+}
+
+.selectedInfo strong{
+    color:#ff4141;
+}
+
+/* ===== SEND BUTTON ===== */
+
+.sendBtn{
     width:100%;
-    padding:14px;
-    background:#080808;
-    color:white;
-    border:1px solid #333;
-    border-radius:10px;
-    outline:none;
+    margin-top:16px;
+    padding:15px;
+    border:0;
+    border-radius:13px;
+    background:linear-gradient(135deg,#ff3838,#960b0b);
+    color:#fff;
+    font-weight:900;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(255,30,30,.14);
+    transition:.2s;
+}
+
+.sendBtn:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.12);
+}
+
+/* ===== PROFILE ===== */
+
+.avatarArea{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.bigAvatar{
+    width:95px;
+    height:95px;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid #ff3030;
     margin-bottom:12px;
 }
 
-.modal-input:focus,
-.select:focus{
-    border-color:#d00000;
+.upload{
+    display:inline-block;
+    padding:10px 15px;
+    background:#1b1e26;
+    border:1px solid #2a2d36;
+    border-radius:10px;
+    font-size:11px;
+    cursor:pointer;
 }
 
-.telegram-order{
+.upload input{
+    display:none;
+}
+
+.inputBox{
+    margin-bottom:15px;
+}
+
+.inputBox label{
+    display:block;
+    color:#858a95;
+    font-size:11px;
+    margin-bottom:8px;
+}
+
+.inputBox input{
     width:100%;
-    border:0;
-    background:#e00000;
-    color:#fff;
     padding:14px;
     border-radius:11px;
-    font-weight:bold;
-    cursor:pointer;
-    margin-top:5px;
+    border:1px solid #292c35;
+    background:#090b0f;
+    color:#fff;
+    outline:none;
 }
 
-/* PROFILE */
-
-.profile-avatar-wrap{
-    display:flex;
-    justify-content:center;
-    margin:10px 0 22px;
-}
-
-.profile-avatar{
-    width:105px;
-    height:105px;
-    border-radius:50%;
-    border:3px solid #e00000;
-    object-fit:cover;
-    background:#1a1a1a;
-}
-
-.avatar-button{
-    display:block;
-    margin:0 auto 20px;
-    background:#222;
-    color:white;
-    border:1px solid #444;
-    padding:10px 15px;
-    border-radius:9px;
-    cursor:pointer;
-}
-
-.profile-label{
-    color:#aaa;
-    display:block;
-    margin-bottom:7px;
-    font-size:13px;
-}
-
-.save-profile{
+.saveBtn{
     width:100%;
-    padding:13px;
-    background:#e00000;
-    color:white;
+    padding:14px;
     border:0;
-    border-radius:10px;
-    cursor:pointer;
+    border-radius:11px;
+    background:#e62d2d;
+    color:#fff;
     font-weight:bold;
-}
-
-.delete-profile{
-    width:100%;
-    padding:11px;
-    margin-top:10px;
-    background:#191919;
-    color:#ff4444;
-    border:1px solid #333;
-    border-radius:10px;
     cursor:pointer;
 }
 
-.error{
-    animation:shake .3s;
-    border-color:#f00!important;
+.resetBtn{
+    width:100%;
+    margin-top:9px;
+    padding:12px;
+    border:1px solid #292c35;
+    border-radius:11px;
+    background:transparent;
+    color:#777;
+    cursor:pointer;
 }
 
-@keyframes shake{
-    0%,100%{transform:translateX(0)}
-    25%{transform:translateX(-6px)}
-    75%{transform:translateX(6px)}
+/* ===== FOOTER ===== */
+
+footer{
+    text-align:center;
+    border-top:1px solid #181a20;
+    padding:30px;
+    color:#555;
+    font-size:11px;
 }
+
+footer a{
+    color:#ff3838;
+    text-decoration:none;
+}
+
+/* ===== MOBILE ===== */
 
 @media(max-width:600px){
-    header{
+
+    .header{
         padding:0 14px;
     }
 
     .logo{
-        font-size:17px;
+        font-size:14px;
     }
 
-    .products{
-        grid-template-columns:repeat(2,1fr);
-        gap:12px;
+    .logoIcon{
+        width:38px;
+        height:38px;
     }
 
-    .gun-image{
-        height:155px;
+    .hero{
+        padding:55px 15px 35px;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:11px;
+    }
+
+    .imageBox{
+        height:145px;
+        padding:9px;
+    }
+
+    .info{
         padding:12px;
     }
 
-    .card-info{
-        padding:12px;
-    }
-
-    .card-info h3{
-        font-size:12px;
-    }
-
-    .condition{
+    .info h3{
         font-size:11px;
+        line-height:1.7;
     }
 
-    .buy{
-        font-size:12px;
+    .info p{
+        font-size:9px;
+    }
+
+    .buyBtn{
+        font-size:10px;
+        padding:10px 4px;
+    }
+
+    .modalBox{
+        padding:17px;
+        border-radius:20px;
+    }
+
+    .wearGrid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .wearCard{
+        min-height:82px;
+        padding:13px 10px;
+    }
+
+    .wearName{
+        font-size:10px;
+    }
+
+    .wearCode{
+        font-size:9px;
     }
 }
+
 </style>
 </head>
 
 <body>
 
-<header>
+<header class="header">
 
     <div class="logo">
-        <div class="knife-icon">
-            <svg viewBox="0 0 100 100" fill="none">
-                <path d="M17 65L48 33L58 43L29 72L17 65Z"
-                      fill="#e00000"/>
-                <path d="M49 32L76 12L84 20L59 43L49 32Z"
-                      fill="#eeeeee"/>
-                <path d="M29 72L42 80L58 63L49 54L29 72Z"
-                      fill="#777"/>
-                <circle cx="50" cy="48" r="5" fill="#111"/>
-                <path d="M56 44L69 31" stroke="#e00000" stroke-width="4"/>
-            </svg>
-        </div>
-
-        <div>
-            CS2 <span>SKIN SHOP</span>
-        </div>
+        <div class="logoIcon">🔫</div>
+        <div>CS2 <span>SKIN SHOP</span></div>
     </div>
 
-    <button class="profile-button" onclick="openProfile()">
-        <span class="profile-default" id="profileDefault">👤</span>
-        <img id="headerAvatar" alt="Profile">
+    <button class="profileBtn" onclick="openProfile()">
+        <img id="headerAvatar">
+        <span id="headerName">پروفایل</span>
     </button>
 
 </header>
@@ -456,82 +622,139 @@ header{
 
 <section class="hero">
 
-    <h1>CS2 <span>SKIN SHOP</span></h1>
+    <h1>
+        فروشگاه <span>اسکین CS2</span>
+    </h1>
 
     <p>
-        بهترین اسکین‌های CS2 با خرید سریع
+        اسکین موردنظر خود را انتخاب کنید
+        <br>
+        مدل گان را انتخاب کنید و درخواست خرید بفرستید.
     </p>
 
     <a
-        class="telegram-top"
+        class="telegram"
         href="https://t.me/aghojavaad"
         target="_blank"
     >
-        💬 Telegram
+        💬 ارتباط در تلگرام
     </a>
 
 </section>
 
 
-<div class="controls">
+<div class="searchArea">
 
     <input
         id="search"
         class="search"
         type="text"
-        placeholder="🔎 جستجوی گان..."
+        placeholder="🔎 جستجوی اسکین..."
         oninput="searchProducts()"
     >
 
 </div>
 
 
-<main class="products" id="products"></main>
+<main class="shop">
+
+    <div
+        id="products"
+        class="grid"
+    ></div>
+
+</main>
 
 
-<!-- BUY MODAL -->
+<footer>
 
-<div class="modal" id="buyModal">
+    برای خرید به آیدی زیر پیام دهید:
 
-    <div class="modal-box">
+    <a
+        href="https://t.me/aghojavaad"
+        target="_blank"
+    >
+        @aghojavaad
+    </a>
 
-        <button class="close" onclick="closeBuy()">×</button>
+</footer>
 
-        <div class="modal-title" id="buyTitle">
-            خرید اسکین
+
+<!-- ================= PROFILE ================= -->
+
+<div
+    id="profileModal"
+    class="modal"
+>
+
+    <div class="modalBox">
+
+        <div class="modalTop">
+
+            <h2>👤 پروفایل</h2>
+
+            <button
+                class="closeBtn"
+                onclick="closeProfile()"
+            >
+                ×
+            </button>
+
         </div>
 
-        <div class="modal-sub" id="buySub"></div>
 
-        <select class="select" id="wearSelect">
+        <div class="avatarArea">
 
-            <option value="Factory New">
-                Factory New
-            </option>
+            <img
+                id="bigAvatar"
+                class="bigAvatar"
+            >
 
-            <option value="Minimal Wear">
-                Minimal Wear
-            </option>
+            <br>
 
-            <option value="Field-Tested">
-                Field-Tested
-            </option>
+            <label class="upload">
 
-            <option value="Well-Worn">
-                Well-Worn
-            </option>
+                📷 انتخاب عکس پروفایل
 
-            <option value="Battle-Scarred">
-                Battle-Scarred
-            </option>
+                <input
+                    type="file"
+                    accept="image/*"
+                    onchange="changeAvatar(event)"
+                >
 
-        </select>
+            </label>
+
+        </div>
+
+
+        <div class="inputBox">
+
+            <label>
+                نام نمایشی
+            </label>
+
+            <input
+                id="profileName"
+                maxlength="25"
+                placeholder="مثلاً Javad"
+            >
+
+        </div>
+
 
         <button
-            class="telegram-order"
-            onclick="sendTelegramOrder()"
+            class="saveBtn"
+            onclick="saveProfile()"
         >
-            💬 ادامه خرید در تلگرام
+            ذخیره پروفایل
+        </button>
+
+
+        <button
+            class="resetBtn"
+            onclick="resetProfile()"
+        >
+            حذف پروفایل
         </button>
 
     </div>
@@ -539,82 +762,179 @@ header{
 </div>
 
 
-<!-- PROFILE MODAL -->
+<!-- ================= BUY ================= -->
 
-<div class="modal" id="profileModal">
+<div
+    id="buyModal"
+    class="modal"
+>
 
-    <div class="modal-box">
+    <div class="modalBox">
 
-        <button class="close" onclick="closeProfile()">×</button>
+        <div class="modalTop">
 
-        <div class="modal-title">
-            پروفایل
+            <h2>🛒 انتخاب اسکین</h2>
+
+            <button
+                class="closeBtn"
+                onclick="closeBuy()"
+            >
+                ×
+            </button>
+
         </div>
 
-        <div class="profile-avatar-wrap">
 
-            <img
-                class="profile-avatar"
-                id="profileAvatar"
-                alt="Avatar"
+        <div class="preview">
+
+            <img id="buyImage">
+
+            <div>
+
+                <strong id="buyName"></strong>
+
+                <small>
+                    انتخاب مدل برای خرید
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="selectorTitle">
+
+            <b>✦</b>
+
+            مدل اسکین را انتخاب کنید
+
+        </div>
+
+
+        <div class="wearGrid">
+
+
+            <button
+                type="button"
+                class="wearCard active"
+                data-wear="Factory New"
+                onclick="chooseWear(this)"
             >
 
+                <span class="wearCheck">✓</span>
+
+                <span class="wearName">
+                    Factory New
+                </span>
+
+                <span class="wearCode">
+                    ۰ تا ۰.۰۷ • نو
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="wearCard"
+                data-wear="Minimal Wear"
+                onclick="chooseWear(this)"
+            >
+
+                <span class="wearCheck">✓</span>
+
+                <span class="wearName">
+                    Minimal Wear
+                </span>
+
+                <span class="wearCode">
+                    ۰.۰۷ تا ۰.۱۵ • کم‌خط
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="wearCard"
+                data-wear="Field-Tested"
+                onclick="chooseWear(this)"
+            >
+
+                <span class="wearCheck">✓</span>
+
+                <span class="wearName">
+                    Field-Tested
+                </span>
+
+                <span class="wearCode">
+                    ۰.۱۵ تا ۰.۳۸ • تست‌شده
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="wearCard"
+                data-wear="Well-Worn"
+                onclick="chooseWear(this)"
+            >
+
+                <span class="wearCheck">✓</span>
+
+                <span class="wearName">
+                    Well-Worn
+                </span>
+
+                <span class="wearCode">
+                    ۰.۳۸ تا ۰.۴۵ • کارکرده
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="wearCard"
+                data-wear="Battle-Scarred"
+                onclick="chooseWear(this)"
+            >
+
+                <span class="wearCheck">✓</span>
+
+                <span class="wearName">
+                    Battle-Scarred
+                </span>
+
+                <span class="wearCode">
+                    ۰.۴۵ تا ۱.۰۰ • فرسوده
+                </span>
+
+            </button>
+
+
         </div>
 
-        <input
-            id="avatarInput"
-            type="file"
-            accept="image/*"
-            hidden
-        >
 
-        <button
-            class="avatar-button"
-            onclick="document.getElementById('avatarInput').click()"
-        >
-            📷 تغییر عکس پروفایل
-        </button>
+        <div class="selectedInfo">
 
+            <span>
+                مدل انتخاب‌شده
+            </span>
 
-        <label class="profile-label">
-            نام
-        </label>
+            <strong id="selectedWear">
+                Factory New
+            </strong>
 
-        <input
-            class="modal-input"
-            id="profileName"
-            type="text"
-            placeholder="نام شما"
-        >
-
-
-        <label class="profile-label">
-            شماره موبایل
-        </label>
-
-        <input
-            class="modal-input"
-            id="profilePhone"
-            type="tel"
-            inputmode="numeric"
-            autocomplete="tel"
-            maxlength="15"
-            placeholder="09123456789"
-        >
+        </div>
 
 
         <button
-            class="save-profile"
-            onclick="saveProfile()"
+            class="sendBtn"
+            onclick="sendTelegram()"
         >
-            ذخیره اطلاعات
-        </button>
-
-        <button
-            class="delete-profile"
-            onclick="deleteProfile()"
-        >
-            حذف اطلاعات پروفایل
+            📩 ارسال درخواست خرید در تلگرام
         </button>
 
     </div>
@@ -625,513 +945,195 @@ header{
 <script>
 
 /* =========================
-   TELEGRAM
-========================= */
-
-const TELEGRAM_USERNAME = "aghojavaad";
-
-
-/* =========================
    PRODUCTS
 ========================= */
 
 const products = [
 
     {
+        name:"AK-47 | Elite Build",
+        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Elite%20Build.png"
+    },
+
+    {
+        name:"AK-47 | Redline",
+        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Redline.png"
+    },
+
+    {
+        name:"AK-47 | Slate",
+        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Slate.png"
+    },
+
+    {
         name:"M4A1-S | Boreal Forest",
-        condition:"Minimal Wear",
-        price:"110T",
-
-        /* تصویر واقعی اسکین */
-        image:"https://www.csgostash.com/img/skins/large/M4A1-S_Boreal_Forest.png"
+        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Boreal%20Forest.png"
     },
 
     {
-        name:"R8 Revolver | Junk Yard",
-        condition:"Field-Tested",
-        price:"60T",
-
-        image:"https://www.csgostash.com/img/skins/large/R8_Revolver_Junk_Yard.png"
+        name:"M4A1-S | Printstream",
+        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Printstream.png"
     },
 
     {
-        name:"StatTrak™ USP-S | Black Lotus",
-        condition:"Field-Tested",
-        price:"135T",
-
-        image:"https://www.csgostash.com/img/skins/large/USP-S_Black_Lotus.png"
-    },
-
-    {
-        name:"M4A4 | Naval Shred Camo",
-        condition:"Factory New",
-        price:"120T",
-
-        image:"https://www.csgostash.com/img/skins/large/M4A4_Naval_Shred_Camo.png"
+        name:"M4A1-S | Leaded Glass",
+        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Leaded%20Glass.png"
     },
 
     {
         name:"Desert Eagle | Blue Ply",
-        condition:"Factory New",
-        price:"160T",
+        image:"https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Blue%20Ply.png"
+    },
 
-        image:"https://www.csgostash.com/img/skins/large/Desert_Eagle_Blue_Ply.png"
+    {
+        name:"Desert Eagle | Printstream",
+        image:"https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Printstream.png"
+    },
+
+    {
+        name:"Desert Eagle | Mecha Industries",
+        image:"https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Mecha%20Industries.png"
+    },
+
+    {
+        name:"USP-S | Printstream",
+        image:"https://specs.gg/assets/img/cs2_skins/USP-S/Printstream.png"
+    },
+
+    {
+        name:"USP-S | Cortex",
+        image:"https://specs.gg/assets/img/cs2_skins/USP-S/Cortex.png"
+    },
+
+    {
+        name:"Glock-18 | Water Elemental",
+        image:"https://specs.gg/assets/img/cs2_skins/Glock-18/Water%20Elemental.png"
+    },
+
+    {
+        name:"AWP | Asiimov",
+        image:"https://specs.gg/assets/img/cs2_skins/AWP/Asiimov.png"
+    },
+
+    {
+        name:"AWP | Atheris",
+        image:"https://specs.gg/assets/img/cs2_skins/AWP/Atheris.png"
+    },
+
+    {
+        name:"R8 Revolver | Junk Yard",
+        image:"https://specs.gg/assets/img/cs2_skins/R8%20Revolver/Junk%20Yard.png"
+    },
+
+    {
+        name:"M4A1-S | Naval Shred",
+        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Naval%20Shred.png"
+    },
+
+    {
+        name:"AK-47 | Phantom Disruptor",
+        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Phantom%20Disruptor.png"
+    },
+
+    {
+        name:"AK-47 | Legion of Anubis",
+        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Legion%20of%20Anubis.png"
+    },
+
+    {
+        name:"M4A1-S | Decimator",
+        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Decimator.png"
+    },
+
+    {
+        name:"Glock-18 | Vogue",
+        image:"https://specs.gg/assets/img/cs2_skins/Glock-18/Vogue.png"
+    },
+
+    {
+        name:"USP-S | Cyrex",
+        image:"https://specs.gg/assets/img/cs2_skins/USP-S/Cyrex.png"
+    },
+
+    {
+        name:"AWP | PAW",
+        image:"https://specs.gg/assets/img/cs2_skins/AWP/PAW.png"
     }
 
 ];
 
 
 /* =========================
-   RENDER PRODUCTS
+   DEFAULT AVATAR
 ========================= */
 
-const productsContainer =
-    document.getElementById("products");
+const defaultAvatar =
+"data:image/svg+xml;charset=UTF-8,"+
+encodeURIComponent(`
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
+<rect width="300" height="300" rx="150" fill="#20232b"/>
+<circle cx="150" cy="110" r="58" fill="#777"/>
+<path d="M55 285c8-65 50-100 95-100s87 35 95 100" fill="#777"/>
+</svg>
+`);
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+let selectedProduct = null;
+
+let selectedWear = "Factory New";
+
+let temporaryAvatar = defaultAvatar;
+
+
+/* =========================
+   RENDER
+========================= */
 
 function renderProducts(list){
 
-    productsContainer.innerHTML = "";
+    const grid =
+        document.getElementById("products");
 
-    if(list.length === 0){
+    grid.innerHTML = "";
 
-        productsContainer.innerHTML = `
-            <div class="empty">
-                گانی با این اسم پیدا نشد.
-            </div>
-        `;
+    list.forEach(product => {
 
-        return;
-    }
+        const realIndex =
+            products.indexOf(product);
 
-    list.forEach((product,index)=>{
-
-        const card = document.createElement("article");
+        const card =
+            document.createElement("div");
 
         card.className = "card";
 
         card.innerHTML = `
 
-            <div class="gun-image">
+            <div class="imageBox">
 
                 <img
                     src="${product.image}"
                     alt="${product.name}"
                     loading="lazy"
-                    onerror="this.style.opacity='.25';"
                 >
 
             </div>
 
-            <div class="card-info">
+            <div class="info">
 
                 <h3>
                     ${product.name}
                 </h3>
 
-                <div class="condition">
-                    ${product.condition}
-                </div>
+                <p>
+                    برای خرید به آیدی زیر پیام دهید:
+                    <br>
+                    <strong>@aghojavaad</strong>
+                </p>
 
                 <button
-                    class="buy"
-                    onclick="openBuy(${index})"
-                >
-                    خرید
-                </button>
-
-            </div>
-        `;
-
-        productsContainer.appendChild(card);
-
-    });
-}
-
-
-/* =========================
-   SEARCH
-========================= */
-
-function searchProducts(){
-
-    const value =
-        document
-        .getElementById("search")
-        .value
-        .toLowerCase()
-        .trim();
-
-    const filtered =
-        products.filter(product =>
-            product.name
-            .toLowerCase()
-            .includes(value)
-        );
-
-    renderProducts(filtered);
-}
-
-
-/* =========================
-   BUY
-========================= */
-
-let selectedProduct = null;
-
-function openBuy(index){
-
-    selectedProduct = products[index];
-
-    document.getElementById("buyTitle").textContent =
-        selectedProduct.name;
-
-    document.getElementById("buySub").textContent =
-        "Condition: " + selectedProduct.condition +
-        " | Price: " + selectedProduct.price;
-
-    document.getElementById("wearSelect").value =
-        selectedProduct.condition;
-
-    document
-        .getElementById("buyModal")
-        .classList.add("show");
-}
-
-
-function closeBuy(){
-
-    document
-        .getElementById("buyModal")
-        .classList.remove("show");
-
-}
-
-
-function sendTelegramOrder(){
-
-    if(!selectedProduct) return;
-
-    const wear =
-        document.getElementById("wearSelect").value;
-
-    const name =
-        localStorage.getItem("cs2_profile_name") || "";
-
-    const phone =
-        localStorage.getItem("cs2_profile_phone") || "";
-
-    const message =
-`سلام، برای خرید این اسکین پیام دادم 🎮
-
-🎯 Skin:
-${selectedProduct.name}
-
-🔧 Condition:
-${wear}
-
-💰 Price:
-${selectedProduct.price}
-
-👤 Name:
-${name || "ثبت نشده"}
-
-📱 Phone:
-${phone || "ثبت نشده"}`;
-
-    const url =
-        "https://t.me/" +
-        TELEGRAM_USERNAME +
-        "?text=" +
-        encodeURIComponent(message);
-
-    window.open(url,"_blank");
-
-}
-
-
-/* =========================
-   PROFILE
-========================= */
-
-function openProfile(){
-
-    document
-        .getElementById("profileModal")
-        .classList.add("show");
-
-    loadProfile();
-
-}
-
-
-function closeProfile(){
-
-    document
-        .getElementById("profileModal")
-        .classList.remove("show");
-
-}
-
-
-/* =========================
-   PHONE NORMALIZE
-========================= */
-
-function normalizePhone(value){
-
-    return value
-        .replace(/[۰-۹]/g, d =>
-            String("۰۱۲۳۴۵۶۷۸۹".indexOf(d))
-        )
-        .replace(/\D/g,"");
-
-}
-
-
-function validIranPhone(value){
-
-    const phone = normalizePhone(value);
-
-    return /^09\d{9}$/.test(phone);
-}
-
-
-/* =========================
-   PROFILE SAVE
-========================= */
-
-function saveProfile(){
-
-    const name =
-        document
-        .getElementById("profileName")
-        .value
-        .trim();
-
-    const phoneInput =
-        document.getElementById("profilePhone");
-
-    const phone =
-        normalizePhone(phoneInput.value);
-
-    if(phone && !validIranPhone(phone)){
-
-        phoneInput.classList.remove("error");
-
-        void phoneInput.offsetWidth;
-
-        phoneInput.classList.add("error");
-
-        alert("❌ شماره موبایل اشتباه است");
-
-        return;
-    }
-
-    localStorage.setItem(
-        "cs2_profile_name",
-        name
-    );
-
-    localStorage.setItem(
-        "cs2_profile_phone",
-        phone
-    );
-
-    updateHeaderAvatar();
-
-    alert("اطلاعات با موفقیت ذخیره شد.");
-
-    closeProfile();
-
-}
-
-
-/* =========================
-   AVATAR
-========================= */
-
-document
-.getElementById("avatarInput")
-.addEventListener("change",function(){
-
-    const file = this.files[0];
-
-    if(!file) return;
-
-    const reader = new FileReader();
-
-    reader.onload = function(e){
-
-        const image = new Image();
-
-        image.onload = function(){
-
-            const canvas =
-                document.createElement("canvas");
-
-            const size = 500;
-
-            canvas.width = size;
-            canvas.height = size;
-
-            const ctx =
-                canvas.getContext("2d");
-
-            const min =
-                Math.min(
-                    image.width,
-                    image.height
-                );
-
-            const sx =
-                (image.width - min) / 2;
-
-            const sy =
-                (image.height - min) / 2;
-
-            ctx.drawImage(
-                image,
-                sx,
-                sy,
-                min,
-                min,
-                0,
-                0,
-                size,
-                size
-            );
-
-            const compressed =
-                canvas.toDataURL(
-                    "image/jpeg",
-                    .82
-                );
-
-            localStorage.setItem(
-                "cs2_profile_avatar",
-                compressed
-            );
-
-            document
-                .getElementById("profileAvatar")
-                .src = compressed;
-
-            updateHeaderAvatar();
-
-        };
-
-        image.src = e.target.result;
-
-    };
-
-    reader.readAsDataURL(file);
-
-});
-
-
-/* =========================
-   LOAD PROFILE
-========================= */
-
-function loadProfile(){
-
-    const name =
-        localStorage.getItem(
-            "cs2_profile_name"
-        ) || "";
-
-    const phone =
-        localStorage.getItem(
-            "cs2_profile_phone"
-        ) || "";
-
-    const avatar =
-        localStorage.getItem(
-            "cs2_profile_avatar"
-        ) || "";
-
-    document
-        .getElementById("profileName")
-        .value = name;
-
-    document
-        .getElementById("profilePhone")
-        .value = phone;
-
-    const avatarElement =
-        document.getElementById("profileAvatar");
-
-    if(avatar){
-
-        avatarElement.src = avatar;
-
-    }else{
-
-        avatarElement.removeAttribute("src");
-
-    }
-
-}
-
-
-/* =========================
-   HEADER AVATAR
-========================= */
-
-function updateHeaderAvatar(){
-
-    const avatar =
-        localStorage.getItem(
-            "cs2_profile_avatar"
-        );
-
-    const img =
-        document.getElementById("headerAvatar");
-
-    const defaultIcon =
-        document.getElementById("profileDefault");
-
-    if(avatar){
-
-        img.src = avatar;
-        img.style.display = "block";
-        defaultIcon.style.display = "none";
-
-    }else{
-
-        img.style.display = "none";
-        defaultIcon.style.display = "block";
-
-    }
-
-}
-
-
-/* =========================
-   DELETE PROFILE
-========================= */
-
-function deleteProfile(){
-
-    localStorage.removeItem(
-        "cs2_profile_name"
-    );
-
-    localStorage.removeItem(
-        "cs2_profile_phone"
-    );
-
-    localStorage.removeItem(
-        "cs2_profile_avatar"
-    );
-
-    document
-        .getElementById("profileName")
-        .value = "";
-
-    document
-        .getElementById("profilePhone")
-        .value = "";
-
-    document
-        .getElementById("profileAvatar")
+                    class="buyBtn"
+              
