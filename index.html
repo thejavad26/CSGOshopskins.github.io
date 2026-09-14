@@ -3,1137 +3,757 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#07080c">
-<title>CS2 SKIN SHOP</title>
+<title>AGHO CS2 SHOP</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
+    font-family:'Vazirmatn',sans-serif;
 }
 
 body{
-    font-family:Tahoma,Arial,sans-serif;
-    background:#07080c;
+    background:
+      radial-gradient(circle at 85% 10%,rgba(220,0,35,.16),transparent 25%),
+      radial-gradient(circle at 10% 80%,rgba(220,0,35,.08),transparent 25%),
+      #070707;
     color:#fff;
     min-height:100vh;
 }
 
-/* ===== HEADER ===== */
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:linear-gradient(120deg,transparent 45%,rgba(255,0,40,.025) 50%,transparent 55%);
+}
 
-.header{
-    height:72px;
+/* HEADER */
+header{
+    height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 5%;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    background:rgba(7,7,7,.82);
+    backdrop-filter:blur(18px);
     position:sticky;
     top:0;
     z-index:100;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 6%;
-    background:rgba(7,8,12,.94);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid #20222b;
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:11px;
+    font-size:25px;
     font-weight:900;
-    font-size:19px;
-}
-
-.logoIcon{
-    width:42px;
-    height:42px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:12px;
-    background:linear-gradient(135deg,#ff3030,#760808);
-    box-shadow:0 0 30px rgba(255,30,30,.25);
+    letter-spacing:1px;
 }
 
 .logo span{
-    color:#ff3434;
+    color:#ff123f;
+    text-shadow:0 0 20px rgba(255,0,50,.5);
 }
 
-.profileBtn{
-    border:1px solid #292c35;
-    background:#11131a;
+.nav{
+    display:flex;
+    gap:28px;
+}
+
+.nav a{
+    color:#aaa;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.nav a:hover{
     color:#fff;
-    border-radius:30px;
+}
+
+.profile{
     display:flex;
     align-items:center;
-    gap:9px;
-    padding:5px 12px 5px 6px;
-    cursor:pointer;
+    gap:12px;
+    padding:9px 14px;
+    border:1px solid rgba(255,255,255,.08);
+    background:#111;
+    border-radius:14px;
 }
 
-.profileBtn img{
+.avatar{
     width:38px;
     height:38px;
+    display:grid;
+    place-items:center;
     border-radius:50%;
-    object-fit:cover;
+    background:linear-gradient(135deg,#ff1744,#72001a);
+    font-weight:900;
 }
 
-/* ===== HERO ===== */
+.profile small{
+    color:#777;
+    display:block;
+    font-size:10px;
+}
 
+.profile strong{
+    font-size:13px;
+}
+
+/* HERO */
 .hero{
-    text-align:center;
-    padding:75px 20px 45px;
+    width:90%;
+    max-width:1250px;
+    margin:55px auto 35px;
+    min-height:330px;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:28px;
+    padding:55px;
+    overflow:hidden;
+    position:relative;
+    background:
+      linear-gradient(90deg,rgba(0,0,0,.96),rgba(0,0,0,.72)),
+      url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1800&q=80")
+      center/cover;
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    right:-150px;
+    top:-180px;
+    background:#e40035;
+    filter:blur(150px);
+    opacity:.25;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:650px;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(255,0,50,.12);
+    border:1px solid rgba(255,0,50,.3);
+    color:#ff355b;
+    border-radius:30px;
+    padding:7px 15px;
+    font-size:12px;
+    margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:clamp(32px,6vw,60px);
+    font-size:clamp(35px,5vw,65px);
+    line-height:1.1;
     font-weight:900;
-    margin-bottom:16px;
 }
 
 .hero h1 span{
-    color:#ff3030;
+    color:#ff1744;
 }
 
 .hero p{
-    color:#8e929d;
+    color:#aaa;
+    margin-top:18px;
     line-height:2;
-    font-size:14px;
 }
 
 .telegram{
-    display:inline-block;
-    margin-top:24px;
-    padding:13px 23px;
-    border-radius:12px;
+    display:inline-flex;
+    margin-top:25px;
+    padding:13px 22px;
+    border-radius:13px;
     color:white;
     text-decoration:none;
-    font-weight:bold;
-    background:linear-gradient(135deg,#ff3333,#870b0b);
+    background:linear-gradient(135deg,#ff1744,#b00029);
+    box-shadow:0 10px 35px rgba(255,0,50,.18);
+    transition:.3s;
 }
 
-/* ===== SEARCH ===== */
+.telegram:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 40px rgba(255,0,50,.35);
+}
 
-.searchArea{
-    max-width:1200px;
+/* SHOP */
+.shop{
+    width:90%;
+    max-width:1250px;
     margin:auto;
-    padding:0 20px 35px;
+}
+
+.shop-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.shop-top h2{
+    font-size:27px;
+}
+
+.shop-top h2 span{
+    color:#ff1744;
 }
 
 .search{
-    width:100%;
-    padding:16px 20px;
-    border-radius:14px;
-    border:1px solid #292c35;
-    background:#101218;
+    width:270px;
+    background:#101010;
+    border:1px solid #242424;
+    border-radius:12px;
+    padding:13px 17px;
     color:#fff;
     outline:none;
-    font-size:14px;
 }
 
 .search:focus{
-    border-color:#e52c2c;
+    border-color:#e90039;
 }
 
-/* ===== PRODUCTS ===== */
-
-.shop{
-    max-width:1200px;
-    margin:auto;
-    padding:0 20px 70px;
-}
-
+/* CARDS */
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    padding-bottom:70px;
 }
 
 .card{
-    background:linear-gradient(145deg,#15171e,#0c0e13);
-    border:1px solid #20232b;
-    border-radius:18px;
+    position:relative;
     overflow:hidden;
-    transition:.25s;
+    border:1px solid rgba(255,255,255,.07);
+    background:linear-gradient(145deg,#121212,#0b0b0b);
+    border-radius:19px;
+    padding:13px;
+    transition:.35s;
 }
 
 .card:hover{
-    transform:translateY(-6px);
-    border-color:#7f2222;
-    box-shadow:0 20px 50px rgba(0,0,0,.45);
+    transform:translateY(-8px);
+    border-color:rgba(255,0,55,.45);
+    box-shadow:0 20px 50px rgba(0,0,0,.55),0 0 35px rgba(255,0,55,.08);
 }
 
-.imageBox{
-    height:210px;
-    padding:15px;
+.card-img{
+    height:190px;
+    border-radius:13px;
+    background:
+      radial-gradient(circle,rgba(255,0,50,.15),transparent 65%),
+      #080808;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:
-        radial-gradient(circle,#292c35 0%,#0c0e13 65%);
+    overflow:hidden;
 }
 
-.imageBox img{
-    width:100%;
-    height:100%;
+.card-img img{
+    width:95%;
+    height:95%;
     object-fit:contain;
+    transition:.4s;
+    filter:drop-shadow(0 12px 18px rgba(0,0,0,.8));
 }
 
-.info{
-    padding:18px;
+.card:hover .card-img img{
+    transform:scale(1.08) rotate(-2deg);
 }
 
-.info h3{
+.tag{
+    position:absolute;
+    top:22px;
+    right:22px;
+    background:#ff1744;
+    padding:5px 9px;
+    border-radius:7px;
+    font-size:10px;
+    font-weight:800;
+}
+
+.card h3{
+    margin:15px 3px 4px;
     font-size:15px;
-    margin-bottom:10px;
 }
 
-.info p{
-    color:#777c87;
+.condition{
+    color:#777;
     font-size:11px;
-    line-height:2;
-    margin-bottom:14px;
 }
 
-.info strong{
-    color:#ff3d3d;
+.bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:15px;
 }
 
-.buyBtn{
-    width:100%;
-    padding:13px;
-    border:0;
-    border-radius:11px;
-    color:#fff;
-    font-weight:bold;
+.price{
+    color:#ff1744;
+    font-size:18px;
+    font-weight:900;
+}
+
+.buy{
+    border:none;
     cursor:pointer;
-    background:linear-gradient(135deg,#ff3434,#9a0d0d);
+    color:#fff;
+    background:#191919;
+    border:1px solid #303030;
+    padding:9px 13px;
+    border-radius:9px;
+    transition:.3s;
 }
 
-/* ===== MODAL ===== */
+.buy:hover{
+    background:#ff1744;
+    border-color:#ff1744;
+}
 
+/* MODAL */
 .modal{
     position:fixed;
     inset:0;
-    z-index:1000;
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(10px);
     display:none;
     align-items:center;
     justify-content:center;
-    padding:15px;
-    background:rgba(0,0,0,.84);
-    backdrop-filter:blur(12px);
+    z-index:999;
+    padding:20px;
 }
 
-.modal.show{
+.modal.active{
     display:flex;
 }
 
-.modalBox{
+.modal-box{
     width:100%;
-    max-width:540px;
-    max-height:92vh;
-    overflow-y:auto;
-    background:
-        radial-gradient(circle at 100% 0%,rgba(255,30,30,.12),transparent 35%),
-        #0e1015;
-    border:1px solid #292c35;
-    border-radius:24px;
+    max-width:850px;
+    background:#0d0d0d;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:25px;
     padding:22px;
-    box-shadow:0 30px 100px rgba(0,0,0,.7);
+    box-shadow:0 30px 100px #000;
+    position:relative;
+    animation:show .3s ease;
 }
 
-.modalTop{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:20px;
+@keyframes show{
+    from{transform:scale(.92);opacity:0}
+    to{transform:scale(1);opacity:1}
 }
 
-.modalTop h2{
-    font-size:19px;
-}
-
-.closeBtn{
-    width:36px;
-    height:36px;
-    border:1px solid #292c35;
+.close{
+    position:absolute;
+    left:20px;
+    top:18px;
+    width:35px;
+    height:35px;
+    border:0;
     border-radius:50%;
-    background:#171920;
+    background:#1b1b1b;
     color:#fff;
-    font-size:20px;
     cursor:pointer;
+    font-size:18px;
 }
 
-/* ===== PRODUCT PREVIEW ===== */
+.modal-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+}
 
-.preview{
+.modal-img{
+    height:360px;
+    background:radial-gradient(circle,rgba(255,0,50,.16),transparent 65%),#080808;
+    border-radius:18px;
     display:flex;
     align-items:center;
-    gap:15px;
-    padding:13px;
-    border-radius:15px;
-    background:#090b0f;
-    border:1px solid #22252e;
-    margin-bottom:22px;
+    justify-content:center;
 }
 
-.preview img{
-    width:105px;
-    height:65px;
+.modal-img img{
+    width:95%;
+    height:95%;
     object-fit:contain;
 }
 
-.preview small{
-    display:block;
-    color:#666b76;
-    margin-top:7px;
-}
-
-/* ===== MODERN WEAR SELECTOR ===== */
-
-.selectorTitle{
-    font-size:12px;
-    color:#aeb2bc;
-    margin-bottom:13px;
-    display:flex;
-    align-items:center;
-    gap:7px;
-}
-
-.selectorTitle b{
-    color:#ff3636;
-}
-
-/* اینجا دیگه select معمولی وجود نداره */
-
-.wearGrid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-}
-
-.wearCard{
-    position:relative;
-    min-height:86px;
-    padding:15px;
-    text-align:right;
-    border:1px solid #282b34;
-    border-radius:16px;
-    background:
-        linear-gradient(145deg,#181a21,#0b0d11);
-    color:#fff;
-    cursor:pointer;
-    overflow:hidden;
-    transition:.2s ease;
-}
-
-.wearCard:before{
-    content:"";
-    position:absolute;
-    right:0;
-    top:0;
-    width:4px;
-    height:100%;
-    background:#363942;
-    transition:.2s;
-}
-
-.wearCard:hover{
-    transform:translateY(-3px);
-    border-color:#663030;
-}
-
-.wearCard.active{
-    border-color:#ff3434;
-    background:
-        radial-gradient(circle at 100% 0%,rgba(255,40,40,.25),transparent 55%),
-        linear-gradient(145deg,#241417,#0c0e12);
-    box-shadow:
-        0 0 0 1px rgba(255,40,40,.15),
-        0 10px 30px rgba(255,20,20,.12);
-}
-
-.wearCard.active:before{
-    background:#ff3030;
-    box-shadow:0 0 15px #ff3030;
-}
-
-.wearCheck{
-    position:absolute;
-    left:10px;
-    top:10px;
-    width:22px;
-    height:22px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:#242730;
-    color:transparent;
-    font-size:11px;
-    font-weight:bold;
-}
-
-.wearCard.active .wearCheck{
-    background:#ff3030;
-    color:white;
-}
-
-.wearName{
-    display:block;
-    font-size:12px;
-    font-weight:900;
-    margin-bottom:8px;
-}
-
-.wearCode{
-    display:block;
-    font-size:10px;
-    color:#696e79;
-}
-
-.wearCard.active .wearName{
-    color:#ff4a4a;
-}
-
-.wearCard.active .wearCode{
-    color:#aa7373;
-}
-
-/* ===== SELECTED INFO ===== */
-
-.selectedInfo{
-    margin-top:14px;
-    padding:12px 14px;
-    border-radius:12px;
-    background:#090b0f;
-    border:1px solid #20232b;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-size:11px;
-    color:#777;
-}
-
-.selectedInfo strong{
-    color:#ff4141;
-}
-
-/* ===== SEND BUTTON ===== */
-
-.sendBtn{
-    width:100%;
-    margin-top:16px;
-    padding:15px;
-    border:0;
-    border-radius:13px;
-    background:linear-gradient(135deg,#ff3838,#960b0b);
-    color:#fff;
-    font-weight:900;
-    cursor:pointer;
-    box-shadow:0 10px 30px rgba(255,30,30,.14);
-    transition:.2s;
-}
-
-.sendBtn:hover{
-    transform:translateY(-2px);
-    filter:brightness(1.12);
-}
-
-/* ===== PROFILE ===== */
-
-.avatarArea{
-    text-align:center;
-    margin-bottom:20px;
-}
-
-.bigAvatar{
-    width:95px;
-    height:95px;
-    object-fit:cover;
-    border-radius:50%;
-    border:3px solid #ff3030;
+.details h2{
+    font-size:29px;
     margin-bottom:12px;
 }
 
-.upload{
-    display:inline-block;
-    padding:10px 15px;
-    background:#1b1e26;
-    border:1px solid #2a2d36;
-    border-radius:10px;
-    font-size:11px;
-    cursor:pointer;
+.details .line{
+    border-bottom:1px solid #202020;
+    padding:13px 0;
+    display:flex;
+    justify-content:space-between;
+    color:#aaa;
 }
 
-.upload input{
-    display:none;
-}
-
-.inputBox{
-    margin-bottom:15px;
-}
-
-.inputBox label{
-    display:block;
-    color:#858a95;
-    font-size:11px;
-    margin-bottom:8px;
-}
-
-.inputBox input{
-    width:100%;
-    padding:14px;
-    border-radius:11px;
-    border:1px solid #292c35;
-    background:#090b0f;
+.details .line b{
     color:#fff;
-    outline:none;
 }
 
-.saveBtn{
+.modal-price{
+    color:#ff1744!important;
+    font-size:24px;
+    font-weight:900;
+}
+
+.order{
     width:100%;
-    padding:14px;
-    border:0;
-    border-radius:11px;
-    background:#e62d2d;
+    margin-top:22px;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
     color:#fff;
-    font-weight:bold;
-    cursor:pointer;
+    font-size:15px;
+    font-weight:800;
+    background:linear-gradient(135deg,#ff1744,#a90028);
+    box-shadow:0 10px 30px rgba(255,0,50,.2);
 }
 
-.resetBtn{
-    width:100%;
-    margin-top:9px;
-    padding:12px;
-    border:1px solid #292c35;
-    border-radius:11px;
-    background:transparent;
-    color:#777;
-    cursor:pointer;
-}
-
-/* ===== FOOTER ===== */
-
+/* FOOTER */
 footer{
+    border-top:1px solid #181818;
     text-align:center;
-    border-top:1px solid #181a20;
     padding:30px;
     color:#555;
-    font-size:11px;
+    font-size:12px;
 }
 
-footer a{
-    color:#ff3838;
-    text-decoration:none;
+footer span{
+    color:#ff1744;
 }
 
-/* ===== MOBILE ===== */
-
-@media(max-width:600px){
-
-    .header{
-        padding:0 14px;
+/* MOBILE */
+@media(max-width:950px){
+    .grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .logo{
-        font-size:14px;
-    }
-
-    .logoIcon{
-        width:38px;
-        height:38px;
+    .nav{
+        display:none;
     }
 
     .hero{
-        padding:55px 15px 35px;
-    }
-
-    .grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:11px;
-    }
-
-    .imageBox{
-        height:145px;
-        padding:9px;
-    }
-
-    .info{
-        padding:12px;
-    }
-
-    .info h3{
-        font-size:11px;
-        line-height:1.7;
-    }
-
-    .info p{
-        font-size:9px;
-    }
-
-    .buyBtn{
-        font-size:10px;
-        padding:10px 4px;
-    }
-
-    .modalBox{
-        padding:17px;
-        border-radius:20px;
-    }
-
-    .wearGrid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .wearCard{
-        min-height:82px;
-        padding:13px 10px;
-    }
-
-    .wearName{
-        font-size:10px;
-    }
-
-    .wearCode{
-        font-size:9px;
+        padding:35px 25px;
     }
 }
 
+@media(max-width:600px){
+    header{
+        padding:0 4%;
+    }
+
+    .profile{
+        padding:6px;
+    }
+
+    .profile div:last-child{
+        display:none;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .shop-top{
+        flex-direction:column;
+        align-items:stretch;
+        gap:15px;
+    }
+
+    .search{
+        width:100%;
+    }
+
+    .grid{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .card{
+        padding:9px;
+    }
+
+    .card-img{
+        height:135px;
+    }
+
+    .card h3{
+        font-size:12px;
+    }
+
+    .price{
+        font-size:14px;
+    }
+
+    .buy{
+        font-size:10px;
+        padding:7px;
+    }
+
+    .modal-content{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .modal-img{
+        height:220px;
+    }
+
+    .details h2{
+        font-size:22px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<header class="header">
+<header>
+    <div class="logo">AGHO <span>CS2</span> SHOP</div>
 
-    <div class="logo">
-        <div class="logoIcon">🔫</div>
-        <div>CS2 <span>SKIN SHOP</span></div>
+    <nav class="nav">
+        <a href="#">خانه</a>
+        <a href="#shop">اسکین‌ها</a>
+        <a href="#contact">ارتباط با ما</a>
+    </nav>
+
+    <div class="profile">
+        <div class="avatar">A</div>
+        <div>
+            <small>پروفایل</small>
+            <strong>ورود / ثبت‌نام</strong>
+        </div>
     </div>
-
-    <button class="profileBtn" onclick="openProfile()">
-        <img id="headerAvatar">
-        <span id="headerName">پروفایل</span>
-    </button>
-
 </header>
 
-
 <section class="hero">
+    <div class="hero-content">
+        <span class="badge">CS2 SKIN MARKET</span>
 
-    <h1>
-        فروشگاه <span>اسکین CS2</span>
-    </h1>
+        <h1>
+            اسکین مورد علاقه‌ات<br>
+            <span>اینجاست.</span>
+        </h1>
 
-    <p>
-        اسکین موردنظر خود را انتخاب کنید
-        <br>
-        مدل گان را انتخاب کنید و درخواست خرید بفرستید.
-    </p>
+        <p>
+            خرید و فروش اسکین‌های Counter-Strike 2
+            با طراحی مدرن و تجربه‌ای سریع و ساده.
+        </p>
 
-    <a
-        class="telegram"
-        href="https://t.me/aghojavaad"
-        target="_blank"
-    >
-        💬 ارتباط در تلگرام
-    </a>
+        <a class="telegram" href="https://t.me/aghojavaad" target="_blank">
+            💬 پشتیبانی تلگرام @aghojavaad
+        </a>
+    </div>
+</section>
+
+<section class="shop" id="shop">
+
+    <div class="shop-top">
+        <h2>آخرین <span>اسکین‌ها</span></h2>
+
+        <input
+            class="search"
+            id="search"
+            type="text"
+            placeholder="🔎 جستجوی گان..."
+        >
+    </div>
+
+    <div class="grid" id="products"></div>
 
 </section>
 
-
-<div class="searchArea">
-
-    <input
-        id="search"
-        class="search"
-        type="text"
-        placeholder="🔎 جستجوی اسکین..."
-        oninput="searchProducts()"
-    >
-
-</div>
-
-
-<main class="shop">
-
-    <div
-        id="products"
-        class="grid"
-    ></div>
-
-</main>
-
-
-<footer>
-
-    برای خرید به آیدی زیر پیام دهید:
-
-    <a
-        href="https://t.me/aghojavaad"
-        target="_blank"
-    >
-        @aghojavaad
-    </a>
-
+<footer id="contact">
+    AGHO CS2 SHOP — تمامی حقوق محفوظ است
+    <br><br>
+    Telegram: <span>@aghojavaad</span>
 </footer>
 
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-box">
 
-<!-- ================= PROFILE ================= -->
+        <button class="close" onclick="closeModal()">×</button>
 
-<div
-    id="profileModal"
-    class="modal"
->
+        <div class="modal-content">
 
-    <div class="modalBox">
+            <div class="modal-img">
+                <img id="modalImage" src="">
+            </div>
 
-        <div class="modalTop">
+            <div class="details">
+                <h2 id="modalName"></h2>
 
-            <h2>👤 پروفایل</h2>
+                <div class="line">
+                    <span>وضعیت</span>
+                    <b id="modalCondition"></b>
+                </div>
 
-            <button
-                class="closeBtn"
-                onclick="closeProfile()"
-            >
-                ×
-            </button>
+                <div class="line">
+                    <span>قیمت</span>
+                    <b class="modal-price" id="modalPrice"></b>
+                </div>
 
-        </div>
+                <button class="order" onclick="orderProduct()">
+                    🛒 ثبت سفارش
+                </button>
 
-
-        <div class="avatarArea">
-
-            <img
-                id="bigAvatar"
-                class="bigAvatar"
-            >
-
-            <br>
-
-            <label class="upload">
-
-                📷 انتخاب عکس پروفایل
-
-                <input
-                    type="file"
-                    accept="image/*"
-                    onchange="changeAvatar(event)"
-                >
-
-            </label>
-
-        </div>
-
-
-        <div class="inputBox">
-
-            <label>
-                نام نمایشی
-            </label>
-
-            <input
-                id="profileName"
-                maxlength="25"
-                placeholder="مثلاً Javad"
-            >
-
-        </div>
-
-
-        <button
-            class="saveBtn"
-            onclick="saveProfile()"
-        >
-            ذخیره پروفایل
-        </button>
-
-
-        <button
-            class="resetBtn"
-            onclick="resetProfile()"
-        >
-            حذف پروفایل
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- ================= BUY ================= -->
-
-<div
-    id="buyModal"
-    class="modal"
->
-
-    <div class="modalBox">
-
-        <div class="modalTop">
-
-            <h2>🛒 انتخاب اسکین</h2>
-
-            <button
-                class="closeBtn"
-                onclick="closeBuy()"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <div class="preview">
-
-            <img id="buyImage">
-
-            <div>
-
-                <strong id="buyName"></strong>
-
-                <small>
-                    انتخاب مدل برای خرید
-                </small>
-
+                <a
+                    class="telegram"
+                    style="width:100%;justify-content:center"
+                    href="https://t.me/aghojavaad"
+                    target="_blank">
+                    💬 سفارش در تلگرام
+                </a>
             </div>
 
         </div>
-
-
-        <div class="selectorTitle">
-
-            <b>✦</b>
-
-            مدل اسکین را انتخاب کنید
-
-        </div>
-
-
-        <div class="wearGrid">
-
-
-            <button
-                type="button"
-                class="wearCard active"
-                data-wear="Factory New"
-                onclick="chooseWear(this)"
-            >
-
-                <span class="wearCheck">✓</span>
-
-                <span class="wearName">
-                    Factory New
-                </span>
-
-                <span class="wearCode">
-                    ۰ تا ۰.۰۷ • نو
-                </span>
-
-            </button>
-
-
-            <button
-                type="button"
-                class="wearCard"
-                data-wear="Minimal Wear"
-                onclick="chooseWear(this)"
-            >
-
-                <span class="wearCheck">✓</span>
-
-                <span class="wearName">
-                    Minimal Wear
-                </span>
-
-                <span class="wearCode">
-                    ۰.۰۷ تا ۰.۱۵ • کم‌خط
-                </span>
-
-            </button>
-
-
-            <button
-                type="button"
-                class="wearCard"
-                data-wear="Field-Tested"
-                onclick="chooseWear(this)"
-            >
-
-                <span class="wearCheck">✓</span>
-
-                <span class="wearName">
-                    Field-Tested
-                </span>
-
-                <span class="wearCode">
-                    ۰.۱۵ تا ۰.۳۸ • تست‌شده
-                </span>
-
-            </button>
-
-
-            <button
-                type="button"
-                class="wearCard"
-                data-wear="Well-Worn"
-                onclick="chooseWear(this)"
-            >
-
-                <span class="wearCheck">✓</span>
-
-                <span class="wearName">
-                    Well-Worn
-                </span>
-
-                <span class="wearCode">
-                    ۰.۳۸ تا ۰.۴۵ • کارکرده
-                </span>
-
-            </button>
-
-
-            <button
-                type="button"
-                class="wearCard"
-                data-wear="Battle-Scarred"
-                onclick="chooseWear(this)"
-            >
-
-                <span class="wearCheck">✓</span>
-
-                <span class="wearName">
-                    Battle-Scarred
-                </span>
-
-                <span class="wearCode">
-                    ۰.۴۵ تا ۱.۰۰ • فرسوده
-                </span>
-
-            </button>
-
-
-        </div>
-
-
-        <div class="selectedInfo">
-
-            <span>
-                مدل انتخاب‌شده
-            </span>
-
-            <strong id="selectedWear">
-                Factory New
-            </strong>
-
-        </div>
-
-
-        <button
-            class="sendBtn"
-            onclick="sendTelegram()"
-        >
-            📩 ارسال درخواست خرید در تلگرام
-        </button>
-
     </div>
-
 </div>
-
 
 <script>
 
-/* =========================
-   PRODUCTS
-========================= */
-
 const products = [
 
-    {
-        name:"AK-47 | Elite Build",
-        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Elite%20Build.png"
-    },
+{
+    name:"M4A1 | Naval Shred Camo",
+    condition:"Factory New",
+    price:"120T",
+    image:"https://steamcommunity-a.akamaihd.net/economy/image/class/730/3840391985"
+},
 
-    {
-        name:"AK-47 | Redline",
-        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Redline.png"
-    },
+{
+    name:"StatTrak™ USP-S",
+    condition:"Field-Tested",
+    price:"135T",
+    image:"https://steamcommunity-a.akamaihd.net/economy/image/class/730/619568339"
+},
 
-    {
-        name:"AK-47 | Slate",
-        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Slate.png"
-    },
+{
+    name:"M4A1 | Boreal Forest",
+    condition:"Minimal Wear",
+    price:"110T",
+    image:"https://steamcommunity-a.akamaihd.net/economy/image/class/730/619568339"
+},
 
-    {
-        name:"M4A1-S | Boreal Forest",
-        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Boreal%20Forest.png"
-    },
-
-    {
-        name:"M4A1-S | Printstream",
-        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Printstream.png"
-    },
-
-    {
-        name:"M4A1-S | Leaded Glass",
-        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Leaded%20Glass.png"
-    },
-
-    {
-        name:"Desert Eagle | Blue Ply",
-        image:"https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Blue%20Ply.png"
-    },
-
-    {
-        name:"Desert Eagle | Printstream",
-        image:"https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Printstream.png"
-    },
-
-    {
-        name:"Desert Eagle | Mecha Industries",
-        image:"https://specs.gg/assets/img/cs2_skins/Desert%20Eagle/Mecha%20Industries.png"
-    },
-
-    {
-        name:"USP-S | Printstream",
-        image:"https://specs.gg/assets/img/cs2_skins/USP-S/Printstream.png"
-    },
-
-    {
-        name:"USP-S | Cortex",
-        image:"https://specs.gg/assets/img/cs2_skins/USP-S/Cortex.png"
-    },
-
-    {
-        name:"Glock-18 | Water Elemental",
-        image:"https://specs.gg/assets/img/cs2_skins/Glock-18/Water%20Elemental.png"
-    },
-
-    {
-        name:"AWP | Asiimov",
-        image:"https://specs.gg/assets/img/cs2_skins/AWP/Asiimov.png"
-    },
-
-    {
-        name:"AWP | Atheris",
-        image:"https://specs.gg/assets/img/cs2_skins/AWP/Atheris.png"
-    },
-
-    {
-        name:"R8 Revolver | Junk Yard",
-        image:"https://specs.gg/assets/img/cs2_skins/R8%20Revolver/Junk%20Yard.png"
-    },
-
-    {
-        name:"M4A1-S | Naval Shred",
-        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Naval%20Shred.png"
-    },
-
-    {
-        name:"AK-47 | Phantom Disruptor",
-        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Phantom%20Disruptor.png"
-    },
-
-    {
-        name:"AK-47 | Legion of Anubis",
-        image:"https://specs.gg/assets/img/cs2_skins/AK-47/Legion%20of%20Anubis.png"
-    },
-
-    {
-        name:"M4A1-S | Decimator",
-        image:"https://specs.gg/assets/img/cs2_skins/M4A1-S/Decimator.png"
-    },
-
-    {
-        name:"Glock-18 | Vogue",
-        image:"https://specs.gg/assets/img/cs2_skins/Glock-18/Vogue.png"
-    },
-
-    {
-        name:"USP-S | Cyrex",
-        image:"https://specs.gg/assets/img/cs2_skins/USP-S/Cyrex.png"
-    },
-
-    {
-        name:"AWP | PAW",
-        image:"https://specs.gg/assets/img/cs2_skins/AWP/PAW.png"
-    }
+{
+    name:"R8 Revolver | Junk Yard",
+    condition:"Field-Tested",
+    price:"60T",
+    image:"https://steamcommunity-a.akamaihd.net/economy/image/class/730/619568339"
+}
 
 ];
 
-
-/* =========================
-   DEFAULT AVATAR
-========================= */
-
-const defaultAvatar =
-"data:image/svg+xml;charset=UTF-8,"+
-encodeURIComponent(`
-<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
-<rect width="300" height="300" rx="150" fill="#20232b"/>
-<circle cx="150" cy="110" r="58" fill="#777"/>
-<path d="M55 285c8-65 50-100 95-100s87 35 95 100" fill="#777"/>
-</svg>
-`);
-
-
-/* =========================
-   VARIABLES
-========================= */
-
-let selectedProduct = null;
-
-let selectedWear = "Factory New";
-
-let temporaryAvatar = defaultAvatar;
-
-
-/* =========================
-   RENDER
-========================= */
+const productsContainer = document.getElementById("products");
+const search = document.getElementById("search");
 
 function renderProducts(list){
 
-    const grid =
-        document.getElementById("products");
+    productsContainer.innerHTML = "";
 
-    grid.innerHTML = "";
+    list.forEach((product,index)=>{
 
-    list.forEach(product => {
-
-        const realIndex =
-            products.indexOf(product);
-
-        const card =
-            document.createElement("div");
-
+        const card = document.createElement("div");
         card.className = "card";
 
         card.innerHTML = `
+            <span class="tag">CS2</span>
 
-            <div class="imageBox">
-
-                <img
-                    src="${product.image}"
-                    alt="${product.name}"
-                    loading="lazy"
-                >
-
+            <div class="card-img">
+                <img src="${product.image}" alt="${product.name}">
             </div>
 
-            <div class="info">
+            <h3>${product.name}</h3>
 
-                <h3>
-                    ${product.name}
-                </h3>
+            <div class="condition">
+                ${product.condition}
+            </div>
 
-                <p>
-                    برای خرید به آیدی زیر پیام دهید:
-                    <br>
-                    <strong>@aghojavaad</strong>
-                </p>
+            <div class="bottom">
+                <div class="price">${product.price}</div>
 
-                <button
-                    class="buyBtn"
-              
+                <button class="buy" onclick="openModal(${index})">
+                    مشاهده
+                </button>
+            </div>
+        `;
+
+        productsContainer.appendChild(card);
+    });
+}
+
+renderProducts(products);
+
+search.addEventListener("input",()=>{
+
+    const value = search.value.toLowerCase();
+
+    const filtered = products.filter(product =>
+        product.name.toLowerCase().includes(value) ||
+        product.condition.toLowerCase().includes(value)
+    );
+
+    renderProducts(filtered);
+});
+
+let selectedProduct = null;
+
+function openModal(index){
+
+    selectedProduct = products[index];
+
+    document.getElementById("modalImage").src = selectedProduct.image;
+    document.getElementById("modalName").innerText = selectedProduct.name;
+    document.getElementById("modalCondition").innerText = selectedProduct.condition;
+    document.getElementById("modalPrice").innerText = selectedProduct.price;
+
+    document.getElementById("modal").classList.add("active");
+}
+
+function closeModal(){
+    document.getElementById("modal").classList.remove("active");
+}
+
+function orderProduct(){
+
+    if(!selectedProduct) return;
+
+    const message =
+        "سلام، برای خرید این اسکین پیام میدم:%0A%0A" +
+        "🎮 " + selectedProduct.name +
+        "%0A📦 " + selectedProduct.condition +
+        "%0A💰 " + selectedProduct.price;
+
+    window.open(
+        "https://t.me/aghojavaad?text=" + message,
+        "_blank"
+    );
+}
+
+document.getElementById("modal").addEventListener("click",(e)=>{
+
+    if(e.target.id === "modal"){
+        closeModal();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
