@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CSGO SHOP | CS2 Store</title>
 
     <style>
+
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
 
         * {
@@ -17,13 +19,13 @@
 
         :root {
             --red: #ff1744;
-            --red2: #ff003c;
-            --dark: #030305;
-            --dark2: #0a0a0e;
-            --card: rgba(16, 16, 21, .82);
-            --white: #fff;
-            --gray: #a9a9b4;
-            --border: rgba(255, 23, 68, .22);
+            --red-light: #ff4b6e;
+            --black: #030305;
+            --black2: #0a0a0f;
+            --card: rgba(17, 17, 23, 0.82);
+            --white: #ffffff;
+            --gray: #a8a8b3;
+            --green: #26e07f;
         }
 
         html {
@@ -32,26 +34,57 @@
 
         body {
             min-height: 100vh;
-            color: white;
-            background:
-                radial-gradient(circle at 15% 10%, rgba(255, 0, 55, .12), transparent 28%),
-                radial-gradient(circle at 85% 15%, rgba(255, 23, 68, .08), transparent 30%),
-                linear-gradient(135deg, #030305, #09090d 50%, #030305);
+            color: var(--white);
             overflow-x: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 15% 15%,
+                    rgba(255, 23, 68, 0.13),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 10%,
+                    rgba(255, 23, 68, 0.08),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #020204,
+                    #09090d 50%,
+                    #030305
+                );
         }
 
-        /* ---------- Background ---------- */
+        /* =========================
+           BACKGROUND
+        ========================= */
 
         .bg-grid {
             position: fixed;
             inset: 0;
             z-index: -10;
             pointer-events: none;
+
             background-image:
-                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+                linear-gradient(
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px
+                );
+
             background-size: 45px 45px;
-            mask-image: linear-gradient(to bottom, black 45%, transparent 100%);
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black 45%,
+                    transparent 100%
+                );
         }
 
         .glow {
@@ -59,48 +92,67 @@
             width: 280px;
             height: 280px;
             border-radius: 50%;
-            background: rgba(255, 23, 68, .15);
+
+            background: rgba(255, 23, 68, 0.15);
+
             filter: blur(90px);
+
             z-index: -9;
             pointer-events: none;
-            animation: glowFloat 8s ease-in-out infinite;
+
+            animation:
+                glowFloat 8s ease-in-out infinite;
         }
 
         .glow.one {
-            top: 10%;
-            left: 5%;
+            top: 8%;
+            left: 4%;
         }
 
         .glow.two {
-            bottom: 5%;
             right: 5%;
+            bottom: 5%;
             animation-delay: 3s;
         }
 
         @keyframes glowFloat {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(30px, -25px); }
+
+            0%,100% {
+                transform: translate(0,0);
+            }
+
+            50% {
+                transform: translate(30px,-25px);
+            }
         }
 
         #particles {
             position: fixed;
             inset: 0;
+            overflow: hidden;
             pointer-events: none;
             z-index: -8;
-            overflow: hidden;
         }
 
         .particle {
             position: absolute;
+
             width: 3px;
             height: 3px;
-            border-radius: 50%;
+
             background: var(--red);
-            box-shadow: 0 0 12px var(--red);
-            animation: particleMove linear infinite;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 10px var(--red);
+
+            animation:
+                particleMove linear infinite;
         }
 
         @keyframes particleMove {
+
             from {
                 transform: translateY(110vh);
                 opacity: 0;
@@ -120,18 +172,28 @@
             }
         }
 
-        /* ---------- Header ---------- */
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             position: sticky;
             top: 0;
+
             z-index: 1000;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             padding: 15px 5%;
-            background: rgba(4,4,7,.78);
-            border-bottom: 1px solid rgba(255,255,255,.06);
+
+            background:
+                rgba(4,4,7,.80);
+
+            border-bottom:
+                1px solid rgba(255,255,255,.06);
+
             backdrop-filter: blur(20px);
         }
 
@@ -143,20 +205,26 @@
 
         .logo span {
             color: var(--red);
-            text-shadow: 0 0 20px rgba(255,23,68,.75);
+
+            text-shadow:
+                0 0 18px rgba(255,23,68,.8);
         }
 
         nav {
             display: flex;
-            gap: 27px;
+            gap: 28px;
         }
 
         nav a {
-            color: #ddd;
-            text-decoration: none;
-            font-size: 14px;
             position: relative;
-            transition: .25s;
+
+            color: #ddd;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            transition: .3s;
         }
 
         nav a:hover {
@@ -165,13 +233,20 @@
 
         nav a::after {
             content: "";
+
             position: absolute;
-            height: 2px;
-            width: 0;
-            bottom: -7px;
+
             right: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
             background: var(--red);
-            box-shadow: 0 0 12px var(--red);
+
+            box-shadow:
+                0 0 12px var(--red);
+
             transition: .3s;
         }
 
@@ -179,130 +254,214 @@
             width: 100%;
         }
 
+        /* =========================
+           PROFILE BUTTON
+        ========================= */
+
         .profile-btn {
-            width: 48px;
-            height: 48px;
-            border: 2px solid var(--red);
+            width: 50px;
+            height: 50px;
+
             border-radius: 50%;
+
             overflow: hidden;
+
+            padding: 0;
+
+            border:
+                2px solid var(--red);
+
             background: #111;
+
             cursor: pointer;
-            box-shadow: 0 0 22px rgba(255,23,68,.35);
+
+            box-shadow:
+                0 0 22px rgba(255,23,68,.35);
+
             transition: .3s;
         }
 
         .profile-btn:hover {
             transform: scale(1.08);
-            box-shadow: 0 0 32px rgba(255,23,68,.65);
+
+            box-shadow:
+                0 0 32px rgba(255,23,68,.65);
         }
 
         .profile-btn img {
+            display: block;
+
             width: 100%;
             height: 100%;
+
             object-fit: cover;
         }
 
-        /* ---------- Hero ---------- */
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
             min-height: 700px;
+
+            padding:
+                80px 20px;
+
             display: flex;
+            flex-direction: column;
+
             align-items: center;
             justify-content: center;
-            flex-direction: column;
+
             text-align: center;
-            padding: 80px 20px;
         }
 
         .hero-badge {
             padding: 8px 16px;
+
+            margin-bottom: 26px;
+
             border-radius: 999px;
-            border: 1px solid rgba(255,23,68,.35);
-            background: rgba(255,23,68,.07);
-            color: #ff9aad;
+
+            border:
+                1px solid rgba(255,23,68,.35);
+
+            background:
+                rgba(255,23,68,.07);
+
+            color: #ff9caf;
+
             font-size: 13px;
-            margin-bottom: 25px;
-            animation: fadeUp .8s both;
+
+            animation:
+                fadeUp .8s both;
         }
 
         .hero h1 {
-            font-size: clamp(48px, 8vw, 90px);
+            font-size:
+                clamp(50px, 8vw, 90px);
+
             font-weight: 900;
+
             line-height: .95;
+
             letter-spacing: -3px;
-            animation: fadeUp .9s .1s both;
+
+            animation:
+                fadeUp .9s .1s both;
         }
 
         .hero h1 span {
             color: var(--red);
+
             text-shadow:
-                0 0 18px rgba(255,23,68,.8),
-                0 0 60px rgba(255,23,68,.3);
+                0 0 18px rgba(255,23,68,.85),
+                0 0 60px rgba(255,23,68,.32);
         }
 
         .hero p {
             max-width: 720px;
-            margin-top: 25px;
+
+            margin-top: 27px;
+
             color: var(--gray);
+
             font-size: 17px;
+
             line-height: 2;
-            animation: fadeUp .9s .2s both;
+
+            animation:
+                fadeUp .9s .2s both;
         }
 
         .hero-buttons {
+            margin-top: 32px;
+
             display: flex;
+
             gap: 14px;
-            margin-top: 30px;
+
             flex-wrap: wrap;
+
             justify-content: center;
-            animation: fadeUp .9s .3s both;
+
+            animation:
+                fadeUp .9s .3s both;
         }
 
         .btn {
             border: none;
+
             border-radius: 13px;
-            padding: 14px 24px;
-            font-weight: 800;
+
+            padding:
+                14px 24px;
+
             font-size: 14px;
+
+            font-weight: 800;
+
             cursor: pointer;
+
             transition: .3s;
         }
 
         .btn-red {
             color: white;
+
             background: var(--red);
-            box-shadow: 0 0 25px rgba(255,23,68,.3);
+
+            box-shadow:
+                0 0 25px
+                rgba(255,23,68,.3);
         }
 
         .btn-red:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 38px rgba(255,23,68,.62);
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 0 38px
+                rgba(255,23,68,.62);
         }
 
         .btn-dark {
             color: white;
-            background: rgba(255,255,255,.04);
-            border: 1px solid rgba(255,255,255,.08);
+
+            background:
+                rgba(255,255,255,.04);
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
         }
 
         .btn-dark:hover {
-            transform: translateY(-3px);
-            border-color: rgba(255,23,68,.45);
+            transform:
+                translateY(-3px);
+
+            border-color:
+                rgba(255,23,68,.45);
         }
 
         @keyframes fadeUp {
+
             from {
                 opacity: 0;
-                transform: translateY(28px);
+                transform:
+                    translateY(28px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform:
+                    translateY(0);
             }
         }
 
-        /* ---------- Sections ---------- */
+        /* =========================
+           SECTION
+        ========================= */
 
         .section {
             padding: 90px 5%;
@@ -322,24 +481,44 @@
         }
 
         .section-title p {
-            color: var(--gray);
-            font-size: 13px;
             margin-top: 7px;
+
+            color: var(--gray);
+
+            font-size: 13px;
         }
 
-        /* ---------- Gun Cards ---------- */
+        /* =========================
+           PRODUCTS
+        ========================= */
 
         .products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(240px,1fr)
+                );
+
             gap: 22px;
         }
 
         .card {
             position: relative;
+
             overflow: hidden;
+
             min-height: 390px;
+
             padding: 0;
+
+            border-radius: 21px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
             background:
                 linear-gradient(
                     180deg,
@@ -347,58 +526,90 @@
                     rgba(255,255,255,.015)
                 ),
                 var(--card);
-            border: 1px solid rgba(255,255,255,.07);
-            border-radius: 21px;
+
             backdrop-filter: blur(12px);
+
             transition: .4s;
+
             opacity: 0;
-            transform: translateY(35px);
+
+            transform:
+                translateY(35px);
         }
 
         .card.visible {
             opacity: 1;
-            transform: translateY(0);
+
+            transform:
+                translateY(0);
         }
 
         .card:hover {
-            transform: translateY(-9px);
-            border-color: rgba(255,23,68,.4);
+            transform:
+                translateY(-9px);
+
+            border-color:
+                rgba(255,23,68,.4);
+
             box-shadow:
-                0 18px 50px rgba(0,0,0,.42),
-                0 0 25px rgba(255,23,68,.08);
+                0 18px 50px
+                rgba(0,0,0,.42),
+
+                0 0 25px
+                rgba(255,23,68,.08);
         }
 
         .gun-image {
             height: 220px;
+
             padding: 22px;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
+
             background:
                 radial-gradient(
                     circle at center,
-                    rgba(255,23,68,.10),
+                    rgba(255,23,68,.11),
                     transparent 65%
                 );
-            border-bottom: 1px solid rgba(255,255,255,.06);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.06);
         }
 
         .gun-image img {
             width: 100%;
             height: 100%;
+
             object-fit: contain;
-            image-rendering: auto;
+
             filter:
-                drop-shadow(0 12px 20px rgba(0,0,0,.7))
-                drop-shadow(0 0 10px rgba(255,23,68,.08));
+                drop-shadow(
+                    0 12px 20px
+                    rgba(0,0,0,.72)
+                );
+
             transition: .45s;
         }
 
         .card:hover .gun-image img {
-            transform: scale(1.08) translateY(-4px);
+            transform:
+                scale(1.08)
+                translateY(-4px);
+
             filter:
-                drop-shadow(0 16px 24px rgba(0,0,0,.7))
-                drop-shadow(0 0 16px rgba(255,23,68,.20));
+                drop-shadow(
+                    0 16px 24px
+                    rgba(0,0,0,.72)
+                )
+                drop-shadow(
+                    0 0 16px
+                    rgba(255,23,68,.18)
+                );
         }
 
         .card-body {
@@ -407,32 +618,49 @@
 
         .weapon-tag {
             display: inline-block;
+
             margin-bottom: 10px;
+
             padding: 5px 9px;
+
             border-radius: 8px;
+
+            color: #ff91a4;
+
+            background:
+                rgba(255,23,68,.08);
+
+            border:
+                1px solid
+                rgba(255,23,68,.18);
+
             font-size: 10px;
             font-weight: 800;
-            color: #ff91a4;
-            background: rgba(255,23,68,.08);
-            border: 1px solid rgba(255,23,68,.18);
         }
 
         .card h3 {
-            font-size: 20px;
             margin-bottom: 7px;
+
+            font-size: 20px;
         }
 
         .card p {
             color: var(--gray);
+
             font-size: 12px;
+
             line-height: 1.8;
         }
 
         .price {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
             margin-top: 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
             gap: 10px;
         }
 
@@ -442,115 +670,227 @@
 
         .buy {
             padding: 8px 13px;
+
             border-radius: 10px;
-            border: 1px solid rgba(255,23,68,.22);
+
             color: #ff9caf;
-            background: rgba(255,23,68,.09);
+
+            background:
+                rgba(255,23,68,.09);
+
+            border:
+                1px solid
+                rgba(255,23,68,.22);
+
             cursor: pointer;
+
             transition: .3s;
         }
 
         .buy:hover {
             color: white;
+
             background: var(--red);
-            box-shadow: 0 0 16px rgba(255,23,68,.3);
+
+            box-shadow:
+                0 0 16px
+                rgba(255,23,68,.3);
         }
 
-        /* ---------- Features ---------- */
+        /* =========================
+           FEATURES
+        ========================= */
 
         .features {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3,1fr);
+
             gap: 18px;
         }
 
         .feature {
             padding: 27px;
-            background: rgba(255,255,255,.03);
-            border: 1px solid rgba(255,255,255,.06);
+
+            background:
+                rgba(255,255,255,.03);
+
+            border:
+                1px solid
+                rgba(255,255,255,.06);
+
             border-radius: 19px;
+
             transition: .3s;
         }
 
         .feature:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255,23,68,.3);
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(255,23,68,.3);
         }
 
         .num {
             font-size: 36px;
+
             color: var(--red);
+
             font-weight: 900;
-            text-shadow: 0 0 15px rgba(255,23,68,.35);
+
+            text-shadow:
+                0 0 15px
+                rgba(255,23,68,.35);
         }
 
         .feature h3 {
-            margin: 12px 0 7px;
+            margin:
+                12px 0 7px;
         }
 
         .feature p {
             color: var(--gray);
+
             font-size: 13px;
+
             line-height: 1.9;
         }
 
-        /* ---------- Footer ---------- */
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            padding: 28px 5%;
-            border-top: 1px solid rgba(255,255,255,.07);
+            padding:
+                30px 5%;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.07);
+
             display: flex;
-            justify-content: space-between;
+
+            justify-content:
+                space-between;
+
             gap: 15px;
+
             flex-wrap: wrap;
+
             color: var(--gray);
+
             font-size: 12px;
         }
 
-        /* ---------- Modal ---------- */
+        .footer-telegram a {
+            color: var(--red);
+
+            text-decoration: none;
+
+            font-weight: 800;
+
+            margin-right: 5px;
+
+            transition: .3s;
+
+            text-shadow:
+                0 0 12px
+                rgba(255,23,68,.35);
+        }
+
+        .footer-telegram a:hover {
+            color: white;
+
+            text-shadow:
+                0 0 15px
+                rgba(255,23,68,.8);
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
 
         .modal {
             position: fixed;
+
             inset: 0;
+
             z-index: 2000;
+
             display: flex;
-            align-items: center;
-            justify-content: center;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
             padding: 20px;
-            background: rgba(0,0,0,.74);
-            backdrop-filter: blur(10px);
+
+            background:
+                rgba(0,0,0,.75);
+
+            backdrop-filter:
+                blur(10px);
+
             opacity: 0;
+
             visibility: hidden;
+
             transition: .3s;
         }
 
         .modal.active {
             opacity: 1;
+
             visibility: visible;
         }
 
         .modal-box {
             width: 100%;
+
             max-width: 500px;
+
             max-height: 92vh;
+
             overflow-y: auto;
+
             padding: 28px;
+
             border-radius: 24px;
+
             background: #0b0b10;
-            border: 1px solid rgba(255,23,68,.28);
-            box-shadow: 0 30px 100px rgba(0,0,0,.65);
-            transform: scale(.9) translateY(20px);
+
+            border:
+                1px solid
+                rgba(255,23,68,.28);
+
+            box-shadow:
+                0 30px 100px
+                rgba(0,0,0,.65);
+
+            transform:
+                scale(.9)
+                translateY(20px);
+
             transition: .35s;
         }
 
         .modal.active .modal-box {
-            transform: scale(1) translateY(0);
+            transform:
+                scale(1)
+                translateY(0);
         }
 
         .modal-head {
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             margin-bottom: 22px;
         }
 
@@ -561,45 +901,79 @@
         .close {
             width: 40px;
             height: 40px;
+
             border-radius: 11px;
-            border: 1px solid rgba(255,255,255,.08);
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
             color: white;
-            background: rgba(255,255,255,.04);
+
+            background:
+                rgba(255,255,255,.04);
+
             font-size: 22px;
+
             cursor: pointer;
         }
 
+        /* =========================
+           AVATAR
+        ========================= */
+
         .avatar-upload {
             display: flex;
+
             justify-content: center;
+
             margin-bottom: 24px;
         }
 
         .avatar-wrap {
             position: relative;
+
             width: 105px;
             height: 105px;
+
             cursor: pointer;
+
             border-radius: 50%;
+
             overflow: hidden;
-            border: 3px solid var(--red);
-            box-shadow: 0 0 30px rgba(255,23,68,.35);
+
+            border:
+                3px solid
+                var(--red);
+
+            box-shadow:
+                0 0 30px
+                rgba(255,23,68,.35);
         }
 
         .avatar-wrap img {
             width: 100%;
             height: 100%;
+
             object-fit: cover;
         }
 
         .avatar-wrap span {
             position: absolute;
+
             inset: 0;
+
             display: grid;
+
             place-items: center;
+
             font-size: 12px;
-            background: rgba(0,0,0,.48);
+
+            background:
+                rgba(0,0,0,.48);
+
             opacity: 0;
+
             transition: .25s;
         }
 
@@ -611,108 +985,204 @@
             display: none;
         }
 
+        /* =========================
+           FORM
+        ========================= */
+
         .form-group {
             margin-bottom: 16px;
         }
 
         .form-group label {
             display: block;
-            font-size: 13px;
+
             margin-bottom: 7px;
+
             color: #dedee5;
+
+            font-size: 13px;
         }
 
         .form-group input {
             width: 100%;
+
             height: 50px;
-            padding: 0 15px;
-            border: 1px solid rgba(255,255,255,.08);
+
+            padding:
+                0 15px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
             border-radius: 12px;
+
             outline: none;
+
             color: white;
-            background: rgba(255,255,255,.04);
+
+            background:
+                rgba(255,255,255,.04);
+
             transition: .25s;
         }
 
         .form-group input:focus {
-            border-color: rgba(255,23,68,.6);
-            box-shadow: 0 0 18px rgba(255,23,68,.1);
+            border-color:
+                rgba(255,23,68,.6);
+
+            box-shadow:
+                0 0 18px
+                rgba(255,23,68,.1);
         }
 
         .form-group input.error {
-            border-color: var(--red);
-            background: rgba(255,23,68,.06);
-            box-shadow: 0 0 17px rgba(255,23,68,.14);
-            animation: shake .4s ease;
+            border-color:
+                var(--red);
+
+            background:
+                rgba(255,23,68,.06);
+
+            animation:
+                shake .4s ease;
+
+            box-shadow:
+                0 0 17px
+                rgba(255,23,68,.16);
         }
 
         .error-message {
             display: block;
+
             min-height: 18px;
-            color: #ff5c7a;
+
+            color:
+                #ff5c7a;
+
             font-size: 11px;
+
             margin-top: 5px;
+
             opacity: 0;
-            transform: translateY(-3px);
+
+            transform:
+                translateY(-3px);
+
             transition: .25s;
         }
 
         .error-message.show {
             opacity: 1;
-            transform: translateY(0);
+
+            transform:
+                translateY(0);
         }
 
         @keyframes shake {
-            0%,100% { transform: translateX(0); }
-            20% { transform: translateX(-7px); }
-            40% { transform: translateX(7px); }
-            60% { transform: translateX(-5px); }
-            80% { transform: translateX(5px); }
+
+            0%,100% {
+                transform:
+                    translateX(0);
+            }
+
+            20% {
+                transform:
+                    translateX(-7px);
+            }
+
+            40% {
+                transform:
+                    translateX(7px);
+            }
+
+            60% {
+                transform:
+                    translateX(-5px);
+            }
+
+            80% {
+                transform:
+                    translateX(5px);
+            }
         }
 
         .save-profile {
             width: 100%;
+
             margin-top: 6px;
         }
 
         .profile-info {
             text-align: center;
-            color: #858592;
-            font-size: 11px;
+
             margin-top: 12px;
+
+            color: #858592;
+
+            font-size: 11px;
         }
 
-        /* ---------- Toast ---------- */
+        /* =========================
+           TOAST
+        ========================= */
 
         .toast {
             position: fixed;
+
             left: 50%;
+
             bottom: 24px;
+
             z-index: 3000;
-            min-width: 250px;
+
+            min-width: 260px;
+
             max-width: 90%;
-            padding: 13px 18px;
+
+            padding:
+                14px 19px;
+
             border-radius: 13px;
+
             text-align: center;
+
             background: #111116;
-            border: 1px solid rgba(255,23,68,.28);
-            box-shadow: 0 12px 40px rgba(0,0,0,.4);
-            transform: translate(-50%, 100px);
+
+            border:
+                1px solid
+                rgba(255,23,68,.3);
+
+            box-shadow:
+                0 12px 40px
+                rgba(0,0,0,.4);
+
+            transform:
+                translate(-50%, 100px);
+
             opacity: 0;
+
             transition: .35s;
         }
 
         .toast.show {
-            transform: translate(-50%, 0);
+            transform:
+                translate(-50%, 0);
+
             opacity: 1;
         }
 
         .toast.error {
-            border-color: rgba(255,23,68,.65);
-            box-shadow: 0 0 28px rgba(255,23,68,.14);
+            border-color:
+                rgba(255,23,68,.72);
+
+            box-shadow:
+                0 0 28px
+                rgba(255,23,68,.16);
         }
 
-        /* ---------- Responsive ---------- */
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
         @media (max-width: 800px) {
 
@@ -725,7 +1195,8 @@
             }
 
             .section {
-                padding: 65px 4%;
+                padding:
+                    65px 4%;
             }
 
             .features {
@@ -733,15 +1204,18 @@
             }
 
             .products {
-                grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+                grid-template-columns:
+                    repeat(
+                        auto-fit,
+                        minmax(210px,1fr)
+                    );
             }
-
         }
 
         @media (max-width: 500px) {
 
             .hero h1 {
-                font-size: 47px;
+                font-size: 48px;
             }
 
             .gun-image {
@@ -763,12 +1237,19 @@
 
 <body>
 
+    <!-- BACKGROUND -->
     <div class="bg-grid"></div>
+
     <div class="glow one"></div>
     <div class="glow two"></div>
+
     <div id="particles"></div>
 
-    <!-- HEADER -->
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
     <header>
 
         <div class="logo">
@@ -776,22 +1257,49 @@
         </div>
 
         <nav>
-            <a href="#home">خانه</a>
-            <a href="#shop">شاپ</a>
-            <a href="#features">مزایا</a>
-            <a href="#contact">تماس</a>
+
+            <a href="#home">
+                خانه
+            </a>
+
+            <a href="#shop">
+                شاپ
+            </a>
+
+            <a href="#features">
+                مزایا
+            </a>
+
+            <a href="#contact">
+                تماس
+            </a>
+
         </nav>
 
-        <button class="profile-btn" id="profileBtn">
-            <img id="headerAvatar"
-                 src="https://i.pravatar.cc/200?img=12"
-                 alt="Profile">
+
+        <!-- PROFILE BUTTON -->
+
+        <button
+            class="profile-btn"
+            id="profileBtn">
+
+            <img
+                id="headerAvatar"
+                alt="Profile Avatar">
+
         </button>
 
     </header>
 
-    <!-- HERO -->
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
     <main id="home">
+
+
+        <!-- HERO -->
 
         <section class="hero">
 
@@ -805,34 +1313,54 @@
 
             <p>
                 یک فروشگاه مدرن و نئونی برای پلیرهای CS2،
-                با طراحی حرفه‌ای و تجربه خرید سریع.
+                با طراحی حرفه‌ای، انیمیشن‌های جذاب
+                و تجربه خرید سریع.
             </p>
+
 
             <div class="hero-buttons">
 
                 <button
                     class="btn btn-red"
-                    onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+                    onclick="
+                    document
+                    .getElementById('shop')
+                    .scrollIntoView({
+                        behavior:'smooth'
+                    })">
+
                     مشاهده محصولات
+
                 </button>
+
 
                 <button
                     class="btn btn-dark"
                     onclick="openProfile()">
+
                     پروفایل من
+
                 </button>
 
             </div>
 
         </section>
 
-        <!-- SHOP -->
-        <section class="section" id="shop">
+
+
+        <!-- =========================
+             SHOP
+        ========================== -->
+
+        <section
+            class="section"
+            id="shop">
 
             <div class="section-title">
 
                 <h2>
-                    اسلحه‌های <span>CS2</span>
+                    اسلحه‌های
+                    <span>CS2</span>
                 </h2>
 
                 <p>
@@ -841,414 +1369,603 @@
 
             </div>
 
+
             <div class="products">
 
-                <!-- AK -->
+
+                <!-- AK47 -->
+
                 <div class="card reveal">
 
                     <div class="gun-image">
+
                         <img
-                            src="https://cdn.cloudflare.steamstatic.com/apps/counterstrike/images/csgo/items/ak47.png"
-                            alt="AK-47"
-                            onerror="this.src='https://via.placeholder.com/700x400/111116/ff1744?text=AK-47'">
+                            src="https://placehold.co/900x500/0d0d13/ff1744?text=AK-47"
+                            alt="AK-47">
+
                     </div>
 
                     <div class="card-body">
 
-                        <span class="weapon-tag">RIFLE</span>
+                        <span class="weapon-tag">
+                            RIFLE
+                        </span>
 
-                        <h3>AK-47</h3>
+                        <h3>
+                            AK-47
+                        </h3>
 
                         <p>
-                            یکی از محبوب‌ترین رایفل‌های Counter-Strike.
+                            یکی از محبوب‌ترین رایفل‌های CS2.
                         </p>
 
                         <div class="price">
-                            <strong>از ۵۰۰,۰۰۰ تومان</strong>
+
+                            <strong>
+                                از ۵۰۰,۰۰۰ تومان
+                            </strong>
 
                             <button
                                 class="buy"
-                                onclick="buyProduct('AK-47')">
+                                onclick="
+                                buyProduct('AK-47')">
+
                                 خرید
+
                             </button>
+
                         </div>
 
                     </div>
+
                 </div>
 
+
                 <!-- AWP -->
+
                 <div class="card reveal">
 
                     <div class="gun-image">
+
                         <img
-                            src="https://cdn.cloudflare.steamstatic.com/apps/counterstrike/images/csgo/items/awp.png"
-                            alt="AWP"
-                            onerror="this.src='https://via.placeholder.com/700x400/111116/ff1744?text=AWP'">
+                            src="https://placehold.co/900x500/0d0d13/ff1744?text=AWP"
+                            alt="AWP">
+
                     </div>
 
                     <div class="card-body">
 
-                        <span class="weapon-tag">SNIPER</span>
+                        <span class="weapon-tag">
+                            SNIPER
+                        </span>
 
-                        <h3>AWP</h3>
+                        <h3>
+                            AWP
+                        </h3>
 
                         <p>
                             اسنایپر قدرتمند برای بازیکنان حرفه‌ای.
                         </p>
 
                         <div class="price">
-                            <strong>از ۷۵۰,۰۰۰ تومان</strong>
+
+                            <strong>
+                                از ۷۵۰,۰۰۰ تومان
+                            </strong>
 
                             <button
                                 class="buy"
-                                onclick="buyProduct('AWP')">
+                                onclick="
+                                buyProduct('AWP')">
+
                                 خرید
+
                             </button>
+
                         </div>
 
                     </div>
+
                 </div>
+
 
                 <!-- M4A4 -->
+
                 <div class="card reveal">
 
                     <div class="gun-image">
+
                         <img
-                            src="https://cdn.cloudflare.steamstatic.com/apps/counterstrike/images/csgo/items/m4a4.png"
-                            alt="M4A4"
-                            onerror="this.src='https://via.placeholder.com/700x400/111116/ff1744?text=M4A4'">
+                            src="https://placehold.co/900x500/0d0d13/ff1744?text=M4A4"
+                            alt="M4A4">
+
                     </div>
 
                     <div class="card-body">
 
-                        <span class="weapon-tag">RIFLE</span>
+                        <span class="weapon-tag">
+                            RIFLE
+                        </span>
 
-                        <h3>M4A4</h3>
+                        <h3>
+                            M4A4
+                        </h3>
 
                         <p>
-                            رایفل کلاسیک تیم CT با ظاهر جذاب.
+                            رایفل محبوب تیم CT.
                         </p>
 
                         <div class="price">
-                            <strong>از ۶۵۰,۰۰۰ تومان</strong>
+
+                            <strong>
+                                از ۶۵۰,۰۰۰ تومان
+                            </strong>
 
                             <button
                                 class="buy"
-                                onclick="buyProduct('M4A4')">
+                                onclick="
+                                buyProduct('M4A4')">
+
                                 خرید
+
                             </button>
+
                         </div>
 
                     </div>
+
                 </div>
+
 
                 <!-- M4A1-S -->
+
                 <div class="card reveal">
 
                     <div class="gun-image">
+
                         <img
-                            src="https://cdn.cloudflare.steamstatic.com/apps/counterstrike/images/csgo/items/m4a1_s.png"
-                            alt="M4A1-S"
-                            onerror="this.src='https://via.placeholder.com/700x400/111116/ff1744?text=M4A1-S'">
+                            src="https://placehold.co/900x500/0d0d13/ff1744?text=M4A1-S"
+                            alt="M4A1-S">
+
                     </div>
 
                     <div class="card-body">
 
-                        <span class="weapon-tag">RIFLE</span>
+                        <span class="weapon-tag">
+                            RIFLE
+                        </span>
 
-                        <h3>M4A1-S</h3>
+                        <h3>
+                            M4A1-S
+                        </h3>
 
                         <p>
-                            رایفل کم‌صدا برای سبک بازی دقیق.
+                            رایفل کم‌صدا و دقیق.
                         </p>
 
                         <div class="price">
-                            <strong>از ۷۰۰,۰۰۰ تومان</strong>
+
+                            <strong>
+                                از ۷۰۰,۰۰۰ تومان
+                            </strong>
 
                             <button
                                 class="buy"
-                                onclick="buyProduct('M4A1-S')">
+                                onclick="
+                                buyProduct('M4A1-S')">
+
                                 خرید
+
                             </button>
+
                         </div>
 
                     </div>
+
                 </div>
 
-                <!-- DESERT EAGLE -->
+
+                <!-- DEAGLE -->
+
                 <div class="card reveal">
 
                     <div class="gun-image">
+
                         <img
-                            src="https://cdn.cloudflare.steamstatic.com/apps/counterstrike/images/csgo/items/deagle.png"
-                            alt="Desert Eagle"
-                            onerror="this.src='https://via.placeholder.com/700x400/111116/ff1744?text=DESERT+EAGLE'">
+                            src="https://placehold.co/900x500/0d0d13/ff1744?text=DESERT+EAGLE"
+                            alt="Desert Eagle">
+
                     </div>
 
                     <div class="card-body">
 
-                        <span class="weapon-tag">PISTOL</span>
+                        <span class="weapon-tag">
+                            PISTOL
+                        </span>
 
-                        <h3>Desert Eagle</h3>
+                        <h3>
+                            Desert Eagle
+                        </h3>
 
                         <p>
                             یکی از معروف‌ترین پیستول‌های بازی.
                         </p>
 
                         <div class="price">
-                            <strong>از ۳۵۰,۰۰۰ تومان</strong>
+
+                            <strong>
+                                از ۳۵۰,۰۰۰ تومان
+                            </strong>
 
                             <button
                                 class="buy"
-                                onclick="buyProduct('Desert Eagle')">
+                                onclick="
+                                buyProduct('Desert Eagle')">
+
                                 خرید
+
                             </button>
+
                         </div>
 
                     </div>
+
                 </div>
+
 
                 <!-- USP -->
+
                 <div class="card reveal">
 
                     <div class="gun-image">
+
                         <img
-                            src="https://cdn.cloudflare.steamstatic.com/apps/counterstrike/images/csgo/items/usp_s.png"
-                            alt="USP-S"
-                            onerror="this.src='https://via.placeholder.com/700x400/111116/ff1744?text=USP-S'">
+                            src="https://placehold.co/900x500/0d0d13/ff1744?text=USP-S"
+                            alt="USP-S">
+
                     </div>
 
                     <div class="card-body">
 
-                        <span class="weapon-tag">PISTOL</span>
+                        <span class="weapon-tag">
+                            PISTOL
+                        </span>
 
-                        <h3>USP-S</h3>
+                        <h3>
+                            USP-S
+                        </h3>
 
                         <p>
-                            پیستول سبک و کم‌صدا برای تیم CT.
+                            پیستول کم‌صدا برای تیم CT.
                         </p>
 
                         <div class="price">
-                            <strong>از ۳۰۰,۰۰۰ تومان</strong>
+
+                            <strong>
+                                از ۳۰۰,۰۰۰ تومان
+                            </strong>
 
                             <button
                                 class="buy"
-                                onclick="buyProduct('USP-S')">
+                                onclick="
+                                buyProduct('USP-S')">
+
                                 خرید
+
                             </button>
+
                         </div>
 
                     </div>
+
                 </div>
+
 
                 <!-- GLOCK -->
+
                 <div class="card reveal">
 
                     <div class="gun-image">
+
                         <img
-                            src="https://cdn.cloudflare.steamstatic.com/apps/counterstrike/images/csgo/items/glock.png"
-                            alt="Glock-18"
-                            onerror="this.src='https://via.placeholder.com/700x400/111116/ff1744?text=GLOCK-18'">
+                            src="https://placehold.co/900x500/0d0d13/ff1744?text=GLOCK-18"
+                            alt="Glock-18">
+
                     </div>
 
                     <div class="card-body">
 
-                        <span class="weapon-tag">PISTOL</span>
+                        <span class="weapon-tag">
+                            PISTOL
+                        </span>
 
-                        <h3>Glock-18</h3>
+                        <h3>
+                            Glock-18
+                        </h3>
 
                         <p>
-                            پیستول اصلی تیم T برای راندهای ابتدایی.
+                            پیستول اصلی تیم T.
                         </p>
 
                         <div class="price">
-                            <strong>از ۳۰۰,۰۰۰ تومان</strong>
+
+                            <strong>
+                                از ۳۰۰,۰۰۰ تومان
+                            </strong>
 
                             <button
                                 class="buy"
-                                onclick="buyProduct('Glock-18')">
+                                onclick="
+                                buyProduct('Glock-18')">
+
                                 خرید
+
                             </button>
+
                         </div>
 
                     </div>
+
                 </div>
+
 
                 <!-- FAMAS -->
+
                 <div class="card reveal">
 
                     <div class="gun-image">
+
                         <img
-                            src="https://cdn.cloudflare.steamstatic.com/apps/counterstrike/images/csgo/items/famas.png"
-                            alt="FAMAS"
-                            onerror="this.src='https://via.placeholder.com/700x400/111116/ff1744?text=FAMAS'">
+                            src="https://placehold.co/900x500/0d0d13/ff1744?text=FAMAS"
+                            alt="FAMAS">
+
                     </div>
 
                     <div class="card-body">
 
-                        <span class="weapon-tag">RIFLE</span>
+                        <span class="weapon-tag">
+                            RIFLE
+                        </span>
 
-                        <h3>FAMAS</h3>
+                        <h3>
+                            FAMAS
+                        </h3>
 
                         <p>
-                            رایفل اقتصادی و کاربردی برای CT.
+                            رایفل اقتصادی و کاربردی.
                         </p>
 
                         <div class="price">
-                            <strong>از ۴۰۰,۰۰۰ تومان</strong>
+
+                            <strong>
+                                از ۴۰۰,۰۰۰ تومان
+                            </strong>
 
                             <button
                                 class="buy"
-                                onclick="buyProduct('FAMAS')">
+                                onclick="
+                                buyProduct('FAMAS')">
+
                                 خرید
+
                             </button>
+
                         </div>
 
                     </div>
+
                 </div>
+
 
                 <!-- GALIL -->
+
                 <div class="card reveal">
 
                     <div class="gun-image">
+
                         <img
-                            src="https://cdn.cloudflare.steamstatic.com/apps/counterstrike/images/csgo/items/galilar.png"
-                            alt="Galil AR"
-                            onerror="this.src='https://via.placeholder.com/700x400/111116/ff1744?text=GALIL+AR'">
+                            src="https://placehold.co/900x500/0d0d13/ff1744?text=GALIL+AR"
+                            alt="Galil AR">
+
                     </div>
 
                     <div class="card-body">
 
-                        <span class="weapon-tag">RIFLE</span>
+                        <span class="weapon-tag">
+                            RIFLE
+                        </span>
 
-                        <h3>Galil AR</h3>
+                        <h3>
+                            Galil AR
+                        </h3>
 
                         <p>
-                            انتخاب اقتصادی قدرتمند برای تیم T.
+                            رایفل اقتصادی قدرتمند برای تیم T.
                         </p>
 
                         <div class="price">
-                            <strong>از ۴۰۰,۰۰۰ تومان</strong>
+
+                            <strong>
+                                از ۴۰۰,۰۰۰ تومان
+                            </strong>
 
                             <button
                                 class="buy"
-                                onclick="buyProduct('Galil AR')">
+                                onclick="
+                                buyProduct('Galil AR')">
+
                                 خرید
+
                             </button>
+
                         </div>
 
                     </div>
+
                 </div>
+
 
                 <!-- MP9 -->
+
                 <div class="card reveal">
 
                     <div class="gun-image">
+
                         <img
-                            src="https://cdn.cloudflare.steamstatic.com/apps/counterstrike/images/csgo/items/mp9.png"
-                            alt="MP9"
-                            onerror="this.src='https://via.placeholder.com/700x400/111116/ff1744?text=MP9'">
+                            src="https://placehold.co/900x500/0d0d13/ff1744?text=MP9"
+                            alt="MP9">
+
                     </div>
 
                     <div class="card-body">
 
-                        <span class="weapon-tag">SMG</span>
+                        <span class="weapon-tag">
+                            SMG
+                        </span>
 
-                        <h3>MP9</h3>
+                        <h3>
+                            MP9
+                        </h3>
 
                         <p>
-                            SMG سریع برای درگیری‌های نزدیک.
+                            SMG سریع برای نبرد نزدیک.
                         </p>
 
                         <div class="price">
-                            <strong>از ۲۵۰,۰۰۰ تومان</strong>
+
+                            <strong>
+                                از ۲۵۰,۰۰۰ تومان
+                            </strong>
 
                             <button
                                 class="buy"
-                                onclick="buyProduct('MP9')">
+                                onclick="
+                                buyProduct('MP9')">
+
                                 خرید
+
                             </button>
+
                         </div>
 
                     </div>
+
                 </div>
+
 
                 <!-- P90 -->
+
                 <div class="card reveal">
 
                     <div class="gun-image">
+
                         <img
-                            src="https://cdn.cloudflare.steamstatic.com/apps/counterstrike/images/csgo/items/p90.png"
-                            alt="P90"
-                            onerror="this.src='https://via.placeholder.com/700x400/111116/ff1744?text=P90'">
+                            src="https://placehold.co/900x500/0d0d13/ff1744?text=P90"
+                            alt="P90">
+
                     </div>
 
                     <div class="card-body">
 
-                        <span class="weapon-tag">SMG</span>
+                        <span class="weapon-tag">
+                            SMG
+                        </span>
 
-                        <h3>P90</h3>
+                        <h3>
+                            P90
+                        </h3>
 
                         <p>
-                            SMG با خشاب بزرگ و سرعت شلیک بالا.
+                            SMG با خشاب بزرگ و شلیک سریع.
                         </p>
 
                         <div class="price">
-                            <strong>از ۳۰۰,۰۰۰ تومان</strong>
+
+                            <strong>
+                                از ۳۰۰,۰۰۰ تومان
+                            </strong>
 
                             <button
                                 class="buy"
-                                onclick="buyProduct('P90')">
+                                onclick="
+                                buyProduct('P90')">
+
                                 خرید
+
                             </button>
+
                         </div>
 
                     </div>
+
                 </div>
 
+
                 <!-- SCAR -->
+
                 <div class="card reveal">
 
                     <div class="gun-image">
+
                         <img
-                            src="https://cdn.cloudflare.steamstatic.com/apps/counterstrike/images/csgo/items/scar20.png"
-                            alt="SCAR-20"
-                            onerror="this.src='https://via.placeholder.com/700x400/111116/ff1744?text=SCAR-20'">
+                            src="https://placehold.co/900x500/0d0d13/ff1744?text=SCAR-20"
+                            alt="SCAR-20">
+
                     </div>
 
                     <div class="card-body">
 
-                        <span class="weapon-tag">SNIPER</span>
+                        <span class="weapon-tag">
+                            SNIPER
+                        </span>
 
-                        <h3>SCAR-20</h3>
+                        <h3>
+                            SCAR-20
+                        </h3>
 
                         <p>
                             اسنایپر اتوماتیک تیم CT.
                         </p>
 
                         <div class="price">
-                            <strong>از ۵۵۰,۰۰۰ تومان</strong>
+
+                            <strong>
+                                از ۵۵۰,۰۰۰ تومان
+                            </strong>
 
                             <button
                                 class="buy"
-                                onclick="buyProduct('SCAR-20')">
+                                onclick="
+                                buyProduct('SCAR-20')">
+
                                 خرید
+
                             </button>
+
                         </div>
 
                     </div>
+
                 </div>
 
             </div>
+
         </section>
 
-        <!-- FEATURES -->
-        <section class="section" id="features">
+
+        <!-- =========================
+             FEATURES
+        ========================== -->
+
+        <section
+            class="section"
+            id="features">
 
             <div class="section-title">
 
                 <h2>
-                    چرا <span>CSGO SHOP؟</span>
+                    چرا
+                    <span>CSGO SHOP؟</span>
                 </h2>
 
                 <p>
@@ -1257,30 +1974,60 @@
 
             </div>
 
+
             <div class="features">
 
                 <div class="feature">
-                    <div class="num">01</div>
-                    <h3>تحویل سریع</h3>
+
+                    <div class="num">
+                        01
+                    </div>
+
+                    <h3>
+                        تحویل سریع
+                    </h3>
+
                     <p>
-                        سفارش‌ها سریع بررسی شده و مراحل خرید به راحتی انجام می‌شوند.
+                        سفارش‌ها سریع بررسی شده
+                        و مراحل خرید به‌راحتی انجام می‌شوند.
                     </p>
+
                 </div>
 
-                <div class="feature">
-                    <div class="num">02</div>
-                    <h3>ظاهر حرفه‌ای</h3>
-                    <p>
-                        طراحی نئونی قرمز و مشکی با انیمیشن‌های نرم برای تجربه بهتر.
-                    </p>
-                </div>
 
                 <div class="feature">
-                    <div class="num">03</div>
-                    <h3>پشتیبانی</h3>
+
+                    <div class="num">
+                        02
+                    </div>
+
+                    <h3>
+                        ظاهر حرفه‌ای
+                    </h3>
+
                     <p>
-                        امکان اتصال سفارش‌ها به سیستم پشتیبانی و تلگرام.
+                        طراحی قرمز و مشکی نئونی
+                        همراه با انیمیشن‌های نرم.
                     </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="num">
+                        03
+                    </div>
+
+                    <h3>
+                        پشتیبانی
+                    </h3>
+
+                    <p>
+                        امکان ارتباط مستقیم
+                        با پشتیبانی از طریق تلگرام.
+                    </p>
+
                 </div>
 
             </div>
@@ -1289,28 +2036,64 @@
 
     </main>
 
-    <!-- FOOTER -->
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer id="contact">
-        <div>© 2026 CSGO SHOP</div>
-        <div>Telegram: @YourTelegram</div>
+
+        <div>
+            © 2026 CSGO SHOP
+        </div>
+
+        <div class="footer-telegram">
+
+            Telegram:
+
+            <a
+                href="https://t.me/AghoJavaad"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                @AghoJavaad
+
+            </a>
+
+        </div>
+
     </footer>
 
-    <!-- PROFILE MODAL -->
-    <div class="modal" id="profileModal">
+
+    <!-- =========================
+         PROFILE MODAL
+    ========================== -->
+
+    <div
+        class="modal"
+        id="profileModal">
 
         <div class="modal-box">
 
+
             <div class="modal-head">
 
-                <h3>پروفایل من</h3>
+                <h3>
+                    پروفایل من
+                </h3>
 
                 <button
                     class="close"
                     onclick="closeProfile()">
+
                     ×
+
                 </button>
 
             </div>
+
+
+            <!-- AVATAR -->
 
             <div class="avatar-upload">
 
@@ -1320,10 +2103,11 @@
 
                     <img
                         id="profileAvatar"
-                        src="https://i.pravatar.cc/200?img=12"
                         alt="Avatar">
 
-                    <span>تغییر عکس</span>
+                    <span>
+                        تغییر عکس
+                    </span>
 
                 </label>
 
@@ -1334,14 +2118,20 @@
 
             </div>
 
+
+            <!-- FIRST NAME -->
+
             <div class="form-group">
 
-                <label>نام</label>
+                <label>
+                    نام
+                </label>
 
                 <input
                     id="firstName"
                     type="text"
-                    placeholder="نام">
+                    autocomplete="given-name"
+                    placeholder="مثلاً جواد">
 
                 <span
                     id="firstNameError"
@@ -1350,14 +2140,20 @@
 
             </div>
 
+
+            <!-- LAST NAME -->
+
             <div class="form-group">
 
-                <label>نام خانوادگی</label>
+                <label>
+                    نام خانوادگی
+                </label>
 
                 <input
                     id="lastName"
                     type="text"
-                    placeholder="نام خانوادگی">
+                    autocomplete="family-name"
+                    placeholder="مثلاً فضلی">
 
                 <span
                     id="lastNameError"
@@ -1366,16 +2162,22 @@
 
             </div>
 
+
+            <!-- PHONE -->
+
             <div class="form-group">
 
-                <label>شماره موبایل</label>
+                <label>
+                    شماره موبایل
+                </label>
 
                 <input
                     id="phone"
                     type="tel"
                     inputmode="numeric"
                     maxlength="11"
-                    placeholder="09xxxxxxxxx">
+                    autocomplete="tel"
+                    placeholder="09123456789">
 
                 <span
                     id="phoneError"
@@ -1384,13 +2186,19 @@
 
             </div>
 
+
+            <!-- TELEGRAM -->
+
             <div class="form-group">
 
-                <label>آیدی تلگرام</label>
+                <label>
+                    آیدی تلگرام
+                </label>
 
                 <input
                     id="telegram"
                     type="text"
+                    autocomplete="off"
                     placeholder="@username">
 
                 <span
@@ -1400,93 +2208,44 @@
 
             </div>
 
+
             <button
                 class="btn btn-red save-profile"
                 onclick="saveProfile()">
+
                 ذخیره پروفایل
+
             </button>
 
+
             <div class="profile-info">
-                اطلاعات پروفایل روی همین مرورگر ذخیره می‌شود.
+
+                اطلاعات پروفایل
+                روی همین مرورگر ذخیره می‌شود.
+
             </div>
 
         </div>
 
     </div>
 
+
     <!-- TOAST -->
-    <div class="toast" id="toast"></div>
+
+    <div
+        class="toast"
+        id="toast">
+    </div>
+
 
     <script>
 
-        /* ==============================
-           PARTICLES
-        ============================== */
+        /* =========================
+           DEFAULT AVATAR
+        ========================= */
 
-        const particleContainer =
-            document.getElementById("particles");
-
-        for (let i = 0; i < 40; i++) {
-
-            const p = document.createElement("div");
-
-            p.className = "particle";
-
-            p.style.left =
-                Math.random() * 100 + "%";
-
-            p.style.animationDuration =
-                (5 + Math.random() * 8) + "s";
-
-            p.style.animationDelay =
-                Math.random() * 8 + "s";
-
-            p.style.width =
-                (2 + Math.random() * 3) + "px";
-
-            p.style.height =
-                p.style.width;
-
-            particleContainer.appendChild(p);
-        }
-
-        /* ==============================
-           REVEAL ANIMATION
-        ============================== */
-
-        const revealElements =
-            document.querySelectorAll(".reveal");
-
-        const observer =
-            new IntersectionObserver((entries) => {
-
-                entries.forEach((entry, index) => {
-
-                    if (entry.isIntersecting) {
-
-                        setTimeout(() => {
-                            entry.target.classList.add("visible");
-                        }, index * 70);
-
-                        observer.unobserve(entry.target);
-                    }
-
-                });
-
-            }, {
-                threshold: 0.12
-            });
-
-        revealElements.forEach(el => {
-            observer.observe(el);
-        });
-
-        /* ==============================
-           PROFILE
-        ============================== */
-
-        const profileModal =
-            document.getElementById("profileModal");
+        const defaultAvatar =
+            "https://api.dicebear.com/9.x/bottts/svg?seed=CSGOSHOP&backgroundColor=ff1744";
 
         const headerAvatar =
             document.getElementById("headerAvatar");
@@ -1494,107 +2253,273 @@
         const profileAvatar =
             document.getElementById("profileAvatar");
 
+        headerAvatar.src =
+            defaultAvatar;
+
+        profileAvatar.src =
+            defaultAvatar;
+
+
+        /* =========================
+           PARTICLES
+        ========================= */
+
+        const particleContainer =
+            document.getElementById("particles");
+
+        for (let i = 0; i < 40; i++) {
+
+            const particle =
+                document.createElement("div");
+
+            particle.className =
+                "particle";
+
+            particle.style.left =
+                Math.random() * 100 + "%";
+
+            particle.style.animationDuration =
+                (5 + Math.random() * 8) + "s";
+
+            particle.style.animationDelay =
+                Math.random() * 8 + "s";
+
+            particle.style.width =
+                (2 + Math.random() * 3) + "px";
+
+            particle.style.height =
+                particle.style.width;
+
+            particleContainer.appendChild(
+                particle
+            );
+        }
+
+
+        /* =========================
+           CARD REVEAL
+        ========================= */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(
+                        (entry, index) => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                setTimeout(() => {
+
+                                    entry.target
+                                        .classList
+                                        .add("visible");
+
+                                }, index * 70);
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: .12
+                }
+            );
+
+        revealElements.forEach(
+            el => observer.observe(el)
+        );
+
+
+        /* =========================
+           PROFILE
+        ========================= */
+
+        const profileModal =
+            document.getElementById(
+                "profileModal"
+            );
+
         const avatarInput =
-            document.getElementById("avatarInput");
+            document.getElementById(
+                "avatarInput"
+            );
 
         const firstName =
-            document.getElementById("firstName");
+            document.getElementById(
+                "firstName"
+            );
 
         const lastName =
-            document.getElementById("lastName");
+            document.getElementById(
+                "lastName"
+            );
 
         const phone =
-            document.getElementById("phone");
+            document.getElementById(
+                "phone"
+            );
 
         const telegram =
-            document.getElementById("telegram");
+            document.getElementById(
+                "telegram"
+            );
+
 
         function openProfile() {
-            profileModal.classList.add("active");
+
+            profileModal
+                .classList
+                .add("active");
+
         }
 
+
         function closeProfile() {
-            profileModal.classList.remove("active");
+
+            profileModal
+                .classList
+                .remove("active");
+
         }
+
 
         document
             .getElementById("profileBtn")
-            .addEventListener("click", openProfile);
+            .addEventListener(
+                "click",
+                openProfile
+            );
 
-        profileModal.addEventListener("click", (e) => {
 
-            if (e.target === profileModal) {
-                closeProfile();
+        profileModal.addEventListener(
+            "click",
+            (event) => {
+
+                if (
+                    event.target ===
+                    profileModal
+                ) {
+
+                    closeProfile();
+
+                }
+
             }
+        );
 
-        });
 
-        document.addEventListener("keydown", (e) => {
+        document.addEventListener(
+            "keydown",
+            (event) => {
 
-            if (e.key === "Escape") {
-                closeProfile();
+                if (
+                    event.key ===
+                    "Escape"
+                ) {
+
+                    closeProfile();
+
+                }
+
             }
+        );
 
-        });
 
-        /* ==============================
-           IMAGE
-        ============================== */
+        /* =========================
+           IMAGE UPLOAD
+        ========================= */
 
-        avatarInput.addEventListener("change", function () {
+        avatarInput.addEventListener(
+            "change",
+            function () {
 
-            const file = this.files[0];
+                const file =
+                    this.files[0];
 
-            if (!file) return;
+                if (!file) return;
 
-            if (!file.type.startsWith("image/")) {
+                if (
+                    !file.type.startsWith(
+                        "image/"
+                    )
+                ) {
 
-                showToast(
-                    "فایل انتخابی باید عکس باشد.",
-                    true
+                    showToast(
+                        "فایل انتخابی باید عکس باشد.",
+                        true
+                    );
+
+                    return;
+                }
+
+                const reader =
+                    new FileReader();
+
+                reader.onload =
+                    function (e) {
+
+                        const image =
+                            e.target.result;
+
+                        headerAvatar.src =
+                            image;
+
+                        profileAvatar.src =
+                            image;
+
+                        localStorage.setItem(
+                            "csgoShopImage",
+                            image
+                        );
+
+                        showToast(
+                            "عکس پروفایل تغییر کرد ✅"
+                        );
+
+                    };
+
+                reader.readAsDataURL(
+                    file
                 );
 
-                return;
             }
+        );
 
-            const reader = new FileReader();
 
-            reader.onload = function(e) {
+        /* =========================
+           ERROR FUNCTIONS
+        ========================= */
 
-                const image =
-                    e.target.result;
+        function setError(
+            input,
+            errorElement,
+            message
+        ) {
 
-                headerAvatar.src = image;
-                profileAvatar.src = image;
+            input.classList.add(
+                "error"
+            );
 
-                localStorage.setItem(
-                    "csgoShopImage",
-                    image
-                );
+            errorElement.textContent =
+                message;
 
-                showToast(
-                    "عکس پروفایل با موفقیت تغییر کرد ✅"
-                );
-            };
+            errorElement.classList.add(
+                "show"
+            );
 
-            reader.readAsDataURL(file);
-
-        });
-
-        /* ==============================
-           VALIDATION HELPERS
-        ============================== */
-
-        function setError(input, errorElement, message) {
-
-            input.classList.add("error");
-
-            errorElement.textContent = message;
-
-            errorElement.classList.add("show");
-
-            // اجرای دوباره انیمیشن
-            input.style.animation = "none";
+            input.style.animation =
+                "none";
 
             void input.offsetWidth;
 
@@ -1602,99 +2527,130 @@
                 "shake .4s ease";
         }
 
-        function clearError(input, errorElement) {
 
-            input.classList.remove("error");
+        function clearError(
+            input,
+            errorElement
+        ) {
 
-            errorElement.textContent = "";
+            input.classList.remove(
+                "error"
+            );
 
-            errorElement.classList.remove("show");
+            errorElement.textContent =
+                "";
+
+            errorElement.classList.remove(
+                "show"
+            );
+
         }
 
-        /* ==============================
-           VALIDATE PHONE
-        ============================== */
+
+        /* =========================
+           PHONE VALIDATION
+        ========================= */
 
         function validatePhone() {
 
             const value =
                 phone.value.trim();
 
-            const iranPhone =
+            const error =
+                document.getElementById(
+                    "phoneError"
+                );
+
+            const regex =
                 /^09\d{9}$/;
 
-            const error =
-                document.getElementById("phoneError");
 
-            if (!iranPhone.test(value)) {
+            if (!regex.test(value)) {
 
                 setError(
                     phone,
                     error,
-                    "شماره موبایل باید مثل 09123456789 باشد."
+                    "شماره باید دقیقاً مثل 09123456789 باشد."
                 );
 
                 return false;
             }
 
-            clearError(phone, error);
+
+            clearError(
+                phone,
+                error
+            );
 
             return true;
         }
 
-        /* ==============================
-           VALIDATE TELEGRAM
-        ============================== */
+
+        /* =========================
+           TELEGRAM VALIDATION
+        ========================= */
 
         function validateTelegram() {
 
-            let value =
+            const value =
                 telegram.value.trim();
 
             const error =
-                document.getElementById("telegramError");
+                document.getElementById(
+                    "telegramError"
+                );
 
-            /*
-                Telegram username:
-                @name
-                @name123
-                @my_username
-            */
-
-            const telegramRegex =
+            const regex =
                 /^@[A-Za-z0-9_]{5,32}$/;
 
-            if (!telegramRegex.test(value)) {
+
+            if (!regex.test(value)) {
 
                 setError(
                     telegram,
                     error,
-                    "آیدی تلگرام باید مثل @username باشد."
+                    "آیدی را به شکل @username وارد کنید."
                 );
 
                 return false;
             }
 
-            clearError(telegram, error);
+
+            clearError(
+                telegram,
+                error
+            );
 
             return true;
         }
 
-        /* ==============================
-           VALIDATE NAMES
-        ============================== */
 
-        function validateName() {
+        /* =========================
+           NAME VALIDATION
+        ========================= */
 
-            let valid = true;
+        function validateNames() {
+
+            let valid =
+                true;
+
 
             const firstError =
-                document.getElementById("firstNameError");
+                document.getElementById(
+                    "firstNameError"
+                );
 
             const lastError =
-                document.getElementById("lastNameError");
+                document.getElementById(
+                    "lastNameError"
+                );
 
-            if (firstName.value.trim().length < 2) {
+
+            if (
+                firstName.value
+                    .trim()
+                    .length < 2
+            ) {
 
                 setError(
                     firstName,
@@ -1712,7 +2668,12 @@
                 );
             }
 
-            if (lastName.value.trim().length < 2) {
+
+            if (
+                lastName.value
+                    .trim()
+                    .length < 2
+            ) {
 
                 setError(
                     lastName,
@@ -1730,43 +2691,113 @@
                 );
             }
 
+
             return valid;
         }
 
-        /* ==============================
-           LIVE VALIDATION
-        ============================== */
 
-        phone.addEventListener("input", () => {
+        /* =========================
+           LIVE PHONE CHECK
+        ========================= */
 
-            phone.value =
-                phone.value.replace(/\D/g, "");
+        phone.addEventListener(
+            "input",
+            () => {
 
-            if (phone.value.length > 0) {
+                phone.value =
+                    phone.value.replace(
+                        /\D/g,
+                        ""
+                    );
+
+
+                /*
+                 * تا 11 رقم نشده
+                 * هیچ خطایی نمایش نمی‌دهیم.
+                 */
+
+                if (
+                    phone.value.length < 11
+                ) {
+
+                    clearError(
+                        phone,
+                        document.getElementById(
+                            "phoneError"
+                        )
+                    );
+
+                    return;
+                }
+
+
+                /*
+                 * دقیقاً وقتی 11 رقم شد
+                 * اعتبارسنجی انجام می‌شود.
+                 */
+
                 validatePhone();
+
             }
+        );
 
-        });
 
-        telegram.addEventListener("input", () => {
+        /* =========================
+           LIVE TELEGRAM CHECK
+        ========================= */
 
-            telegram.value =
-                telegram.value.replace(/\s/g, "");
+        telegram.addEventListener(
+            "input",
+            () => {
 
-            if (telegram.value.length > 0) {
+                telegram.value =
+                    telegram.value.replace(
+                        /\s/g,
+                        ""
+                    );
+
+
+                /*
+                 * تا قبل از اینکه ورودی
+                 * حداقل قابل بررسی باشد،
+                 * خطا نشان نمی‌دهیم.
+                 */
+
+                if (
+                    telegram.value.length <
+                    6
+                ) {
+
+                    clearError(
+                        telegram,
+                        document.getElementById(
+                            "telegramError"
+                        )
+                    );
+
+                    return;
+                }
+
+
+                /*
+                 * بعد از کامل شدن ورودی،
+                 * اعتبارسنجی انجام می‌شود.
+                 */
+
                 validateTelegram();
+
             }
+        );
 
-        });
 
-        /* ==============================
+        /* =========================
            SAVE PROFILE
-        ============================== */
+        ========================= */
 
         function saveProfile() {
 
             const namesValid =
-                validateName();
+                validateNames();
 
             const phoneValid =
                 validatePhone();
@@ -1774,10 +2805,11 @@
             const telegramValid =
                 validateTelegram();
 
+
             /*
-                اگر حتی یکی از اطلاعات اشتباه باشد
-                اصلاً ذخیره نمی‌کنیم.
-            */
+             * حتی یک مورد اشتباه باشد،
+             * اطلاعات ذخیره نمی‌شود.
+             */
 
             if (
                 !namesValid ||
@@ -1792,6 +2824,7 @@
 
                 return;
             }
+
 
             const profile = {
 
@@ -1809,112 +2842,179 @@
 
             };
 
+
             localStorage.setItem(
                 "csgoShopProfile",
-                JSON.stringify(profile)
+                JSON.stringify(
+                    profile
+                )
             );
+
 
             showToast(
                 "پروفایل با موفقیت ذخیره شد ✅"
             );
 
-            setTimeout(() => {
-                closeProfile();
-            }, 800);
+
+            setTimeout(
+                () => {
+                    closeProfile();
+                },
+                800
+            );
         }
 
-        /* ==============================
+
+        /* =========================
            LOAD PROFILE
-        ============================== */
+        ========================= */
 
         function loadProfile() {
 
-            const data =
+            const profileData =
                 localStorage.getItem(
                     "csgoShopProfile"
                 );
 
-            if (data) {
+
+            if (profileData) {
 
                 try {
 
                     const profile =
-                        JSON.parse(data);
+                        JSON.parse(
+                            profileData
+                        );
+
 
                     firstName.value =
-                        profile.firstName || "";
+                        profile.firstName ||
+                        "";
 
                     lastName.value =
-                        profile.lastName || "";
+                        profile.lastName ||
+                        "";
 
                     phone.value =
-                        profile.phone || "";
+                        profile.phone ||
+                        "";
 
                     telegram.value =
-                        profile.telegram || "";
+                        profile.telegram ||
+                        "";
 
-                } catch(e) {
+                } catch (error) {
 
-                    console.log(
-                        "Profile data error"
+                    console.error(
+                        "Profile data error:",
+                        error
                     );
 
                 }
+
             }
 
-            const image =
+
+            const savedImage =
                 localStorage.getItem(
                     "csgoShopImage"
                 );
 
-            if (image) {
 
-                headerAvatar.src = image;
-                profileAvatar.src = image;
+            /*
+             * اگر عکس قبلی وجود داشته باشد،
+             * همان استفاده می‌شود.
+             *
+             * اگر وجود نداشته باشد،
+             * عکس پیش‌فرض نمایش داده می‌شود.
+             */
+
+            if (savedImage) {
+
+                headerAvatar.src =
+                    savedImage;
+
+                profileAvatar.src =
+                    savedImage;
+
+            } else {
+
+                headerAvatar.src =
+                    defaultAvatar;
+
+                profileAvatar.src =
+                    defaultAvatar;
             }
         }
 
+
         loadProfile();
 
-        /* ==============================
+
+        /* =========================
            BUY
-        ============================== */
+        ========================= */
 
         function buyProduct(product) {
 
             showToast(
-                "«" + product + "» انتخاب شد 🔥"
+                "«" +
+                product +
+                "» انتخاب شد 🔥"
             );
+
         }
 
-        /* ==============================
+
+        /* =========================
            TOAST
-        ============================== */
+        ========================= */
 
         let toastTimeout;
 
-        function showToast(message, isError = false) {
+
+        function showToast(
+            message,
+            isError = false
+        ) {
 
             const toast =
-                document.getElementById("toast");
+                document.getElementById(
+                    "toast"
+                );
 
-            clearTimeout(toastTimeout);
 
-            toast.textContent = message;
+            clearTimeout(
+                toastTimeout
+            );
+
+
+            toast.textContent =
+                message;
+
 
             toast.classList.toggle(
                 "error",
                 isError
             );
 
-            toast.classList.add("show");
+
+            toast.classList.add(
+                "show"
+            );
+
 
             toastTimeout =
-                setTimeout(() => {
+                setTimeout(
+                    () => {
 
-                    toast.classList.remove("show");
+                        toast.classList.remove(
+                            "show"
+                        );
 
-                }, 2700);
+                    },
+                    2700
+                );
         }
 
     </script>
