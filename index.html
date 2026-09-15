@@ -1,1179 +1,1170 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CSGOSHOP | CS2 SKINS</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-:root{
-    --red:#ff173f;
-    --red2:#b9002d;
-    --dark:#050505;
-    --card:#101010;
-    --line:#292929;
-    --text:#fff;
-    --muted:#888;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Vazirmatn,Arial,sans-serif;
-    background:
-        radial-gradient(circle at 50% -10%,rgba(255,0,40,.22),transparent 35%),
-        radial-gradient(circle at 90% 40%,rgba(255,0,40,.08),transparent 30%),
-        #050505;
-    color:white;
-    min-height:100vh;
-    overflow-x:hidden;
-}
-
-/* ================= BACKGROUND ================= */
-
-body:before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:-5;
-    opacity:.07;
-    background:
-        linear-gradient(90deg,rgba(255,0,50,.4) 1px,transparent 1px),
-        linear-gradient(rgba(255,0,50,.4) 1px,transparent 1px);
-    background-size:60px 60px;
-}
-
-.particles{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:-2;
-}
-
-.particle{
-    position:absolute;
-    width:3px;
-    height:3px;
-    border-radius:50%;
-    background:#ff1744;
-    box-shadow:0 0 12px #ff1744;
-    animation:particle 6s infinite ease-in-out;
-}
-
-@keyframes particle{
-    0%,100%{
-        transform:translateY(0);
-        opacity:.1;
-    }
-    50%{
-        transform:translateY(-90px);
-        opacity:1;
-    }
-}
-
-/* ================= HEADER ================= */
-
-header{
-    height:76px;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 4%;
-    background:rgba(5,5,5,.92);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,23,68,.3);
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    direction:ltr;
-    font-size:24px;
-    font-weight:900;
-}
-
-.logo span{
-    color:white;
-}
-
-.logo .red{
-    color:var(--red);
-    text-shadow:0 0 25px rgba(255,23,68,.7);
-}
-
-.logo-icon{
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    border:2px solid var(--red);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--red);
-    font-size:19px;
-    box-shadow:0 0 18px rgba(255,0,50,.25);
-}
-
-.nav{
-    display:flex;
-    gap:35px;
-}
-
-.nav button{
-    border:0;
-    background:none;
-    color:#aaa;
-    cursor:pointer;
-    font-family:inherit;
-    font-size:13px;
-    transition:.3s;
-}
-
-.nav button:hover{
-    color:var(--red);
-}
-
-/* ================= PROFILE HEADER ================= */
-
-.profile-mini{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:6px 10px;
-    background:#101010;
-    border:1px solid #292929;
-    border-radius:13px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.profile-mini:hover{
-    border-color:var(--red);
-    box-shadow:0 0 25px rgba(255,0,50,.15);
-}
-
-.avatar{
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    background:linear-gradient(135deg,#ff1744,#4b0013);
-    border:2px solid #ff1744;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    font-weight:900;
-}
-
-.avatar img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.mini-info small{
-    color:#666;
-    display:block;
-    font-size:9px;
-}
-
-.mini-info strong{
-    display:block;
-    font-size:12px;
-}
-
-.mini-info span{
-    display:block;
-    direction:ltr;
-    color:#777;
-    font-size:9px;
-    text-align:right;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    width:92%;
-    max-width:1450px;
-    height:420px;
-    margin:30px auto;
-    position:relative;
-    overflow:hidden;
-    border:1px solid rgba(255,23,68,.5);
-    border-radius:24px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #060606 0%,
-            rgba(6,6,6,.85) 32%,
-            rgba(6,6,6,.25) 70%,
-            #050505 100%
-        ),
-        radial-gradient(
-            circle at 70% 50%,
-            rgba(255,0,50,.5),
-            transparent 35%
-        );
-}
-
-.hero:after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        linear-gradient(
-            transparent 49%,
-            rgba(255,0,40,.08) 50%,
-            transparent 51%
-        );
-    background-size:100% 8px;
-    pointer-events:none;
-}
-
-/* terrorist graphic */
-
-.terrorist{
-    position:absolute;
-    left:4%;
-    bottom:-40px;
-    width:530px;
-    height:450px;
-    animation:terroristFloat 4s ease-in-out infinite;
-}
-
-@keyframes terroristFloat{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-8px);
-    }
-}
-
-.head{
-    position:absolute;
-    left:220px;
-    top:45px;
-    width:125px;
-    height:145px;
-    border-radius:48% 48% 42% 42%;
-    background:
-        repeating-linear-gradient(
-            0deg,
-            #262626 0 7px,
-            #101010 8px 13px
-        );
-    border:3px solid #171717;
-    box-shadow:
-        0 0 30px rgba(255,0,40,.25),
-        inset 0 0 25px #000;
-    transform:rotate(-5deg);
-}
-
-.glasses{
-    position:absolute;
-    top:54px;
-    left:16px;
-    width:92px;
-    height:37px;
-    display:flex;
-    gap:5px;
-}
-
-.glass{
-    width:43px;
-    height:28px;
-    background:#050505;
-    border:3px solid #555;
-    border-radius:7px;
-    box-shadow:0 0 10px #000;
-}
-
-.face-mask{
-    position:absolute;
-    bottom:0;
-    left:10px;
-    width:105px;
-    height:80px;
-    background:
-        repeating-linear-gradient(
-            0deg,
-            #292929 0 8px,
-            #111 9px 14px
-        );
-    border-radius:25px 25px 45px 45px;
-}
-
-.body{
-    position:absolute;
-    left:130px;
-    top:165px;
-    width:300px;
-    height:260px;
-    background:
-        linear-gradient(90deg,#171717,#303030,#101010);
-    clip-path:polygon(25% 0,75% 0,100% 100%,0 100%);
-    border:2px solid #181818;
-}
-
-.vest{
-    position:absolute;
-    left:205px;
-    top:195px;
-    width:150px;
-    height:190px;
-    border:3px solid #252525;
-    background:
-        repeating-linear-gradient(
-            90deg,
-            #111 0 30px,
-            #292929 31px 35px
-        );
-}
-
-.arm{
-    position:absolute;
-    width:85px;
-    height:230px;
-    background:#202020;
-    border-radius:40px;
-}
-
-.arm.one{
-    left:105px;
-    top:190px;
-    transform:rotate(38deg);
-}
-
-.arm.two{
-    left:385px;
-    top:190px;
-    transform:rotate(-32deg);
-}
-
-.rifle{
-    position:absolute;
-    left:155px;
-    top:245px;
-    width:360px;
-    height:32px;
-    background:#111;
-    border:4px solid #292929;
-    transform:rotate(-13deg);
-    box-shadow:
-        0 0 20px rgba(255,0,40,.2);
-}
-
-.rifle:before{
-    content:"";
-    position:absolute;
-    left:-65px;
-    top:5px;
-    width:75px;
-    height:15px;
-    background:#0b0b0b;
-}
-
-.rifle:after{
-    content:"";
-    position:absolute;
-    right:70px;
-    top:25px;
-    width:70px;
-    height:90px;
-    background:#151515;
-    transform:skew(-15deg);
-}
-
-.muzzle{
-    position:absolute;
-    right:-17px;
-    top:8px;
-    width:25px;
-    height:17px;
-    background:#050505;
-}
-
-/* hero text */
-
-.hero-content{
-    position:absolute;
-    z-index:5;
-    right:7%;
-    top:75px;
-    max-width:650px;
-}
-
-.badge{
-    display:inline-block;
-    padding:7px 15px;
-    border:1px solid var(--red);
-    color:var(--red);
-    border-radius:30px;
-    background:rgba(255,0,50,.06);
-    font-size:10px;
-}
-
-.hero h1{
-    margin-top:22px;
-    font-size:58px;
-    line-height:1.05;
-    font-weight:900;
-}
-
-.hero h1 span{
-    color:var(--red);
-    text-shadow:0 0 35px rgba(255,0,50,.5);
-}
-
-.hero p{
-    margin-top:18px;
-    color:#aaa;
-    font-size:13px;
-    line-height:2;
-}
-
-.hero-button{
-    margin-top:20px;
-    padding:13px 25px;
-    color:white;
-    background:linear-gradient(135deg,var(--red),var(--red2));
-    border:0;
-    border-radius:10px;
-    cursor:pointer;
-    font-family:inherit;
-    font-weight:800;
-    transition:.3s;
-}
-
-.hero-button:hover{
-    transform:translateY(-3px);
-    box-shadow:0 15px 35px rgba(255,0,50,.3);
-}
-
-/* ================= SHOP ================= */
-
-.shop{
-    width:92%;
-    max-width:1450px;
-    margin:40px auto 100px;
-}
-
-.shop-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
-}
-
-.shop-title{
-    font-size:28px;
-    font-weight:900;
-}
-
-.shop-title span{
-    color:var(--red);
-}
-
-.search{
-    width:300px;
-    padding:13px 17px;
-    border-radius:11px;
-    border:1px solid #292929;
-    background:#101010;
-    color:white;
-    outline:none;
-    font-family:inherit;
-}
-
-.search:focus{
-    border-color:var(--red);
-}
-
-/* ================= CATEGORIES ================= */
-
-.categories{
-    display:flex;
-    gap:10px;
-    margin-bottom:25px;
-    overflow-x:auto;
-    padding-bottom:5px;
-}
-
-.category{
-    flex:0 0 auto;
-    padding:12px 20px;
-    color:#999;
-    background:#101010;
-    border:1px solid #292929;
-    border-radius:10px;
-    cursor:pointer;
-    font-family:inherit;
-    transition:.3s;
-}
-
-.category:hover,
-.category.active{
-    color:white;
-    background:linear-gradient(135deg,var(--red),#9c0026);
-    border-color:var(--red);
-}
-
-/* ================= PRODUCTS ================= */
-
-.products{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
-
-.card{
-    position:relative;
-    padding:10px;
-    border:1px solid #292929;
-    border-radius:16px;
-    background:
-        linear-gradient(145deg,#151515,#080808);
-    overflow:hidden;
-    cursor:pointer;
-    transition:.4s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    border-color:var(--red);
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.6),
-        0 0 25px rgba(255,0,50,.13);
-}
-
-.weapon-box{
-    height:190px;
-    border-radius:12px;
-    position:relative;
-    overflow:hidden;
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,0,50,.25),
-            transparent 65%
-        ),
-        #080808;
-}
-
-.weapon-box:after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        linear-gradient(
-            135deg,
-            transparent 40%,
-            rgba(255,0,50,.08),
-            transparent 60%
-        );
-    pointer-events:none;
-}
-
-.weapon-svg{
-    width:100%;
-    height:100%;
-    transition:.5s;
-    filter:drop-shadow(0 20px 12px #000);
-}
-
-.card:hover .weapon-svg{
-    transform:scale(1.08) rotate(-2deg);
-}
-
-.card-name{
-    direction:ltr;
-    text-align:right;
-    margin:14px 4px 4px;
-    font-weight:800;
-    font-size:14px;
-}
-
-.card-model{
-    color:var(--red);
-    font-size:10px;
-    margin:0 4px;
-}
-
-.details{
-    width:100%;
-    margin-top:12px;
-    padding:10px;
-    border-radius:9px;
-    border:1px solid #3a3a3a;
-    background:#131313;
-    color:white;
-    cursor:pointer;
-    font-family:inherit;
-    transition:.3s;
-}
-
-.card:hover .details{
-    background:var(--red);
-    border-color:var(--red);
-}
-
-/* ================= PRODUCT DETAIL ================= */
-
-#productPage{
-    display:none;
-}
-
-#productPage.show{
-    display:block;
-    animation:fadeIn .35s ease;
-}
-
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.product-detail{
-    width:92%;
-    max-width:1400px;
-    margin:35px auto 100px;
-}
-
-.back{
-    border:1px solid #292929;
-    background:#111;
-    color:#aaa;
-    padding:10px 17px;
-    border-radius:10px;
-    cursor:pointer;
-    font-family:inherit;
-}
-
-.back:hover{
-    color:white;
-    border-color:var(--red);
-}
-
-.detail-grid{
-    display:grid;
-    grid-template-columns:1.1fr 1fr;
-    gap:25px;
-    margin-top:25px;
-}
-
-.detail-image{
-    min-height:520px;
-    border:1px solid #292929;
-    border-radius:20px;
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,0,50,.22),
-            transparent 65%
-        ),
-        #080808;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-}
-
-.detail-image svg{
-    width:94%;
-    height:94%;
-    filter:drop-shadow(0 25px 20px #000);
-}
-
-.detail-box{
-    padding:30px;
-    border:1px solid #292929;
-    border-radius:20px;
-    background:linear-gradient(145deg,#151515,#090909);
-}
-
-.detail-box h2{
-    direction:ltr;
-    text-align:right;
-    font-size:30px;
-}
-
-.detail-type{
-    color:var(--red);
-    margin-top:7px;
-    font-size:12px;
-}
-
-.detail-description{
-    margin-top:20px;
-    color:#777;
-    line-height:2;
-    font-size:12px;
-}
-
-.condition-title{
-    margin-top:25px;
-    margin-bottom:12px;
-    color:#aaa;
-}
-
-.conditions{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-}
-
-.condition{
-    padding:14px;
-    border-radius:10px;
-    border:1px solid #292929;
-    background:#111;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.condition:hover{
-    border-color:var(--red);
-}
-
-.condition.selected{
-    border-color:var(--red);
-    background:rgba(255,0,50,.1);
-    box-shadow:0 0 20px rgba(255,0,50,.1);
-}
-
-.condition-name{
-    display:block;
-    font-size:11px;
-}
-
-.condition-price{
-    display:block;
-    color:var(--red);
-    font-size:16px;
-    font-weight:900;
-    margin-top:4px;
-}
-
-.current-selection{
-    margin-top:20px;
-    padding:15px;
-    border-radius:10px;
-    border:1px solid #292929;
-    background:#0e0e0e;
-}
-
-.row{
-    display:flex;
-    justify-content:space-between;
-    padding:5px 0;
-    font-size:11px;
-    color:#777;
-}
-
-.row strong{
-    color:white;
-}
-
-.buy{
-    width:100%;
-    margin-top:20px;
-    padding:15px;
-    border:0;
-    border-radius:11px;
-    color:white;
-    background:linear-gradient(135deg,var(--red),var(--red2));
-    font-family:inherit;
-    font-weight:900;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.buy:hover{
-    transform:translateY(-3px);
-    box-shadow:0 15px 30px rgba(255,0,50,.3);
-}
-
-.buy.locked{
-    background:#252525;
-    color:#777;
-    cursor:not-allowed;
-    box-shadow:none;
-}
-
-/* ================= PROFILE MODAL ================= */
-
-.modal-overlay{
-    position:fixed;
-    inset:0;
-    z-index:5000;
-    background:rgba(0,0,0,.82);
-    backdrop-filter:blur(10px);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
-
-.modal-overlay.open{
-    display:flex;
-}
-
-.profile-modal{
-    width:100%;
-    max-width:430px;
-    padding:28px;
-    position:relative;
-    background:#0d0d0d;
-    border:1px solid var(--red);
-    border-radius:20px;
-    box-shadow:
-        0 30px 100px #000,
-        0 0 45px rgba(255,0,50,.15);
-    animation:modalOpen .3s ease;
-}
-
-@keyframes modalOpen{
-    from{
-        opacity:0;
-        transform:scale(.9);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-.close{
-    position:absolute;
-    left:15px;
-    top:15px;
-    width:33px;
-    height:33px;
-    border:0;
-    border-radius:50%;
-    background:#191919;
-    color:white;
-    cursor:pointer;
-    font-size:18px;
-}
-
-.profile-modal h2{
-    text-align:center;
-    margin-top:10px;
-}
-
-.modal-sub{
-    text-align:center;
-    color:#666;
-    font-size:10px;
-    margin-top:7px;
-}
-
-.photo-area{
-    text-align:center;
-    margin-top:15px;
-}
-
-.photo-circle{
-    width:95px;
-    height:95px;
-    margin:auto;
-    border-radius:50%;
-    border:2px solid var(--red);
-    background:linear-gradient(135deg,#ff1744,#47000f);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    cursor:pointer;
-    font-size:30px;
-}
-
-.photo-circle img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-#photoInput{
-    display:none;
-}
-
-.input{
-    width:100%;
-    margin-top:13px;
-    padding:13px;
-    border:1px solid #292929;
-    border-radius:10px;
-    background:#111;
-    color:white;
-    outline:none;
-    font-family:inherit;
-}
-
-.input:focus{
-    border-color:var(--red);
-}
-
-.save-profile{
-    width:100%;
-    margin-top:15px;
-    padding:14px;
-    border:0;
-    border-radius:10px;
-    background:linear-gradient(135deg,var(--red),var(--red2));
-    color:white;
-    font-family:inherit;
-    font-weight:900;
-    cursor:pointer;
-}
-
-.profile-status{
-    margin-top:13px;
-    padding:10px;
-    border-radius:9px;
-    background:#151515;
-    color:#777;
-    font-size:10px;
-    text-align:center;
-}
-
-.profile-status.ok{
-    color:#31e89a;
-}
-
-/* ================= TELEGRAM ================= */
-
-.telegram{
-    position:fixed;
-    z-index:4000;
-    right:20px;
-    bottom:20px;
-    padding:12px 18px;
-    border-radius:14px;
-    color:white;
-    text-decoration:none;
-    background:linear-gradient(135deg,#ff1744,#a60029);
-    border:1px solid rgba(255,255,255,.15);
-    box-shadow:0 10px 35px rgba(0,0,0,.5);
-    animation:telegramPulse 2.5s infinite;
-    font-size:11px;
-}
-
-@keyframes telegramPulse{
-    50%{
-        box-shadow:
-            0 10px 40px rgba(255,0,50,.4);
-    }
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-    padding:35px;
-    border-top:1px solid #222;
-    text-align:center;
-    color:#555;
-    font-size:10px;
-}
-
-footer span{
-    color:var(--red);
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:1050px){
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .detail-grid{
-        grid-template-columns:1fr;
-    }
-
-    .nav{
-        display:none;
-    }
-
-    .terrorist{
-        opacity:.3;
-        left:-100px;
-    }
-}
-
-@media(max-width:650px){
-
-    header{
-        padding:0 3%;
-    }
-
-    .logo{
-        font-size:18px;
-    }
-
-    .mini-info{
-        display:none;
-    }
-
-    .hero{
-        height:430px;
-    }
-
-    .hero-content{
-        right:25px;
-        top:55px;
-    }
-
-    .hero h1{
-        font-size:40px;
-    }
-
-    .hero p{
-        max-width:280px;
-    }
-
-    .terrorist{
-        transform:scale(.7);
-        transform-origin:bottom left;
-        left:-80px;
-    }
-
-    .shop-top{
-        flex-direction:column;
-        align-items:stretch;
-        gap:15px;
-    }
-
-    .search{
-        width:100%;
-    }
-
-    .products{
-        grid-template-columns:1fr 1fr;
-        gap:9px;
-    }
-
-    .weapon-box{
-        height:135px;
-    }
-
-    .card{
-        padding:7px;
-    }
-
-    .card-name{
-        font-size:11px;
-    }
-
-    .detail-image{
-        min-height:300px;
-    }
-
-    .detail-box{
-        padding:18px;
-    }
-
-    .conditions{
-        grid-template-columns:1fr;
-    }
-
-    .telegram{
-        right:12px;
-        bottom:12px;
-        padding:10px 13px;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSGO SHOP | فروشگاه CS2</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Vazirmatn", sans-serif;
+        }
+
+        :root {
+            --red: #ff1744;
+            --red2: #ff003c;
+            --dark: #050507;
+            --dark2: #0c0c10;
+            --card: rgba(18, 18, 23, 0.75);
+            --white: #ffffff;
+            --gray: #a7a7b2;
+            --border: rgba(255, 23, 68, 0.25);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 0, 60, 0.10), transparent 30%),
+                radial-gradient(circle at 80% 10%, rgba(255, 30, 70, 0.08), transparent 30%),
+                linear-gradient(135deg, #030305, #09090d 50%, #030305);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 45px 45px;
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            pointer-events: none;
+            z-index: -4;
+        }
+
+        .glow {
+            position: fixed;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: rgba(255, 23, 68, 0.15);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: -3;
+            animation: floatGlow 8s ease-in-out infinite;
+        }
+
+        .glow.one {
+            top: 10%;
+            left: 5%;
+        }
+
+        .glow.two {
+            bottom: 5%;
+            right: 5%;
+            animation-delay: 3s;
+        }
+
+        @keyframes floatGlow {
+            0%,100% {
+                transform: translate(0,0);
+            }
+            50% {
+                transform: translate(30px,-25px);
+            }
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 16px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(5,5,7,0.72);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--red);
+            text-shadow: 0 0 15px rgba(255,23,68,.7);
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            transition: .3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            right: 0;
+            bottom: -7px;
+            background: var(--red);
+            box-shadow: 0 0 10px var(--red);
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Profile */
+        .profile-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--red);
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255,23,68,.35);
+            background: #111;
+            transition: .3s;
+            flex-shrink: 0;
+        }
+
+        .profile-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 28px rgba(255,23,68,.65);
+        }
+
+        .profile-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 700px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .hero-badge {
+            padding: 8px 16px;
+            border: 1px solid rgba(255,23,68,.4);
+            border-radius: 999px;
+            color: #ff9aae;
+            background: rgba(255,23,68,.08);
+            font-size: 13px;
+            margin-bottom: 25px;
+            animation: fadeUp .9s ease both;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 88px);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -2px;
+            animation: fadeUp 1s ease .1s both;
+        }
+
+        .hero h1 span {
+            color: var(--red);
+            text-shadow:
+                0 0 15px rgba(255,23,68,.8),
+                0 0 55px rgba(255,23,68,.35);
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin-top: 25px;
+            color: var(--gray);
+            font-size: 17px;
+            line-height: 2;
+            animation: fadeUp 1s ease .2s both;
+        }
+
+        .hero-buttons {
+            margin-top: 32px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeUp 1s ease .3s both;
+        }
+
+        .btn {
+            border: none;
+            cursor: pointer;
+            border-radius: 13px;
+            padding: 14px 24px;
+            font-size: 15px;
+            font-weight: 800;
+            transition: .3s;
+        }
+
+        .btn-red {
+            background: var(--red);
+            color: white;
+            box-shadow: 0 0 25px rgba(255,23,68,.3);
+        }
+
+        .btn-red:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 35px rgba(255,23,68,.6);
+        }
+
+        .btn-dark {
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
+            color: white;
+        }
+
+        .btn-dark:hover {
+            border-color: rgba(255,23,68,.5);
+            transform: translateY(-3px);
+        }
+
+        /* Particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--red);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--red);
+            animation: particleFloat linear infinite;
+            opacity: .8;
+        }
+
+        @keyframes particleFloat {
+            from {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            20% {
+                opacity: .8;
+            }
+            80% {
+                opacity: .8;
+            }
+            to {
+                transform: translateY(-20vh);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section */
+        .section {
+            padding: 90px 5%;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 35px;
+            gap: 20px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            font-weight: 900;
+        }
+
+        .section-title h2 span {
+            color: var(--red);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* Cards */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(12px);
+            transition: .35s;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,23,68,.15),
+                transparent
+            );
+            transform: translateX(-100%);
+            transition: .7s;
+        }
+
+        .card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255,23,68,.35);
+            box-shadow: 0 15px 45px rgba(0,0,0,.35);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            display: grid;
+            place-items: center;
+            border-radius: 15px;
+            background: rgba(255,23,68,.08);
+            border: 1px solid rgba(255,23,68,.2);
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            font-size: 19px;
+            margin-bottom: 9px;
+        }
+
+        .card p {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .price {
+            margin-top: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .price strong {
+            color: #fff;
+        }
+
+        .buy {
+            border: none;
+            background: rgba(255,23,68,.12);
+            color: #ff8da3;
+            border: 1px solid rgba(255,23,68,.22);
+            padding: 8px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .buy:hover {
+            background: var(--red);
+            color: white;
+        }
+
+        /* Feature */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .feature {
+            padding: 25px;
+            border-radius: 18px;
+            background: rgba(255,255,255,.03);
+            border: 1px solid rgba(255,255,255,.06);
+        }
+
+        .feature .num {
+            font-size: 35px;
+            color: var(--red);
+            font-weight: 900;
+        }
+
+        .feature h3 {
+            margin: 12px 0;
+        }
+
+        .feature p {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255,255,255,.07);
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.72);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-box {
+            width: 100%;
+            max-width: 480px;
+            background: #0b0b10;
+            border: 1px solid rgba(255,23,68,.25);
+            border-radius: 25px;
+            padding: 28px;
+            box-shadow: 0 30px 100px rgba(0,0,0,.55);
+            transform: scale(.9) translateY(20px);
+            transition: .35s;
+        }
+
+        .modal.active .modal-box {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .modal-head h3 {
+            font-size: 24px;
+        }
+
+        .close {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,.08);
+            background: rgba(255,255,255,.04);
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .avatar-upload {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .avatar-wrap {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--red);
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(255,23,68,.35);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .avatar-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-wrap span {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            background: rgba(0,0,0,.45);
+            opacity: 0;
+            transition: .3s;
+            font-size: 13px;
+        }
+
+        .avatar-wrap:hover span {
+            opacity: 1;
+        }
+
+        #avatarInput {
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            color: #ddd;
+            font-size: 13px;
+        }
+
+        .form-group input {
+            width: 100%;
+            height: 50px;
+            padding: 0 15px;
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
+            color: white;
+            outline: none;
+            border-radius: 12px;
+            transition: .3s;
+            direction: rtl;
+        }
+
+        .form-group input:focus {
+            border-color: rgba(255,23,68,.65);
+            box-shadow: 0 0 18px rgba(255,23,68,.12);
+        }
+
+        .save-profile {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .profile-info {
+            text-align: center;
+            color: var(--gray);
+            font-size: 12px;
+            margin-top: 12px;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translate(-50%, 100px);
+            background: #111116;
+            border: 1px solid rgba(255,23,68,.3);
+            color: white;
+            padding: 13px 20px;
+            border-radius: 13px;
+            z-index: 3000;
+            transition: .35s;
+            box-shadow: 0 10px 35px rgba(0,0,0,.35);
+        }
+
+        .toast.show {
+            transform: translate(-50%, 0);
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            header {
+                padding: 14px 4%;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                min-height: 620px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 65px 4%;
+            }
+
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="particles" id="particles"></div>
+    <div class="bg-grid"></div>
+    <div class="glow one"></div>
+    <div class="glow two"></div>
 
-<!-- ================= HEADER ================= -->
+    <!-- Particles -->
+    <div id="particles"></div>
 
-<header>
-
-    <div class="logo">
-        <div class="logo-icon">☠</div>
-        <span>CSGO<span class="red">SHOP</span></span>
-    </div>
-
-    <nav class="nav">
-        <button onclick="goHome()">خانه</button>
-        <button onclick="scrollShop()">فروشگاه</button>
-        <button onclick="openProfile()">پروفایل</button>
-    </nav>
-
-    <div class="profile-mini" onclick="openProfile()">
-
-        <div class="avatar" id="headerAvatar">A</div>
-
-        <div class="mini-info">
-            <small>کاربر</small>
-            <strong id="headerName">ورود / ثبت‌نام</strong>
-            <span id="headerPhone">شماره وارد نشده</span>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            CSGO <span>SHOP</span>
         </div>
 
-    </div>
+        <nav>
+            <a href="#home">خانه</a>
+            <a href="#shop">شاپ</a>
+            <a href="#features">مزایا</a>
+            <a href="#contact">تماس</a>
+        </nav>
 
-</header>
+        <button class="profile-btn" id="profileBtn">
+            <img id="headerAvatar"
+                 src="https://i.pravatar.cc/200?img=12"
+                 alt="Profile">
+        </button>
+    </header>
 
+    <!-- Hero -->
+    <main id="home">
 
-<!-- ================= HOME ================= -->
+        <section class="hero">
 
-<main id="homePage">
+            <div class="hero-badge">
+                🔥 بهترین انتخاب برای پلیرهای CS2
+            </div>
 
-    <section class="hero">
+            <h1>
+                <span>CSGO</span> SHOP
+            </h1>
 
-        <!-- terrorist -->
-        <div class="terrorist">
+            <p>
+                فروشگاه حرفه‌ای Counter-Strike 2
+                با طراحی مدرن، خدمات سریع و تجربه‌ای متفاوت.
+            </p>
 
-            <div class="head">
-                <div class="glasses">
-                    <div class="glass"></div>
-                    <div class="glass"></div>
+            <div class="hero-buttons">
+                <button class="btn btn-red" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+                    مشاهده محصولات
+                </button>
+
+                <button class="btn btn-dark" onclick="openProfile()">
+                    پروفایل من
+                </button>
+            </div>
+
+        </section>
+
+        <!-- Shop -->
+        <section class="section" id="shop">
+
+            <div class="section-title">
+                <div>
+                    <h2>
+                        محصولات <span>CS2</span>
+                    </h2>
+                    <p>محصولات محبوب فروشگاه</p>
                 </div>
-                <div class="face-mask"></div>
             </div>
 
-            <div class="body"></div>
-            <div class="vest"></div>
+            <div class="products">
 
-            <div class="arm one"></div>
-            <div class="arm two"></div>
+                <div class="card reveal">
+                    <div class="card-icon">🔫</div>
+                    <h3>AK-47 Skins</h3>
+                    <p>
+                        مجموعه اسکین‌های جذاب و خاص برای AK-47
+                    </p>
 
-            <div class="rifle">
-                <div class="muzzle"></div>
+                    <div class="price">
+                        <strong>از ۵۰۰,۰۰۰ تومان</strong>
+                        <button class="buy" onclick="buyProduct('AK-47 Skins')">
+                            خرید
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card reveal">
+                    <div class="card-icon">🔫</div>
+                    <h3>AWP Skins</h3>
+                    <p>
+                        اسکین‌های محبوب AWP برای کلکسیون شما
+                    </p>
+
+                    <div class="price">
+                        <strong>از ۷۵۰,۰۰۰ تومان</strong>
+                        <button class="buy" onclick="buyProduct('AWP Skins')">
+                            خرید
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card reveal">
+                    <div class="card-icon">🧤</div>
+                    <h3>Gloves</h3>
+                    <p>
+                        دستکش‌های خاص برای ست حرفه‌ای شما
+                    </p>
+
+                    <div class="price">
+                        <strong>از ۱,۲۰۰,۰۰۰ تومان</strong>
+                        <button class="buy" onclick="buyProduct('Gloves')">
+                            خرید
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card reveal">
+                    <div class="card-icon">🔪</div>
+                    <h3>Knives</h3>
+                    <p>
+                        مجموعه‌ای از چاقوهای جذاب و کمیاب
+                    </p>
+
+                    <div class="price">
+                        <strong>از ۲,۰۰۰,۰۰۰ تومان</strong>
+                        <button class="buy" onclick="buyProduct('Knives')">
+                            خرید
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card reveal">
+                    <div class="card-icon">💎</div>
+                    <h3>Rare Items</h3>
+                    <p>
+                        آیتم‌های خاص و کمیاب برای کالکشن
+                    </p>
+
+                    <div class="price">
+                        <strong>قیمت متغیر</strong>
+                        <button class="buy" onclick="buyProduct('Rare Items')">
+                            خرید
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card reveal">
+                    <div class="card-icon">🎫</div>
+                    <h3>Prime</h3>
+                    <p>
+                        خدمات و محصولات مرتبط با Prime
+                    </p>
+
+                    <div class="price">
+                        <strong>تماس بگیرید</strong>
+                        <button class="buy" onclick="buyProduct('Prime')">
+                            خرید
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section" id="features">
+
+            <div class="section-title">
+                <div>
+                    <h2>
+                        چرا <span>CSGO SHOP؟</span>
+                    </h2>
+                    <p>تجربه‌ای سریع و حرفه‌ای</p>
+                </div>
+            </div>
+
+            <div class="features">
+
+                <div class="feature">
+                    <div class="num">01</div>
+                    <h3>تحویل سریع</h3>
+                    <p>
+                        سفارش‌ها در سریع‌ترین زمان ممکن بررسی و انجام می‌شوند.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="num">02</div>
+                    <h3>طراحی حرفه‌ای</h3>
+                    <p>
+                        محیط مدرن و ساده برای تجربه بهتر هنگام خرید.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="num">03</div>
+                    <h3>پشتیبانی</h3>
+                    <p>
+                        امکان ارتباط و پیگیری سفارش از طریق راه‌های ارتباطی.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div>
+            © 2026 CSGO SHOP
+        </div>
+
+        <div>
+            Telegram: @YourTelegram
+        </div>
+    </footer>
+
+    <!-- Profile Modal -->
+    <div class="modal" id="profileModal">
+
+        <div class="modal-box">
+
+            <div class="modal-head">
+                <h3>پروفایل من</h3>
+                <button class="close" onclick="closeProfile()">×</button>
+            </div>
+
+            <div class="avatar-upload">
+                <label class="avatar-wrap" for="avatarInput">
+                    <img id="profileAvatar"
+                         src="https://i.pravatar.cc/200?img=12"
+                         alt="Avatar">
+
+                    <span>تغییر عکس</span>
+                </label>
+
+                <input
+                    type="file"
+                    id="avatarInput"
+                    accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label>نام</label>
+                <input
+                    type="text"
+                    id="firstName"
+                    placeholder="مثلاً جواد">
+            </div>
+
+            <div class="form-group">
+                <label>نام خانوادگی</label>
+                <input
+                    type="text"
+                    id="lastName"
+                    placeholder="مثلاً فضلی">
+            </div>
+
+            <div class="form-group">
+                <label>شماره تلفن</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="09xxxxxxxxx">
+            </div>
+
+            <div class="form-group">
+                <label>آیدی تلگرام</label>
+                <input
+                    type="text"
+                    id="telegram"
+                    placeholder="@username">
+            </div>
+
+            <button class="btn btn-red save-profile" onclick="saveProfile()">
+                ذخیره پروفایل
+            </button>
+
+            <div class="profile-info">
+                اطلاعات فقط روی همین مرورگر ذخیره می‌شوند.
             </div>
 
         </div>
 
-        <div class="hero-content">
+    </div>
 
-         
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+
+        /* ============================
+           Particles
+        ============================ */
+
+        const particleContainer = document.getElementById("particles");
+
+        for (let i = 0; i < 35; i++) {
+
+            const particle = document.createElement("div");
+
+            particle.classList.add("particle");
+
+            particle.style.left = Math.random() * 100 + "%";
+            particle.style.animationDuration = (5 + Math.random() * 9) + "s";
+            particle.style.animationDelay = Math.random() * 7 + "s";
+            particle.style.width = (2 + Math.random() * 3) + "px";
+            particle.style.height = particle.style.width;
+
+            particleContainer.appendChild(particle);
+        }
+
+        /* ============================
+           Reveal Animation
+        ============================ */
+
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry, index) => {
+
+                    if (entry.isIntersecting) {
+
+                        setTimeout(() => {
+                            entry.target.classList.add("visible");
+                        }, index * 80);
+
+                        observer.unobserve(entry.target);
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+        revealElements.forEach(el => observer.observe(el));
+
+        /* ============================
+           Profile
+        ============================ */
+
+        const profileModal = document.getElementById("profileModal");
+
+        const headerAvatar = document.getElementById("headerAvatar");
+        const profileAvatar = document.getElementById("profileAvatar");
+        const avatarInput = document.getElementById("avatarInput");
+
+        const firstName = document.getElementById("firstName");
+        const lastName = document.getElementById("lastName");
+        const phone = document.getElementById("phone");
+        const telegram = document.getElementById("telegram");
+
+        function openProfile() {
+            profileModal.classList.add("active");
+        }
+
+        function closeProfile() {
+            profileModal.classList.remove("active");
+        }
+
+        document.getElementById("profileBtn").addEventListener("click", openProfile);
+
+        profileModal.addEventListener("click", (event) => {
+            if (event.target === profileModal) {
+                closeProfile();
+            }
+        });
+
+        /* ============================
+           Image Upload
+        ============================ */
+
+        avatarInput.addEventListener("change", function () {
+
+            const file = this.files[0];
+
+            if (!file) return;
+
+            if (!file.type.startsWith("image/")) {
+                showToast("لطفاً یک فایل تصویری انتخاب کن.");
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+
+                const image = e.target.result;
+
+                headerAvatar.src = image;
+                profileAvatar.src = image;
+
+                localStorage.setItem("profileImage", image);
+
+                showToast("عکس پروفایل تغییر کرد.");
+            };
+
+            reader.readAsDataURL(file);
+        });
+
+        /* ============================
+           Save Profile
+        ============================ */
+
+        function saveProfile() {
+
+            const profile = {
+                firstName: firstName.value.trim(),
+                lastName: lastName.value.trim(),
+                phone: phone.value.trim(),
+                telegram: telegram.value.trim()
+            };
+
+            localStorage.setItem(
+                "csgoShopProfile",
+                JSON.stringify(profile)
+            );
+
+            showToast("پروفایل با موفقیت ذخیره شد ✅");
+
+            setTimeout(() => {
+                closeProfile();
+            }, 700);
+        }
+
+        /* ============================
+           Load Profile
+        ============================ */
+
+        function loadProfile() {
+
+            const profileData =
+                localStorage.getItem("csgoShopProfile");
+
+            if (profileData) {
+
+                const profile = JSON.parse(profileData);
+
+                firstName.value = profile.firstName || "";
+                lastName.value = profile.lastName || "";
+                phone.value = profile.phone || "";
+                telegram.value = profile.telegram || "";
+            }
+
+            const image =
+                localStorage.getItem("profileImage");
+
+            if (image) {
+
+                headerAvatar.src = image;
+                profileAvatar.src = image;
+            }
+        }
+
+        loadProfile();
+
+        /* ============================
+           Buy Button
+        ============================ */
+
+        function buyProduct(product) {
+
+            showToast(
+                "محصول «" + product + "» انتخاب شد 🔥"
+            );
+        }
+
+        /* ============================
+           Toast
+        ============================ */
+
+        let toastTimer;
+
+        function showToast(message) {
+
+            const toast = document.getElementById("toast");
+
+            toast.textContent = message;
+            toast.classList.add("show");
+
+            clearTimeout(toastTimer);
+
+            toastTimer = setTimeout(() => {
+                toast.classList.remove("show");
+            }, 2500);
+        }
+
+        /* ============================
+           Keyboard
+        ============================ */
+
+        document.addEventListener("keydown", (event) => {
+
+            if (event.key === "Escape") {
+                closeProfile();
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
