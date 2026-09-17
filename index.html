@@ -20,17 +20,20 @@
 
         :root {
             --red: #ff1744;
-            --red2: #ff3159;
-            --red3: #ff6b85;
+            --red-dark: #d50032;
+            --red-light: #ff5478;
 
-            --black: #020204;
-            --black2: #08080d;
-            --black3: #111118;
+            --bg: #030305;
+            --bg2: #09090d;
+            --bg3: #111118;
 
-            --white: #ffffff;
-            --gray: #a4a4b0;
+            --card: rgba(17, 17, 24, .86);
 
-            --green: #31dd83;
+            --white: #fff;
+            --gray: #a3a3af;
+            --gray2: #74747f;
+
+            --green: #34e58a;
 
             --border: rgba(255,255,255,.08);
         }
@@ -41,18 +44,20 @@
 
         body {
             min-height: 100vh;
+
             color: var(--white);
+
             overflow-x: hidden;
 
             background:
                 radial-gradient(
                     circle at 10% 10%,
-                    rgba(255,23,68,.13),
-                    transparent 28%
+                    rgba(255,23,68,.14),
+                    transparent 27%
                 ),
                 radial-gradient(
-                    circle at 90% 15%,
-                    rgba(255,23,68,.08),
+                    circle at 90% 12%,
+                    rgba(255,23,68,.09),
                     transparent 30%
                 ),
                 linear-gradient(
@@ -77,24 +82,26 @@
         }
 
 
-        /* ===============================
+        /* =====================================================
            BACKGROUND
-        =============================== */
+        ===================================================== */
 
         .bg-grid {
             position: fixed;
             inset: 0;
-            z-index: -20;
+
+            z-index: -30;
+
             pointer-events: none;
 
             background-image:
                 linear-gradient(
-                    rgba(255,255,255,.024) 1px,
+                    rgba(255,255,255,.023) 1px,
                     transparent 1px
                 ),
                 linear-gradient(
                     90deg,
-                    rgba(255,255,255,.024) 1px,
+                    rgba(255,255,255,.023) 1px,
                     transparent 1px
                 );
 
@@ -107,6 +114,7 @@
                     transparent 100%
                 );
         }
+
 
         .glow {
             position: fixed;
@@ -121,7 +129,7 @@
 
             filter: blur(95px);
 
-            z-index: -19;
+            z-index: -29;
 
             pointer-events: none;
 
@@ -130,13 +138,14 @@
         }
 
         .glow.one {
-            top: 5%;
+            top: 4%;
             left: 2%;
         }
 
         .glow.two {
-            bottom: 5%;
             right: 2%;
+            bottom: 4%;
+
             animation-delay: 3s;
         }
 
@@ -152,14 +161,15 @@
 
         }
 
+
         #particles {
             position: fixed;
 
             inset: 0;
 
-            pointer-events: none;
+            z-index: -28;
 
-            z-index: -18;
+            pointer-events: none;
 
             overflow: hidden;
         }
@@ -170,10 +180,10 @@
             width: 3px;
             height: 3px;
 
+            border-radius: 50%;
+
             background:
                 var(--red);
-
-            border-radius: 50%;
 
             box-shadow:
                 0 0 12px
@@ -210,9 +220,9 @@
         }
 
 
-        /* ===============================
+        /* =====================================================
            HEADER
-        =============================== */
+        ===================================================== */
 
         header {
             position: sticky;
@@ -228,7 +238,7 @@
             justify-content: space-between;
 
             padding:
-                14px 5%;
+                13px 5%;
 
             background:
                 rgba(3,3,6,.84);
@@ -240,6 +250,7 @@
             backdrop-filter:
                 blur(20px);
         }
+
 
         .header-right,
         .header-left {
@@ -255,6 +266,7 @@
         .header-left {
             gap: 12px;
         }
+
 
         .logo {
             font-size: 25px;
@@ -272,8 +284,9 @@
 
             text-shadow:
                 0 0 18px
-                rgba(255,23,68,.8);
+                rgba(255,23,68,.82);
         }
+
 
         nav {
             display: flex;
@@ -325,9 +338,9 @@
         }
 
 
-        /* ===============================
-           CART BUTTON
-        =============================== */
+        /* =====================================================
+           CART
+        ===================================================== */
 
         .cart-button {
             height: 48px;
@@ -350,7 +363,8 @@
                 1px solid
                 rgba(255,23,68,.25);
 
-            border-radius: 14px;
+            border-radius:
+                14px;
 
             transition: .3s;
         }
@@ -360,7 +374,7 @@
                 translateY(-2px);
 
             border-color:
-                rgba(255,23,68,.52);
+                rgba(255,23,68,.55);
 
             background:
                 rgba(255,23,68,.15);
@@ -381,14 +395,14 @@
 
             justify-content: center;
 
-            border-radius: 50%;
+            border-radius: 999px;
+
+            background:
+                var(--red);
 
             font-size: 11px;
 
             font-weight: 900;
-
-            background:
-                var(--red);
 
             box-shadow:
                 0 0 15px
@@ -415,9 +429,9 @@
         }
 
 
-        /* ===============================
+        /* =====================================================
            PROFILE BUTTON
-        =============================== */
+        ===================================================== */
 
         .profile-btn {
             width: 49px;
@@ -453,21 +467,21 @@
         }
 
         .profile-btn img {
+            display: block;
+
             width: 100%;
             height: 100%;
 
             object-fit: cover;
-
-            display: block;
         }
 
 
-        /* ===============================
+        /* =====================================================
            HERO
-        =============================== */
+        ===================================================== */
 
         .hero {
-            min-height: 700px;
+            min-height: 670px;
 
             padding:
                 80px 20px;
@@ -485,15 +499,13 @@
 
         .hero-badge {
             padding:
-                8px 16px;
+                8px 17px;
 
             margin-bottom:
                 25px;
 
-            border-radius: 999px;
-
-            color:
-                #ff9caf;
+            border-radius:
+                999px;
 
             background:
                 rgba(255,23,68,.07);
@@ -502,7 +514,11 @@
                 1px solid
                 rgba(255,23,68,.35);
 
-            font-size: 13px;
+            color:
+                #ff9bad;
+
+            font-size:
+                13px;
 
             animation:
                 fadeUp .8s both;
@@ -516,11 +532,14 @@
                     94px
                 );
 
-            font-weight: 900;
+            font-weight:
+                900;
 
-            line-height: .95;
+            line-height:
+                .95;
 
-            letter-spacing: -4px;
+            letter-spacing:
+                -4px;
 
             animation:
                 fadeUp .9s .1s both;
@@ -532,14 +551,15 @@
 
             text-shadow:
                 0 0 18px
-                rgba(255,23,68,.85),
+                rgba(255,23,68,.88),
 
-                0 0 60px
-                rgba(255,23,68,.3);
+                0 0 65px
+                rgba(255,23,68,.30);
         }
 
         .hero p {
-            max-width: 720px;
+            max-width:
+                740px;
 
             margin-top:
                 27px;
@@ -547,54 +567,66 @@
             color:
                 var(--gray);
 
-            font-size: 17px;
+            font-size:
+                17px;
 
-            line-height: 2;
+            line-height:
+                2;
 
             animation:
                 fadeUp .9s .2s both;
         }
 
         .hero-buttons {
-            display: flex;
-
-            gap: 13px;
-
-            flex-wrap: wrap;
-
-            justify-content: center;
-
             margin-top:
-                30px;
+                31px;
+
+            display:
+                flex;
+
+            gap:
+                13px;
+
+            flex-wrap:
+                wrap;
+
+            justify-content:
+                center;
 
             animation:
                 fadeUp .9s .3s both;
         }
 
         .btn {
-            border: none;
-
-            border-radius: 13px;
-
             padding:
                 14px 23px;
 
-            font-size: 14px;
+            border:
+                none;
 
-            font-weight: 800;
+            border-radius:
+                13px;
 
-            transition: .3s;
+            font-size:
+                14px;
+
+            font-weight:
+                800;
+
+            transition:
+                .3s;
         }
 
         .btn-red {
-            color: white;
+            color:
+                white;
 
             background:
                 var(--red);
 
             box-shadow:
                 0 0 25px
-                rgba(255,23,68,.3);
+                rgba(255,23,68,.28);
         }
 
         .btn-red:hover {
@@ -607,7 +639,8 @@
         }
 
         .btn-dark {
-            color: white;
+            color:
+                white;
 
             background:
                 rgba(255,255,255,.04);
@@ -644,9 +677,9 @@
         }
 
 
-        /* ===============================
-           SECTIONS
-        =============================== */
+        /* =====================================================
+           SECTION
+        ===================================================== */
 
         .section {
             padding:
@@ -655,7 +688,7 @@
 
         .section-head {
             margin-bottom:
-                34px;
+                27px;
         }
 
         .section-head h2 {
@@ -683,9 +716,186 @@
         }
 
 
-        /* ===============================
+        /* =====================================================
+           CATEGORY FILTER
+        ===================================================== */
+
+        .categories-wrap {
+            position: relative;
+
+            margin-bottom:
+                30px;
+
+            padding:
+                9px;
+
+            border-radius:
+                18px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            overflow-x:
+                auto;
+
+            scrollbar-width:
+                none;
+        }
+
+        .categories-wrap::-webkit-scrollbar {
+            display:
+                none;
+        }
+
+        .categories {
+            display:
+                flex;
+
+            gap:
+                8px;
+
+            min-width:
+                max-content;
+        }
+
+        .category-btn {
+            position:
+                relative;
+
+            min-width:
+                125px;
+
+            padding:
+                13px 16px;
+
+            border-radius:
+                13px;
+
+            border:
+                1px solid
+                transparent;
+
+            background:
+                transparent;
+
+            color:
+                #92929d;
+
+            font-size:
+                12px;
+
+            font-weight:
+                800;
+
+            transition:
+                .35s;
+
+            overflow:
+                hidden;
+        }
+
+        .category-btn::before {
+            content:
+                "";
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.08),
+                    transparent
+                );
+
+            transform:
+                translateX(-100%);
+
+            transition:
+                .6s;
+        }
+
+        .category-btn:hover::before {
+            transform:
+                translateX(100%);
+        }
+
+        .category-btn:hover {
+            color:
+                white;
+
+            border-color:
+                rgba(255,23,68,.2);
+
+            background:
+                rgba(255,23,68,.04);
+        }
+
+        .category-btn.active {
+            color:
+                white;
+
+            background:
+                rgba(255,23,68,.11);
+
+            border-color:
+                rgba(255,23,68,.4);
+
+            box-shadow:
+                0 0 20px
+                rgba(255,23,68,.10);
+        }
+
+        .category-btn.active::after {
+            content:
+                "";
+
+            position:
+                absolute;
+
+            right:
+                13px;
+
+            bottom:
+                5px;
+
+            left:
+                13px;
+
+            height:
+                2px;
+
+            background:
+                var(--red);
+
+            box-shadow:
+                0 0 10px
+                var(--red);
+
+            border-radius:
+                100px;
+        }
+
+        .category-icon {
+            margin-left:
+                6px;
+
+            font-size:
+                15px;
+        }
+
+
+        /* =====================================================
            PRODUCTS
-        =============================== */
+        ===================================================== */
 
         .products {
             display:
@@ -705,14 +915,14 @@
         }
 
         .product-card {
+            position:
+                relative;
+
             min-height:
-                405px;
+                408px;
 
             overflow:
                 hidden;
-
-            position:
-                relative;
 
             border-radius:
                 21px;
@@ -723,7 +933,7 @@
                     rgba(255,255,255,.035),
                     rgba(255,255,255,.012)
                 ),
-                rgba(16,16,22,.88);
+                var(--card);
 
             border:
                 1px solid
@@ -736,38 +946,92 @@
                 0;
 
             transform:
-                translateY(30px);
+                translateY(20px)
+                scale(.98);
 
             transition:
-                .4s;
+                transform .38s,
+                opacity .38s,
+                border-color .3s,
+                box-shadow .3s;
         }
 
-        .product-card.show {
+        .product-card.visible {
             opacity:
                 1;
 
             transform:
-                translateY(0);
+                translateY(0)
+                scale(1);
         }
 
         .product-card:hover {
             transform:
-                translateY(-8px);
+                translateY(-8px)
+                scale(1.01);
 
             border-color:
                 rgba(255,23,68,.38);
 
             box-shadow:
                 0 18px 55px
-                rgba(0,0,0,.42);
+                rgba(0,0,0,.42),
+
+                0 0 22px
+                rgba(255,23,68,.07);
         }
 
-        .product-image {
+        .product-card::after {
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                -70%;
+
+            top:
+                0;
+
+            width:
+                50%;
+
             height:
-                220px;
+                100%;
+
+            transform:
+                skewX(-20deg);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.06),
+                    transparent
+                );
+
+            transition:
+                left .65s;
+
+            pointer-events:
+                none;
+        }
+
+        .product-card:hover::after {
+            left:
+                125%;
+        }
+
+
+        /* Product visual */
+
+        .product-visual {
+            height:
+                215px;
 
             padding:
-                20px;
+                19px;
 
             display:
                 flex;
@@ -781,16 +1045,19 @@
             background:
                 radial-gradient(
                     circle,
-                    rgba(255,23,68,.1),
-                    transparent 67%
+                    rgba(255,23,68,.10),
+                    transparent 68%
                 );
 
             border-bottom:
                 1px solid
                 rgba(255,255,255,.06);
+
+            overflow:
+                hidden;
         }
 
-        .product-image img {
+        .product-visual img {
             width:
                 100%;
 
@@ -802,8 +1069,8 @@
 
             filter:
                 drop-shadow(
-                    0 15px 25px
-                    rgba(0,0,0,.75)
+                    0 17px 23px
+                    rgba(0,0,0,.72)
                 );
 
             transition:
@@ -811,13 +1078,69 @@
         }
 
         .product-card:hover
-        .product-image img {
-
+        .product-visual img {
             transform:
                 scale(1.08)
                 translateY(-4px);
+        }
+
+
+        /* Non weapon visual */
+
+        .visual-icon {
+            width:
+                105px;
+
+            height:
+                105px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border-radius:
+                26px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,23,68,.18),
+                    rgba(255,23,68,.03)
+                );
+
+            border:
+                1px solid
+                rgba(255,23,68,.28);
+
+            font-size:
+                47px;
+
+            box-shadow:
+                0 0 35px
+                rgba(255,23,68,.12);
+
+            animation:
+                iconFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+
+            0%,100% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-7px)
+                    rotate(1deg);
+            }
 
         }
+
 
         .product-content {
             padding:
@@ -826,7 +1149,13 @@
 
         .weapon-tag {
             display:
-                inline-block;
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                4px;
 
             padding:
                 5px 9px;
@@ -835,7 +1164,7 @@
                 8px;
 
             color:
-                #ff97aa;
+                #ff96a9;
 
             background:
                 rgba(255,23,68,.08);
@@ -853,10 +1182,10 @@
 
         .product-content h3 {
             margin-top:
-                10px;
+                9px;
 
             margin-bottom:
-                5px;
+                4px;
 
             font-size:
                 20px;
@@ -882,6 +1211,9 @@
 
             line-height:
                 1.8;
+
+            min-height:
+                42px;
         }
 
         .product-bottom {
@@ -917,7 +1249,7 @@
                 10px;
 
             color:
-                #ff98aa;
+                #ff99aa;
 
             background:
                 rgba(255,23,68,.08);
@@ -949,9 +1281,41 @@
         }
 
 
-        /* ===============================
+        /* =====================================================
+           CATEGORY TRANSITION
+        ===================================================== */
+
+        .products.switching {
+            animation:
+                categorySwitch .38s ease;
+        }
+
+        @keyframes categorySwitch {
+
+            0% {
+                opacity:
+                    .25;
+
+                transform:
+                    translateY(8px)
+                    scale(.985);
+            }
+
+            100% {
+                opacity:
+                    1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+
+        /* =====================================================
            FEATURES
-        =============================== */
+        ===================================================== */
 
         .features {
             display:
@@ -987,15 +1351,19 @@
 
         .feature:hover {
             transform:
-                translateY(-5px);
+                translateY(-6px);
 
             border-color:
                 rgba(255,23,68,.3);
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,.2);
         }
 
         .feature-number {
             font-size:
-                36px;
+                37px;
 
             font-weight:
                 900;
@@ -1025,16 +1393,23 @@
         }
 
 
-        /* ===============================
+        /* =====================================================
            FOOTER
-        =============================== */
+        ===================================================== */
 
         footer {
             padding:
                 30px 5%;
 
+            border-top:
+                1px solid
+                rgba(255,255,255,.07);
+
             display:
                 flex;
+
+            align-items:
+                center;
 
             justify-content:
                 space-between;
@@ -1044,10 +1419,6 @@
 
             flex-wrap:
                 wrap;
-
-            border-top:
-                1px solid
-                rgba(255,255,255,.07);
 
             color:
                 var(--gray);
@@ -1080,9 +1451,9 @@
         }
 
 
-        /* ===============================
+        /* =====================================================
            OVERLAY
-        =============================== */
+        ===================================================== */
 
         .overlay {
             position:
@@ -1095,7 +1466,7 @@
                 3000;
 
             background:
-                rgba(0,0,0,.76);
+                rgba(0,0,0,.77);
 
             backdrop-filter:
                 blur(10px);
@@ -1119,11 +1490,13 @@
         }
 
 
-        /* ===============================
-           PRODUCT MODAL
-        =============================== */
+        /* =====================================================
+           GENERIC MODAL
+        ===================================================== */
 
-        .product-modal {
+        .product-modal,
+        .profile-modal {
+
             position:
                 fixed;
 
@@ -1186,7 +1559,9 @@
                 .32s;
         }
 
-        .product-modal.active {
+        .product-modal.active,
+        .profile-modal.active {
+
             transform:
                 translate(
                     -50%,
@@ -1201,6 +1576,19 @@
                 visible;
         }
 
+
+        .profile-modal {
+            width:
+                min(
+                    500px,
+                    94%
+                );
+        }
+
+
+        /* =====================================================
+           MODAL TOP
+        ===================================================== */
 
         .modal-top {
             display:
@@ -1231,6 +1619,9 @@
             height:
                 41px;
 
+            flex-shrink:
+                0;
+
             border-radius:
                 11px;
 
@@ -1259,6 +1650,10 @@
                 rgba(255,23,68,.4);
         }
 
+
+        /* =====================================================
+           PRODUCT DETAIL
+        ===================================================== */
 
         .product-detail {
             display:
@@ -1323,10 +1718,44 @@
                 );
         }
 
+        .detail-icon-box {
+            width:
+                150px;
 
-        /* ===============================
-           WEAR OPTIONS
-        =============================== */
+            height:
+                150px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border-radius:
+                35px;
+
+            font-size:
+                70px;
+
+            background:
+                rgba(255,23,68,.08);
+
+            border:
+                1px solid
+                rgba(255,23,68,.3);
+
+            box-shadow:
+                0 0 40px
+                rgba(255,23,68,.12);
+
+            animation:
+                iconFloat 4s ease-in-out infinite;
+        }
+
+
+        /* =====================================================
+           MODELS / WEAR
+        ===================================================== */
 
         .detail-label {
             display:
@@ -1335,11 +1764,11 @@
             margin-bottom:
                 9px;
 
-            font-size:
-                12px;
-
             color:
                 #ddd;
+
+            font-size:
+                12px;
 
             font-weight:
                 800;
@@ -1397,7 +1826,7 @@
                 translateY(-2px);
 
             border-color:
-                rgba(255,23,68,.3);
+                rgba(255,23,68,.28);
         }
 
         .model-option.selected {
@@ -1428,11 +1857,11 @@
             top:
                 0;
 
-            height:
-                100%;
-
             width:
                 3px;
+
+            height:
+                100%;
 
             background:
                 var(--red);
@@ -1451,30 +1880,6 @@
         .model-option.selected::before {
             transform:
                 scaleY(1);
-        }
-
-        .wear-dot {
-            display:
-                inline-block;
-
-            width:
-                7px;
-
-            height:
-                7px;
-
-            margin-left:
-                6px;
-
-            border-radius:
-                50%;
-
-            background:
-                var(--red);
-
-            box-shadow:
-                0 0 7px
-                rgba(255,23,68,.7);
         }
 
         .model-option strong {
@@ -1514,6 +1919,7 @@
                 18px;
         }
 
+
         .selected-price {
             margin-bottom:
                 18px;
@@ -1531,9 +1937,9 @@
         }
 
 
-        /* ===============================
+        /* =====================================================
            QUANTITY
-        =============================== */
+        ===================================================== */
 
         .quantity-row {
             display:
@@ -1545,14 +1951,11 @@
             justify-content:
                 space-between;
 
-            gap:
-                12px;
+            padding:
+                12px 14px;
 
             margin-bottom:
                 18px;
-
-            padding:
-                12px 14px;
 
             border-radius:
                 13px;
@@ -1617,92 +2020,9 @@
         }
 
 
-        /* ===============================
-           PROFILE MODAL
-        =============================== */
-
-        .profile-modal {
-            position:
-                fixed;
-
-            left:
-                50%;
-
-            top:
-                50%;
-
-            z-index:
-                3100;
-
-            width:
-                min(
-                    500px,
-                    94%
-                );
-
-            max-height:
-                91vh;
-
-            overflow-y:
-                auto;
-
-            padding:
-                27px;
-
-            border-radius:
-                24px;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #0e0e14,
-                    #07070b
-                );
-
-            border:
-                1px solid
-                rgba(255,23,68,.28);
-
-            box-shadow:
-                0 35px 100px
-                rgba(0,0,0,.72);
-
-            transform:
-                translate(
-                    -50%,
-                    -46%
-                )
-                scale(.92);
-
-            opacity:
-                0;
-
-            visibility:
-                hidden;
-
-            transition:
-                .32s;
-        }
-
-        .profile-modal.active {
-            transform:
-                translate(
-                    -50%,
-                    -50%
-                )
-                scale(1);
-
-            opacity:
-                1;
-
-            visibility:
-                visible;
-        }
-
-
-        /* ===============================
-           DEFAULT AVATAR
-        =============================== */
+        /* =====================================================
+           PROFILE
+        ===================================================== */
 
         .avatar-upload {
             display:
@@ -1725,21 +2045,18 @@
             height:
                 110px;
 
+            border-radius:
+                50%;
+
             overflow:
                 hidden;
 
             cursor:
                 pointer;
 
-            border-radius:
-                50%;
-
             border:
                 3px solid
                 var(--red);
-
-            background:
-                #0b0b10;
 
             box-shadow:
                 0 0 30px
@@ -1770,9 +2087,6 @@
             place-items:
                 center;
 
-            color:
-                white;
-
             background:
                 rgba(0,0,0,.52);
 
@@ -1797,9 +2111,9 @@
         }
 
 
-        /* ===============================
+        /* =====================================================
            FORM
-        =============================== */
+        ===================================================== */
 
         .form-group {
             margin-bottom:
@@ -1833,15 +2147,6 @@
             padding:
                 0 14px;
 
-            color:
-                white;
-
-            outline:
-                none;
-
-            background:
-                rgba(255,255,255,.04);
-
             border:
                 1px solid
                 rgba(255,255,255,.08);
@@ -1849,13 +2154,22 @@
             border-radius:
                 12px;
 
+            outline:
+                none;
+
+            color:
+                white;
+
+            background:
+                rgba(255,255,255,.04);
+
             transition:
                 .25s;
         }
 
         .form-group input:focus {
             border-color:
-                rgba(255,23,68,.62);
+                rgba(255,23,68,.63);
 
             box-shadow:
                 0 0 18px
@@ -1937,9 +2251,9 @@
         }
 
 
-        /* ===============================
+        /* =====================================================
            CART DRAWER
-        =============================== */
+        ===================================================== */
 
         .cart-drawer {
             position:
@@ -2024,7 +2338,8 @@
         }
 
         .cart-items {
-            flex: 1;
+            flex:
+                1;
 
             overflow-y:
                 auto;
@@ -2046,11 +2361,11 @@
             justify-content:
                 center;
 
-            color:
-                var(--gray);
-
             text-align:
                 center;
+
+            color:
+                var(--gray);
 
             line-height:
                 2;
@@ -2092,14 +2407,23 @@
             height:
                 58px;
 
-            padding:
-                4px;
-
             flex-shrink:
                 0;
 
+            padding:
+                4px;
+
             border-radius:
                 10px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
 
             background:
                 rgba(0,0,0,.25);
@@ -2114,6 +2438,11 @@
 
             object-fit:
                 contain;
+        }
+
+        .cart-item-icon {
+            font-size:
+                26px;
         }
 
         .cart-item-info {
@@ -2141,6 +2470,9 @@
 
             font-size:
                 10px;
+
+            line-height:
+                1.7;
         }
 
         .cart-item-price {
@@ -2195,12 +2527,12 @@
             color:
                 white;
 
-            background:
-                rgba(255,255,255,.04);
-
             border:
                 1px solid
                 rgba(255,255,255,.08);
+
+            background:
+                rgba(255,255,255,.04);
         }
 
         .remove-item {
@@ -2208,7 +2540,7 @@
                 #ff7189 !important;
 
             background:
-                rgba(255,23,68,.06) !important;
+                rgba(255,23,68,.07) !important;
         }
 
         .cart-summary {
@@ -2283,9 +2615,9 @@
         }
 
 
-        /* ===============================
+        /* =====================================================
            TOAST
-        =============================== */
+        ===================================================== */
 
         .toast {
             position:
@@ -2309,11 +2641,11 @@
             padding:
                 13px 18px;
 
-            text-align:
-                center;
-
             border-radius:
                 13px;
+
+            text-align:
+                center;
 
             color:
                 white;
@@ -2363,9 +2695,9 @@
         }
 
 
-        /* ===============================
-           MOBILE
-        =============================== */
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
 
         @media (max-width: 900px) {
 
@@ -2385,6 +2717,7 @@
             }
 
         }
+
 
         @media (max-width: 550px) {
 
@@ -2423,6 +2756,11 @@
                     1fr;
             }
 
+            .category-btn {
+                min-width:
+                    115px;
+            }
+
             footer {
                 justify-content:
                     center;
@@ -2440,21 +2778,22 @@
 <body>
 
 
-    <!-- ======================================
+    <!-- =============================================
          BACKGROUND
-    ======================================= -->
+    ============================================== -->
 
     <div class="bg-grid"></div>
 
     <div class="glow one"></div>
+
     <div class="glow two"></div>
 
     <div id="particles"></div>
 
 
-    <!-- ======================================
+    <!-- =============================================
          HEADER
-    ======================================= -->
+    ============================================== -->
 
     <header>
 
@@ -2489,7 +2828,6 @@
 
         <div class="header-left">
 
-
             <button
                 class="cart-button"
                 id="cartButton">
@@ -2523,35 +2861,35 @@
 
             </button>
 
-
         </div>
 
     </header>
 
 
-    <!-- ======================================
-         MAIN
-    ======================================= -->
+    <!-- =============================================
+         HERO
+    ============================================== -->
 
     <main id="home">
-
-
-        <!-- HERO -->
 
         <section class="hero">
 
             <div class="hero-badge">
-                🔥 CS2 SKINS MARKET
+                🔥 CS2 SKINS • PRIME • AGENTS • CASES
             </div>
+
 
             <h1>
                 <span>CSGO</span> SHOP
             </h1>
 
+
             <p>
-                اسکین‌ها و آیتم‌های Counter-Strike 2
-                با انتخاب Wear، سبد خرید و ثبت سفارش تلگرامی.
+                فروشگاه حرفه‌ای Counter-Strike 2
+                با اسکین، Prime، Agent و Case،
+                سبد خرید و ثبت سفارش تلگرامی.
             </p>
+
 
             <div class="hero-buttons">
 
@@ -2585,13 +2923,14 @@
         </section>
 
 
-        <!-- ======================================
+        <!-- =============================================
              SHOP
-        ======================================= -->
+        ============================================== -->
 
         <section
             class="section"
             id="shop">
+
 
             <div class="section-head">
 
@@ -2601,11 +2940,90 @@
                 </h2>
 
                 <p>
-                    یک گان را انتخاب کن و مدل و Wear آن را مشخص کن.
+                    دسته‌بندی مورد نظرت را انتخاب کن.
                 </p>
 
             </div>
 
+
+            <!-- CATEGORY BUTTONS -->
+
+            <div class="categories-wrap">
+
+                <div
+                    class="categories"
+                    id="categories">
+
+                    <button
+                        class="category-btn active"
+                        data-category="all">
+
+                        <span class="category-icon">
+                            ✦
+                        </span>
+
+                        همه
+
+                    </button>
+
+
+                    <button
+                        class="category-btn"
+                        data-category="skins">
+
+                        <span class="category-icon">
+                            🔫
+                        </span>
+
+                        اسکین‌ها
+
+                    </button>
+
+
+                    <button
+                        class="category-btn"
+                        data-category="prime">
+
+                        <span class="category-icon">
+                            💎
+                        </span>
+
+                        Prime
+
+                    </button>
+
+
+                    <button
+                        class="category-btn"
+                        data-category="agents">
+
+                        <span class="category-icon">
+                            🕶️
+                        </span>
+
+                        Agents
+
+                    </button>
+
+
+                    <button
+                        class="category-btn"
+                        data-category="cases">
+
+                        <span class="category-icon">
+                            📦
+                        </span>
+
+                        Cases
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTS -->
 
             <div
                 class="products"
@@ -2615,9 +3033,9 @@
         </section>
 
 
-        <!-- ======================================
+        <!-- =============================================
              FEATURES
-        ======================================= -->
+        ============================================== -->
 
         <section
             class="section"
@@ -2626,12 +3044,12 @@
             <div class="section-head">
 
                 <h2>
-                    چرا
-                    <span>CSGO SHOP؟</span>
+                    امکانات
+                    <span>SHOP</span>
                 </h2>
 
                 <p>
-                    ساده، سریع و حرفه‌ای.
+                    همه چیز برای یک فروشگاه CS2 مدرن.
                 </p>
 
             </div>
@@ -2647,12 +3065,12 @@
                     </div>
 
                     <h3>
-                        انتخاب Wear
+                        دسته‌بندی حرفه‌ای
                     </h3>
 
                     <p>
-                        Factory New، Minimal Wear،
-                        Field-Tested، Well-Worn و Battle-Scarred.
+                        اسکین، Prime، Agent و Case
+                        جدا شده‌اند تا پیدا کردن محصول راحت باشد.
                     </p>
 
                 </div>
@@ -2665,12 +3083,13 @@
                     </div>
 
                     <h3>
-                        سبد خرید
+                        Wear واقعی
                     </h3>
 
                     <p>
-                        محصولات مختلف را انتخاب کن،
-                        تعداد را تغییر بده و مبلغ کل را ببین.
+                        اسکین‌ها با Factory New،
+                        Minimal Wear، Field-Tested،
+                        Well-Worn و Battle-Scarred.
                     </p>
 
                 </div>
@@ -2687,8 +3106,8 @@
                     </h3>
 
                     <p>
-                        سفارش آماده می‌شود و با اطلاعات مشتری
-                        برای ثبت در تلگرام باز می‌شود.
+                        سبد خرید و اطلاعات مشتری
+                        داخل یک پیام آماده سفارش قرار می‌گیرد.
                     </p>
 
                 </div>
@@ -2698,19 +3117,19 @@
 
         </section>
 
-
     </main>
 
 
-    <!-- ======================================
+    <!-- =============================================
          FOOTER
-    ======================================= -->
+    ============================================== -->
 
     <footer id="contact">
 
         <div>
             © 2026 CSGO SHOP
         </div>
+
 
         <div>
 
@@ -2731,9 +3150,9 @@
     </footer>
 
 
-    <!-- ======================================
+    <!-- =============================================
          OVERLAY
-    ======================================= -->
+    ============================================== -->
 
     <div
         class="overlay"
@@ -2741,9 +3160,9 @@
     </div>
 
 
-    <!-- ======================================
+    <!-- =============================================
          PRODUCT MODAL
-    ======================================= -->
+    ============================================== -->
 
     <div
         class="product-modal"
@@ -2756,9 +3175,12 @@
                 انتخاب محصول
             </h3>
 
+
             <button
                 class="close-btn"
-                onclick="closeAll()">
+                onclick="
+                    closeAll()
+                ">
 
                 ×
 
@@ -2770,11 +3192,9 @@
         <div class="product-detail">
 
 
-            <div class="detail-image-box">
-
-                <img
-                    id="detailImage"
-                    alt="Weapon">
+            <div
+                class="detail-image-box"
+                id="detailVisual">
 
             </div>
 
@@ -2783,7 +3203,7 @@
 
 
                 <label class="detail-label">
-                    انتخاب اسکین و Wear
+                    انتخاب مدل
                 </label>
 
 
@@ -2805,7 +3225,9 @@
                         تعداد
                     </strong>
 
-                    <div class="quantity-controls">
+
+                    <div
+                        class="quantity-controls">
 
                         <button
                             class="qty-btn"
@@ -2815,6 +3237,7 @@
 
                         </button>
 
+
                         <span
                             class="qty-number"
                             id="qtyNumber">
@@ -2822,6 +3245,7 @@
                             1
 
                         </span>
+
 
                         <button
                             class="qty-btn"
@@ -2863,9 +3287,9 @@
     </div>
 
 
-    <!-- ======================================
+    <!-- =============================================
          PROFILE MODAL
-    ======================================= -->
+    ============================================== -->
 
     <div
         class="profile-modal"
@@ -2878,9 +3302,12 @@
                 پروفایل من
             </h3>
 
+
             <button
                 class="close-btn"
-                onclick="closeAll()">
+                onclick="
+                    closeAll()
+                ">
 
                 ×
 
@@ -2888,6 +3315,8 @@
 
         </div>
 
+
+        <!-- AVATAR -->
 
         <div class="avatar-upload">
 
@@ -2907,12 +3336,14 @@
 
 
             <input
-                id="avatarInput"
                 type="file"
+                id="avatarInput"
                 accept="image/*">
 
         </div>
 
+
+        <!-- FIRST NAME -->
 
         <div class="form-group">
 
@@ -2926,12 +3357,14 @@
                 placeholder="مثلاً جواد">
 
             <span
-                class="error-message"
-                id="firstNameError">
+                id="firstNameError"
+                class="error-message">
             </span>
 
         </div>
 
+
+        <!-- LAST NAME -->
 
         <div class="form-group">
 
@@ -2945,12 +3378,14 @@
                 placeholder="مثلاً فضلی">
 
             <span
-                class="error-message"
-                id="lastNameError">
+                id="lastNameError"
+                class="error-message">
             </span>
 
         </div>
 
+
+        <!-- PHONE -->
 
         <div class="form-group">
 
@@ -2966,12 +3401,14 @@
                 placeholder="09123456789">
 
             <span
-                class="error-message"
-                id="phoneError">
+                id="phoneError"
+                class="error-message">
             </span>
 
         </div>
 
+
+        <!-- TELEGRAM -->
 
         <div class="form-group">
 
@@ -2985,8 +3422,8 @@
                 placeholder="@username">
 
             <span
-                class="error-message"
-                id="telegramError">
+                id="telegramError"
+                class="error-message">
             </span>
 
         </div>
@@ -2995,7 +3432,9 @@
         <button
             class="btn btn-red"
             style="width:100%;"
-            onclick="saveProfile()">
+            onclick="
+                saveProfile()
+            ">
 
             ذخیره پروفایل
 
@@ -3004,9 +3443,9 @@
     </div>
 
 
-    <!-- ======================================
-         CART DRAWER
-    ======================================= -->
+    <!-- =============================================
+         CART
+    ============================================== -->
 
     <aside
         class="cart-drawer"
@@ -3019,9 +3458,12 @@
                 🛒 سبد خرید
             </h3>
 
+
             <button
                 class="close-btn"
-                onclick="closeAll()">
+                onclick="
+                    closeAll()
+                ">
 
                 ×
 
@@ -3037,6 +3479,7 @@
 
 
         <div class="cart-summary">
+
 
             <div class="summary-row">
 
@@ -3070,7 +3513,9 @@
 
             <button
                 class="btn btn-red checkout-btn"
-                onclick="checkout()">
+                onclick="
+                    checkout()
+                ">
 
                 نهایی کردن سفارش
 
@@ -3079,7 +3524,9 @@
 
             <button
                 class="btn telegram-btn"
-                onclick="sendTelegram()">
+                onclick="
+                    sendTelegram()
+                ">
 
                 📩 ارسال سفارش به تلگرام
 
@@ -3091,7 +3538,9 @@
     </aside>
 
 
-    <!-- TOAST -->
+    <!-- =============================================
+         TOAST
+    ============================================== -->
 
     <div
         class="toast"
@@ -3102,22 +3551,21 @@
     <script>
 
         /* =====================================================
-           SETTINGS
+           CONFIG
         ===================================================== */
 
         const TELEGRAM_USERNAME =
             "AghoJavaad";
 
 
-        /*
-         * آواتار پیش فرض:
-         * یک SVG اختصاصی و بدون وابستگی به سایت خارجی.
-         * ظاهرش به سبک کاراکتر T و تیره طراحی شده.
-         */
+        /* =====================================================
+           DEFAULT AVATAR
+        ===================================================== */
 
         const DEFAULT_AVATAR =
             "data:image/svg+xml;charset=UTF-8," +
             encodeURIComponent(`
+
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 500 500">
@@ -3125,13 +3573,11 @@
                     <defs>
 
                         <radialGradient
-                            id="bg"
-                            cx="50%"
-                            cy="40%">
+                            id="bg">
 
                             <stop
                                 offset="0%"
-                                stop-color="#291018"/>
+                                stop-color="#32131c"/>
 
                             <stop
                                 offset="100%"
@@ -3148,11 +3594,11 @@
 
                             <stop
                                 offset="0%"
-                                stop-color="#202126"/>
+                                stop-color="#24262b"/>
 
                             <stop
                                 offset="100%"
-                                stop-color="#090a0d"/>
+                                stop-color="#08090b"/>
 
                         </linearGradient>
 
@@ -3175,130 +3621,122 @@
                         opacity=".25"/>
 
 
-                    <!-- head -->
+                    <!-- Hood -->
 
                     <path
                         d="
-                        M168 190
-                        Q175 110 250 88
-                        Q325 110 332 190
+                        M143 210
+                        Q150 85 250 65
+                        Q350 85 357 210
+                        L320 174
+                        Q300 120 250 111
+                        Q200 120 180 174
+                        Z"
+                        fill="#0a0b0e"/>
+
+
+                    <!-- Head -->
+
+                    <path
+                        d="
+                        M168 188
+                        Q175 112 250 91
+                        Q325 112 332 188
                         L305 292
-                        Q250 325 195 292
+                        Q250 323 195 292
                         Z"
-                        fill="#191a1f"/>
+                        fill="#191b20"/>
 
 
-                    <!-- hood -->
+                    <!-- Face -->
 
                     <path
                         d="
-                        M143 207
-                        Q150 83 250 66
-                        Q350 83 357 207
-                        L325 177
-                        Q305 122 250 112
-                        Q195 122 175 177
+                        M188 181
+                        Q250 160 312 181
+                        L302 262
+                        Q250 294 198 262
                         Z"
-                        fill="#0b0c0f"/>
+                        fill="#25272d"/>
 
 
-                    <!-- face -->
-
-                    <path
-                        d="
-                        M188 184
-                        Q250 160 312 184
-                        L302 260
-                        Q250 294 198 260
-                        Z"
-                        fill="#24262b"/>
-
-
-                    <!-- goggles -->
+                    <!-- Glasses -->
 
                     <rect
-                        x="188"
+                        x="187"
                         y="195"
-                        width="62"
-                        height="28"
+                        width="63"
+                        height="29"
                         rx="8"
-                        fill="#050608"
-                        stroke="#555861"
+                        fill="#040507"
+                        stroke="#5d6068"
                         stroke-width="4"/>
 
                     <rect
                         x="250"
                         y="195"
-                        width="62"
-                        height="28"
+                        width="63"
+                        height="29"
                         rx="8"
-                        fill="#050608"
-                        stroke="#555861"
+                        fill="#040507"
+                        stroke="#5d6068"
                         stroke-width="4"/>
-
-
-                    <line
-                        x1="250"
-                        y1="209"
-                        x2="250"
-                        y2="209"
-                        stroke="#777"/>
 
 
                     <rect
                         x="199"
-                        y="201"
+                        y="202"
                         width="39"
                         height="8"
                         rx="4"
                         fill="#ff1744"
-                        opacity=".55"/>
+                        opacity=".58"/>
 
                     <rect
                         x="262"
-                        y="201"
+                        y="202"
                         width="39"
                         height="8"
                         rx="4"
                         fill="#ff1744"
-                        opacity=".55"/>
+                        opacity=".58"/>
 
 
-                    <!-- mask -->
+                    <!-- Mask -->
 
                     <path
                         d="
                         M186 240
                         Q250 226 314 240
-                        L301 277
-                        Q250 300 199 277
+                        L301 278
+                        Q250 300 199 278
                         Z"
-                        fill="#0a0b0d"/>
+                        fill="#090a0c"/>
 
 
                     <path
                         d="
                         M219 262
-                        Q250 250 281 262"
+                        Q250 251 281 262"
                         fill="none"
                         stroke="#ff1744"
                         stroke-width="4"
-                        opacity=".7"/>
+                        opacity=".72"/>
 
 
-                    <!-- body -->
+                    <!-- Body -->
 
                     <path
                         d="
                         M116 485
-                        Q120 348 178 312
-                        Q250 290 322 312
-                        Q380 348 384 485
+                        Q120 347 178 313
+                        Q250 290 322 313
+                        Q380 347 384 485
                         Z"
                         fill="url(#coat)"/>
 
 
-                    <!-- vest -->
+                    <!-- Vest -->
 
                     <path
                         d="
@@ -3313,51 +3751,53 @@
 
                     <rect
                         x="207"
-                        y="350"
+                        y="352"
                         width="86"
-                        height="21"
-                        rx="8"
-                        fill="#24262b"/>
+                        height="19"
+                        rx="7"
+                        fill="#25272c"/>
 
 
                     <rect
-                        x="207"
-                        y="381"
-                        width="40"
-                        height="45"
+                        x="208"
+                        y="382"
+                        width="39"
+                        height="44"
                         rx="6"
                         fill="#202227"/>
+
 
                     <rect
                         x="253"
-                        y="381"
-                        width="40"
-                        height="45"
+                        y="382"
+                        width="39"
+                        height="44"
                         rx="6"
                         fill="#202227"/>
 
 
-                    <!-- red badge -->
+                    <!-- Badge -->
 
                     <circle
                         cx="250"
-                        cy="450"
+                        cy="449"
                         r="22"
                         fill="#ff1744"/>
 
+
                     <text
                         x="250"
-                        y="458"
+                        y="457"
                         text-anchor="middle"
                         font-family="Arial"
                         font-size="22"
                         font-weight="900"
                         fill="white">
+
                         T
+
                     </text>
 
-
-                    <!-- red glow line -->
 
                     <path
                         d="
@@ -3378,573 +3818,623 @@
         const WEAPON_IMAGES = {
 
             "AK-47":
-                "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_ak47.a320f13fea4f21d1eb3b46678d6b12e97cbd1052.png",
+                "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_ak47_png.png",
 
             "AWP":
-                "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_awp.2899e1c6345ed05d62bdbe112db1b117d022e477.png",
+                "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_awp_png.png",
 
             "M4A4":
-                "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_m4a1.cu_m4a4.png",
+                "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_m4a4_png.png",
 
             "M4A1-S":
-                "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_m4a1_s.png",
+                "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_m4a1_s_png.png",
 
             "Desert Eagle":
-                "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_deagle.29e8f0d7d0be5e737d4f663ee8b394b5c9e00bdd.png",
+                "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_deagle_png.png",
 
             "USP-S":
-                "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_usp_silencer.png",
+                "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_usp_silencer_png.png",
 
             "Glock-18":
-                "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_glock.png",
+                "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_glock_png.png",
 
             "FAMAS":
-                "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_famas.c897878873beb9e9ca4c68ef3a666869c6e78031.png",
+                "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_famas_png.png",
 
             "Galil AR":
-                "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_galilar.png",
+                "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_galilar_png.png",
 
             "MP9":
-                "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_mp9.png",
+                "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_mp9_png.png",
 
             "P90":
-                "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_p90.png",
+                "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_p90_png.png",
 
             "SCAR-20":
-                "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_scar20.png",
+                "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_scar20_png.png",
 
             "SSG 08":
-                "https://media.steampowered.com/apps/730/icons/econ/weapons/base_weapons/weapon_ssg08.png"
+                "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_ssg08_png.png"
 
         };
 
 
         /* =====================================================
-           FALLBACK IMAGES
-        ===================================================== */
-
-        function fallbackImage(name) {
-
-            return (
-                "https://placehold.co/900x500/" +
-                "0d0d13/" +
-                "ff1744" +
-                "?text=" +
-                encodeURIComponent(name)
-            );
-
-        }
-
-
-        /* =====================================================
-           PRODUCT DATA
+           PRODUCTS
         ===================================================== */
 
         const PRODUCTS = [
 
+            /* ================= SKINS ================= */
+
             {
                 id: 1,
+                category: "skins",
+
                 name: "AK-47",
-                category: "RIFLE",
                 skin: "Redline",
+                tag: "RIFLE",
+
                 description:
-                    "AK-47 محبوب با اسکین معروف Redline و پنج وضعیت Wear.",
+                    "AK-47 | Redline با پنج وضعیت Wear.",
+
                 image:
                     WEAPON_IMAGES["AK-47"],
+
                 models: [
+
                     {
                         name: "Factory New",
                         subtitle: "0.00 - 0.07",
                         price: 1200000
                     },
+
                     {
                         name: "Minimal Wear",
                         subtitle: "0.07 - 0.15",
                         price: 1050000
                     },
+
                     {
                         name: "Field-Tested",
                         subtitle: "0.15 - 0.37",
                         price: 850000
                     },
+
                     {
                         name: "Well-Worn",
                         subtitle: "0.37 - 0.44",
                         price: 700000
                     },
+
                     {
                         name: "Battle-Scarred",
                         subtitle: "0.44 - 1.00",
                         price: 600000
                     }
+
                 ]
             },
 
 
             {
                 id: 2,
+                category: "skins",
+
                 name: "AWP",
-                category: "SNIPER",
                 skin: "Asiimov",
+                tag: "SNIPER",
+
                 description:
                     "AWP | Asiimov برای پلیرهای اسنایپر.",
+
                 image:
                     WEAPON_IMAGES["AWP"],
+
                 models: [
+
                     {
                         name: "Factory New",
-                        subtitle: "Special",
+                        subtitle: "Premium",
                         price: 3500000
                     },
+
                     {
                         name: "Minimal Wear",
                         subtitle: "Premium",
                         price: 2800000
                     },
+
                     {
                         name: "Field-Tested",
                         subtitle: "Popular",
                         price: 2200000
                     },
+
                     {
                         name: "Well-Worn",
                         subtitle: "0.37 - 0.44",
                         price: 1900000
                     },
+
                     {
                         name: "Battle-Scarred",
                         subtitle: "0.44 - 1.00",
                         price: 1600000
                     }
+
                 ]
             },
 
 
             {
                 id: 3,
+                category: "skins",
+
                 name: "M4A4",
-                category: "RIFLE",
                 skin: "Asiimov",
+                tag: "RIFLE",
+
                 description:
-                    "M4A4 | Asiimov با ظاهر نارنجی و مشکی.",
+                    "M4A4 | Asiimov با استایل نارنجی و مشکی.",
+
                 image:
                     WEAPON_IMAGES["M4A4"],
+
                 models: [
+
                     {
                         name: "Factory New",
-                        subtitle: "Special",
+                        subtitle: "Premium",
                         price: 3000000
                     },
+
                     {
                         name: "Minimal Wear",
                         subtitle: "Premium",
                         price: 2500000
                     },
+
                     {
                         name: "Field-Tested",
                         subtitle: "Popular",
                         price: 2000000
                     },
+
                     {
                         name: "Well-Worn",
                         subtitle: "0.37 - 0.44",
                         price: 1600000
                     },
+
                     {
                         name: "Battle-Scarred",
                         subtitle: "0.44 - 1.00",
                         price: 1350000
                     }
+
                 ]
             },
 
 
             {
                 id: 4,
+                category: "skins",
+
                 name: "M4A1-S",
-                category: "RIFLE",
                 skin: "Printstream",
+                tag: "RIFLE",
+
                 description:
-                    "M4A1-S | Printstream برای ست‌های سفید و مشکی.",
+                    "M4A1-S | Printstream برای ست‌های حرفه‌ای.",
+
                 image:
                     WEAPON_IMAGES["M4A1-S"],
+
                 models: [
+
                     {
                         name: "Factory New",
                         subtitle: "0.00 - 0.07",
                         price: 2600000
                     },
+
                     {
                         name: "Minimal Wear",
                         subtitle: "0.07 - 0.15",
                         price: 2200000
                     },
+
                     {
                         name: "Field-Tested",
                         subtitle: "0.15 - 0.37",
                         price: 1800000
                     },
+
                     {
                         name: "Well-Worn",
                         subtitle: "0.37 - 0.44",
                         price: 1550000
                     },
+
                     {
                         name: "Battle-Scarred",
                         subtitle: "0.44 - 1.00",
                         price: 1300000
                     }
+
                 ]
             },
 
 
             {
                 id: 5,
+                category: "skins",
+
                 name: "Desert Eagle",
-                category: "PISTOL",
                 skin: "Printstream",
+                tag: "PISTOL",
+
                 description:
-                    "Deagle | Printstream با استایل سفید و مدرن.",
+                    "Deagle | Printstream با ظاهر سفید و مشکی.",
+
                 image:
                     WEAPON_IMAGES["Desert Eagle"],
+
                 models: [
+
                     {
                         name: "Factory New",
                         subtitle: "Premium",
                         price: 1900000
                     },
+
                     {
                         name: "Minimal Wear",
                         subtitle: "Premium",
                         price: 1500000
                     },
+
                     {
                         name: "Field-Tested",
                         subtitle: "Popular",
                         price: 1100000
                     },
+
                     {
                         name: "Well-Worn",
                         subtitle: "Used",
                         price: 850000
                     },
+
                     {
                         name: "Battle-Scarred",
                         subtitle: "Heavy Wear",
                         price: 650000
                     }
+
                 ]
             },
 
 
             {
                 id: 6,
+                category: "skins",
+
                 name: "USP-S",
-                category: "PISTOL",
                 skin: "Kill Confirmed",
+                tag: "PISTOL",
+
                 description:
-                    "USP-S | Kill Confirmed برای ست‌های حرفه‌ای.",
+                    "USP-S | Kill Confirmed برای ست‌های جذاب.",
+
                 image:
                     WEAPON_IMAGES["USP-S"],
+
                 models: [
+
                     {
                         name: "Factory New",
                         subtitle: "Premium",
                         price: 1500000
                     },
+
                     {
                         name: "Minimal Wear",
                         subtitle: "Premium",
                         price: 1200000
                     },
+
                     {
                         name: "Field-Tested",
                         subtitle: "Popular",
                         price: 950000
                     },
+
                     {
                         name: "Well-Worn",
                         subtitle: "Used",
                         price: 750000
                     },
+
                     {
                         name: "Battle-Scarred",
                         subtitle: "Heavy Wear",
                         price: 550000
                     }
+
                 ]
             },
 
 
+            /* ================= PRIME ================= */
+
             {
-                id: 7,
-                name: "Glock-18",
-                category: "PISTOL",
-                skin: "Vogue",
+                id: 20,
+                category: "prime",
+
+                name: "CS2 Prime",
+                skin: "Prime Status",
+                tag: "PREMIUM",
+
                 description:
-                    "Glock-18 | Vogue با ظاهر رنگی.",
-                image:
-                    WEAPON_IMAGES["Glock-18"],
+                    "فعال‌سازی Prime Status برای اکانت CS2.",
+
+                icon: "💎",
+
                 models: [
+
                     {
-                        name: "Factory New",
-                        subtitle: "Premium",
-                        price: 950000
+                        name: "Prime Status",
+                        subtitle: "Activation",
+                        price: 1500000
                     },
+
                     {
-                        name: "Minimal Wear",
-                        subtitle: "Popular",
-                        price: 750000
-                    },
-                    {
-                        name: "Field-Tested",
-                        subtitle: "Popular",
-                        price: 600000
-                    },
-                    {
-                        name: "Well-Worn",
-                        subtitle: "Used",
-                        price: 450000
-                    },
-                    {
-                        name: "Battle-Scarred",
-                        subtitle: "Heavy Wear",
-                        price: 350000
+                        name: "Prime + Support",
+                        subtitle: "Premium Service",
+                        price: 1750000
                     }
+
                 ]
             },
 
 
             {
-                id: 8,
-                name: "FAMAS",
-                category: "RIFLE",
-                skin: "Meow 36",
+                id: 21,
+                category: "prime",
+
+                name: "Prime Upgrade",
+                skin: "Upgrade",
+                tag: "SERVICE",
+
                 description:
-                    "FAMAS با ظاهر متفاوت و فانتزی.",
-                image:
-                    WEAPON_IMAGES["FAMAS"],
+                    "محصول ویژه برای سرویس Prime.",
+
+                icon: "⚡",
+
                 models: [
+
                     {
-                        name: "Factory New",
-                        subtitle: "0.00 - 0.07",
-                        price: 550000
+                        name: "Standard",
+                        subtitle: "Service",
+                        price: 1100000
                     },
+
                     {
-                        name: "Minimal Wear",
-                        subtitle: "0.07 - 0.15",
-                        price: 450000
-                    },
-                    {
-                        name: "Field-Tested",
-                        subtitle: "0.15 - 0.37",
-                        price: 350000
-                    },
-                    {
-                        name: "Well-Worn",
-                        subtitle: "0.37 - 0.44",
-                        price: 280000
-                    },
-                    {
-                        name: "Battle-Scarred",
-                        subtitle: "0.44 - 1.00",
-                        price: 220000
+                        name: "Fast Service",
+                        subtitle: "Priority",
+                        price: 1300000
                     }
+
                 ]
             },
 
 
-            {
-                id: 9,
-                name: "Galil AR",
-                category: "RIFLE",
-                skin: "Chromatic Aberration",
-                description:
-                    "Galil AR با ظاهر رنگی و متفاوت.",
-                image:
-                    WEAPON_IMAGES["Galil AR"],
-                models: [
-                    {
-                        name: "Factory New",
-                        subtitle: "Premium",
-                        price: 750000
-                    },
-                    {
-                        name: "Minimal Wear",
-                        subtitle: "Popular",
-                        price: 600000
-                    },
-                    {
-                        name: "Field-Tested",
-                        subtitle: "Popular",
-                        price: 470000
-                    },
-                    {
-                        name: "Well-Worn",
-                        subtitle: "Used",
-                        price: 350000
-                    },
-                    {
-                        name: "Battle-Scarred",
-                        subtitle: "Heavy Wear",
-                        price: 270000
-                    }
-                ]
-            },
-
+            /* ================= AGENTS ================= */
 
             {
-                id: 10,
-                name: "MP9",
-                category: "SMG",
-                skin: "Starlight Protector",
+                id: 30,
+                category: "agents",
+
+                name: "The Elite Mr. Muhlik",
+                skin: "Elite Crew",
+                tag: "AGENT",
+
                 description:
-                    "MP9 با ظاهر خاص برای راندهای سریع.",
-                image:
-                    WEAPON_IMAGES["MP9"],
+                    "Agent برای ظاهر متفاوت داخل بازی.",
+
+                icon: "🕶️",
+
                 models: [
-                    {
-                        name: "Factory New",
-                        subtitle: "Premium",
-                        price: 700000
-                    },
-                    {
-                        name: "Minimal Wear",
-                        subtitle: "Popular",
-                        price: 550000
-                    },
-                    {
-                        name: "Field-Tested",
-                        subtitle: "Popular",
-                        price: 420000
-                    },
-                    {
-                        name: "Well-Worn",
-                        subtitle: "Used",
-                        price: 320000
-                    },
-                    {
-                        name: "Battle-Scarred",
-                        subtitle: "Heavy Wear",
-                        price: 240000
-                    }
-                ]
-            },
 
-
-            {
-                id: 11,
-                name: "P90",
-                category: "SMG",
-                skin: "Asiimov",
-                description:
-                    "P90 | Asiimov برای سبک بازی تهاجمی.",
-                image:
-                    WEAPON_IMAGES["P90"],
-                models: [
                     {
-                        name: "Factory New",
-                        subtitle: "Premium",
-                        price: 1000000
-                    },
-                    {
-                        name: "Minimal Wear",
-                        subtitle: "Popular",
-                        price: 800000
-                    },
-                    {
-                        name: "Field-Tested",
-                        subtitle: "Popular",
-                        price: 650000
-                    },
-                    {
-                        name: "Well-Worn",
-                        subtitle: "Used",
-                        price: 500000
-                    },
-                    {
-                        name: "Battle-Scarred",
-                        subtitle: "Heavy Wear",
-                        price: 400000
-                    }
-                ]
-            },
-
-
-            {
-                id: 12,
-                name: "SCAR-20",
-                category: "SNIPER",
-                skin: "Bloodsport",
-                description:
-                    "SCAR-20 با استایل قرمز مناسب تم شاپ.",
-                image:
-                    WEAPON_IMAGES["SCAR-20"],
-                models: [
-                    {
-                        name: "Factory New",
-                        subtitle: "Premium",
+                        name: "Standard",
+                        subtitle: "Agent",
                         price: 900000
                     },
+
                     {
-                        name: "Minimal Wear",
-                        subtitle: "Popular",
-                        price: 720000
-                    },
-                    {
-                        name: "Field-Tested",
-                        subtitle: "Popular",
-                        price: 550000
-                    },
-                    {
-                        name: "Well-Worn",
-                        subtitle: "Used",
-                        price: 400000
-                    },
-                    {
-                        name: "Battle-Scarred",
-                        subtitle: "Heavy Wear",
-                        price: 300000
+                        name: "Premium",
+                        subtitle: "Agent",
+                        price: 1250000
                     }
+
                 ]
             },
 
 
             {
-                id: 13,
-                name: "SSG 08",
-                category: "SNIPER",
-                skin: "Dragonfire",
+                id: 31,
+                category: "agents",
+
+                name: "Sir Bloody Darryl",
+                skin: "T Agent",
+                tag: "AGENT",
+
                 description:
-                    "SSG 08 سبک و سریع برای اسنایپرهای تهاجمی.",
-                image:
-                    WEAPON_IMAGES["SSG 08"],
+                    "Agent سبک T با طراحی متفاوت.",
+
+                icon: "🔥",
+
                 models: [
+
                     {
-                        name: "Factory New",
-                        subtitle: "Premium",
+                        name: "Standard",
+                        subtitle: "Agent",
+                        price: 1000000
+                    },
+
+                    {
+                        name: "Premium",
+                        subtitle: "Agent",
+                        price: 1400000
+                    }
+
+                ]
+            },
+
+
+            {
+                id: 32,
+                category: "agents",
+
+                name: "Little Kev",
+                skin: "Elite Agent",
+                tag: "AGENT",
+
+                description:
+                    "Agent خاص برای کالکشن CS2.",
+
+                icon: "😈",
+
+                models: [
+
+                    {
+                        name: "Standard",
+                        subtitle: "Agent",
                         price: 850000
                     },
+
                     {
-                        name: "Minimal Wear",
-                        subtitle: "Popular",
-                        price: 700000
-                    },
-                    {
-                        name: "Field-Tested",
-                        subtitle: "Popular",
-                        price: 550000
-                    },
-                    {
-                        name: "Well-Worn",
-                        subtitle: "Used",
-                        price: 420000
-                    },
-                    {
-                        name: "Battle-Scarred",
-                        subtitle: "Heavy Wear",
-                        price: 320000
+                        name: "Premium",
+                        subtitle: "Agent",
+                        price: 1150000
                     }
+
+                ]
+            },
+
+
+            /* ================= CASES ================= */
+
+            {
+                id: 40,
+                category: "cases",
+
+                name: "Kilowatt Case",
+                skin: "Case",
+                tag: "CASE",
+
+                description:
+                    "Kilowatt Case برای باز کردن Caseهای CS2.",
+
+                icon: "📦",
+
+                models: [
+
+                    {
+                        name: "1 Case",
+                        subtitle: "Single",
+                        price: 200000
+                    },
+
+                    {
+                        name: "5 Cases",
+                        subtitle: "Pack",
+                        price: 900000
+                    },
+
+                    {
+                        name: "10 Cases",
+                        subtitle: "Big Pack",
+                        price: 1650000
+                    }
+
+                ]
+            },
+
+
+            {
+                id: 41,
+                category: "cases",
+
+                name: "Dreams & Nightmares",
+                skin: "Case",
+                tag: "CASE",
+
+                description:
+                    "یکی از Caseهای معروف برای کالکشن.",
+
+                icon: "🌙",
+
+                models: [
+
+                    {
+                        name: "1 Case",
+                        subtitle: "Single",
+                        price: 180000
+                    },
+
+                    {
+                        name: "5 Cases",
+                        subtitle: "Pack",
+                        price: 800000
+                    },
+
+                    {
+                        name: "10 Cases",
+                        subtitle: "Big Pack",
+                        price: 1500000
+                    }
+
+                ]
+            },
+
+
+            {
+                id: 42,
+                category: "cases",
+
+                name: "Revolution Case",
+                skin: "Case",
+                tag: "CASE",
+
+                description:
+                    "Revolution Case با استایل جذاب.",
+
+                icon: "🔴",
+
+                models: [
+
+                    {
+                        name: "1 Case",
+                        subtitle: "Single",
+                        price: 190000
+                    },
+
+                    {
+                        name: "5 Cases",
+                        subtitle: "Pack",
+                        price: 850000
+                    },
+
+                    {
+                        name: "10 Cases",
+                        subtitle: "Big Pack",
+                        price: 1550000
+                    }
+
                 ]
             }
 
@@ -3955,11 +4445,17 @@
            STATE
         ===================================================== */
 
-        let activeProduct = null;
+        let activeCategory =
+            "all";
 
-        let activeModelIndex = 0;
+        let activeProduct =
+            null;
 
-        let currentQuantity = 1;
+        let activeModelIndex =
+            0;
+
+        let currentQuantity =
+            1;
 
         let cart = [];
 
@@ -3998,12 +4494,35 @@
            FORMAT PRICE
         ===================================================== */
 
-        function formatPrice(value) {
+        function formatPrice(
+            value
+        ) {
 
             return new Intl.NumberFormat(
                 "fa-IR"
-            ).format(value) +
-            " تومان";
+            ).format(value)
+                + " تومان";
+
+        }
+
+
+        /* =====================================================
+           FALLBACK IMAGE
+        ===================================================== */
+
+        function fallbackImage(
+            name
+        ) {
+
+            return (
+                "https://placehold.co/900x500/" +
+                "0d0d13/" +
+                "ff1744" +
+                "?text=" +
+                encodeURIComponent(
+                    name
+                )
+            );
 
         }
 
@@ -4032,10 +4551,12 @@
             p.className =
                 "particle";
 
+
             p.style.left =
                 Math.random() *
                 100 +
                 "%";
+
 
             p.style.animationDuration =
                 (
@@ -4044,10 +4565,12 @@
                 ) +
                 "s";
 
+
             p.style.animationDelay =
                 Math.random() *
                 8 +
                 "s";
+
 
             p.style.width =
                 (
@@ -4056,8 +4579,10 @@
                 ) +
                 "px";
 
+
             p.style.height =
                 p.style.width;
+
 
             particleContainer.appendChild(
                 p
@@ -4067,46 +4592,128 @@
 
 
         /* =====================================================
+           MIN PRODUCT PRICE
+        ===================================================== */
+
+        function getMinPrice(
+            product
+        ) {
+
+            return Math.min(
+                ...product.models.map(
+                    model =>
+                        model.price
+                )
+            );
+
+        }
+
+
+        /* =====================================================
+           VISUAL
+        ===================================================== */
+
+        function getProductVisual(
+            product
+        ) {
+
+            if (
+                product.image
+            ) {
+
+                return `
+
+                    <img
+                        src="${product.image}"
+                        alt="${escapeHtml(product.name)}"
+                        onerror="
+                            this.src='${fallbackImage(product.name)}'
+                        "
+                    >
+
+                `;
+
+            }
+
+
+            return `
+
+                <div class="visual-icon">
+
+                    ${product.icon}
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =====================================================
            RENDER PRODUCTS
         ===================================================== */
 
-        function renderProducts() {
+        function renderProducts(
+            animate = true
+        ) {
+
+            const filtered =
+                activeCategory === "all"
+                    ? PRODUCTS
+                    : PRODUCTS.filter(
+                        product =>
+                            product.category ===
+                            activeCategory
+                    );
+
+
+            productsGrid.classList.remove(
+                "switching"
+            );
+
+
+            void productsGrid.offsetWidth;
+
+
+            if (animate) {
+
+                productsGrid.classList.add(
+                    "switching"
+                );
+
+            }
+
 
             productsGrid.innerHTML =
                 "";
 
-            PRODUCTS.forEach(
+
+            filtered.forEach(
                 (product, index) => {
 
                     const card =
                         document.createElement(
-                            "div"
+                            "article"
                         );
+
 
                     card.className =
                         "product-card";
 
 
-                    const cheapest =
-                        Math.min(
-                            ...product.models.map(
-                                item =>
-                                    item.price
-                            )
+                    const minPrice =
+                        getMinPrice(
+                            product
                         );
 
 
                     card.innerHTML = `
 
-                        <div class="product-image">
+                        <div class="product-visual">
 
-                            <img
-                                src="${product.image}"
-                                alt="${product.name}"
-                                onerror="
-                                    this.src='${fallbackImage(product.name)}'
-                                "
-                            >
+                            ${getProductVisual(
+                                product
+                            )}
 
                         </div>
 
@@ -4114,39 +4721,46 @@
                         <div class="product-content">
 
                             <span class="weapon-tag">
-                                ${product.category}
+                                ${product.tag}
                             </span>
 
 
                             <h3>
-                                ${product.name}
+                                ${escapeHtml(
+                                    product.name
+                                )}
                             </h3>
 
 
                             <div class="product-skin">
-                                | ${product.skin}
+                                | ${escapeHtml(
+                                    product.skin
+                                )}
                             </div>
 
 
                             <p>
-                                ${product.description}
+                                ${escapeHtml(
+                                    product.description
+                                )}
                             </p>
 
 
                             <div class="product-bottom">
 
                                 <div class="product-price">
-                                    از ${formatPrice(cheapest)}
+
+                                    از
+                                    ${formatPrice(
+                                        minPrice
+                                    )}
+
                                 </div>
 
 
                                 <button
                                     class="product-buy"
-                                    onclick="
-                                        openProduct(
-                                            ${product.id}
-                                        )
-                                    ">
+                                    data-id="${product.id}">
 
                                     خرید
 
@@ -4159,6 +4773,24 @@
                     `;
 
 
+                    const buyButton =
+                        card.querySelector(
+                            ".product-buy"
+                        );
+
+
+                    buyButton.addEventListener(
+                        "click",
+                        () => {
+
+                            openProduct(
+                                product.id
+                            );
+
+                        }
+                    );
+
+
                     productsGrid.appendChild(
                         card
                     );
@@ -4168,11 +4800,11 @@
                         () => {
 
                             card.classList.add(
-                                "show"
+                                "visible"
                             );
 
                         },
-                        index * 65
+                        index * 55
                     );
 
                 }
@@ -4181,14 +4813,65 @@
         }
 
 
-        renderProducts();
+        renderProducts(
+            false
+        );
+
+
+        /* =====================================================
+           CATEGORY FILTER
+        ===================================================== */
+
+        document
+            .querySelectorAll(
+                ".category-btn"
+            )
+            .forEach(
+                button => {
+
+                    button.addEventListener(
+                        "click",
+                        () => {
+
+                            document
+                                .querySelectorAll(
+                                    ".category-btn"
+                                )
+                                .forEach(
+                                    btn =>
+                                        btn.classList.remove(
+                                            "active"
+                                        )
+                                );
+
+
+                            button.classList.add(
+                                "active"
+                            );
+
+
+                            activeCategory =
+                                button.dataset.category;
+
+
+                            renderProducts(
+                                true
+                            );
+
+                        }
+                    );
+
+                }
+            );
 
 
         /* =====================================================
            OPEN PRODUCT
         ===================================================== */
 
-        function openProduct(productId) {
+        function openProduct(
+            productId
+        ) {
 
             activeProduct =
                 PRODUCTS.find(
@@ -4202,9 +4885,12 @@
                 return;
 
 
-            activeModelIndex = 0;
+            activeModelIndex =
+                0;
 
-            currentQuantity = 1;
+
+            currentQuantity =
+                1;
 
 
             document.getElementById(
@@ -4215,25 +4901,7 @@
                 activeProduct.skin;
 
 
-            const detailImage =
-                document.getElementById(
-                    "detailImage"
-                );
-
-
-            detailImage.src =
-                activeProduct.image;
-
-
-            detailImage.onerror =
-                function() {
-
-                    this.src =
-                        fallbackImage(
-                            activeProduct.name
-                        );
-
-                };
+            renderDetailVisual();
 
 
             document.getElementById(
@@ -4250,6 +4918,7 @@
 
             renderModels();
 
+
             updateSelectedPrice();
 
 
@@ -4257,9 +4926,11 @@
                 "active"
             );
 
+
             overlay.classList.add(
                 "active"
             );
+
 
             document.body.classList.add(
                 "modal-open"
@@ -4269,7 +4940,70 @@
 
 
         /* =====================================================
-           RENDER WEAR OPTIONS
+           DETAIL VISUAL
+        ===================================================== */
+
+        function renderDetailVisual() {
+
+            const box =
+                document.getElementById(
+                    "detailVisual"
+                );
+
+
+            if (
+                activeProduct.image
+            ) {
+
+                box.innerHTML = `
+
+                    <img
+                        id="detailImage"
+                        src="${activeProduct.image}"
+                        alt="${escapeHtml(
+                            activeProduct.name
+                        )}"
+                    >
+
+                `;
+
+
+                const image =
+                    document.getElementById(
+                        "detailImage"
+                    );
+
+
+                image.onerror =
+                    function() {
+
+                        this.src =
+                            fallbackImage(
+                                activeProduct.name
+                            );
+
+                    };
+
+
+            } else {
+
+                box.innerHTML = `
+
+                    <div class="detail-icon-box">
+
+                        ${activeProduct.icon}
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MODELS
         ===================================================== */
 
         function renderModels() {
@@ -4310,18 +5044,15 @@
                     button.innerHTML = `
 
                         <strong>
-
-                            <span
-                                class="wear-dot">
-                            </span>
-
-                            ${model.name}
-
+                            ${escapeHtml(
+                                model.name
+                            )}
                         </strong>
 
                         <span>
-                            Wear:
-                            ${model.subtitle}
+                            ${escapeHtml(
+                                model.subtitle
+                            )}
                         </span>
 
                         <span>
@@ -4333,7 +5064,8 @@
                     `;
 
 
-                    button.onclick =
+                    button.addEventListener(
+                        "click",
                         () => {
 
                             activeModelIndex =
@@ -4343,7 +5075,8 @@
 
                             updateSelectedPrice();
 
-                        };
+                        }
+                    );
 
 
                     container.appendChild(
@@ -4357,7 +5090,7 @@
 
 
         /* =====================================================
-           PRICE
+           SELECTED PRICE
         ===================================================== */
 
         function updateSelectedPrice() {
@@ -4380,7 +5113,9 @@
             document.getElementById(
                 "selectedPrice"
             ).textContent =
-                formatPrice(total);
+                formatPrice(
+                    total
+                );
 
         }
 
@@ -4401,10 +5136,12 @@
 
                     currentQuantity--;
 
+
                     document.getElementById(
                         "qtyNumber"
                     ).textContent =
                         currentQuantity;
+
 
                     updateSelectedPrice();
 
@@ -4426,10 +5163,12 @@
 
                     currentQuantity++;
 
+
                     document.getElementById(
                         "qtyNumber"
                     ).textContent =
                         currentQuantity;
+
 
                     updateSelectedPrice();
 
@@ -4483,31 +5222,44 @@
                     cart.push({
 
                         cartId:
+
                             cartId,
 
                         productId:
+
                             activeProduct.id,
 
                         name:
+
                             activeProduct.name,
 
                         skin:
+
                             activeProduct.skin,
 
-                        wear:
+                        model:
+
                             model.name,
 
-                        wearRange:
+                        subtitle:
+
                             model.subtitle,
 
                         price:
+
                             model.price,
 
                         quantity:
+
                             currentQuantity,
 
                         image:
-                            activeProduct.image
+
+                            activeProduct.image || "",
+
+                        icon:
+
+                            activeProduct.icon || ""
 
                     });
 
@@ -4522,8 +5274,9 @@
 
                 bumpCart();
 
+
                 showToast(
-                    "محصول به سبد اضافه شد ✅"
+                    "محصول به سبد خرید اضافه شد ✅"
                 );
 
             }
@@ -4531,7 +5284,7 @@
 
 
         /* =====================================================
-           CART
+           CART BUTTON
         ===================================================== */
 
         document.getElementById(
@@ -4542,13 +5295,16 @@
 
                 closeModalsOnly();
 
+
                 cartDrawer.classList.add(
                     "active"
                 );
 
+
                 overlay.classList.add(
                     "active"
                 );
+
 
                 document.body.classList.add(
                     "modal-open"
@@ -4557,6 +5313,44 @@
             }
         );
 
+
+        /* =====================================================
+           OPEN PROFILE
+        ===================================================== */
+
+        document.getElementById(
+            "profileButton"
+        ).addEventListener(
+            "click",
+            openProfile
+        );
+
+
+        function openProfile() {
+
+            closeCart();
+
+
+            profileModal.classList.add(
+                "active"
+            );
+
+
+            overlay.classList.add(
+                "active"
+            );
+
+
+            document.body.classList.add(
+                "modal-open"
+            );
+
+        }
+
+
+        /* =====================================================
+           CART UI
+        ===================================================== */
 
         function updateCart() {
 
@@ -4594,6 +5388,7 @@
 
                         <br>
 
+                        از دسته‌بندی‌ها
                         یک محصول انتخاب کن.
 
                     </div>
@@ -4619,20 +5414,45 @@
                             "cart-item";
 
 
+                        let visual = "";
+
+
+                        if (item.image) {
+
+                            visual = `
+
+                                <img
+                                    src="${item.image}"
+                                    alt="${escapeHtml(
+                                        item.name
+                                    )}"
+                                >
+
+                            `;
+
+                        } else {
+
+                            visual = `
+
+                                <span
+                                    class="cart-item-icon">
+
+                                    ${item.icon || "📦"}
+
+                                </span>
+
+                            `;
+
+                        }
+
+
                         row.innerHTML = `
 
                             <div class="cart-item-top">
 
-
                                 <div class="cart-item-image">
 
-                                    <img
-                                        src="${item.image}"
-                                        alt="${item.name}"
-                                        onerror="
-                                            this.src='${fallbackImage(item.name)}'
-                                        "
-                                    >
+                                    ${visual}
 
                                 </div>
 
@@ -4646,13 +5466,17 @@
                                     </strong>
 
                                     <span>
-                                        | ${escapeHtml(
+
+                                        ${escapeHtml(
                                             item.skin
                                         )}
-                                        •
+
+                                        <br>
+
                                         ${escapeHtml(
-                                            item.wear
+                                            item.model
                                         )}
+
                                     </span>
 
                                 </div>
@@ -4667,7 +5491,6 @@
 
                                 </div>
 
-
                             </div>
 
 
@@ -4677,14 +5500,10 @@
                                 <div class="mini-controls">
 
                                     <button
-                                        onclick="
-                                            changeQty(
-                                                '${escapeHtml(
-                                                    item.cartId
-                                                )}',
-                                                -1
-                                            )
-                                        ">
+                                        data-action="minus"
+                                        data-id="${escapeHtml(
+                                            item.cartId
+                                        )}">
 
                                         −
 
@@ -4697,14 +5516,10 @@
 
 
                                     <button
-                                        onclick="
-                                            changeQty(
-                                                '${escapeHtml(
-                                                    item.cartId
-                                                )}',
-                                                1
-                                            )
-                                        ">
+                                        data-action="plus"
+                                        data-id="${escapeHtml(
+                                            item.cartId
+                                        )}">
 
                                         +
 
@@ -4714,19 +5529,18 @@
 
 
                                 <button
-                                    class="mini-controls remove-item"
-                                    onclick="
-                                        removeItem(
-                                            '${escapeHtml(
-                                                item.cartId
-                                            )}'
-                                        )
-                                    ">
+                                    class="
+                                        mini-controls
+                                        remove-item
+                                    "
+                                    data-action="remove"
+                                    data-id="${escapeHtml(
+                                        item.cartId
+                                    )}">
 
                                     حذف
 
                                 </button>
-
 
                             </div>
 
@@ -4739,6 +5553,68 @@
 
                     }
                 );
+
+
+                container
+                    .querySelectorAll(
+                        "[data-action]"
+                    )
+                    .forEach(
+                        button => {
+
+                            button.addEventListener(
+                                "click",
+                                () => {
+
+                                    const id =
+                                        button.dataset.id;
+
+                                    const action =
+                                        button.dataset.action;
+
+
+                                    if (
+                                        action ===
+                                        "minus"
+                                    ) {
+
+                                        changeQty(
+                                            id,
+                                            -1
+                                        );
+
+                                    }
+
+
+                                    if (
+                                        action ===
+                                        "plus"
+                                    ) {
+
+                                        changeQty(
+                                            id,
+                                            1
+                                        );
+
+                                    }
+
+
+                                    if (
+                                        action ===
+                                        "remove"
+                                    ) {
+
+                                        removeItem(
+                                            id
+                                        );
+
+                                    }
+
+                                }
+                            );
+
+                        }
+                    );
 
             }
 
@@ -4854,8 +5730,9 @@
 
             updateCart();
 
+
             showToast(
-                "محصول حذف شد."
+                "محصول از سبد حذف شد."
             );
 
         }
@@ -4863,21 +5740,21 @@
 
         function bumpCart() {
 
-            const cartButton =
+            const button =
                 document.getElementById(
                     "cartButton"
                 );
 
 
-            cartButton.classList.remove(
+            button.classList.remove(
                 "bump"
             );
 
 
-            void cartButton.offsetWidth;
+            void button.offsetWidth;
 
 
-            cartButton.classList.add(
+            button.classList.add(
                 "bump"
             );
 
@@ -4885,44 +5762,17 @@
 
 
         /* =====================================================
-           PROFILE
+           CHECKOUT
         ===================================================== */
 
-        document.getElementById(
-            "profileButton"
-        ).addEventListener(
-            "click",
-            openProfile
-        );
-
-
-        function openProfile() {
-
-            closeCart();
-
-            profileModal.classList.add(
-                "active"
-            );
-
-            overlay.classList.add(
-                "active"
-            );
-
-            document.body.classList.add(
-                "modal-open"
-            );
-
-        }
-
-
-        function saveProfile() {
+        function checkout() {
 
             if (
-                !validateProfile()
+                cart.length === 0
             ) {
 
                 showToast(
-                    "اطلاعات پروفایل اشتباه است ❌",
+                    "سبد خرید خالی است ❌",
                     true
                 );
 
@@ -4931,70 +5781,13 @@
             }
 
 
-            const profile = {
-
-                firstName:
-                    document
-                    .getElementById(
-                        "firstName"
-                    )
-                    .value
-                    .trim(),
-
-                lastName:
-                    document
-                    .getElementById(
-                        "lastName"
-                    )
-                    .value
-                    .trim(),
-
-                phone:
-                    document
-                    .getElementById(
-                        "phone"
-                    )
-                    .value
-                    .trim(),
-
-                telegram:
-                    document
-                    .getElementById(
-                        "telegram"
-                    )
-                    .value
-                    .trim()
-
-            };
-
-
-            localStorage.setItem(
-                "csgoShopProfile",
-                JSON.stringify(
-                    profile
-                )
-            );
-
-
-            showToast(
-                "پروفایل ذخیره شد ✅"
-            );
-
-
-            setTimeout(
-                () => {
-
-                    closeAll();
-
-                },
-                700
-            );
+            openProfile();
 
         }
 
 
         /* =====================================================
-           VALIDATION
+           PROFILE VALIDATION
         ===================================================== */
 
         function setError(
@@ -5007,8 +5800,10 @@
                 "error"
             );
 
+
             error.textContent =
                 message;
+
 
             error.classList.add(
                 "show"
@@ -5037,8 +5832,10 @@
                 "error"
             );
 
+
             error.textContent =
                 "";
+
 
             error.classList.remove(
                 "show"
@@ -5228,29 +6025,17 @@
 
         function validateProfile() {
 
-            const names =
-                validateNames();
-
-
-            const phone =
-                validatePhone();
-
-
-            const telegram =
-                validateTelegram();
-
-
             return (
-                names &&
-                phone &&
-                telegram
+                validateNames() &&
+                validatePhone() &&
+                validateTelegram()
             );
 
         }
 
 
         /* =====================================================
-           LIVE PHONE VALIDATION
+           LIVE PHONE
         ===================================================== */
 
         document.getElementById(
@@ -5267,8 +6052,8 @@
 
 
                 /*
-                 * تا 11 رقم کامل نشده
-                 * هیچ خطایی نمی‌دهیم.
+                 * تا 11 رقم کامل نشده،
+                 * خطا نشان داده نمی‌شود.
                  */
 
                 if (
@@ -5284,6 +6069,7 @@
                     );
 
                     return;
+
                 }
 
 
@@ -5294,7 +6080,7 @@
 
 
         /* =====================================================
-           LIVE TELEGRAM VALIDATION
+           LIVE TELEGRAM
         ===================================================== */
 
         document.getElementById(
@@ -5309,11 +6095,6 @@
                         ""
                     );
 
-
-                /*
-                 * تا ورودی به حد قابل
-                 * بررسی نرسیده خطا نمی‌دهیم.
-                 */
 
                 if (
                     this.value.length <
@@ -5336,6 +6117,183 @@
 
             }
         );
+
+
+        /* =====================================================
+           SAVE PROFILE
+        ===================================================== */
+
+        function saveProfile() {
+
+            if (
+                !validateProfile()
+            ) {
+
+                showToast(
+                    "اطلاعات پروفایل اشتباه است ❌",
+                    true
+                );
+
+                return;
+
+            }
+
+
+            const profile = {
+
+                firstName:
+                    document.getElementById(
+                        "firstName"
+                    )
+                    .value
+                    .trim(),
+
+                lastName:
+                    document.getElementById(
+                        "lastName"
+                    )
+                    .value
+                    .trim(),
+
+                phone:
+                    document.getElementById(
+                        "phone"
+                    )
+                    .value
+                    .trim(),
+
+                telegram:
+                    document.getElementById(
+                        "telegram"
+                    )
+                    .value
+                    .trim()
+
+            };
+
+
+            localStorage.setItem(
+                "csgoShopProfile",
+                JSON.stringify(
+                    profile
+                )
+            );
+
+
+            showToast(
+                "پروفایل با موفقیت ذخیره شد ✅"
+            );
+
+
+            setTimeout(
+                () => {
+
+                    closeAll();
+
+                },
+                700
+            );
+
+        }
+
+
+        /* =====================================================
+           LOAD PROFILE
+        ===================================================== */
+
+        function loadProfile() {
+
+            document.getElementById(
+                "headerAvatar"
+            ).src =
+                DEFAULT_AVATAR;
+
+
+            document.getElementById(
+                "profileAvatar"
+            ).src =
+                DEFAULT_AVATAR;
+
+
+            const data =
+                localStorage.getItem(
+                    "csgoShopProfile"
+                );
+
+
+            if (data) {
+
+                try {
+
+                    const profile =
+                        JSON.parse(
+                            data
+                        );
+
+
+                    document.getElementById(
+                        "firstName"
+                    ).value =
+                        profile.firstName ||
+                        "";
+
+
+                    document.getElementById(
+                        "lastName"
+                    ).value =
+                        profile.lastName ||
+                        "";
+
+
+                    document.getElementById(
+                        "phone"
+                    ).value =
+                        profile.phone ||
+                        "";
+
+
+                    document.getElementById(
+                        "telegram"
+                    ).value =
+                        profile.telegram ||
+                        "";
+
+                } catch {
+
+                    console.log(
+                        "Profile load error"
+                    );
+
+                }
+
+            }
+
+
+            const image =
+                localStorage.getItem(
+                    "csgoShopImage"
+                );
+
+
+            if (image) {
+
+                document.getElementById(
+                    "headerAvatar"
+                ).src =
+                    image;
+
+
+                document.getElementById(
+                    "profileAvatar"
+                ).src =
+                    image;
+
+            }
+
+        }
+
+
+        loadProfile();
 
 
         /* =====================================================
@@ -5363,7 +6321,7 @@
                 ) {
 
                     showToast(
-                        "فایل باید تصویر باشد ❌",
+                        "فایل باید عکس باشد ❌",
                         true
                     );
 
@@ -5417,114 +6375,6 @@
 
 
         /* =====================================================
-           LOAD PROFILE
-        ===================================================== */
-
-        function loadProfile() {
-
-            const header =
-                document.getElementById(
-                    "headerAvatar"
-                );
-
-
-            const modalAvatar =
-                document.getElementById(
-                    "profileAvatar"
-                );
-
-
-            header.src =
-                DEFAULT_AVATAR;
-
-
-            modalAvatar.src =
-                DEFAULT_AVATAR;
-
-
-            const profileData =
-                localStorage.getItem(
-                    "csgoShopProfile"
-                );
-
-
-            if (
-                profileData
-            ) {
-
-                try {
-
-                    const profile =
-                        JSON.parse(
-                            profileData
-                        );
-
-
-                    document.getElementById(
-                        "firstName"
-                    ).value =
-                        profile.firstName ||
-                        "";
-
-
-                    document.getElementById(
-                        "lastName"
-                    ).value =
-                        profile.lastName ||
-                        "";
-
-
-                    document.getElementById(
-                        "phone"
-                    ).value =
-                        profile.phone ||
-                        "";
-
-
-                    document.getElementById(
-                        "telegram"
-                    ).value =
-                        profile.telegram ||
-                        "";
-
-                } catch(e) {
-
-                    console.log(
-                        "Profile error:",
-                        e
-                    );
-
-                }
-
-            }
-
-
-            const savedImage =
-                localStorage.getItem(
-                    "csgoShopImage"
-                );
-
-
-            if (
-                savedImage
-            ) {
-
-                header.src =
-                    savedImage;
-
-
-                modalAvatar.src =
-                    savedImage;
-
-            }
-
-        }
-
-
-        loadProfile();
-
-
-        /* =====================================================
            CART STORAGE
         ===================================================== */
 
@@ -5550,7 +6400,8 @@
 
             if (!saved) {
 
-                cart = [];
+                cart =
+                    [];
 
                 updateCart();
 
@@ -5568,7 +6419,8 @@
 
             } catch {
 
-                cart = [];
+                cart =
+                    [];
 
             }
 
@@ -5582,37 +6434,13 @@
 
 
         /* =====================================================
-           CHECKOUT
-        ===================================================== */
-
-        function checkout() {
-
-            if (
-                cart.length === 0
-            ) {
-
-                showToast(
-                    "سبد خرید خالی است ❌",
-                    true
-                );
-
-                return;
-
-            }
-
-
-            openProfile();
-
-        }
-
-
-        /* =====================================================
            TELEGRAM MESSAGE
         ===================================================== */
 
         function buildTelegramMessage() {
 
-            let profile = {};
+            let profile =
+                {};
 
 
             try {
@@ -5626,7 +6454,8 @@
 
             } catch {
 
-                profile = {};
+                profile =
+                    {};
 
             }
 
@@ -5683,7 +6512,7 @@
                         " | " +
                         item.skin +
                         " | " +
-                        item.wear +
+                        item.model +
                         " | تعداد: " +
                         item.quantity +
                         " | " +
@@ -5708,6 +6537,10 @@
 
         }
 
+
+        /* =====================================================
+           SEND TELEGRAM
+        ===================================================== */
 
         function sendTelegram() {
 
@@ -5746,11 +6579,6 @@
             const text =
                 buildTelegramMessage();
 
-
-            /*
-             * encodeURIComponent باعث می‌شود
-             * فارسی، فاصله و ایموجی خراب نشوند.
-             */
 
             const url =
                 "https://t.me/" +
@@ -5852,7 +6680,7 @@
 
         function showToast(
             message,
-            error = false
+            isError = false
         ) {
 
             const toast =
@@ -5872,7 +6700,7 @@
 
             toast.classList.toggle(
                 "error",
-                error
+                isError
             );
 
 
@@ -5897,7 +6725,7 @@
 
 
         /* =====================================================
-           SAFE HTML
+           ESCAPE HTML
         ===================================================== */
 
         function escapeHtml(
@@ -5905,22 +6733,27 @@
         ) {
 
             return String(value)
+
                 .replaceAll(
                     "&",
                     "&amp;"
                 )
+
                 .replaceAll(
                     "<",
                     "&lt;"
                 )
+
                 .replaceAll(
                     ">",
                     "&gt;"
                 )
+
                 .replaceAll(
                     '"',
                     "&quot;"
                 )
+
                 .replaceAll(
                     "'",
                     "&#039;"
