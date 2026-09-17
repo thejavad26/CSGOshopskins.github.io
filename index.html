@@ -1,1433 +1,292 @@
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CSGO SHOP | CS2 Store</title>
+<title>CSGO SHOP | خرید اسکین CS2، Prime، Agents و Cases</title>
+<meta name="description" content="CSGO SHOP؛ فروشگاه آنلاین CS2 برای اسکین‌های Counter-Strike 2، Prime، Agents و Cases با سبد خرید و ثبت سفارش تلگرامی.">
+<meta name="keywords" content="CSGO SHOP, CS2 Shop, CS2, CSGO, اسکین CS2, خرید اسکین CS2, شاپ CS2, Prime CS2, Agents CS2, Cases CS2">
+<meta name="robots" content="index, follow">
+<meta name="author" content="CSGO SHOP">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CSGO SHOP | خرید اسکین CS2 و محصولات Counter-Strike 2">
+<meta property="og:description" content="فروشگاه آنلاین CSGO SHOP برای اسکین، Prime، Agents و Cases در CS2.">
+<meta property="og:site_name" content="CSGO SHOP">
+<meta name="twitter:card" content="summary">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Vazirmatn",sans-serif;
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Vazirmatn,sans-serif}
+:root{--red:#ff1744;--red2:#ff3d64;--bg:#030305;--bg2:#09090e;--card:rgba(16,16,22,.9);--line:rgba(255,255,255,.08);--muted:#9d9daa;--green:#32df88}
+html{scroll-behavior:smooth}
+body{min-height:100vh;color:#fff;overflow-x:hidden;background:radial-gradient(circle at 10% 8%,rgba(255,23,68,.14),transparent 28%),radial-gradient(circle at 90% 10%,rgba(255,23,68,.08),transparent 30%),linear-gradient(135deg,#020204,#09090e 50%,#020204)}
+body.lock{overflow:hidden}
+button,input{font:inherit}
+button{cursor:pointer}
 
-:root{
-    --red:#ff1744;
-    --red2:#ff3c62;
-    --bg:#030305;
-    --bg2:#08080c;
-    --bg3:#111116;
-    --card:rgba(15,15,21,.88);
-    --white:#fff;
-    --gray:#a0a0ad;
-    --border:rgba(255,255,255,.08);
-    --green:#32df88;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    min-height:100vh;
-    color:var(--white);
-    overflow-x:hidden;
-    background:
-        radial-gradient(circle at 10% 8%,rgba(255,23,68,.15),transparent 27%),
-        radial-gradient(circle at 90% 15%,rgba(255,23,68,.08),transparent 30%),
-        linear-gradient(135deg,#020204,#09090e 50%,#020204);
-}
-
-body.modal-open{
-    overflow:hidden;
-}
-
-button,input{
-    font:inherit;
-}
-
-button{
-    cursor:pointer;
-}
-
-/* =========================
-   BACKGROUND
-========================= */
-
-.bg-grid{
-    position:fixed;
-    inset:0;
-    z-index:-20;
-    pointer-events:none;
-    background-image:
-        linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
-    background-size:45px 45px;
-    mask-image:linear-gradient(to bottom,black 45%,transparent 100%);
-}
-
-.glow{
-    position:fixed;
-    width:300px;
-    height:300px;
-    border-radius:50%;
-    background:rgba(255,23,68,.13);
-    filter:blur(95px);
-    pointer-events:none;
-    z-index:-19;
-    animation:floatGlow 8s ease-in-out infinite;
-}
-
-.glow.one{
-    top:3%;
-    left:2%;
-}
-
-.glow.two{
-    right:3%;
-    bottom:3%;
-    animation-delay:3s;
-}
+.bg-grid{position:fixed;inset:0;z-index:-30;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:45px 45px;mask-image:linear-gradient(to bottom,#000 45%,transparent 100%)}
+.glow{position:fixed;width:300px;height:300px;border-radius:50%;background:rgba(255,23,68,.13);filter:blur(95px);z-index:-29;pointer-events:none;animation:floatGlow 8s ease-in-out infinite}
+.glow.one{top:3%;left:2%}
+.glow.two{right:2%;bottom:3%;animation-delay:3s}
 
 @keyframes floatGlow{
-    0%,100%{transform:translate(0,0);}
-    50%{transform:translate(30px,-25px);}
+0%,100%{transform:translate(0,0)}
+50%{transform:translate(30px,-25px)}
 }
 
-#particles{
-    position:fixed;
-    inset:0;
-    z-index:-18;
-    pointer-events:none;
-    overflow:hidden;
+#particles{position:fixed;inset:0;z-index:-28;pointer-events:none;overflow:hidden}
+.particle{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red);animation:particle linear infinite}
+
+@keyframes particle{
+from{transform:translateY(110vh);opacity:0}
+15%{opacity:.8}
+85%{opacity:.8}
+to{transform:translateY(-20vh);opacity:0}
 }
 
-.particle{
-    position:absolute;
-    width:3px;
-    height:3px;
-    border-radius:50%;
-    background:var(--red);
-    box-shadow:0 0 12px var(--red);
-    animation:particleMove linear infinite;
+header{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:13px 5%;background:rgba(3,3,6,.86);border-bottom:1px solid rgba(255,255,255,.06);backdrop-filter:blur(20px)}
+.head-right,.head-left{display:flex;align-items:center}
+.head-right{gap:28px}
+.head-left{gap:12px}
+.logo{font-size:25px;font-weight:900;letter-spacing:1px;white-space:nowrap}
+.logo span{color:var(--red);text-shadow:0 0 18px rgba(255,23,68,.85)}
+nav{display:flex;gap:25px}
+nav a{position:relative;color:#ddd;text-decoration:none;font-size:14px;transition:.25s}
+nav a:hover{color:#fff}
+nav a:after{content:"";position:absolute;right:0;bottom:-7px;width:0;height:2px;background:var(--red);box-shadow:0 0 12px var(--red);transition:.3s}
+nav a:hover:after{width:100%}
+
+.cart-btn{height:48px;display:flex;align-items:center;gap:9px;padding:0 14px;color:#fff;background:rgba(255,23,68,.07);border:1px solid rgba(255,23,68,.25);border-radius:14px;transition:.3s}
+.cart-btn:hover{transform:translateY(-2px);background:rgba(255,23,68,.14);border-color:rgba(255,23,68,.52);box-shadow:0 0 25px rgba(255,23,68,.12)}
+.cart-count{min-width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:var(--red);font-size:11px;font-weight:900;box-shadow:0 0 15px rgba(255,23,68,.5)}
+.cart-btn.bump{animation:bump .45s ease}
+
+@keyframes bump{
+30%{transform:scale(1.08)}
+60%{transform:scale(.95)}
 }
 
-@keyframes particleMove{
-    from{
-        transform:translateY(110vh);
-        opacity:0;
-    }
-    15%{opacity:.8;}
-    85%{opacity:.8;}
-    to{
-        transform:translateY(-20vh);
-        opacity:0;
-    }
-}
+.profile-btn{width:49px;height:49px;padding:0;overflow:hidden;border-radius:50%;border:2px solid var(--red);background:#0b0b10;box-shadow:0 0 22px rgba(255,23,68,.35);transition:.3s}
+.profile-btn:hover{transform:scale(1.07);box-shadow:0 0 32px rgba(255,23,68,.65)}
+.profile-btn img{width:100%;height:100%;object-fit:cover;display:block}
 
-/* =========================
-   HEADER
-========================= */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:13px 5%;
-    background:rgba(3,3,6,.86);
-    border-bottom:1px solid rgba(255,255,255,.06);
-    backdrop-filter:blur(20px);
-}
-
-.header-right,
-.header-left{
-    display:flex;
-    align-items:center;
-}
-
-.header-right{
-    gap:28px;
-}
-
-.header-left{
-    gap:11px;
-}
-
-.logo{
-    font-size:25px;
-    font-weight:900;
-    letter-spacing:1px;
-    white-space:nowrap;
-}
-
-.logo span{
-    color:var(--red);
-    text-shadow:0 0 18px rgba(255,23,68,.85);
-}
-
-nav{
-    display:flex;
-    gap:25px;
-}
-
-nav a{
-    position:relative;
-    color:#ddd;
-    text-decoration:none;
-    font-size:14px;
-    transition:.25s;
-}
-
-nav a:hover{
-    color:#fff;
-}
-
-nav a::after{
-    content:"";
-    position:absolute;
-    right:0;
-    bottom:-7px;
-    width:0;
-    height:2px;
-    background:var(--red);
-    box-shadow:0 0 12px var(--red);
-    transition:.3s;
-}
-
-nav a:hover::after{
-    width:100%;
-}
-
-/* =========================
-   CART BUTTON
-========================= */
-
-.cart-button{
-    height:48px;
-    display:flex;
-    align-items:center;
-    gap:9px;
-    padding:0 14px;
-    color:#fff;
-    background:rgba(255,23,68,.07);
-    border:1px solid rgba(255,23,68,.24);
-    border-radius:14px;
-    transition:.3s;
-}
-
-.cart-button:hover{
-    transform:translateY(-2px);
-    background:rgba(255,23,68,.14);
-    border-color:rgba(255,23,68,.52);
-    box-shadow:0 0 25px rgba(255,23,68,.12);
-}
-
-.cart-count{
-    min-width:22px;
-    height:22px;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:var(--red);
-    font-size:11px;
-    font-weight:900;
-    box-shadow:0 0 15px rgba(255,23,68,.5);
-}
-
-.cart-button.bump{
-    animation:cartBump .45s ease;
-}
-
-@keyframes cartBump{
-    30%{transform:scale(1.08);}
-    60%{transform:scale(.95);}
-}
-
-/* =========================
-   PROFILE BUTTON
-========================= */
-
-.profile-btn{
-    width:49px;
-    height:49px;
-    padding:0;
-    overflow:hidden;
-    border-radius:50%;
-    border:2px solid var(--red);
-    background:#0b0b0f;
-    box-shadow:0 0 22px rgba(255,23,68,.35);
-    transition:.3s;
-}
-
-.profile-btn:hover{
-    transform:scale(1.07);
-    box-shadow:0 0 32px rgba(255,23,68,.65);
-}
-
-.profile-btn img{
-    width:100%;
-    height:100%;
-    display:block;
-    object-fit:cover;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    min-height:680px;
-    padding:80px 20px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    text-align:center;
-}
-
-.hero-badge{
-    padding:8px 17px;
-    margin-bottom:25px;
-    border-radius:999px;
-    color:#ff9caf;
-    background:rgba(255,23,68,.06);
-    border:1px solid rgba(255,23,68,.34);
-    font-size:13px;
-    animation:fadeUp .8s both;
-}
-
-.hero h1{
-    font-size:clamp(50px,8vw,94px);
-    font-weight:900;
-    line-height:.95;
-    letter-spacing:-4px;
-    animation:fadeUp .9s .1s both;
-}
-
-.hero h1 span{
-    color:var(--red);
-    text-shadow:
-        0 0 18px rgba(255,23,68,.85),
-        0 0 65px rgba(255,23,68,.3);
-}
-
-.hero p{
-    max-width:740px;
-    margin-top:27px;
-    color:var(--gray);
-    font-size:17px;
-    line-height:2;
-    animation:fadeUp .9s .2s both;
-}
-
-.hero-buttons{
-    margin-top:31px;
-    display:flex;
-    gap:13px;
-    flex-wrap:wrap;
-    justify-content:center;
-    animation:fadeUp .9s .3s both;
-}
-
-.btn{
-    padding:14px 23px;
-    border:none;
-    border-radius:13px;
-    font-size:14px;
-    font-weight:800;
-    transition:.3s;
-}
-
-.btn-red{
-    color:#fff;
-    background:var(--red);
-    box-shadow:0 0 25px rgba(255,23,68,.28);
-}
-
-.btn-red:hover{
-    transform:translateY(-3px);
-    box-shadow:0 0 40px rgba(255,23,68,.62);
-}
-
-.btn-dark{
-    color:#fff;
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.btn-dark:hover{
-    transform:translateY(-3px);
-    border-color:rgba(255,23,68,.45);
-}
+.hero{min-height:760px;padding:80px 20px 60px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.hero-tag{padding:8px 17px;margin-bottom:25px;border-radius:999px;color:#ff9caf;background:rgba(255,23,68,.06);border:1px solid rgba(255,23,68,.35);font-size:12px;animation:fadeUp .8s both}
+.hero h1{font-size:clamp(50px,8vw,94px);font-weight:900;line-height:.95;letter-spacing:-4px;animation:fadeUp .9s .1s both}
+.hero h1 span{color:var(--red);text-shadow:0 0 18px rgba(255,23,68,.85),0 0 65px rgba(255,23,68,.3)}
+.hero p{max-width:760px;margin-top:27px;color:var(--muted);font-size:16px;line-height:2;animation:fadeUp .9s .2s both}
+.hero-actions{margin-top:31px;display:flex;gap:13px;flex-wrap:wrap;justify-content:center;animation:fadeUp .9s .3s both}
+.btn{padding:14px 23px;border:0;border-radius:13px;font-size:14px;font-weight:800;transition:.3s}
+.btn-red{color:#fff;background:var(--red);box-shadow:0 0 25px rgba(255,23,68,.3)}
+.btn-red:hover{transform:translateY(-3px);box-shadow:0 0 40px rgba(255,23,68,.62)}
+.btn-dark{color:#fff;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.btn-dark:hover{transform:translateY(-3px);border-color:rgba(255,23,68,.45)}
 
 @keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(28px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-/* =========================
-   SECTION
-========================= */
-
-.section{
-    padding:85px 5%;
-}
-
-.section-head{
-    margin-bottom:27px;
-}
-
-.section-head h2{
-    font-size:34px;
-    font-weight:900;
-}
-
-.section-head h2 span{
-    color:var(--red);
-}
-
-.section-head p{
-    margin-top:7px;
-    color:var(--gray);
-    font-size:13px;
-}
-
-/* =========================
-   CATEGORIES
-========================= */
-
-.categories-wrap{
-    margin-bottom:30px;
-    padding:9px;
-    border-radius:18px;
-    background:rgba(255,255,255,.024);
-    border:1px solid rgba(255,255,255,.07);
-    overflow-x:auto;
-    scrollbar-width:none;
-}
-
-.categories-wrap::-webkit-scrollbar{
-    display:none;
-}
-
-.categories{
-    display:flex;
-    gap:8px;
-    min-width:max-content;
-}
-
-.category-btn{
-    position:relative;
-    min-width:125px;
-    padding:13px 22px;
-    border-radius:13px;
-    border:1px solid rgba(255,255,255,.07);
-    background:rgba(255,255,255,.025);
-    color:#8f8f9a;
-    font-size:12px;
-    font-weight:800;
-    overflow:hidden;
-    transition:.35s ease;
-}
-
-.category-btn::before{
-    content:"";
-    position:absolute;
-    top:0;
-    right:-100%;
-    width:100%;
-    height:100%;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,23,68,.11),
-        transparent
-    );
-    transition:.6s;
-}
-
-.category-btn:hover::before{
-    right:100%;
-}
-
-.category-btn:hover{
-    color:#fff;
-    transform:translateY(-2px);
-    border-color:rgba(255,23,68,.28);
-    background:rgba(255,23,68,.04);
-}
-
-.category-btn.active{
-    color:#fff;
-    background:linear-gradient(
-        135deg,
-        rgba(255,23,68,.15),
-        rgba(255,23,68,.04)
-    );
-    border-color:rgba(255,23,68,.55);
-    box-shadow:
-        0 0 22px rgba(255,23,68,.10),
-        inset 0 0 18px rgba(255,23,68,.04);
-}
-
-.category-btn.active::after{
-    content:"";
-    position:absolute;
-    right:18px;
-    left:18px;
-    bottom:4px;
-    height:2px;
-    border-radius:20px;
-    background:var(--red);
-    box-shadow:0 0 10px var(--red);
-    animation:categoryLine .35s ease;
-}
-
-@keyframes categoryLine{
-    from{
-        transform:scaleX(0);
-        opacity:0;
-    }
-    to{
-        transform:scaleX(1);
-        opacity:1;
-    }
-}
-
-/* =========================
-   PRODUCTS
-========================= */
-
-.products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(235px,1fr));
-    gap:22px;
-}
-
-.products.switching{
-    animation:categorySwitch .35s ease;
-}
-
-@keyframes categorySwitch{
-    0%{
-        opacity:.25;
-        transform:translateY(8px) scale(.985);
-    }
-    100%{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
-}
-
-.product-card{
-    min-height:408px;
-    position:relative;
-    overflow:hidden;
-    border-radius:21px;
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,255,255,.035),
-            rgba(255,255,255,.012)
-        ),
-        var(--card);
-    border:1px solid rgba(255,255,255,.07);
-    backdrop-filter:blur(14px);
-    opacity:0;
-    transform:translateY(20px) scale(.98);
-    transition:
-        transform .38s,
-        opacity .38s,
-        border-color .3s,
-        box-shadow .3s;
-}
-
-.product-card.visible{
-    opacity:1;
-    transform:translateY(0) scale(1);
-}
-
-.product-card:hover{
-    transform:translateY(-8px) scale(1.01);
-    border-color:rgba(255,23,68,.38);
-    box-shadow:
-        0 18px 55px rgba(0,0,0,.42),
-        0 0 22px rgba(255,23,68,.07);
-}
-
-.product-card::after{
-    content:"";
-    position:absolute;
-    left:-70%;
-    top:0;
-    width:50%;
-    height:100%;
-    transform:skewX(-20deg);
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.06),
-        transparent
-    );
-    transition:left .65s;
-    pointer-events:none;
-}
-
-.product-card:hover::after{
-    left:125%;
-}
-
-.product-visual{
-    height:215px;
-    padding:19px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,23,68,.10),
-            transparent 68%
-        );
-    border-bottom:1px solid rgba(255,255,255,.06);
-    overflow:hidden;
-}
-
-.product-visual img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    filter:drop-shadow(0 17px 23px rgba(0,0,0,.72));
-    transition:.45s;
-}
-
-.product-card:hover .product-visual img{
-    transform:scale(1.08) translateY(-4px);
-}
-
-.visual-box{
-    width:110px;
-    height:110px;
-    border-radius:28px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:25px;
-    font-weight:900;
-    letter-spacing:2px;
-    color:#fff;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,23,68,.18),
-            rgba(255,23,68,.03)
-        );
-    border:1px solid rgba(255,23,68,.3);
-    box-shadow:0 0 35px rgba(255,23,68,.12);
-    animation:visualFloat 4s ease-in-out infinite;
-}
-
-@keyframes visualFloat{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-7px);
-    }
-}
-
-.product-content{
-    padding:19px;
-}
-
-.weapon-tag{
-    display:inline-flex;
-    padding:5px 9px;
-    border-radius:8px;
-    color:#ff96a9;
-    background:rgba(255,23,68,.08);
-    border:1px solid rgba(255,23,68,.18);
-    font-size:10px;
-    font-weight:900;
-}
-
-.product-content h3{
-    margin-top:9px;
-    margin-bottom:4px;
-    font-size:20px;
-}
-
-.product-skin{
-    color:#ddd;
-    font-size:12px;
-    margin-bottom:5px;
-}
-
-.product-content p{
-    color:var(--gray);
-    font-size:12px;
-    line-height:1.8;
-    min-height:42px;
-}
-
-.product-bottom{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    margin-top:16px;
-}
-
-.product-price{
-    font-size:12px;
-    font-weight:900;
-}
-
-.product-buy{
-    padding:9px 14px;
-    border-radius:10px;
-    color:#ff99aa;
-    background:rgba(255,23,68,.08);
-    border:1px solid rgba(255,23,68,.24);
-    font-size:12px;
-    font-weight:800;
-    transition:.3s;
-}
-
-.product-buy:hover{
-    color:#fff;
-    background:var(--red);
-    box-shadow:0 0 18px rgba(255,23,68,.3);
-}
-
-/* =========================
-   FEATURES
-========================= */
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.feature{
-    padding:27px;
-    border-radius:19px;
-    background:rgba(255,255,255,.03);
-    border:1px solid rgba(255,255,255,.07);
-    transition:.3s;
-}
-
-.feature:hover{
-    transform:translateY(-6px);
-    border-color:rgba(255,23,68,.3);
-}
-
-.feature-number{
-    font-size:37px;
-    font-weight:900;
-    color:var(--red);
-    text-shadow:0 0 15px rgba(255,23,68,.35);
-}
-
-.feature h3{
-    margin:12px 0 7px;
-}
-
-.feature p{
-    color:var(--gray);
-    font-size:13px;
-    line-height:1.9;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    padding:30px 5%;
-    border-top:1px solid rgba(255,255,255,.07);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    flex-wrap:wrap;
-    color:var(--gray);
-    font-size:12px;
-}
-
-.telegram-link{
-    color:var(--red);
-    font-weight:900;
-    text-decoration:none;
-    transition:.3s;
-}
-
-.telegram-link:hover{
-    color:#fff;
-    text-shadow:0 0 15px rgba(255,23,68,.8);
-}
-
-/* =========================
-   OVERLAY
-========================= */
-
-.overlay{
-    position:fixed;
-    inset:0;
-    z-index:3000;
-    background:rgba(0,0,0,.77);
-    backdrop-filter:blur(10px);
-    opacity:0;
-    visibility:hidden;
-    transition:.3s;
-}
-
-.overlay.active{
-    opacity:1;
-    visibility:visible;
-}
-
-/* =========================
-   MODALS
-========================= */
-
-.product-modal,
-.profile-modal{
-    position:fixed;
-    left:50%;
-    top:50%;
-    z-index:3100;
-    width:min(940px,94%);
-    max-height:91vh;
-    overflow-y:auto;
-    padding:26px;
-    border-radius:25px;
-    background:linear-gradient(180deg,#0e0e14,#07070b);
-    border:1px solid rgba(255,23,68,.28);
-    box-shadow:0 35px 100px rgba(0,0,0,.72);
-    transform:translate(-50%,-46%) scale(.92);
-    opacity:0;
-    visibility:hidden;
-    transition:.32s;
-}
-
-.product-modal.active,
-.profile-modal.active{
-    transform:translate(-50%,-50%) scale(1);
-    opacity:1;
-    visibility:visible;
-}
-
-.profile-modal{
-    width:min(500px,94%);
-}
-
-.modal-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    margin-bottom:20px;
-}
-
-.modal-top h3{
-    font-size:24px;
-}
-
-.close-btn{
-    width:41px;
-    height:41px;
-    flex-shrink:0;
-    border-radius:11px;
-    color:#fff;
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.08);
-    font-size:21px;
-    transition:.25s;
-}
-
-.close-btn:hover{
-    background:rgba(255,23,68,.13);
-    border-color:rgba(255,23,68,.4);
-}
-
-/* =========================
-   PRODUCT MODAL
-========================= */
-
-.product-detail{
-    display:grid;
-    grid-template-columns:minmax(280px,1fr) minmax(280px,1fr);
-    gap:25px;
-}
-
-.detail-image-box{
-    min-height:330px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:19px;
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,23,68,.12),
-            transparent 65%
-        );
-    border:1px solid rgba(255,255,255,.06);
-}
-
-.detail-image-box img{
-    width:100%;
-    height:300px;
-    object-fit:contain;
-    filter:drop-shadow(0 20px 30px rgba(0,0,0,.75));
-}
-
-.detail-icon{
-    width:150px;
-    height:150px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:35px;
-    color:#fff;
-    font-size:32px;
-    font-weight:900;
-    letter-spacing:2px;
-    background:rgba(255,23,68,.08);
-    border:1px solid rgba(255,23,68,.3);
-    box-shadow:0 0 40px rgba(255,23,68,.12);
-    animation:visualFloat 4s ease-in-out infinite;
-}
-
-.detail-label{
-    display:block;
-    margin-bottom:9px;
-    color:#ddd;
-    font-size:12px;
-    font-weight:800;
-}
-
-.models{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-    margin-bottom:18px;
-}
-
-.model-option{
-    position:relative;
-    overflow:hidden;
-    padding:13px;
-    border-radius:13px;
-    text-align:right;
-    color:#ccc;
-    background:rgba(255,255,255,.035);
-    border:1px solid rgba(255,255,255,.07);
-    transition:.25s;
-}
-
-.model-option:hover{
-    transform:translateY(-2px);
-    border-color:rgba(255,23,68,.28);
-}
-
-.model-option.selected{
-    color:#fff;
-    background:rgba(255,23,68,.09);
-    border-color:var(--red);
-    box-shadow:0 0 22px rgba(255,23,68,.09);
-}
-
-.model-option::before{
-    content:"";
-    position:absolute;
-    top:0;
-    right:0;
-    width:3px;
-    height:100%;
-    background:var(--red);
-    box-shadow:0 0 12px var(--red);
-    transform:scaleY(0);
-    transition:.25s;
-}
-
-.model-option.selected::before{
-    transform:scaleY(1);
-}
-
-.model-option strong{
-    display:block;
-    font-size:13px;
-}
-
-.model-option span{
-    display:block;
-    margin-top:4px;
-    color:#92929c;
-    font-size:10px;
-}
-
-.detail-description{
-    margin-bottom:18px;
-    color:var(--gray);
-    font-size:12px;
-    line-height:1.9;
-}
-
-.quantity-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:12px 14px;
-    margin-bottom:18px;
-    border-radius:13px;
-    background:rgba(255,255,255,.03);
-    border:1px solid rgba(255,255,255,.07);
-}
-
-.quantity-controls{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.qty-btn{
-    width:32px;
-    height:32px;
-    border-radius:9px;
-    color:#fff;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
-    font-size:18px;
-}
-
-.qty-number{
-    min-width:30px;
-    text-align:center;
-    font-weight:900;
-}
-
-.selected-price{
-    margin-bottom:18px;
-    font-size:18px;
-    font-weight:900;
-}
-
-.selected-price span{
-    color:var(--red);
-}
-
-.add-cart-btn{
-    width:100%;
-}
-
-/* =========================
-   PROFILE
-========================= */
-
-.avatar-upload{
-    display:flex;
-    justify-content:center;
-    margin-bottom:23px;
-}
-
-.avatar-wrapper{
-    position:relative;
-    width:110px;
-    height:110px;
-    border-radius:50%;
-    overflow:hidden;
-    cursor:pointer;
-    border:3px solid var(--red);
-    box-shadow:0 0 30px rgba(255,23,68,.4);
-}
-
-.avatar-wrapper img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.avatar-wrapper span{
-    position:absolute;
-    inset:0;
-    display:grid;
-    place-items:center;
-    color:#fff;
-    background:rgba(0,0,0,.5);
-    opacity:0;
-    transition:.25s;
-    font-size:12px;
-}
-
-.avatar-wrapper:hover span{
-    opacity:1;
-}
-
-#avatarInput{
-    display:none;
-}
-
-.form-group{
-    margin-bottom:15px;
-}
-
-.form-group label{
-    display:block;
-    margin-bottom:7px;
-    color:#ddd;
-    font-size:12px;
-    font-weight:700;
-}
-
-.form-group input{
-    width:100%;
-    height:50px;
-    padding:0 14px;
-    color:#fff;
-    outline:none;
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:12px;
-    transition:.25s;
-}
-
-.form-group input:focus{
-    border-color:rgba(255,23,68,.63);
-    box-shadow:0 0 18px rgba(255,23,68,.1);
-}
-
-.form-group input.error{
-    border-color:var(--red);
-    background:rgba(255,23,68,.06);
-    animation:shake .4s ease;
-}
-
-.error-message{
-    display:block;
-    min-height:17px;
-    margin-top:5px;
-    color:#ff5f7b;
-    font-size:11px;
-    opacity:0;
-    transform:translateY(-3px);
-    transition:.2s;
-}
-
-.error-message.show{
-    opacity:1;
-    transform:translateY(0);
-}
+from{opacity:0;transform:translateY(28px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+.hero-video{position:relative;width:min(960px,94vw);height:340px;margin-top:44px;overflow:hidden;border-radius:24px;border:1px solid rgba(255,23,68,.35);background:#07070b;box-shadow:0 20px 70px rgba(0,0,0,.45),0 0 35px rgba(255,23,68,.08);opacity:0;transform:translateY(20px);animation:videoIn .95s .45s ease forwards}
+.hero-video video{width:100%;height:100%;display:block;object-fit:cover;filter:brightness(.62) contrast(1.08) saturate(.88);transform:scale(1.02);transition:.7s}
+.hero-video:hover video{transform:scale(1.055);filter:brightness(.7) contrast(1.1) saturate(1)}
+.video-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(2,3,5,.9),rgba(2,3,5,.25),rgba(255,23,68,.07))}
+.video-scan{position:absolute;inset:0;pointer-events:none;background:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px);background-size:100% 4px;opacity:.3}
+.video-copy{position:absolute;right:36px;top:50%;transform:translateY(-50%);text-align:right}
+.video-copy .line{display:block;width:60px;height:3px;background:var(--red);box-shadow:0 0 12px var(--red);margin-bottom:13px;animation:linePulse 2s ease-in-out infinite}
+.video-copy strong{display:block;font-size:33px;font-weight:900}
+.video-copy small{display:block;margin-top:7px;color:#ff6681;font-size:11px;letter-spacing:2px;font-weight:800}
+
+@keyframes videoIn{
+from{opacity:0;transform:translateY(25px) scale(.98)}
+to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+@keyframes linePulse{
+0%,100%{width:60px;opacity:.75}
+50%{width:95px;opacity:1}
+}
+
+.section{padding:85px 5%}
+.section-head{margin-bottom:26px}
+.section-head h2{font-size:34px;font-weight:900}
+.section-head h2 span{color:var(--red)}
+.section-head p{margin-top:7px;color:var(--muted);font-size:13px}
+
+.categories-wrap{margin-bottom:30px;padding:9px;border-radius:18px;background:rgba(255,255,255,.024);border:1px solid rgba(255,255,255,.07);overflow-x:auto;scrollbar-width:none}
+.categories-wrap::-webkit-scrollbar{display:none}
+.categories{display:flex;gap:8px;min-width:max-content}
+.category-btn{position:relative;min-width:125px;padding:13px 22px;border-radius:13px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025);color:#90909b;font-size:12px;font-weight:800;overflow:hidden;transition:.35s}
+.category-btn:hover{color:#fff;transform:translateY(-2px);border-color:rgba(255,23,68,.28);background:rgba(255,23,68,.04)}
+.category-btn.active{color:#fff;background:linear-gradient(135deg,rgba(255,23,68,.15),rgba(255,23,68,.04));border-color:rgba(255,23,68,.55);box-shadow:0 0 22px rgba(255,23,68,.1),inset 0 0 18px rgba(255,23,68,.04)}
+.category-btn.active:after{content:"";position:absolute;right:18px;left:18px;bottom:4px;height:2px;border-radius:20px;background:var(--red);box-shadow:0 0 10px var(--red);animation:lineIn .35s ease}
+
+@keyframes lineIn{
+from{transform:scaleX(0);opacity:0}
+to{transform:scaleX(1);opacity:1}
+}
+
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:22px}
+.products.switching{animation:switch .35s ease}
+
+@keyframes switch{
+0%{opacity:.25;transform:translateY(8px) scale(.985)}
+100%{opacity:1;transform:translateY(0) scale(1)}
+}
+
+.product-card{min-height:405px;position:relative;overflow:hidden;border-radius:21px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.012)),var(--card);border:1px solid rgba(255,255,255,.07);backdrop-filter:blur(14px);opacity:0;transform:translateY(20px) scale(.98);transition:.38s}
+.product-card.visible{opacity:1;transform:translateY(0) scale(1)}
+.product-card:hover{transform:translateY(-8px) scale(1.01);border-color:rgba(255,23,68,.38);box-shadow:0 18px 55px rgba(0,0,0,.42),0 0 22px rgba(255,23,68,.07)}
+.product-card:after{content:"";position:absolute;left:-70%;top:0;width:50%;height:100%;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);transition:left .65s;pointer-events:none}
+.product-card:hover:after{left:125%}
+
+.product-visual{height:215px;padding:18px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(255,23,68,.1),transparent 68%);border-bottom:1px solid rgba(255,255,255,.06)}
+.product-visual img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 17px 23px rgba(0,0,0,.72));transition:.5s}
+.product-card:hover .product-visual img{transform:scale(1.05)}
+.product-content{padding:18px}
+.tag{display:inline-block;padding:5px 9px;border-radius:999px;color:#ff7190;background:rgba(255,23,68,.08);font-size:9px;font-weight:900}
+.product-content h3{margin-top:10px;font-size:19px}
+.skin-name{margin-top:4px;color:#888894;font-size:12px}
+.product-content p{min-height:45px;margin-top:10px;color:#aaaab5;font-size:11px;line-height:1.8}
+.product-bottom{margin-top:17px;display:flex;align-items:center;justify-content:space-between}
+.price{color:#fff;font-size:12px;font-weight:900}
+.buy-btn{padding:10px 16px;border:0;border-radius:10px;color:#fff;background:var(--red);font-size:12px;font-weight:900;transition:.25s}
+.buy-btn:hover{transform:translateY(-2px);box-shadow:0 0 20px rgba(255,23,68,.45)}
+
+.unavailable-card{grid-column:1/-1;min-height:250px;padding:45px 25px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:22px;background:linear-gradient(135deg,rgba(255,255,255,.035),rgba(255,255,255,.01));border:1px solid rgba(255,23,68,.22);box-shadow:inset 0 0 50px rgba(255,23,68,.025),0 20px 55px rgba(0,0,0,.25)}
+.unavailable-mark{min-width:100px;padding:8px 14px;margin-bottom:15px;border-radius:999px;color:#ff718b;background:rgba(255,23,68,.08);border:1px solid rgba(255,23,68,.25);font-size:11px;font-weight:900}
+.unavailable-card h3{font-size:24px}
+.unavailable-card p{max-width:600px;margin-top:10px;color:#8f8f9b;font-size:12px;line-height:2}
+
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature{padding:25px;border-radius:20px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);transition:.3s}
+.feature:hover{transform:translateY(-5px);border-color:rgba(255,23,68,.22)}
+.feature-num{color:var(--red);font-size:28px;font-weight:900}
+.feature h3{margin-top:10px}
+.feature p{margin-top:8px;color:var(--muted);font-size:12px;line-height:1.9}
+
+footer{padding:28px 5%;display:flex;justify-content:space-between;gap:15px;border-top:1px solid rgba(255,255,255,.07);color:#888;font-size:12px}
+.telegram-link{color:#ff5270;text-decoration:none}
+.telegram-link:hover{text-decoration:underline}
+
+.overlay{position:fixed;inset:0;z-index:2500;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);display:none}
+.overlay.active{display:block}
+
+.modal{position:fixed;left:50%;top:50%;width:min(850px,94vw);max-height:90vh;overflow:auto;transform:translate(-50%,-45%);opacity:0;pointer-events:none;z-index:3000;padding:25px;border-radius:23px;background:#09090e;border:1px solid rgba(255,23,68,.3);box-shadow:0 30px 100px rgba(0,0,0,.65);transition:.3s}
+.modal.active{transform:translate(-50%,-50%);opacity:1;pointer-events:auto}
+.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.modal-head h3{font-size:22px}
+.close-btn{width:36px;height:36px;border:0;border-radius:10px;color:#fff;background:rgba(255,255,255,.06);font-size:24px;transition:.25s}
+.close-btn:hover{background:rgba(255,23,68,.15)}
+
+.product-detail{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.detail-visual{min-height:330px;display:flex;align-items:center;justify-content:center;border-radius:18px;background:radial-gradient(circle,rgba(255,23,68,.12),transparent 65%);border:1px solid rgba(255,255,255,.06)}
+.detail-visual img{width:100%;height:300px;object-fit:contain;filter:drop-shadow(0 20px 30px rgba(0,0,0,.75))}
+.detail-text-visual{width:150px;height:150px;display:flex;align-items:center;justify-content:center;border-radius:35px;color:#fff;font-size:34px;font-weight:900;letter-spacing:2px;background:rgba(255,23,68,.08);border:1px solid rgba(255,23,68,.3);box-shadow:0 0 40px rgba(255,23,68,.12);animation:boxFloat 4s ease-in-out infinite}
+
+@keyframes boxFloat{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-8px)}
+}
+
+.detail-label{display:block;margin-bottom:9px;color:#ddd;font-size:12px;font-weight:800}
+.models{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:18px}
+.model{position:relative;overflow:hidden;padding:13px;border-radius:13px;text-align:right;color:#ccc;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);transition:.25s}
+.model:hover{transform:translateY(-2px);border-color:rgba(255,23,68,.28)}
+.model.selected{color:#fff;background:rgba(255,23,68,.09);border-color:var(--red);box-shadow:0 0 22px rgba(255,23,68,.09)}
+.model:before{content:"";position:absolute;right:0;top:0;width:3px;height:100%;background:var(--red);box-shadow:0 0 12px var(--red);transform:scaleY(0);transition:.25s}
+.model.selected:before{transform:scaleY(1)}
+.model strong{display:block;font-size:13px}
+.model span{display:block;margin-top:4px;color:#92929c;font-size:10px}
+
+.detail-desc{color:var(--muted);font-size:12px;line-height:1.9;margin-bottom:18px}
+.quantity{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;margin-bottom:18px;border-radius:13px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)}
+.qty-controls{display:flex;align-items:center;gap:8px}
+.qty{width:32px;height:32px;border-radius:9px;color:#fff;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);font-size:18px}
+.qty-n{min-width:30px;text-align:center;font-weight:900}
+.selected-price{margin-bottom:18px;font-size:18px;font-weight:900}
+.selected-price span{color:var(--red)}
+.full{width:100%}
+
+.avatar-upload{display:flex;justify-content:center;margin-bottom:23px}
+.avatar{position:relative;width:110px;height:110px;border-radius:50%;overflow:hidden;cursor:pointer;border:3px solid var(--red);box-shadow:0 0 30px rgba(255,23,68,.4)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar span{position:absolute;inset:0;display:grid;place-items:center;color:#fff;background:rgba(0,0,0,.5);opacity:0;transition:.25s;font-size:12px}
+.avatar:hover span{opacity:1}
+#avatarInput{display:none}
+.group{margin-bottom:15px}
+.group label{display:block;margin-bottom:7px;color:#ddd;font-size:12px;font-weight:700}
+.group input{width:100%;height:50px;padding:0 14px;color:#fff;outline:none;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;transition:.25s}
+.group input:focus{border-color:rgba(255,23,68,.63);box-shadow:0 0 18px rgba(255,23,68,.1)}
+.group input.error{border-color:var(--red);background:rgba(255,23,68,.06);animation:shake .4s ease}
+.error{display:block;min-height:17px;margin-top:5px;color:#ff5f7b;font-size:11px;opacity:0;transform:translateY(-3px);transition:.2s}
+.error.show{opacity:1;transform:translateY(0)}
 
 @keyframes shake{
-    0%,100%{transform:translateX(0);}
-    20%{transform:translateX(-6px);}
-    40%{transform:translateX(6px);}
-    60%{transform:translateX(-5px);}
-    80%{transform:translateX(5px);}
+0%,100%{transform:translateX(0)}
+20%{transform:translateX(-6px)}
+40%{transform:translateX(6px)}
+60%{transform:translateX(-5px)}
+80%{transform:translateX(5px)}
 }
 
-/* =========================
-   CART DRAWER
-========================= */
+.cart-drawer{position:fixed;top:0;right:0;z-index:3200;width:min(470px,94vw);height:100vh;padding:22px;display:flex;flex-direction:column;background:linear-gradient(180deg,#0c0c11,#050508);border-left:1px solid rgba(255,23,68,.25);box-shadow:-30px 0 80px rgba(0,0,0,.55);transform:translateX(110%);transition:.38s}
+.cart-drawer.active{transform:translateX(0)}
+.cart-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.07)}
+.cart-head h3{font-size:22px}
+.cart-items{flex:1;overflow-y:auto;padding:17px 0}
+.empty{min-height:300px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);line-height:2}
+.cart-item{padding:13px;margin-bottom:10px;border-radius:15px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);animation:cartIn .3s ease}
 
-.cart-drawer{
-    position:fixed;
-    top:0;
-    right:0;
-    z-index:3200;
-    width:min(470px,94vw);
-    height:100vh;
-    padding:22px;
-    display:flex;
-    flex-direction:column;
-    background:linear-gradient(180deg,#0c0c11,#050508);
-    border-left:1px solid rgba(255,23,68,.25);
-    box-shadow:-30px 0 80px rgba(0,0,0,.55);
-    transform:translateX(110%);
-    transition:.38s;
+@keyframes cartIn{
+from{opacity:0;transform:translateX(20px)}
+to{opacity:1;transform:translateX(0)}
 }
 
-.cart-drawer.active{
-    transform:translateX(0);
-}
+.cart-top{display:flex;align-items:center;gap:11px}
+.cart-img{width:82px;height:58px;flex-shrink:0;padding:4px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.25)}
+.cart-img img{width:100%;height:100%;object-fit:contain}
+.cart-text{flex:1}
+.cart-text strong{display:block;font-size:13px}
+.cart-text span{display:block;margin-top:4px;color:#92929b;font-size:10px;line-height:1.7}
+.cart-price{color:var(--red);font-size:11px;font-weight:900;white-space:nowrap}
+.cart-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:11px}
+.mini{display:flex;align-items:center;gap:7px}
+.mini button{width:28px;height:28px;border-radius:8px;color:#fff;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04)}
+.remove{color:#ff7189!important;background:rgba(255,23,68,.07)!important}
+.summary{padding-top:15px;border-top:1px solid rgba(255,255,255,.07)}
+.sum-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;color:#bbb;font-size:13px}
+.sum-total{font-size:18px;font-weight:900;color:#fff}
+.checkout{width:100%;margin-top:12px}
 
-.cart-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding-bottom:16px;
-    border-bottom:1px solid rgba(255,255,255,.07);
-}
-
-.cart-header h3{
-    font-size:22px;
-}
-
-.cart-items{
-    flex:1;
-    overflow-y:auto;
-    padding:17px 0;
-}
-
-.cart-empty{
-    min-height:300px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:var(--gray);
-    line-height:2;
-}
-
-.cart-item{
-    padding:13px;
-    margin-bottom:10px;
-    border-radius:15px;
-    background:rgba(255,255,255,.03);
-    border:1px solid rgba(255,255,255,.07);
-    animation:cartItemIn .3s ease;
-}
-
-@keyframes cartItemIn{
-    from{
-        opacity:0;
-        transform:translateX(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
-}
-
-.cart-item-top{
-    display:flex;
-    align-items:center;
-    gap:11px;
-}
-
-.cart-item-image{
-    width:82px;
-    height:58px;
-    flex-shrink:0;
-    padding:4px;
-    border-radius:10px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:rgba(0,0,0,.25);
-}
-
-.cart-item-image img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-}
-
-.cart-item-icon{
-    color:#fff;
-    font-size:19px;
-    font-weight:900;
-}
-
-.cart-item-info{
-    flex:1;
-}
-
-.cart-item-info strong{
-    display:block;
-    font-size:13px;
-}
-
-.cart-item-info span{
-    display:block;
-    margin-top:4px;
-    color:#92929b;
-    font-size:10px;
-    line-height:1.7;
-}
-
-.cart-item-price{
-    color:var(--red);
-    font-size:11px;
-    font-weight:900;
-    white-space:nowrap;
-}
-
-.cart-item-bottom{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-top:11px;
-}
-
-.mini-controls{
-    display:flex;
-    align-items:center;
-    gap:7px;
-}
-
-.mini-controls button{
-    width:28px;
-    height:28px;
-    border-radius:8px;
-    color:#fff;
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.remove-item{
-    color:#ff7189 !important;
-    background:rgba(255,23,68,.07) !important;
-}
-
-.cart-summary{
-    padding-top:15px;
-    border-top:1px solid rgba(255,255,255,.07);
-}
-
-.summary-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:9px;
-    color:#bbb;
-    font-size:13px;
-}
-
-.summary-total{
-    color:#fff;
-    font-size:18px;
-    font-weight:900;
-}
-
-.checkout-btn,
-.telegram-btn{
-    width:100%;
-}
-
-.checkout-btn{
-    margin-top:12px;
-}
-
-.telegram-btn{
-    margin-top:9px;
-    color:#fff;
-    background:#15151b;
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.telegram-btn:hover{
-    border-color:rgba(255,23,68,.35);
-}
-
-/* =========================
-   TOAST
-========================= */
-
-.toast{
-    position:fixed;
-    left:50%;
-    bottom:22px;
-    z-index:5000;
-    min-width:270px;
-    max-width:92%;
-    padding:13px 18px;
-    border-radius:13px;
-    text-align:center;
-    color:#fff;
-    background:#111116;
-    border:1px solid rgba(255,23,68,.3);
-    box-shadow:0 12px 40px rgba(0,0,0,.4);
-    transform:translate(-50%,100px);
-    opacity:0;
-    transition:.35s;
-}
-
-.toast.show{
-    transform:translate(-50%,0);
-    opacity:1;
-}
-
-.toast.error{
-    border-color:rgba(255,23,68,.7);
-    box-shadow:0 0 28px rgba(255,23,68,.15);
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
+.toast{position:fixed;left:50%;bottom:22px;z-index:5000;min-width:270px;max-width:92%;padding:13px 18px;border-radius:13px;text-align:center;color:#fff;background:#111116;border:1px solid rgba(255,23,68,.3);box-shadow:0 12px 40px rgba(0,0,0,.4);transform:translate(-50%,100px);opacity:0;transition:.35s}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.toast.error{border-color:rgba(255,23,68,.7);box-shadow:0 0 28px rgba(255,23,68,.15)}
 
 @media(max-width:900px){
-
-    nav{
-        display:none;
-    }
-
-    .product-detail{
-        grid-template-columns:1fr;
-    }
-
-    .features{
-        grid-template-columns:1fr;
-    }
+nav{display:none}
+.product-detail{grid-template-columns:1fr}
+.features{grid-template-columns:1fr}
 }
 
-@media(max-width:550px){
-
-    header{
-        padding:12px 4%;
-    }
-
-    .logo{
-        font-size:20px;
-    }
-
-    .cart-text{
-        display:none;
-    }
-
-    .hero{
-        min-height:600px;
-    }
-
-    .hero h1{
-        font-size:48px;
-    }
-
-    .section{
-        padding:65px 4%;
-    }
-
-    .models{
-        grid-template-columns:1fr;
-    }
-
-    .category-btn{
-        min-width:115px;
-    }
-
-    footer{
-        justify-content:center;
-        text-align:center;
-    }
+@media(max-width:600px){
+header{padding:12px 4%}
+.logo{font-size:20px}
+.cart-button span:first-child{display:none}
+.hero{min-height:600px}
+.hero h1{font-size:48px}
+.hero-video{height:230px}
+.video-copy{right:22px}
+.video-copy strong{font-size:24px}
+.video-copy small{font-size:9px}
+.section{padding:65px 4%}
+.models{grid-template-columns:1fr}
+.category-btn{min-width:115px}
+footer{justify-content:center;text-align:center}
 }
+
 </style>
 </head>
 
@@ -1440,3178 +299,2543 @@ footer{
 
 <header>
 
-    <div class="header-right">
+<div class="head-right">
 
-        <div class="logo">
-            CSGO <span>SHOP</span>
-        </div>
+<div class="logo">
+CSGO <span>SHOP</span>
+</div>
 
-        <nav>
-            <a href="#home">خانه</a>
-            <a href="#shop">شاپ</a>
-            <a href="#features">مزایا</a>
-            <a href="#contact">تماس</a>
-        </nav>
+<nav>
 
-    </div>
+<a href="#home">خانه</a>
+<a href="#shop">شاپ</a>
+<a href="#features">مزایا</a>
+<a href="#contact">تماس</a>
 
-    <div class="header-left">
+</nav>
 
-        <button class="cart-button" id="cartButton">
-            <span>سبد خرید</span>
-            <span class="cart-count" id="cartCount">0</span>
-        </button>
+</div>
 
-        <button class="profile-btn" id="profileButton">
-            <img id="headerAvatar" alt="Profile">
-        </button>
+<div class="head-left">
 
-    </div>
+<button class="cart-btn" id="cartButton">
+
+<span>
+سبد خرید
+</span>
+
+<span class="cart-count" id="cartCount">
+0
+</span>
+
+</button>
+
+<button class="profile-btn" id="profileButton">
+
+<img
+id="headerAvatar"
+alt="Profile"
+>
+
+</button>
+
+</div>
 
 </header>
 
-
 <main id="home">
 
-    <section class="hero">
+<section class="hero">
 
-        <div class="hero-badge">
-            CS2 SKINS MARKET
-        </div>
+<div class="hero-tag">
+CS2 SKINS MARKET
+</div>
 
-        <h1>
-            <span>CSGO</span> SHOP
-        </h1>
+<h1>
+<span>CSGO</span> SHOP
+</h1>
 
-        <p>
-            فروشگاه حرفه‌ای Counter-Strike 2 با اسکین،
-            Prime، Agent و Case همراه با سبد خرید و ثبت سفارش.
-        </p>
+<p>
+فروشگاه حرفه‌ای Counter-Strike 2 برای اسکین، Prime، Agent و Case با انتخاب مدل، سبد خرید و ثبت سفارش تلگرامی.
+</p>
 
-        <div class="hero-buttons">
+<div class="hero-actions">
 
-            <button
-                class="btn btn-red"
-                onclick="scrollToShop()">
-                مشاهده محصولات
-            </button>
+<button class="btn btn-red" id="shopButton">
+مشاهده محصولات
+</button>
 
-            <button
-                class="btn btn-dark"
-                onclick="openProfile()">
-                پروفایل من
-            </button>
+<button class="btn btn-dark" id="profileHeroButton">
+پروفایل من
+</button>
 
-        </div>
+</div>
 
-    </section>
+<div class="hero-video">
 
+<video autoplay muted loop playsinline preload="metadata" poster="assets/banner-poster.jpg">
 
-    <section class="section" id="shop">
+<source
+src="assets/banner.mp4"
+type="video/mp4"
+>
 
-        <div class="section-head">
+</video>
 
-            <h2>
-                فروشگاه
-                <span>CS2</span>
-            </h2>
+<div class="video-shade"></div>
+<div class="video-scan"></div>
 
-            <p>
-                دسته‌بندی مورد نظرت را انتخاب کن.
-            </p>
+<div class="video-copy">
 
-        </div>
+<span class="line"></span>
 
+<strong>
+CS2 CINEMATIC SHOT
+</strong>
 
-        <div class="categories-wrap">
+<small>
+TACTICAL • T-SIDE • CSGO SHOP
+</small>
 
-            <div class="categories" id="categories">
+</div>
 
-                <button
-                    class="category-btn active"
-                    data-category="all">
-                    همه
-                </button>
+</div>
 
-                <button
-                    class="category-btn"
-                    data-category="skins">
-                    اسکین‌ها
-                </button>
+</section>
 
-                <button
-                    class="category-btn"
-                    data-category="prime">
-                    Prime
-                </button>
+<section class="section" id="shop">
 
-                <button
-                    class="category-btn"
-                    data-category="agents">
-                    Agents
-                </button>
+<div class="section-head">
 
-                <button
-                    class="category-btn"
-                    data-category="cases">
-                    Cases
-                </button>
+<h2>
+فروشگاه <span>CS2</span>
+</h2>
 
-            </div>
+<p>
+دسته‌بندی مورد نظرت را انتخاب کن.
+</p>
 
-        </div>
+</div>
 
+<div class="categories-wrap">
 
-        <div
-            class="products"
-            id="productsGrid">
-        </div>
+<div class="categories" id="categories">
 
-    </section>
+<button
+class="category-btn active"
+data-category="all"
+>
+همه
+</button>
 
+<button
+class="category-btn"
+data-category="skins"
+>
+اسکین‌ها
+</button>
 
-    <section
-        class="section"
-        id="features">
+<button
+class="category-btn"
+data-category="prime"
+>
+Prime
+</button>
 
-        <div class="section-head">
+<button
+class="category-btn"
+data-category="agents"
+>
+Agents
+</button>
 
-            <h2>
-                امکانات
-                <span>SHOP</span>
-            </h2>
+<button
+class="category-btn"
+data-category="cases"
+>
+Cases
+</button>
 
-            <p>
-                طراحی ساده و حرفه‌ای برای خرید سریع.
-            </p>
+</div>
 
-        </div>
+</div>
 
+<div
+class="products"
+id="productsGrid"
+></div>
 
-        <div class="features">
+</section>
 
-            <div class="feature">
+<section class="section" id="features">
 
-                <div class="feature-number">
-                    01
-                </div>
+<div class="section-head">
 
-                <h3>
-                    دسته‌بندی
-                </h3>
+<h2>
+امکانات <span>SHOP</span>
+</h2>
 
-                <p>
-                    اسکین، Prime، Agent و Case در دسته‌های جداگانه.
-                </p>
+<p>
+طراحی مدرن برای تجربه خرید سریع.
+</p>
 
-            </div>
+</div>
 
+<div class="features">
 
-            <div class="feature">
+<div class="feature">
 
-                <div class="feature-number">
-                    02
-                </div>
+<div class="feature-num">
+01
+</div>
 
-                <h3>
-                    Wear
-                </h3>
+<h3>
+دسته‌بندی
+</h3>
 
-                <p>
-                    انتخاب Factory New، Minimal Wear، Field-Tested،
-                    Well-Worn و Battle-Scarred برای اسکین‌ها.
-                </p>
+<p>
+اسکین، Prime، Agent و Case در دسته‌های جداگانه با جابه‌جایی انیمیشنی.
+</p>
 
-            </div>
+</div>
 
+<div class="feature">
 
-            <div class="feature">
+<div class="feature-num">
+02
+</div>
 
-                <div class="feature-number">
-                    03
-                </div>
+<h3>
+انتخاب Wear
+</h3>
 
-                <h3>
-                    سفارش
-                </h3>
+<p>
+برای اسکین‌ها Factory New، Minimal Wear، Field-Tested، Well-Worn و Battle-Scarred.
+</p>
 
-                <p>
-                    انتخاب محصولات، مدیریت سبد و آماده‌سازی پیام سفارش.
-                </p>
+</div>
 
-            </div>
+<div class="feature">
 
-        </div>
+<div class="feature-num">
+03
+</div>
 
-    </section>
+<h3>
+ثبت سفارش
+</h3>
+
+<p>
+محصولات را به سبد اضافه کن و با یک کلیک سفارش آماده را در تلگرام باز کن.
+</p>
+
+</div>
+
+</div>
+
+</section>
 
 </main>
 
-
 <footer id="contact">
 
-    <div>
-        © 2026 CSGO SHOP
-    </div>
+<div>
+© 2026 CSGO SHOP
+</div>
 
-    <div>
-        پشتیبانی:
-        <a
-            class="telegram-link"
-            href="https://t.me/AghoJavaad"
-            target="_blank"
-            rel="noopener noreferrer">
-            @AghoJavaad
-        </a>
-    </div>
+<div>
+پشتیبانی:
+
+<a
+class="telegram-link"
+href="https://t.me/AghoJavaad"
+target="_blank"
+rel="noopener noreferrer"
+>
+@AghoJavaad
+</a>
+
+</div>
 
 </footer>
 
-
-<div class="overlay" id="overlay"></div>
-
-
-<!-- =========================
-     PRODUCT MODAL
-========================= -->
+<div
+class="overlay"
+id="overlay"
+></div>
 
 <div
-    class="product-modal"
-    id="productModal">
+class="modal"
+id="productModal"
+>
 
-    <div class="modal-top">
+<div class="modal-head">
 
-        <h3 id="detailTitle">
-            انتخاب محصول
-        </h3>
+<h3 id="detailTitle">
+انتخاب محصول
+</h3>
 
-        <button
-            class="close-btn"
-            onclick="closeAll()">
-            ×
-        </button>
-
-    </div>
-
-
-    <div class="product-detail">
-
-        <div
-            class="detail-image-box"
-            id="detailVisual">
-        </div>
-
-
-        <div>
-
-            <label class="detail-label">
-                انتخاب مدل
-            </label>
-
-            <div
-                class="models"
-                id="modelOptions">
-            </div>
-
-
-            <p
-                class="detail-description"
-                id="detailDescription">
-            </p>
-
-
-            <div class="quantity-row">
-
-                <strong>
-                    تعداد
-                </strong>
-
-                <div class="quantity-controls">
-
-                    <button
-                        class="qty-btn"
-                        id="minusQty">
-                        −
-                    </button>
-
-                    <span
-                        class="qty-number"
-                        id="qtyNumber">
-                        1
-                    </span>
-
-                    <button
-                        class="qty-btn"
-                        id="plusQty">
-                        +
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="selected-price">
-
-                قیمت:
-
-                <span id="selectedPrice">
-                    0 تومان
-                </span>
-
-            </div>
-
-
-            <button
-                class="btn btn-red add-cart-btn"
-                id="addCartBtn">
-                افزودن به سبد
-            </button>
-
-        </div>
-
-    </div>
+<button
+class="close-btn"
+onclick="closeAll()"
+>
+×
+</button>
 
 </div>
 
-
-<!-- =========================
-     PROFILE MODAL
-========================= -->
+<div class="product-detail">
 
 <div
-    class="profile-modal"
-    id="profileModal">
+class="detail-visual"
+id="detailVisual"
+></div>
 
-    <div class="modal-top">
+<div>
 
-        <h3>
-            پروفایل من
-        </h3>
+<label class="detail-label">
+انتخاب مدل
+</label>
 
-        <button
-            class="close-btn"
-            onclick="closeAll()">
-            ×
-        </button>
+<div
+class="models"
+id="modelOptions"
+></div>
 
-    </div>
+<p
+class="detail-desc"
+id="detailDescription"
+></p>
 
+<div class="quantity">
 
-    <div class="avatar-upload">
+<strong>
+تعداد
+</strong>
 
-        <label
-            class="avatar-wrapper"
-            for="avatarInput">
+<div class="qty-controls">
 
-            <img
-                id="profileAvatar"
-                alt="Avatar">
+<button
+class="qty"
+id="minusQty"
+>
+−
+</button>
 
-            <span>
-                تغییر عکس
-            </span>
+<span
+class="qty-n"
+id="qtyNumber"
+>
+1
+</span>
 
-        </label>
-
-        <input
-            id="avatarInput"
-            type="file"
-            accept="image/*">
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>
-            نام
-        </label>
-
-        <input
-            id="firstName"
-            type="text"
-            placeholder="نام">
-
-        <span
-            id="firstNameError"
-            class="error-message">
-        </span>
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>
-            نام خانوادگی
-        </label>
-
-        <input
-            id="lastName"
-            type="text"
-            placeholder="نام خانوادگی">
-
-        <span
-            id="lastNameError"
-            class="error-message">
-        </span>
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>
-            شماره موبایل
-        </label>
-
-        <input
-            id="phone"
-            type="tel"
-            inputmode="numeric"
-            maxlength="11"
-            placeholder="09123456789">
-
-        <span
-            id="phoneError"
-            class="error-message">
-        </span>
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label>
-            آیدی تلگرام
-        </label>
-
-        <input
-            id="telegram"
-            type="text"
-            placeholder="@username">
-
-        <span
-            id="telegramError"
-            class="error-message">
-        </span>
-
-    </div>
-
-
-    <button
-        class="btn btn-red"
-        style="width:100%;"
-        onclick="saveProfile()">
-        ذخیره پروفایل
-    </button>
+<button
+class="qty"
+id="plusQty"
+>
++
+</button>
 
 </div>
 
+</div>
 
-<!-- =========================
-     CART
-========================= -->
+<div class="selected-price">
+
+قیمت:
+
+<span id="selectedPrice">
+0 تومان
+</span>
+
+</div>
+
+<button
+class="btn btn-red add-cart full"
+id="addCartButton"
+>
+افزودن به سبد
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div
+class="modal profile-modal"
+id="profileModal"
+>
+
+<div class="modal-head">
+
+<h3>
+پروفایل من
+</h3>
+
+<button
+class="close-btn"
+onclick="closeAll()"
+>
+×
+</button>
+
+</div>
+
+<div class="avatar-upload">
+
+<label
+class="avatar"
+for="avatarInput"
+>
+
+<img
+id="profileAvatar"
+alt="Avatar"
+>
+
+<span>
+تغییر عکس
+</span>
+
+</label>
+
+<input
+id="avatarInput"
+type="file"
+accept="image/*"
+>
+
+</div>
+
+<div class="group">
+
+<label>
+نام
+</label>
+
+<input
+id="firstName"
+type="text"
+placeholder="نام"
+>
+
+<span
+class="error"
+id="firstNameError"
+></span>
+
+</div>
+
+<div class="group">
+
+<label>
+نام خانوادگی
+</label>
+
+<input
+id="lastName"
+type="text"
+placeholder="نام خانوادگی"
+>
+
+<span
+class="error"
+id="lastNameError"
+></span>
+
+</div>
+
+<div class="group">
+
+<label>
+شماره موبایل
+</label>
+
+<input
+id="phone"
+type="tel"
+inputmode="numeric"
+maxlength="11"
+placeholder="09123456789"
+>
+
+<span
+class="error"
+id="phoneError"
+></span>
+
+</div>
+
+<div class="group">
+
+<label>
+آیدی تلگرام
+</label>
+
+<input
+id="telegram"
+type="text"
+placeholder="@username"
+>
+
+<span
+class="error"
+id="telegramError"
+></span>
+
+</div>
+
+<button
+class="btn btn-red full"
+id="saveProfileButton"
+>
+ذخیره پروفایل
+</button>
+
+</div>
 
 <aside
-    class="cart-drawer"
-    id="cartDrawer">
+class="cart-drawer"
+id="cartDrawer"
+>
 
-    <div class="cart-header">
+<div class="cart-head">
 
-        <h3>
-            سبد خرید
-        </h3>
+<h3>
+سبد خرید
+</h3>
 
-        <button
-            class="close-btn"
-            onclick="closeAll()">
-            ×
-        </button>
+<button
+class="close-btn"
+onclick="closeAll()"
+>
+×
+</button>
 
-    </div>
+</div>
 
+<div
+class="cart-items"
+id="cartItems"
+></div>
 
-    <div
-        class="cart-items"
-        id="cartItems">
-    </div>
+<div class="summary">
 
+<div class="sum-row">
 
-    <div class="cart-summary">
+<span>
+تعداد کل
+</span>
 
-        <div class="summary-row">
+<strong id="summaryCount">
+0
+</strong>
 
-            <span>
-                تعداد کل
-            </span>
+</div>
 
-            <strong id="summaryCount">
-                0
-            </strong>
+<div class="sum-row">
 
-        </div>
+<span>
+مبلغ کل
+</span>
 
+<strong
+class="sum-total"
+id="summaryTotal"
+>
+0 تومان
+</strong>
 
-        <div class="summary-row">
+</div>
 
-            <span>
-                مبلغ کل
-            </span>
+<button
+class="btn btn-red checkout"
+id="checkoutButton"
+>
+نهایی کردن سفارش
+</button>
 
-            <strong
-                class="summary-total"
-                id="summaryTotal">
-                0 تومان
-            </strong>
-
-        </div>
-
-
-        <button
-            class="btn btn-red checkout-btn"
-            onclick="checkout()">
-            نهایی کردن سفارش
-        </button>
-
-
-        <button
-            class="btn telegram-btn"
-            onclick="sendTelegram()">
-            ارسال سفارش به تلگرام
-        </button>
-
-    </div>
+</div>
 
 </aside>
 
-
 <div
-    class="toast"
-    id="toast">
-</div>
-
+class="toast"
+id="toast"
+></div>
 
 <script>
 
-/* =========================================
-   SETTINGS
-========================================= */
-
 const TELEGRAM_USERNAME = "AghoJavaad";
 
+const DEFAULT_AVATAR = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
 
-/* =========================================
-   DEFAULT AVATAR
-   ساخته شده با SVG و بدون ایموجی
-========================================= */
+<svg
+xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 500 500"
+>
 
-const DEFAULT_AVATAR =
-    "data:image/svg+xml;charset=UTF-8," +
-    encodeURIComponent(`
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+<defs>
 
-            <defs>
+<radialGradient id="bg">
 
-                <radialGradient id="bg">
-                    <stop offset="0%" stop-color="#37131d"/>
-                    <stop offset="100%" stop-color="#050507"/>
-                </radialGradient>
+<stop
+offset="0%"
+stop-color="#37131d"
+/>
 
-                <linearGradient id="coat"
-                    x1="0" y1="0"
-                    x2="1" y2="1">
+<stop
+offset="100%"
+stop-color="#050507"
+/>
 
-                    <stop
-                        offset="0%"
-                        stop-color="#25272c"/>
+</radialGradient>
 
-                    <stop
-                        offset="100%"
-                        stop-color="#08090b"/>
+<linearGradient
+id="coat"
+x1="0"
+y1="0"
+x2="1"
+y2="1"
+>
 
-                </linearGradient>
+<stop
+offset="0%"
+stop-color="#25272c"
+/>
 
-            </defs>
+<stop
+offset="100%"
+stop-color="#08090b"
+/>
 
+</linearGradient>
 
-            <rect
-                width="500"
-                height="500"
-                fill="url(#bg)"/>
+</defs>
 
+<rect
+width="500"
+height="500"
+fill="url(#bg)"
+/>
 
-            <circle
-                cx="250"
-                cy="250"
-                r="205"
-                fill="none"
-                stroke="#ff1744"
-                stroke-width="5"
-                opacity=".25"/>
+<circle
+cx="250"
+cy="250"
+r="205"
+fill="none"
+stroke="#ff1744"
+stroke-width="5"
+opacity=".25"
+/>
 
+<path
+d="M143 210Q150 85 250 65Q350 85 357 210L320 174Q300 120 250 111Q200 120 180 174Z"
+fill="#090a0d"
+/>
 
-            <path
-                d="
-                    M143 210
-                    Q150 85
-                    250 65
-                    Q350 85
-                    357 210
-                    L320 174
-                    Q300 120
-                    250 111
-                    Q200 120
-                    180 174
-                    Z"
-                fill="#090a0d"/>
+<path
+d="M168 188Q175 112 250 91Q325 112 332 188L305 292Q250 323 195 292Z"
+fill="#1a1c21"
+/>
 
+<path
+d="M188 181Q250 160 312 181L302 262Q250 294 198 262Z"
+fill="#26282e"
+/>
 
-            <path
-                d="
-                    M168 188
-                    Q175 112
-                    250 91
-                    Q325 112
-                    332 188
-                    L305 292
-                    Q250 323
-                    195 292
-                    Z"
-                fill="#1a1c21"/>
+<rect
+x="187"
+y="195"
+width="63"
+height="29"
+rx="8"
+fill="#040507"
+stroke="#5d6068"
+stroke-width="4"
+/>
 
+<rect
+x="250"
+y="195"
+width="63"
+height="29"
+rx="8"
+fill="#040507"
+stroke="#5d6068"
+stroke-width="4"
+/>
 
-            <path
-                d="
-                    M188 181
-                    Q250 160
-                    312 181
-                    L302 262
-                    Q250 294
-                    198 262
-                    Z"
-                fill="#26282e"/>
+<rect
+x="199"
+y="202"
+width="39"
+height="8"
+rx="4"
+fill="#ff1744"
+opacity=".58"
+/>
 
+<rect
+x="262"
+y="202"
+width="39"
+height="8"
+rx="4"
+fill="#ff1744"
+opacity=".58"
+/>
 
-            <rect
-                x="187"
-                y="195"
-                width="63"
-                height="29"
-                rx="8"
-                fill="#040507"
-                stroke="#5d6068"
-                stroke-width="4"/>
+<path
+d="M186 240Q250 226 314 240L301 278Q250 300 199 278Z"
+fill="#090a0c"
+/>
 
+<path
+d="M219 262Q250 251 281 262"
+fill="none"
+stroke="#ff1744"
+stroke-width="4"
+opacity=".72"
+/>
 
-            <rect
-                x="250"
-                y="195"
-                width="63"
-                height="29"
-                rx="8"
-                fill="#040507"
-                stroke="#5d6068"
-                stroke-width="4"/>
+<path
+d="M116 485Q120 347 178 313Q250 290 322 313Q380 347 384 485Z"
+fill="url(#coat)"
+/>
 
+<path
+d="M171 323L250 350L329 323L314 485L186 485Z"
+fill="#15171b"
+/>
 
-            <rect
-                x="199"
-                y="202"
-                width="39"
-                height="8"
-                rx="4"
-                fill="#ff1744"
-                opacity=".58"/>
+<rect
+x="207"
+y="352"
+width="86"
+height="19"
+rx="7"
+fill="#25272c"
+/>
 
+<rect
+x="208"
+y="382"
+width="39"
+height="44"
+rx="6"
+fill="#202227"
+/>
 
-            <rect
-                x="262"
-                y="202"
-                width="39"
-                height="8"
-                rx="4"
-                fill="#ff1744"
-                opacity=".58"/>
+<rect
+x="253"
+y="382"
+width="39"
+height="44"
+rx="6"
+fill="#202227"
+/>
 
+<circle
+cx="250"
+cy="449"
+r="22"
+fill="#ff1744"
+/>
 
-            <path
-                d="
-                    M186 240
-                    Q250 226
-                    314 240
-                    L301 278
-                    Q250 300
-                    199 278
-                    Z"
-                fill="#090a0c"/>
+<text
+x="250"
+y="457"
+text-anchor="middle"
+font-family="Arial"
+font-size="22"
+font-weight="900"
+fill="white"
+>
+T
+</text>
 
+<path
+d="M95 485L405 485"
+stroke="#ff1744"
+stroke-width="4"
+opacity=".8"
+/>
 
-            <path
-                d="
-                    M219 262
-                    Q250 251
-                    281 262"
-                fill="none"
-                stroke="#ff1744"
-                stroke-width="4"
-                opacity=".72"/>
+</svg>
 
-
-            <path
-                d="
-                    M116 485
-                    Q120 347
-                    178 313
-                    Q250 290
-                    322 313
-                    Q380 347
-                    384 485
-                    Z"
-                fill="url(#coat)"/>
-
-
-            <path
-                d="
-                    M171 323
-                    L250 350
-                    L329 323
-                    L314 485
-                    L186 485
-                    Z"
-                fill="#15171b"/>
-
-
-            <rect
-                x="207"
-                y="352"
-                width="86"
-                height="19"
-                rx="7"
-                fill="#25272c"/>
-
-
-            <rect
-                x="208"
-                y="382"
-                width="39"
-                height="44"
-                rx="6"
-                fill="#202227"/>
-
-
-            <rect
-                x="253"
-                y="382"
-                width="39"
-                height="44"
-                rx="6"
-                fill="#202227"/>
-
-
-            <circle
-                cx="250"
-                cy="449"
-                r="22"
-                fill="#ff1744"/>
-
-
-            <text
-                x="250"
-                y="457"
-                text-anchor="middle"
-                font-family="Arial"
-                font-size="22"
-                font-weight="900"
-                fill="white">
-                T
-            </text>
-
-
-            <path
-                d="M95 485 L405 485"
-                stroke="#ff1744"
-                stroke-width="4"
-                opacity=".8"/>
-
-        </svg>
-    `);
-
-
-/* =========================================
-   WEAPON IMAGES
-========================================= */
+`);
 
 const WEAPON_IMAGES = {
 
-    "AK-47":
-        "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_ak47_png.png",
+"AK-47":
+"https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_ak47_png.png",
 
-    "AWP":
-        "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_awp_png.png",
+"AWP":
+"https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_awp_png.png",
 
-    "M4A4":
-        "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_m4a4_png.png",
+"M4A4":
+"https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_m4a4_png.png",
 
-    "M4A1-S":
-        "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_m4a1_s_png.png",
+"M4A1-S":
+"https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_m4a1_s_png.png",
 
-    "Desert Eagle":
-        "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_deagle_png.png",
+"Desert Eagle":
+"https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_deagle_png.png",
 
-    "USP-S":
-        "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_usp_silencer_png.png"
+"USP-S":
+"https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_usp_silencer_png.png"
 
 };
 
-
-/* =========================================
-   PRODUCTS
-========================================= */
-
 const PRODUCTS = [
 
-    {
-        id:1,
-        category:"skins",
-        name:"AK-47",
-        skin:"Redline",
-        tag:"RIFLE",
-        image:WEAPON_IMAGES["AK-47"],
-        description:"AK-47 | Redline با پنج وضعیت مختلف Wear.",
-        models:[
-            {
-                name:"Factory New",
-                subtitle:"0.00 - 0.07",
-                price:1200000
-            },
-            {
-                name:"Minimal Wear",
-                subtitle:"0.07 - 0.15",
-                price:1050000
-            },
-            {
-                name:"Field-Tested",
-                subtitle:"0.15 - 0.37",
-                price:850000
-            },
-            {
-                name:"Well-Worn",
-                subtitle:"0.37 - 0.44",
-                price:700000
-            },
-            {
-                name:"Battle-Scarred",
-                subtitle:"0.44 - 1.00",
-                price:600000
-            }
-        ]
-    },
+{
+id:1,
+category:"skins",
+name:"AK-47",
+skin:"Redline",
+tag:"RIFLE",
+image:WEAPON_IMAGES["AK-47"],
+description:"AK-47 | Redline با پنج وضعیت مختلف Wear.",
+models:[
 
-    {
-        id:2,
-        category:"skins",
-        name:"AWP",
-        skin:"Asiimov",
-        tag:"SNIPER",
-        image:WEAPON_IMAGES["AWP"],
-        description:"AWP | Asiimov برای پلیرهای اسنایپر.",
-        models:[
-            {
-                name:"Factory New",
-                subtitle:"Premium",
-                price:3500000
-            },
-            {
-                name:"Minimal Wear",
-                subtitle:"Premium",
-                price:2800000
-            },
-            {
-                name:"Field-Tested",
-                subtitle:"Popular",
-                price:2200000
-            },
-            {
-                name:"Well-Worn",
-                subtitle:"0.37 - 0.44",
-                price:1900000
-            },
-            {
-                name:"Battle-Scarred",
-                subtitle:"0.44 - 1.00",
-                price:1600000
-            }
-        ]
-    },
+{
+name:"Factory New",
+subtitle:"0.00 - 0.07",
+price:1200000
+},
 
-    {
-        id:3,
-        category:"skins",
-        name:"M4A4",
-        skin:"Asiimov",
-        tag:"RIFLE",
-        image:WEAPON_IMAGES["M4A4"],
-        description:"M4A4 | Asiimov با ظاهر نارنجی و مشکی.",
-        models:[
-            {
-                name:"Factory New",
-                subtitle:"Premium",
-                price:3000000
-            },
-            {
-                name:"Minimal Wear",
-                subtitle:"Premium",
-                price:2500000
-            },
-            {
-                name:"Field-Tested",
-                subtitle:"Popular",
-                price:2000000
-            },
-            {
-                name:"Well-Worn",
-                subtitle:"0.37 - 0.44",
-                price:1600000
-            },
-            {
-                name:"Battle-Scarred",
-                subtitle:"0.44 - 1.00",
-                price:1350000
-            }
-        ]
-    },
+{
+name:"Minimal Wear",
+subtitle:"0.07 - 0.15",
+price:1050000
+},
 
-    {
-        id:4,
-        category:"skins",
-        name:"M4A1-S",
-        skin:"Printstream",
-        tag:"RIFLE",
-        image:WEAPON_IMAGES["M4A1-S"],
-        description:"M4A1-S | Printstream برای ست‌های حرفه‌ای.",
-        models:[
-            {
-                name:"Factory New",
-                subtitle:"0.00 - 0.07",
-                price:2600000
-            },
-            {
-                name:"Minimal Wear",
-                subtitle:"0.07 - 0.15",
-                price:2200000
-            },
-            {
-                name:"Field-Tested",
-                subtitle:"0.15 - 0.37",
-                price:1800000
-            },
-            {
-                name:"Well-Worn",
-                subtitle:"0.37 - 0.44",
-                price:1550000
-            },
-            {
-                name:"Battle-Scarred",
-                subtitle:"0.44 - 1.00",
-                price:1300000
-            }
-        ]
-    },
+{
+name:"Field-Tested",
+subtitle:"0.15 - 0.37",
+price:850000
+},
 
-    {
-        id:5,
-        category:"skins",
-        name:"Desert Eagle",
-        skin:"Printstream",
-        tag:"PISTOL",
-        image:WEAPON_IMAGES["Desert Eagle"],
-        description:"Desert Eagle | Printstream با ظاهر سفید و مشکی.",
-        models:[
-            {
-                name:"Factory New",
-                subtitle:"Premium",
-                price:1900000
-            },
-            {
-                name:"Minimal Wear",
-                subtitle:"Premium",
-                price:1500000
-            },
-            {
-                name:"Field-Tested",
-                subtitle:"Popular",
-                price:1100000
-            },
-            {
-                name:"Well-Worn",
-                subtitle:"Used",
-                price:850000
-            },
-            {
-                name:"Battle-Scarred",
-                subtitle:"Heavy Wear",
-                price:650000
-            }
-        ]
-    },
+{
+name:"Well-Worn",
+subtitle:"0.37 - 0.44",
+price:700000
+},
 
-    {
-        id:6,
-        category:"skins",
-        name:"USP-S",
-        skin:"Kill Confirmed",
-        tag:"PISTOL",
-        image:WEAPON_IMAGES["USP-S"],
-        description:"USP-S | Kill Confirmed برای ست‌های جذاب.",
-        models:[
-            {
-                name:"Factory New",
-                subtitle:"Premium",
-                price:1500000
-            },
-            {
-                name:"Minimal Wear",
-                subtitle:"Premium",
-                price:1200000
-            },
-            {
-                name:"Field-Tested",
-                subtitle:"Popular",
-                price:950000
-            },
-            {
-                name:"Well-Worn",
-                subtitle:"Used",
-                price:750000
-            },
-            {
-                name:"Battle-Scarred",
-                subtitle:"Heavy Wear",
-                price:550000
-            }
-        ]
-    },
+{
+name:"Battle-Scarred",
+subtitle:"0.44 - 1.00",
+price:600000
+}
 
-    {
-        id:20,
-        category:"prime",
-        name:"CS2 Prime",
-        skin:"Prime Status",
-        tag:"PREMIUM",
-        iconText:"PRIME",
-        description:"سرویس Prime برای حساب CS2.",
-        models:[
-            {
-                name:"Prime Status",
-                subtitle:"Standard",
-                price:1500000
-            },
-            {
-                name:"Prime Service",
-                subtitle:"Priority",
-                price:1750000
-            }
-        ]
-    },
+]
+},
 
-    {
-        id:21,
-        category:"prime",
-        name:"Prime Upgrade",
-        skin:"Upgrade",
-        tag:"SERVICE",
-        iconText:"UP",
-        description:"سرویس ارتقای Prime با دو گزینه.",
-        models:[
-            {
-                name:"Standard",
-                subtitle:"Service",
-                price:1100000
-            },
-            {
-                name:"Priority",
-                subtitle:"Fast Service",
-                price:1300000
-            }
-        ]
-    },
+{
+id:2,
+category:"skins",
+name:"AWP",
+skin:"Asiimov",
+tag:"SNIPER",
+image:WEAPON_IMAGES["AWP"],
+description:"AWP | Asiimov برای پلیرهای اسنایپر.",
+models:[
 
-    {
-        id:30,
-        category:"agents",
-        name:"Elite Agent",
-        skin:"T Collection",
-        tag:"AGENT",
-        iconText:"T",
-        description:"Agent با ظاهر تیره برای استایل T.",
-        models:[
-            {
-                name:"Standard",
-                subtitle:"Agent",
-                price:900000
-            },
-            {
-                name:"Premium",
-                subtitle:"Agent",
-                price:1250000
-            }
-        ]
-    },
+{
+name:"Factory New",
+subtitle:"Premium",
+price:3500000
+},
 
-    {
-        id:31,
-        category:"agents",
-        name:"T Specialist",
-        skin:"Special Agent",
-        tag:"AGENT",
-        iconText:"TS",
-        description:"Agent ویژه برای کالکشن.",
-        models:[
-            {
-                name:"Standard",
-                subtitle:"Agent",
-                price:1000000
-            },
-            {
-                name:"Premium",
-                subtitle:"Agent",
-                price:1400000
-            }
-        ]
-    },
+{
+name:"Minimal Wear",
+subtitle:"Premium",
+price:2800000
+},
 
-    {
-        id:32,
-        category:"agents",
-        name:"Elite Crew",
-        skin:"Special Unit",
-        tag:"AGENT",
-        iconText:"EC",
-        description:"Agent خاص با ظاهر متفاوت.",
-        models:[
-            {
-                name:"Standard",
-                subtitle:"Agent",
-                price:850000
-            },
-            {
-                name:"Premium",
-                subtitle:"Agent",
-                price:1150000
-            }
-        ]
-    },
+{
+name:"Field-Tested",
+subtitle:"Popular",
+price:2200000
+},
 
-    {
-        id:40,
-        category:"cases",
-        name:"Kilowatt Case",
-        skin:"Case",
-        tag:"CASE",
-        iconText:"KW",
-        description:"Case برای باز کردن آیتم‌های مختلف.",
-        models:[
-            {
-                name:"1 Case",
-                subtitle:"Single",
-                price:200000
-            },
-            {
-                name:"5 Cases",
-                subtitle:"Pack",
-                price:900000
-            },
-            {
-                name:"10 Cases",
-                subtitle:"Big Pack",
-                price:1650000
-            }
-        ]
-    },
+{
+name:"Well-Worn",
+subtitle:"0.37 - 0.44",
+price:1900000
+},
 
-    {
-        id:41,
-        category:"cases",
-        name:"Dreams & Nightmares",
-        skin:"Case",
-        tag:"CASE",
-        iconText:"DN",
-        description:"Case محبوب برای کالکشن.",
-        models:[
-            {
-                name:"1 Case",
-                subtitle:"Single",
-                price:180000
-            },
-            {
-                name:"5 Cases",
-                subtitle:"Pack",
-                price:800000
-            },
-            {
-                name:"10 Cases",
-                subtitle:"Big Pack",
-                price:1500000
-            }
-        ]
-    },
+{
+name:"Battle-Scarred",
+subtitle:"0.44 - 1.00",
+price:1600000
+}
 
-    {
-        id:42,
-        category:"cases",
-        name:"Revolution Case",
-        skin:"Case",
-        tag:"CASE",
-        iconText:"RV",
-        description:"Case با ظاهر قرمز و مشکی مناسب تم سایت.",
-        models:[
-            {
-                name:"1 Case",
-                subtitle:"Single",
-                price:190000
-            },
-            {
-                name:"5 Cases",
-                subtitle:"Pack",
-                price:850000
-            },
-            {
-                name:"10 Cases",
-                subtitle:"Big Pack",
-                price:1550000
-            }
-        ]
-    }
+]
+},
+
+{
+id:3,
+category:"skins",
+name:"M4A4",
+skin:"Asiimov",
+tag:"RIFLE",
+image:WEAPON_IMAGES["M4A4"],
+description:"M4A4 | Asiimov با استایل نارنجی و مشکی.",
+models:[
+
+{
+name:"Factory New",
+subtitle:"Premium",
+price:3000000
+},
+
+{
+name:"Minimal Wear",
+subtitle:"Premium",
+price:2500000
+},
+
+{
+name:"Field-Tested",
+subtitle:"Popular",
+price:2000000
+},
+
+{
+name:"Well-Worn",
+subtitle:"0.37 - 0.44",
+price:1600000
+},
+
+{
+name:"Battle-Scarred",
+subtitle:"0.44 - 1.00",
+price:1350000
+}
+
+]
+},
+
+{
+id:4,
+category:"skins",
+name:"M4A1-S",
+skin:"Printstream",
+tag:"RIFLE",
+image:WEAPON_IMAGES["M4A1-S"],
+description:"M4A1-S | Printstream برای ست‌های حرفه‌ای.",
+models:[
+
+{
+name:"Factory New",
+subtitle:"0.00 - 0.07",
+price:2600000
+},
+
+{
+name:"Minimal Wear",
+subtitle:"0.07 - 0.15",
+price:2200000
+},
+
+{
+name:"Field-Tested",
+subtitle:"0.15 - 0.37",
+price:1800000
+},
+
+{
+name:"Well-Worn",
+subtitle:"0.37 - 0.44",
+price:1550000
+},
+
+{
+name:"Battle-Scarred",
+subtitle:"0.44 - 1.00",
+price:1300000
+}
+
+]
+},
+
+{
+id:5,
+category:"skins",
+name:"Desert Eagle",
+skin:"Printstream",
+tag:"PISTOL",
+image:WEAPON_IMAGES["Desert Eagle"],
+description:"Desert Eagle | Printstream با ظاهر سفید و مشکی.",
+models:[
+
+{
+name:"Factory New",
+subtitle:"Premium",
+price:1900000
+},
+
+{
+name:"Minimal Wear",
+subtitle:"Premium",
+price:1500000
+},
+
+{
+name:"Field-Tested",
+subtitle:"Popular",
+price:1100000
+},
+
+{
+name:"Well-Worn",
+subtitle:"Used",
+price:850000
+},
+
+{
+name:"Battle-Scarred",
+subtitle:"Heavy Wear",
+price:650000
+}
+
+]
+},
+
+{
+id:6,
+category:"skins",
+name:"USP-S",
+skin:"Kill Confirmed",
+tag:"PISTOL",
+image:WEAPON_IMAGES["USP-S"],
+description:"USP-S | Kill Confirmed برای ست‌های جذاب.",
+models:[
+
+{
+name:"Factory New",
+subtitle:"Premium",
+price:1500000
+},
+
+{
+name:"Minimal Wear",
+subtitle:"Premium",
+price:1200000
+},
+
+{
+name:"Field-Tested",
+subtitle:"Popular",
+price:950000
+},
+
+{
+name:"Well-Worn",
+subtitle:"Used",
+price:750000
+},
+
+{
+name:"Battle-Scarred",
+subtitle:"Heavy Wear",
+price:550000
+}
+
+]
+}
 
 ];
 
+let activeCategory="all";
+let activeProduct=null;
+let activeModelIndex=0;
+let currentQuantity=1;
+let cart=[];
 
-/* =========================================
-   STATE
-========================================= */
+const productsGrid=document.getElementById("productsGrid");
+const productModal=document.getElementById("productModal");
+const profileModal=document.getElementById("profileModal");
+const cartDrawer=document.getElementById("cartDrawer");
+const overlay=document.getElementById("overlay");
 
-let activeCategory = "all";
-let activeProduct = null;
-let activeModelIndex = 0;
-let currentQuantity = 1;
-let cart = [];
-
-
-/* =========================================
-   DOM
-========================================= */
-
-const productsGrid =
-    document.getElementById("productsGrid");
-
-const productModal =
-    document.getElementById("productModal");
-
-const profileModal =
-    document.getElementById("profileModal");
-
-const cartDrawer =
-    document.getElementById("cartDrawer");
-
-const overlay =
-    document.getElementById("overlay");
-
-
-/* =========================================
-   HELPERS
-========================================= */
-
-function formatPrice(value){
-
-    return new Intl.NumberFormat("fa-IR")
-        .format(value) + " تومان";
-
+function formatPrice(v){
+return new Intl.NumberFormat("fa-IR").format(v)+" تومان"
 }
 
-function scrollToShop(){
-
-    document
-        .getElementById("shop")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
-
+function escapeHtml(v){
+return String(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")
 }
 
 function fallbackImage(name){
+return "https://placehold.co/900x500/0d0d13/ff1744?text="+encodeURIComponent(name)
+}
 
-    return (
-        "https://placehold.co/900x500/" +
-        "0d0d13/" +
-        "ff1744" +
-        "?text=" +
-        encodeURIComponent(name)
-    );
+for(let i=0;i<38;i++){
+
+const p=document.createElement("div");
+
+p.className="particle";
+
+p.style.left=Math.random()*100+"%";
+
+p.style.animationDuration=5+Math.random()*8+"s";
+
+p.style.animationDelay=Math.random()*8+"s";
+
+p.style.width=p.style.height=2+Math.random()*3+"px";
+
+document.getElementById("particles").appendChild(p);
 
 }
 
-function escapeHtml(value){
+function productVisual(product){
 
-    return String(value)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
+if(product.image){
+
+return `<img src="${product.image}" alt="${escapeHtml(product.name)}" onerror="this.src='${fallbackImage(product.name)}'">`;
 
 }
 
-
-/* =========================================
-   PARTICLES
-========================================= */
-
-const particleContainer =
-    document.getElementById("particles");
-
-for(let i=0;i<40;i++){
-
-    const p =
-        document.createElement("div");
-
-    p.className = "particle";
-
-    p.style.left =
-        Math.random()*100 + "%";
-
-    p.style.animationDuration =
-        (5 + Math.random()*8) + "s";
-
-    p.style.animationDelay =
-        Math.random()*8 + "s";
-
-    p.style.width =
-        (2 + Math.random()*3) + "px";
-
-    p.style.height =
-        p.style.width;
-
-    particleContainer.appendChild(p);
+return `<div class="visual-box">${escapeHtml(product.iconText)}</div>`;
 
 }
 
+function minPrice(product){
+return Math.min(...product.models.map(x=>x.price))
+}
 
-/* =========================================
-   PRODUCT VISUAL
-========================================= */
+function renderProducts(animated=true){
 
-function getVisual(product){
+productsGrid.classList.remove("switching");
 
-    if(product.image){
+void productsGrid.offsetWidth;
 
-        return `
-            <img
-                src="${product.image}"
-                alt="${escapeHtml(product.name)}"
-                onerror="
-                    this.src='${fallbackImage(product.name)}'
-                ">
-        `;
+if(animated){
+productsGrid.classList.add("switching")
+}
 
-    }
+const items=activeCategory==="all"?PRODUCTS:PRODUCTS.filter(x=>x.category===activeCategory);
 
-    return `
-        <div class="visual-box">
-            ${escapeHtml(product.iconText)}
-        </div>
-    `;
+productsGrid.innerHTML="";
+
+if(items.length===0 && activeCategory!=="all"){
+
+const unavailable=document.createElement("div");
+
+unavailable.className="unavailable-card";
+
+const labels={
+prime:"Prime",
+agents:"Agents",
+cases:"Cases"
+};
+
+const label=labels[activeCategory] || "این بخش";
+
+unavailable.innerHTML=`
+
+<div class="unavailable-mark">
+${escapeHtml(label)}
+</div>
+
+<h3>
+فعلاً موجود نیست
+</h3>
+
+<p>
+این بخش فعلاً محصولی برای فروش ندارد.
+به‌محض موجود شدن، محصولات در همین قسمت اضافه می‌شوند.
+</p>
+
+`;
+
+productsGrid.appendChild(unavailable);
+
+return;
 
 }
 
+items.forEach((product,index)=>{
 
-/* =========================================
-   RENDER PRODUCTS
-========================================= */
+const card=document.createElement("article");
 
-function renderProducts(animate=true){
+card.className="product-card";
 
-    productsGrid.classList.remove("switching");
+card.innerHTML=`
 
-    void productsGrid.offsetWidth;
+<div class="product-visual">
+${productVisual(product)}
+</div>
 
-    if(animate){
-        productsGrid.classList.add("switching");
-    }
+<div class="product-content">
 
-    const list =
-        activeCategory === "all"
-            ? PRODUCTS
-            : PRODUCTS.filter(
-                product =>
-                    product.category ===
-                    activeCategory
-            );
+<span class="tag">
+${escapeHtml(product.tag)}
+</span>
 
+<h3>
+${escapeHtml(product.name)}
+</h3>
 
-    productsGrid.innerHTML = "";
+<div class="skin-name">
+${escapeHtml(product.skin)}
+</div>
 
+<p>
+${escapeHtml(product.description)}
+</p>
 
-    list.forEach((product,index)=>{
+<div class="product-bottom">
 
-        const card =
-            document.createElement("article");
+<div class="price">
+از ${formatPrice(minPrice(product))}
+</div>
 
-        card.className =
-            "product-card";
+<button class="buy-btn">
+خرید
+</button>
 
+</div>
 
-        const minPrice =
-            Math.min(
-                ...product.models.map(
-                    model => model.price
-                )
-            );
+</div>
 
+`;
 
-        card.innerHTML = `
+card
+.querySelector(".buy-btn")
+.addEventListener("click",()=>openProduct(product.id));
 
-            <div class="product-visual">
-                ${getVisual(product)}
-            </div>
+productsGrid.appendChild(card);
 
-            <div class="product-content">
+setTimeout(
+()=>card.classList.add("visible"),
+index*55
+);
 
-                <span class="weapon-tag">
-                    ${escapeHtml(product.tag)}
-                </span>
-
-                <h3>
-                    ${escapeHtml(product.name)}
-                </h3>
-
-                <div class="product-skin">
-                    ${escapeHtml(product.skin)}
-                </div>
-
-                <p>
-                    ${escapeHtml(product.description)}
-                </p>
-
-                <div class="product-bottom">
-
-                    <div class="product-price">
-                        از ${formatPrice(minPrice)}
-                    </div>
-
-                    <button
-                        class="product-buy"
-                        data-id="${product.id}">
-                        خرید
-                    </button>
-
-                </div>
-
-            </div>
-
-        `;
-
-
-        card
-            .querySelector(".product-buy")
-            .addEventListener(
-                "click",
-                ()=>{
-                    openProduct(product.id);
-                }
-            );
-
-
-        productsGrid.appendChild(card);
-
-
-        setTimeout(()=>{
-            card.classList.add("visible");
-        },index*55);
-
-    });
+});
 
 }
-
-
-/* =========================================
-   CATEGORY FILTER
-========================================= */
-
-document
-    .querySelectorAll(".category-btn")
-    .forEach(button=>{
-
-        button.addEventListener("click",()=>{
-
-            document
-                .querySelectorAll(".category-btn")
-                .forEach(btn=>{
-                    btn.classList.remove("active");
-                });
-
-
-            button.classList.add("active");
-
-
-            activeCategory =
-                button.dataset.category;
-
-
-            renderProducts(true);
-
-        });
-
-    });
-
-
-renderProducts(false);
-
-
-/* =========================================
-   PRODUCT MODAL
-========================================= */
 
 function openProduct(productId){
 
-    activeProduct =
-        PRODUCTS.find(
-            product =>
-                product.id === productId
-        );
+activeProduct=PRODUCTS.find(x=>x.id===productId);
 
-    if(!activeProduct) return;
+if(!activeProduct)return;
 
+activeModelIndex=0;
+currentQuantity=1;
 
-    activeModelIndex = 0;
-    currentQuantity = 1;
+document
+.getElementById("detailTitle")
+.textContent=
+activeProduct.name+" | "+activeProduct.skin;
 
+renderDetailVisual();
 
-    document.getElementById(
-        "detailTitle"
-    ).textContent =
-        activeProduct.name +
-        " | " +
-        activeProduct.skin;
+document
+.getElementById("detailDescription")
+.textContent=
+activeProduct.description;
 
+document
+.getElementById("qtyNumber")
+.textContent="1";
 
-    renderDetailVisual();
+renderModels();
 
+updateSelectedPrice();
 
-    document.getElementById(
-        "detailDescription"
-    ).textContent =
-        activeProduct.description;
+productModal.classList.add("active");
 
+overlay.classList.add("active");
 
-    document.getElementById(
-        "qtyNumber"
-    ).textContent =
-        currentQuantity;
-
-
-    renderModels();
-
-    updateSelectedPrice();
-
-
-    productModal.classList.add("active");
-    overlay.classList.add("active");
-
-    document.body.classList.add(
-        "modal-open"
-    );
+document.body.classList.add("lock");
 
 }
-
 
 function renderDetailVisual(){
 
-    const box =
-        document.getElementById(
-            "detailVisual"
-        );
+const box=document.getElementById("detailVisual");
 
+if(activeProduct.image){
 
-    if(activeProduct.image){
+box.innerHTML=
+`<img id="detailImage" src="${activeProduct.image}" alt="${escapeHtml(activeProduct.name)}">`;
 
-        box.innerHTML = `
+document
+.getElementById("detailImage")
+.onerror=
+function(){
+this.src=fallbackImage(activeProduct.name)
+};
 
-            <img
-                id="detailImage"
-                src="${activeProduct.image}"
-                alt="${escapeHtml(activeProduct.name)}">
+}
+else{
 
-        `;
-
-
-        document.getElementById(
-            "detailImage"
-        ).onerror = function(){
-
-            this.src =
-                fallbackImage(
-                    activeProduct.name
-                );
-
-        };
-
-    }else{
-
-        box.innerHTML = `
-
-            <div class="detail-icon">
-                ${escapeHtml(
-                    activeProduct.iconText
-                )}
-            </div>
-
-        `;
-
-    }
+box.innerHTML=
+`<div class="detail-text-visual">${escapeHtml(activeProduct.iconText)}</div>`;
 
 }
 
+}
 
 function renderModels(){
 
-    const container =
-        document.getElementById(
-            "modelOptions"
-        );
+const wrap=
+document.getElementById("modelOptions");
 
+wrap.innerHTML="";
 
-    container.innerHTML = "";
+activeProduct.models.forEach((model,index)=>{
 
+const b=document.createElement("button");
 
-    activeProduct.models.forEach(
-        (model,index)=>{
+b.type="button";
 
-            const button =
-                document.createElement(
-                    "button"
-                );
+b.className=
+"model"+
+(index===activeModelIndex?" selected":"");
 
+b.innerHTML=
+`<strong>${escapeHtml(model.name)}</strong><span>${escapeHtml(model.subtitle)}</span><span>${formatPrice(model.price)}</span>`;
 
-            button.type = "button";
+b.addEventListener(
+"click",
+()=>{
 
-            button.className =
-                "model-option" +
-                (
-                    index === activeModelIndex
-                        ? " selected"
-                        : ""
-                );
+activeModelIndex=index;
 
+renderModels();
 
-            button.innerHTML = `
-
-                <strong>
-                    ${escapeHtml(
-                        model.name
-                    )}
-                </strong>
-
-                <span>
-                    ${escapeHtml(
-                        model.subtitle
-                    )}
-                </span>
-
-                <span>
-                    ${formatPrice(
-                        model.price
-                    )}
-                </span>
-
-            `;
-
-
-            button.addEventListener(
-                "click",
-                ()=>{
-
-                    activeModelIndex =
-                        index;
-
-                    renderModels();
-                    updateSelectedPrice();
-
-                }
-            );
-
-
-            container.appendChild(
-                button
-            );
-
-        }
-    );
+updateSelectedPrice();
 
 }
+);
 
+wrap.appendChild(b);
+
+});
+
+}
 
 function updateSelectedPrice(){
 
-    if(!activeProduct) return;
+if(!activeProduct)return;
 
+const model=
+activeProduct.models[
+activeModelIndex
+];
 
-    const model =
-        activeProduct.models[
-            activeModelIndex
-        ];
-
-
-    const total =
-        model.price *
-        currentQuantity;
-
-
-    document.getElementById(
-        "selectedPrice"
-    ).textContent =
-        formatPrice(total);
+document
+.getElementById("selectedPrice")
+.textContent=
+formatPrice(
+model.price*
+currentQuantity
+);
 
 }
 
+document
+.getElementById("minusQty")
+.addEventListener(
+"click",
+()=>{
 
-/* =========================================
-   QUANTITY
-========================================= */
+if(currentQuantity>1){
 
-document.getElementById(
-    "minusQty"
-).addEventListener("click",()=>{
+currentQuantity--;
 
-    if(currentQuantity > 1){
+document
+.getElementById("qtyNumber")
+.textContent=
+currentQuantity;
 
-        currentQuantity--;
-
-        document.getElementById(
-            "qtyNumber"
-        ).textContent =
-            currentQuantity;
-
-        updateSelectedPrice();
-
-    }
-
-});
-
-
-document.getElementById(
-    "plusQty"
-).addEventListener("click",()=>{
-
-    if(currentQuantity < 99){
-
-        currentQuantity++;
-
-        document.getElementById(
-            "qtyNumber"
-        ).textContent =
-            currentQuantity;
-
-        updateSelectedPrice();
-
-    }
-
-});
-
-
-/* =========================================
-   ADD TO CART
-========================================= */
-
-document.getElementById(
-    "addCartBtn"
-).addEventListener(
-    "click",
-    ()=>{
-
-        if(!activeProduct) return;
-
-
-        const model =
-            activeProduct.models[
-                activeModelIndex
-            ];
-
-
-        const cartId =
-            activeProduct.id +
-            "-" +
-            model.name;
-
-
-        const existing =
-            cart.find(
-                item =>
-                    item.cartId ===
-                    cartId
-            );
-
-
-        if(existing){
-
-            existing.quantity +=
-                currentQuantity;
-
-        }else{
-
-            cart.push({
-
-                cartId:
-                    cartId,
-
-                productId:
-                    activeProduct.id,
-
-                name:
-                    activeProduct.name,
-
-                skin:
-                    activeProduct.skin,
-
-                model:
-                    model.name,
-
-                subtitle:
-                    model.subtitle,
-
-                price:
-                    model.price,
-
-                quantity:
-                    currentQuantity,
-
-                image:
-                    activeProduct.image || "",
-
-                iconText:
-                    activeProduct.iconText || ""
-
-            });
-
-        }
-
-
-        saveCart();
-        updateCart();
-        closeAll();
-        bumpCart();
-
-
-        showToast(
-            "محصول به سبد خرید اضافه شد"
-        );
-
-    }
-);
-
-
-/* =========================================
-   CART
-========================================= */
-
-document.getElementById(
-    "cartButton"
-).addEventListener(
-    "click",
-    openCart
-);
-
-
-function openCart(){
-
-    closeProductAndProfile();
-
-    cartDrawer.classList.add(
-        "active"
-    );
-
-    overlay.classList.add(
-        "active"
-    );
-
-    document.body.classList.add(
-        "modal-open"
-    );
+updateSelectedPrice();
 
 }
 
+}
+);
+
+document
+.getElementById("plusQty")
+.addEventListener(
+"click",
+()=>{
+
+if(currentQuantity<99){
+
+currentQuantity++;
+
+document
+.getElementById("qtyNumber")
+.textContent=
+currentQuantity;
+
+updateSelectedPrice();
+
+}
+
+}
+);
+
+document
+.getElementById("addCartButton")
+.addEventListener(
+"click",
+()=>{
+
+if(!activeProduct)return;
+
+const model=
+activeProduct.models[
+activeModelIndex
+];
+
+const cartId=
+activeProduct.id+
+"-"+
+model.name;
+
+const existing=
+cart.find(
+x=>x.cartId===cartId
+);
+
+if(existing){
+
+existing.quantity+=
+currentQuantity;
+
+}
+else{
+
+cart.push({
+
+cartId,
+
+productId:
+activeProduct.id,
+
+name:
+activeProduct.name,
+
+skin:
+activeProduct.skin,
+
+model:
+model.name,
+
+subtitle:
+model.subtitle,
+
+price:
+model.price,
+
+quantity:
+currentQuantity,
+
+image:
+activeProduct.image||"",
+
+iconText:
+activeProduct.iconText||""
+
+});
+
+}
+
+saveCart();
+
+updateCart();
+
+closeAll();
+
+bumpCart();
+
+showToast(
+"محصول به سبد اضافه شد"
+);
+
+}
+);
 
 function updateCart(){
 
-    const container =
-        document.getElementById(
-            "cartItems"
-        );
+const list=
+document.getElementById(
+"cartItems"
+);
 
+const count=
+getCartCount();
 
-    const count =
-        getCartCount();
+document.getElementById(
+"cartCount"
+).textContent=
+count;
 
+document.getElementById(
+"summaryCount"
+).textContent=
+count;
 
-    document.getElementById(
-        "cartCount"
-    ).textContent =
-        count;
+if(cart.length===0){
 
+list.innerHTML=
+'<div class="empty">سبد خرید خالی است.</div>';
 
-    document.getElementById(
-        "summaryCount"
-    ).textContent =
-        count;
+}
+else{
 
+list.innerHTML="";
 
-    if(cart.length === 0){
+cart.forEach(item=>{
 
-        container.innerHTML = `
+const row=
+document.createElement("div");
 
-            <div class="cart-empty">
+row.className=
+"cart-item";
 
-                سبد خرید خالی است.
+const visual=
+item.image
+?
+`<img src="${item.image}" alt="${escapeHtml(item.name)}">`
+:
+`<div class="visual-box" style="width:55px;height:42px;border-radius:12px;font-size:14px">${escapeHtml(item.iconText)}</div>`;
 
-            </div>
+row.innerHTML=`
 
-        `;
+<div class="cart-top">
 
-    }else{
+<div class="cart-img">
+${visual}
+</div>
 
-        container.innerHTML = "";
+<div class="cart-text">
 
+<strong>
+${escapeHtml(item.name)}
+</strong>
 
-        cart.forEach(item=>{
+<span>
+${escapeHtml(item.skin)}
+<br>
+${escapeHtml(item.model)}
+</span>
 
-            const row =
-                document.createElement(
-                    "div"
-                );
+</div>
 
+<div class="cart-price">
+${formatPrice(item.price*item.quantity)}
+</div>
 
-            row.className =
-                "cart-item";
+</div>
 
+<div class="cart-bottom">
 
-            let visual = "";
+<div class="mini">
 
+<button class="minus">
+−
+</button>
 
-            if(item.image){
+<strong>
+${item.quantity}
+</strong>
 
-                visual = `
+<button class="plus">
++
+</button>
 
-                    <img
-                        src="${item.image}"
-                        alt="${escapeHtml(item.name)}">
+</div>
 
-                `;
+<button class="mini remove">
+حذف
+</button>
 
-            }else{
+</div>
 
-                visual = `
+`;
 
-                    <span class="cart-item-icon">
-                        ${escapeHtml(
-                            item.iconText
-                        )}
-                    </span>
-
-                `;
-
-            }
-
-
-            row.innerHTML = `
-
-                <div class="cart-item-top">
-
-                    <div class="cart-item-image">
-                        ${visual}
-                    </div>
-
-                    <div class="cart-item-info">
-
-                        <strong>
-                            ${escapeHtml(
-                                item.name
-                            )}
-                        </strong>
-
-                        <span>
-                            ${escapeHtml(
-                                item.skin
-                            )}
-                            <br>
-                            ${escapeHtml(
-                                item.model
-                            )}
-                        </span>
-
-                    </div>
-
-                    <div class="cart-item-price">
-                        ${formatPrice(
-                            item.price *
-                            item.quantity
-                        )}
-                    </div>
-
-                </div>
-
-
-                <div class="cart-item-bottom">
-
-                    <div class="mini-controls">
-
-                        <button
-                            class="minus-item"
-                            data-id="${escapeHtml(
-                                item.cartId
-                            )}">
-                            −
-                        </button>
-
-                        <strong>
-                            ${item.quantity}
-                        </strong>
-
-                        <button
-                            class="plus-item"
-                            data-id="${escapeHtml(
-                                item.cartId
-                            )}">
-                            +
-                        </button>
-
-                    </div>
-
-
-                    <button
-                        class="mini-controls remove-item"
-                        data-id="${escapeHtml(
-                            item.cartId
-                        )}">
-                        حذف
-                    </button>
-
-                </div>
-
-            `;
-
-
-            row
-                .querySelector(".minus-item")
-                .addEventListener(
-                    "click",
-                    ()=>{
-                        changeQty(
-                            item.cartId,
-                            -1
-                        );
-                    }
-                );
-
-
-            row
-                .querySelector(".plus-item")
-                .addEventListener(
-                    "click",
-                    ()=>{
-                        changeQty(
-                            item.cartId,
-                            1
-                        );
-                    }
-                );
-
-
-            row
-                .querySelector(".remove-item")
-                .addEventListener(
-                    "click",
-                    ()=>{
-                        removeItem(
-                            item.cartId
-                        );
-                    }
-                );
-
-
-            container.appendChild(row);
-
-        });
-
-    }
-
-
-    document.getElementById(
-        "summaryTotal"
-    ).textContent =
-        formatPrice(
-            getCartTotal()
-        );
+row
+.querySelector(".minus")
+.addEventListener(
+"click",
+()=>changeQty(
+item.cartId,
+-1
+)
+);
+
+row
+.querySelector(".plus")
+.addEventListener(
+"click",
+()=>changeQty(
+item.cartId,
+1
+)
+);
+
+row
+.querySelector(".remove")
+.addEventListener(
+"click",
+()=>removeItem(
+item.cartId
+)
+);
+
+list.appendChild(row);
+
+});
 
 }
 
+document
+.getElementById("summaryTotal")
+.textContent=
+formatPrice(
+getCartTotal()
+);
+
+}
 
 function getCartCount(){
-
-    return cart.reduce(
-        (total,item)=>
-            total + item.quantity,
-        0
-    );
-
+return cart.reduce(
+(s,x)=>s+x.quantity,
+0
+)
 }
-
 
 function getCartTotal(){
-
-    return cart.reduce(
-        (total,item)=>
-            total +
-            item.price *
-            item.quantity,
-        0
-    );
-
+return cart.reduce(
+(s,x)=>s+x.price*x.quantity,
+0
+)
 }
-
 
 function changeQty(
-    cartId,
-    amount
+id,
+amount
 ){
 
-    const item =
-        cart.find(
-            entry =>
-                entry.cartId ===
-                cartId
-        );
+const item=
+cart.find(
+x=>x.cartId===id
+);
 
+if(!item)return;
 
-    if(!item) return;
+item.quantity+=amount;
 
+if(item.quantity<=0){
 
-    item.quantity += amount;
-
-
-    if(item.quantity <= 0){
-
-        cart =
-            cart.filter(
-                entry =>
-                    entry.cartId !==
-                    cartId
-            );
-
-    }
-
-
-    if(item.quantity > 99){
-        item.quantity = 99;
-    }
-
-
-    saveCart();
-    updateCart();
+cart=
+cart.filter(
+x=>x.cartId!==id
+);
 
 }
 
+if(item.quantity>99){
 
-function removeItem(
-    cartId
-){
-
-    cart =
-        cart.filter(
-            item =>
-                item.cartId !==
-                cartId
-        );
-
-
-    saveCart();
-    updateCart();
-
-
-    showToast(
-        "محصول از سبد حذف شد"
-    );
+item.quantity=99;
 
 }
 
+saveCart();
+
+updateCart();
+
+}
+
+function removeItem(id){
+
+cart=
+cart.filter(
+x=>x.cartId!==id
+);
+
+saveCart();
+
+updateCart();
+
+showToast(
+"محصول از سبد حذف شد"
+);
+
+}
 
 function bumpCart(){
 
-    const button =
-        document.getElementById(
-            "cartButton"
-        );
+const b=
+document.getElementById(
+"cartButton"
+);
 
+b.classList.remove("bump");
 
-    button.classList.remove("bump");
+void b.offsetWidth;
 
-    void button.offsetWidth;
-
-    button.classList.add("bump");
+b.classList.add("bump");
 
 }
 
+function openCart(){
 
-/* =========================================
-   PROFILE
-========================================= */
+closeModalsOnly();
 
-document.getElementById(
-    "profileButton"
-).addEventListener(
-    "click",
-    openProfile
+cartDrawer.classList.add(
+"active"
 );
 
+overlay.classList.add(
+"active"
+);
+
+document.body.classList.add(
+"lock"
+);
+
+}
+
+document
+.getElementById("cartButton")
+.addEventListener(
+"click",
+openCart
+);
+
+document
+.querySelectorAll(".category-btn")
+.forEach(
+btn =>
+btn.addEventListener(
+"click",
+()=>{
+
+document
+.querySelectorAll(
+".category-btn"
+)
+.forEach(
+x=>
+x.classList.remove(
+"active"
+)
+);
+
+btn.classList.add("active");
+
+activeCategory=
+btn.dataset.category;
+
+renderProducts(true);
+
+}
+)
+);
 
 function openProfile(){
 
-    closeCart();
+closeCart();
 
-    profileModal.classList.add(
-        "active"
-    );
+profileModal.classList.add(
+"active"
+);
 
-    overlay.classList.add(
-        "active"
-    );
+overlay.classList.add(
+"active"
+);
 
-    document.body.classList.add(
-        "modal-open"
-    );
+document.body.classList.add(
+"lock"
+);
 
 }
 
+document
+.getElementById("profileButton")
+.addEventListener(
+"click",
+openProfile
+);
 
-/* =========================================
-   PROFILE VALIDATION
-========================================= */
+document
+.getElementById("profileHeroButton")
+.addEventListener(
+"click",
+openProfile
+);
 
-function setError(
-    input,
-    error,
-    message
+document
+.getElementById("shopButton")
+.addEventListener(
+"click",
+()=>
+document
+.getElementById("shop")
+.scrollIntoView({
+behavior:"smooth"
+})
+);
+
+function setFieldError(
+input,
+error,
+msg
 ){
 
-    input.classList.add("error");
+input.classList.add("error");
 
-    error.textContent =
-        message;
+error.textContent=
+msg;
 
-    error.classList.add("show");
+error.classList.add("show");
 
-    input.style.animation =
-        "none";
+input.style.animation=
+"none";
 
-    void input.offsetWidth;
+void input.offsetWidth;
 
-    input.style.animation =
-        "shake .4s ease";
+input.style.animation=
+"shake .4s ease";
 
 }
 
-
-function clearError(
-    input,
-    error
+function clearFieldError(
+input,
+error
 ){
 
-    input.classList.remove(
-        "error"
-    );
+input.classList.remove(
+"error"
+);
 
-    error.textContent =
-        "";
+error.textContent="";
 
-    error.classList.remove(
-        "show"
-    );
+error.classList.remove(
+"show"
+);
 
 }
-
 
 function validateNames(){
 
-    let valid = true;
+const f=
+document.getElementById(
+"firstName"
+);
 
+const l=
+document.getElementById(
+"lastName"
+);
 
-    const first =
-        document.getElementById(
-            "firstName"
-        );
+const fe=
+document.getElementById(
+"firstNameError"
+);
 
+const le=
+document.getElementById(
+"lastNameError"
+);
 
-    const last =
-        document.getElementById(
-            "lastName"
-        );
+let ok=true;
 
+if(
+f.value.trim().length<2
+){
 
-    const firstError =
-        document.getElementById(
-            "firstNameError"
-        );
+setFieldError(
+f,
+fe,
+"نام را درست وارد کن"
+);
 
+ok=false;
 
-    const lastError =
-        document.getElementById(
-            "lastNameError"
-        );
+}
+else{
 
-
-    if(
-        first.value.trim().length < 2
-    ){
-
-        setError(
-            first,
-            firstError,
-            "نام را درست وارد کن."
-        );
-
-        valid = false;
-
-    }else{
-
-        clearError(
-            first,
-            firstError
-        );
-
-    }
-
-
-    if(
-        last.value.trim().length < 2
-    ){
-
-        setError(
-            last,
-            lastError,
-            "نام خانوادگی را درست وارد کن."
-        );
-
-        valid = false;
-
-    }else{
-
-        clearError(
-            last,
-            lastError
-        );
-
-    }
-
-
-    return valid;
+clearFieldError(
+f,
+fe
+);
 
 }
 
+if(
+l.value.trim().length<2
+){
+
+setFieldError(
+l,
+le,
+"نام خانوادگی را درست وارد کن"
+);
+
+ok=false;
+
+}
+else{
+
+clearFieldError(
+l,
+le
+);
+
+}
+
+return ok;
+
+}
 
 function validatePhone(){
 
-    const input =
-        document.getElementById(
-            "phone"
-        );
+const i=
+document.getElementById(
+"phone"
+);
 
+const e=
+document.getElementById(
+"phoneError"
+);
 
-    const error =
-        document.getElementById(
-            "phoneError"
-        );
+if(
+!/^09\d{9}$/.test(
+i.value.trim()
+)
+){
 
+setFieldError(
+i,
+e,
+"شماره باید ۱۱ رقم باشد؛ مثل 09123456789"
+);
 
-    const value =
-        input.value.trim();
-
-
-    const regex =
-        /^09\d{9}$/;
-
-
-    if(
-        !regex.test(value)
-    ){
-
-        setError(
-            input,
-            error,
-            "شماره باید ۱۱ رقم باشد؛ مثل 09123456789"
-        );
-
-        return false;
-
-    }
-
-
-    clearError(
-        input,
-        error
-    );
-
-
-    return true;
+return false;
 
 }
 
+clearFieldError(
+i,
+e
+);
+
+return true;
+
+}
 
 function validateTelegram(){
 
-    const input =
-        document.getElementById(
-            "telegram"
-        );
+const i=
+document.getElementById(
+"telegram"
+);
 
+const e=
+document.getElementById(
+"telegramError"
+);
 
-    const error =
-        document.getElementById(
-            "telegramError"
-        );
+if(
+!/^@[A-Za-z0-9_]{5,32}$/.test(
+i.value.trim()
+)
+){
 
+setFieldError(
+i,
+e,
+"آیدی را مثل @username وارد کن"
+);
 
-    const value =
-        input.value.trim();
-
-
-    const regex =
-        /^@[A-Za-z0-9_]{5,32}$/;
-
-
-    if(
-        !regex.test(value)
-    ){
-
-        setError(
-            input,
-            error,
-            "آیدی را مثل @username وارد کن."
-        );
-
-        return false;
-
-    }
-
-
-    clearError(
-        input,
-        error
-    );
-
-
-    return true;
+return false;
 
 }
 
+clearFieldError(
+i,
+e
+);
+
+return true;
+
+}
 
 function validateProfile(){
 
-    const names =
-        validateNames();
-
-    const phone =
-        validatePhone();
-
-    const telegram =
-        validateTelegram();
-
-
-    return (
-        names &&
-        phone &&
-        telegram
-    );
+return (
+validateNames() &&
+validatePhone() &&
+validateTelegram()
+);
 
 }
 
+document
+.getElementById("phone")
+.addEventListener(
+"input",
+function(){
 
-/* =========================================
-   PHONE INPUT
-   تا 11 رقم هیچ خطایی نشان داده نمی‌شود.
-========================================= */
-
-document.getElementById(
-    "phone"
-).addEventListener(
-    "input",
-    function(){
-
-        this.value =
-            this.value.replace(
-                /\D/g,
-                ""
-            );
-
-
-        if(
-            this.value.length < 11
-        ){
-
-            clearError(
-                this,
-                document.getElementById(
-                    "phoneError"
-                )
-            );
-
-            return;
-
-        }
-
-
-        validatePhone();
-
-    }
+this.value=
+this.value.replace(
+/\D/g,
+""
 );
 
+if(
+this.value.length<11
+){
 
-/* =========================================
-   TELEGRAM INPUT
-   موقع تایپ خطا نمی‌دهد.
-   هنگام ذخیره یا خروج از فیلد بررسی می‌شود.
-========================================= */
-
+clearFieldError(
+this,
 document.getElementById(
-    "telegram"
-).addEventListener(
-    "input",
-    function(){
-
-        this.value =
-            this.value.replace(
-                /\s/g,
-                ""
-            );
-
-
-        clearError(
-            this,
-            document.getElementById(
-                "telegramError"
-            )
-        );
-
-    }
+"phoneError"
+)
 );
 
-
-document.getElementById(
-    "telegram"
-).addEventListener(
-    "blur",
-    function(){
-
-        if(
-            this.value.trim() !== ""
-        ){
-
-            validateTelegram();
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   SAVE PROFILE
-========================================= */
-
-function saveProfile(){
-
-    if(
-        !validateProfile()
-    ){
-
-        showToast(
-            "اطلاعات پروفایل اشتباه است",
-            true
-        );
-
-        return;
-
-    }
-
-
-    const profile = {
-
-        firstName:
-            document
-            .getElementById(
-                "firstName"
-            )
-            .value
-            .trim(),
-
-        lastName:
-            document
-            .getElementById(
-                "lastName"
-            )
-            .value
-            .trim(),
-
-        phone:
-            document
-            .getElementById(
-                "phone"
-            )
-            .value
-            .trim(),
-
-        telegram:
-            document
-            .getElementById(
-                "telegram"
-            )
-            .value
-            .trim()
-
-    };
-
-
-    localStorage.setItem(
-        "csgoShopProfile",
-        JSON.stringify(profile)
-    );
-
-
-    showToast(
-        "پروفایل ذخیره شد"
-    );
-
-
-    setTimeout(
-        closeAll,
-        700
-    );
+return;
 
 }
 
+validatePhone();
 
-/* =========================================
-   AVATAR UPLOAD
-========================================= */
-
-document.getElementById(
-    "avatarInput"
-).addEventListener(
-    "change",
-    function(){
-
-        const file =
-            this.files[0];
-
-
-        if(!file) return;
-
-
-        if(
-            !file.type.startsWith(
-                "image/"
-            )
-        ){
-
-            showToast(
-                "فایل باید تصویر باشد",
-                true
-            );
-
-            return;
-
-        }
-
-
-        const reader =
-            new FileReader();
-
-
-        reader.onload =
-            event => {
-
-                const image =
-                    event.target.result;
-
-
-                document.getElementById(
-                    "headerAvatar"
-                ).src =
-                    image;
-
-
-                document.getElementById(
-                    "profileAvatar"
-                ).src =
-                    image;
-
-
-                localStorage.setItem(
-                    "csgoShopImage",
-                    image
-                );
-
-
-                showToast(
-                    "عکس پروفایل تغییر کرد"
-                );
-
-            };
-
-
-        reader.readAsDataURL(
-            file
-        );
-
-    }
+}
 );
 
+document
+.getElementById("telegram")
+.addEventListener(
+"input",
+function(){
 
-/* =========================================
-   LOAD PROFILE
-========================================= */
+this.value=
+this.value.replace(
+/\s/g,
+""
+);
+
+clearFieldError(
+this,
+document.getElementById(
+"telegramError"
+)
+);
+
+}
+);
+
+document
+.getElementById("telegram")
+.addEventListener(
+"blur",
+function(){
+
+if(
+this.value.trim()
+){
+
+validateTelegram();
+
+}
+
+}
+);
+
+document
+.getElementById("saveProfileButton")
+.addEventListener(
+"click",
+()=>{
+
+if(
+!validateProfile()
+){
+
+showToast(
+"اطلاعات پروفایل اشتباه است",
+true
+);
+
+return;
+
+}
+
+const profile={
+
+firstName:
+document
+.getElementById(
+"firstName"
+)
+.value.trim(),
+
+lastName:
+document
+.getElementById(
+"lastName"
+)
+.value.trim(),
+
+phone:
+document
+.getElementById(
+"phone"
+)
+.value.trim(),
+
+telegram:
+document
+.getElementById(
+"telegram"
+)
+.value.trim()
+
+};
+
+localStorage.setItem(
+"csgoShopProfile",
+JSON.stringify(
+profile
+)
+);
+
+showToast(
+"پروفایل ذخیره شد"
+);
+
+setTimeout(
+closeAll,
+650
+);
+
+}
+);
+
+document
+.getElementById("avatarInput")
+.addEventListener(
+"change",
+function(){
+
+const file=
+this.files[0];
+
+if(!file)return;
+
+if(
+!file.type.startsWith(
+"image/"
+)
+){
+
+showToast(
+"فایل باید تصویر باشد",
+true
+);
+
+return;
+
+}
+
+const reader=
+new FileReader();
+
+reader.onload=
+e=>{
+
+document
+.getElementById(
+"headerAvatar"
+)
+.src=
+e.target.result;
+
+document
+.getElementById(
+"profileAvatar"
+)
+.src=
+e.target.result;
+
+localStorage.setItem(
+"csgoShopImage",
+e.target.result
+);
+
+showToast(
+"عکس پروفایل تغییر کرد"
+);
+
+};
+
+reader.readAsDataURL(
+file
+);
+
+}
+);
 
 function loadProfile(){
 
-    document.getElementById(
-        "headerAvatar"
-    ).src =
-        DEFAULT_AVATAR;
+document
+.getElementById(
+"headerAvatar"
+)
+.src=
+DEFAULT_AVATAR;
 
+document
+.getElementById(
+"profileAvatar"
+)
+.src=
+DEFAULT_AVATAR;
 
-    document.getElementById(
-        "profileAvatar"
-    ).src =
-        DEFAULT_AVATAR;
+const p=
+localStorage.getItem(
+"csgoShopProfile"
+);
 
+if(p){
 
-    const profileData =
-        localStorage.getItem(
-            "csgoShopProfile"
-        );
+try{
 
+const x=
+JSON.parse(p);
 
-    if(profileData){
+document
+.getElementById(
+"firstName"
+)
+.value=
+x.firstName||"";
 
-        try{
+document
+.getElementById(
+"lastName"
+)
+.value=
+x.lastName||"";
 
-            const profile =
-                JSON.parse(
-                    profileData
-                );
+document
+.getElementById(
+"phone"
+)
+.value=
+x.phone||"";
 
+document
+.getElementById(
+"telegram"
+)
+.value=
+x.telegram||"";
 
-            document.getElementById(
-                "firstName"
-            ).value =
-                profile.firstName || "";
-
-
-            document.getElementById(
-                "lastName"
-            ).value =
-                profile.lastName || "";
-
-
-            document.getElementById(
-                "phone"
-            ).value =
-                profile.phone || "";
-
-
-            document.getElementById(
-                "telegram"
-            ).value =
-                profile.telegram || "";
-
-        }catch(error){
-
-            console.log(
-                "Profile load error:",
-                error
-            );
-
-        }
-
-    }
-
-
-    const savedImage =
-        localStorage.getItem(
-            "csgoShopImage"
-        );
-
-
-    if(savedImage){
-
-        document.getElementById(
-            "headerAvatar"
-        ).src =
-            savedImage;
-
-
-        document.getElementById(
-            "profileAvatar"
-        ).src =
-            savedImage;
-
-    }
+}
+catch{}
 
 }
 
+const img=
+localStorage.getItem(
+"csgoShopImage"
+);
 
-loadProfile();
+if(img){
 
+document
+.getElementById(
+"headerAvatar"
+)
+.src=
+img;
 
-/* =========================================
-   CART STORAGE
-========================================= */
+document
+.getElementById(
+"profileAvatar"
+)
+.src=
+img;
+
+}
+
+}
 
 function saveCart(){
 
-    localStorage.setItem(
-        "csgoShopCart",
-        JSON.stringify(cart)
-    );
+localStorage.setItem(
+"csgoShopCart",
+JSON.stringify(cart)
+);
 
 }
-
 
 function loadCart(){
 
-    const saved =
-        localStorage.getItem(
-            "csgoShopCart"
-        );
+const x=
+localStorage.getItem(
+"csgoShopCart"
+);
 
+if(x){
 
-    if(!saved){
+try{
 
-        cart = [];
+cart=
+JSON.parse(x);
 
-        updateCart();
+}
+catch{
 
-        return;
-
-    }
-
-
-    try{
-
-        cart =
-            JSON.parse(saved);
-
-    }catch{
-
-        cart = [];
-
-    }
-
-
-    updateCart();
+cart=[];
 
 }
 
+}
 
+updateCart();
+
+}
+
+loadProfile();
 loadCart();
-
-
-/* =========================================
-   CHECKOUT
-========================================= */
-
-function checkout(){
-
-    if(
-        cart.length === 0
-    ){
-
-        showToast(
-            "سبد خرید خالی است",
-            true
-        );
-
-        return;
-
-    }
-
-
-    openProfile();
-
-}
-
-
-/* =========================================
-   TELEGRAM ORDER
-========================================= */
+renderProducts(false);
 
 function buildTelegramMessage(){
 
-    let profile = {};
+let p={};
 
+try{
 
-    try{
+p=
+JSON.parse(
+localStorage.getItem(
+"csgoShopProfile"
+)||"{}"
+);
 
-        profile =
-            JSON.parse(
-                localStorage.getItem(
-                    "csgoShopProfile"
-                ) || "{}"
-            );
+}
+catch{}
 
-    }catch{
+let m=
+"سفارش جدید از CSGO SHOP\n\n";
 
-        profile = {};
+m+=
+"نام: "+
+(p.firstName||"")+
+" "+
+(p.lastName||"")+
+"\n";
 
-    }
+m+=
+"شماره: "+
+(p.phone||"")+
+"\n";
 
+m+=
+"تلگرام: "+
+(p.telegram||"")+
+"\n\n";
 
-    let message =
-        "سفارش جدید از CSGO SHOP\n\n";
+m+=
+"محصولات:\n";
 
+cart.forEach(
+(x,i)=>{
 
-    message +=
-        "نام: " +
-        (profile.firstName || "") +
-        " " +
-        (profile.lastName || "") +
-        "\n";
+m+=
+(i+1)+
+". "+
+x.name+
+" | "+
+x.skin+
+" | "+
+x.model+
+" | تعداد: "+
+x.quantity+
+" | "+
+formatPrice(
+x.price*
+x.quantity
+)+
+"\n";
 
+}
+);
 
-    message +=
-        "شماره: " +
-        (profile.phone || "") +
-        "\n";
+m+=
+"\nمبلغ کل: "+
+formatPrice(
+getCartTotal()
+);
 
-
-    message +=
-        "تلگرام: " +
-        (profile.telegram || "") +
-        "\n\n";
-
-
-    message +=
-        "محصولات:\n";
-
-
-    cart.forEach(
-        (item,index)=>{
-
-            message +=
-                (index+1) +
-                ". " +
-                item.name +
-                " | " +
-                item.skin +
-                " | " +
-                item.model +
-                " | تعداد: " +
-                item.quantity +
-                " | " +
-                formatPrice(
-                    item.price *
-                    item.quantity
-                ) +
-                "\n";
-
-        }
-    );
-
-
-    message +=
-        "\nمبلغ کل: " +
-        formatPrice(
-            getCartTotal()
-        );
-
-
-    return message;
+return m;
 
 }
 
+document
+.getElementById("checkoutButton")
+.addEventListener(
+"click",
+()=>{
 
-function sendTelegram(){
+if(cart.length===0){
 
-    if(
-        cart.length === 0
-    ){
+showToast(
+"سبد خرید خالی است",
+true
+);
 
-        showToast(
-            "سبد خرید خالی است",
-            true
-        );
-
-        return;
-
-    }
-
-
-    if(
-        !validateProfile()
-    ){
-
-        openProfile();
-
-
-        showToast(
-            "ابتدا پروفایل را کامل و درست کن",
-            true
-        );
-
-
-        return;
-
-    }
-
-
-    const text =
-        buildTelegramMessage();
-
-
-    const url =
-        "https://t.me/" +
-        TELEGRAM_USERNAME +
-        "?text=" +
-        encodeURIComponent(text);
-
-
-    window.open(
-        url,
-        "_blank"
-    );
+return;
 
 }
 
+if(
+!validateProfile()
+){
 
-/* =========================================
-   CLOSE
-========================================= */
+openProfile();
+
+showToast(
+"ابتدا پروفایل را کامل و درست کن",
+true
+);
+
+return;
+
+}
+
+const url=
+"https://t.me/"+
+TELEGRAM_USERNAME+
+"?text="+
+encodeURIComponent(
+buildTelegramMessage()
+);
+
+window.open(
+url,
+"_blank",
+"noopener,noreferrer"
+);
+
+}
+);
 
 function closeCart(){
 
-    cartDrawer.classList.remove(
-        "active"
-    );
+cartDrawer.classList.remove(
+"active"
+);
 
 }
 
+function closeModalsOnly(){
 
-function closeProductAndProfile(){
+productModal.classList.remove(
+"active"
+);
 
-    productModal.classList.remove(
-        "active"
-    );
-
-    profileModal.classList.remove(
-        "active"
-    );
+profileModal.classList.remove(
+"active"
+);
 
 }
-
 
 function closeAll(){
 
-    productModal.classList.remove(
-        "active"
-    );
+productModal.classList.remove(
+"active"
+);
 
-    profileModal.classList.remove(
-        "active"
-    );
+profileModal.classList.remove(
+"active"
+);
 
-    cartDrawer.classList.remove(
-        "active"
-    );
+cartDrawer.classList.remove(
+"active"
+);
 
-    overlay.classList.remove(
-        "active"
-    );
+overlay.classList.remove(
+"active"
+);
 
-    document.body.classList.remove(
-        "modal-open"
-    );
+document.body.classList.remove(
+"lock"
+);
 
 }
 
-
 overlay.addEventListener(
-    "click",
-    closeAll
+"click",
+closeAll
 );
-
 
 document.addEventListener(
-    "keydown",
-    event=>{
+"keydown",
+e=>{
 
-        if(
-            event.key === "Escape"
-        ){
+if(e.key==="Escape"){
 
-            closeAll();
+closeAll();
 
-        }
+}
 
-    }
+}
 );
-
-
-/* =========================================
-   TOAST
-========================================= */
 
 let toastTimer;
 
-
 function showToast(
-    message,
-    error=false
+message,
+error=false
 ){
 
-    const toast =
-        document.getElementById(
-            "toast"
-        );
+const t=
+document.getElementById(
+"toast"
+);
 
+clearTimeout(
+toastTimer
+);
 
-    clearTimeout(
-        toastTimer
-    );
+t.textContent=
+message;
 
+t.classList.toggle(
+"error",
+error
+);
 
-    toast.textContent =
-        message;
+t.classList.add(
+"show"
+);
 
-
-    toast.classList.toggle(
-        "error",
-        error
-    );
-
-
-    toast.classList.add(
-        "show"
-    );
-
-
-    toastTimer =
-        setTimeout(
-            ()=>{
-                toast.classList.remove(
-                    "show"
-                );
-            },
-            2700
-        );
+toastTimer=
+setTimeout(
+()=>t.classList.remove(
+"show"
+),
+2600
+);
 
 }
 
@@ -4619,3 +2843,4 @@ function showToast(
 
 </body>
 </html>
+```
