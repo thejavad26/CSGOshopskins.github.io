@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>CSGO SHOP | خرید اسکین CS2</title>
+
 <meta name="description" content="CSGO SHOP؛ فروشگاه آنلاین اسکین‌های Counter-Strike 2 با انتخاب مدل، سبد خرید و ثبت سفارش تلگرامی.">
 <meta name="keywords" content="CSGO SHOP, CS2 Shop, CS2, CSGO, اسکین CS2, خرید اسکین CS2, شاپ CS2">
 <meta name="robots" content="index, follow">
@@ -36,10 +37,10 @@
     --red2:#ff3d64;
     --bg:#030305;
     --bg2:#09090e;
-    --card:rgba(16,16,22,.92);
+    --card:rgba(16,16,22,.9);
     --line:rgba(255,255,255,.08);
     --muted:#9d9daa;
-    --header-height:75px
+    --green:#32df88
 }
 
 html{
@@ -152,18 +153,15 @@ button{
     }
 }
 
-/* HEADER */
-
 header{
     position:sticky;
     top:0;
-    z-index:2000;
-    min-height:var(--header-height);
+    z-index:1000;
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:13px 5%;
-    background:rgba(3,3,6,.88);
+    background:rgba(3,3,6,.86);
     border-bottom:1px solid rgba(255,255,255,.06);
     backdrop-filter:blur(20px)
 }
@@ -211,7 +209,7 @@ nav a:hover{
     color:#fff
 }
 
-nav a::after{
+nav a:after{
     content:"";
     position:absolute;
     right:0;
@@ -223,7 +221,7 @@ nav a::after{
     transition:.3s
 }
 
-nav a:hover::after{
+nav a:hover:after{
     width:100%
 }
 
@@ -261,17 +259,12 @@ nav a:hover::after{
 }
 
 .cart-btn.bump{
-    animation:cartBump .45s ease
+    animation:bump .45s ease
 }
 
-@keyframes cartBump{
-    30%{
-        transform:scale(1.08)
-    }
-
-    60%{
-        transform:scale(.95)
-    }
+@keyframes bump{
+    30%{transform:scale(1.08)}
+    60%{transform:scale(.95)}
 }
 
 .profile-btn{
@@ -298,11 +291,9 @@ nav a:hover::after{
     display:block
 }
 
-/* HERO */
-
 .hero{
-    min-height:650px;
-    padding:100px 20px 80px;
+    min-height:760px;
+    padding:80px 20px 60px;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -397,8 +388,6 @@ nav a:hover::after{
     }
 }
 
-/* SHOP */
-
 .section{
     padding:85px 5%
 }
@@ -422,24 +411,12 @@ nav a:hover::after{
     font-size:13px
 }
 
-/*
-    مهم:
-    دسته‌بندی موقع اسکرول زیر هدر می‌چسبد.
-*/
-
 .categories-wrap{
-    position:sticky;
-    top:var(--header-height);
-    z-index:900;
     margin-bottom:30px;
     padding:9px;
     border-radius:18px;
-    background:rgba(8,8,13,.94);
-    border:1px solid rgba(255,255,255,.09);
-    backdrop-filter:blur(18px);
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.3),
-        0 0 25px rgba(255,23,68,.03);
+    background:rgba(255,255,255,.024);
+    border:1px solid rgba(255,255,255,.07);
     overflow-x:auto;
     scrollbar-width:none
 }
@@ -489,7 +466,7 @@ nav a:hover::after{
         inset 0 0 18px rgba(255,23,68,.04)
 }
 
-.category-btn.active::after{
+.category-btn.active:after{
     content:"";
     position:absolute;
     right:18px;
@@ -499,10 +476,10 @@ nav a:hover::after{
     border-radius:20px;
     background:var(--red);
     box-shadow:0 0 10px var(--red);
-    animation:activeLine .35s ease
+    animation:lineIn .35s ease
 }
 
-@keyframes activeLine{
+@keyframes lineIn{
     from{
         transform:scaleX(0);
         opacity:0
@@ -514,20 +491,17 @@ nav a:hover::after{
     }
 }
 
-/* PRODUCTS */
-
 .products{
     display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(235px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(235px,1fr));
     gap:22px
 }
 
 .products.switching{
-    animation:productsSwitch .35s ease
+    animation:switch .35s ease
 }
 
-@keyframes productsSwitch{
+@keyframes switch{
     0%{
         opacity:.25;
         transform:translateY(8px) scale(.985)
@@ -571,7 +545,7 @@ nav a:hover::after{
         0 0 22px rgba(255,23,68,.07)
 }
 
-.product-card::after{
+.product-card:after{
     content:"";
     position:absolute;
     left:-70%;
@@ -590,7 +564,7 @@ nav a:hover::after{
     pointer-events:none
 }
 
-.product-card:hover::after{
+.product-card:hover:after{
     left:125%
 }
 
@@ -619,6 +593,38 @@ nav a:hover::after{
 
 .product-card:hover .product-visual img{
     transform:scale(1.08) translateY(-4px)
+}
+
+.visual-box{
+    width:112px;
+    height:112px;
+    border-radius:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,23,68,.18),
+            rgba(255,23,68,.03)
+        );
+    border:1px solid rgba(255,23,68,.3);
+    box-shadow:0 0 35px rgba(255,23,68,.12);
+    font-size:26px;
+    font-weight:900;
+    letter-spacing:2px;
+    animation:boxFloat 4s ease-in-out infinite
+}
+
+@keyframes boxFloat{
+    0%,100%{
+        transform:translateY(0)
+    }
+
+    50%{
+        transform:translateY(-7px)
+    }
 }
 
 .product-content{
@@ -685,27 +691,6 @@ nav a:hover::after{
     box-shadow:0 0 18px rgba(255,23,68,.3)
 }
 
-.visual-box{
-    width:112px;
-    height:112px;
-    border-radius:28px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#fff;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,23,68,.18),
-            rgba(255,23,68,.03)
-        );
-    border:1px solid rgba(255,23,68,.3);
-    box-shadow:0 0 35px rgba(255,23,68,.12);
-    font-size:26px;
-    font-weight:900;
-    letter-spacing:2px
-}
-
 .unavailable-card{
     grid-column:1/-1;
     min-height:245px;
@@ -750,8 +735,6 @@ nav a:hover::after{
     line-height:2
 }
 
-/* FEATURES */
-
 .features{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -788,8 +771,6 @@ nav a:hover::after{
     line-height:1.9
 }
 
-/* FOOTER */
-
 footer{
     padding:30px 5%;
     border-top:1px solid rgba(255,255,255,.07);
@@ -813,8 +794,6 @@ footer{
     color:#fff;
     text-shadow:0 0 15px rgba(255,23,68,.8)
 }
-
-/* OVERLAY / MODAL */
 
 .overlay{
     position:fixed;
@@ -892,8 +871,7 @@ footer{
 
 .close-btn:hover{
     background:rgba(255,23,68,.13);
-    border-color:rgba(255,23,68,.4);
-    transform:rotate(4deg)
+    border-color:rgba(255,23,68,.4)
 }
 
 .product-detail{
@@ -937,7 +915,8 @@ footer{
     letter-spacing:2px;
     background:rgba(255,23,68,.08);
     border:1px solid rgba(255,23,68,.3);
-    box-shadow:0 0 40px rgba(255,23,68,.12)
+    box-shadow:0 0 40px rgba(255,23,68,.12);
+    animation:boxFloat 4s ease-in-out infinite
 }
 
 .detail-label{
@@ -979,7 +958,7 @@ footer{
     box-shadow:0 0 22px rgba(255,23,68,.09)
 }
 
-.model::before{
+.model:before{
     content:"";
     position:absolute;
     right:0;
@@ -992,7 +971,7 @@ footer{
     transition:.25s
 }
 
-.model.selected::before{
+.model.selected:before{
     transform:scaleY(1)
 }
 
@@ -1056,6 +1035,10 @@ footer{
 
 .selected-price span{
     color:var(--red)
+}
+
+.full{
+    width:100%
 }
 
 .avatar-upload{
@@ -1160,8 +1143,6 @@ footer{
     80%{transform:translateX(5px)}
 }
 
-/* CART */
-
 .cart-drawer{
     position:fixed;
     top:0;
@@ -1217,33 +1198,24 @@ footer{
 }
 
 .cart-item{
-    position:relative;
-    overflow:hidden;
     padding:13px;
     margin-bottom:10px;
     border-radius:15px;
     background:rgba(255,255,255,.03);
     border:1px solid rgba(255,255,255,.07);
-    opacity:1;
-    transform:translateX(0) scale(1);
-    filter:blur(0);
-    transition:
-        height .42s ease,
-        opacity .42s ease,
-        transform .42s cubic-bezier(.68,-.25,.27,1.2),
-        filter .42s ease,
-        padding .42s ease,
-        margin .42s ease
+    animation:cartIn .3s ease
 }
 
-.cart-item.removing{
-    opacity:0;
-    transform:
-        translateX(95px)
-        scale(.9)
-        rotate(1deg);
-    filter:blur(4px);
-    pointer-events:none
+@keyframes cartIn{
+    from{
+        opacity:0;
+        transform:translateX(20px)
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0)
+    }
 }
 
 .cart-top{
@@ -1308,103 +1280,121 @@ footer{
 }
 
 .mini button{
-    width:30px;
-    height:30px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:9px;
+    width:28px;
+    height:28px;
+    border-radius:8px;
     color:#fff;
     border:1px solid rgba(255,255,255,.08);
-    background:rgba(255,255,255,.04);
-    transition:.25s
+    background:rgba(255,255,255,.04)
 }
 
 .mini button:hover{
     border-color:rgba(255,23,68,.35)
 }
 
-/* حذف با ظاهر و انیمیشن واضح */
+/* دکمه حذف با انیمیشن */
 
-.mini .remove{
+.remove{
     position:relative;
     overflow:hidden;
-    width:auto;
-    min-width:70px;
+    min-width:64px;
     height:32px;
-    padding:0 13px;
-    gap:6px;
-    color:#ff6b86;
+    padding:0 12px !important;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px !important;
+    color:#ff6b86 !important;
     background:
         linear-gradient(
             135deg,
-            rgba(255,23,68,.14),
-            rgba(255,23,68,.025)
-        );
-    border:1px solid rgba(255,23,68,.34);
+            rgba(255,23,68,.13),
+            rgba(255,23,68,.035)
+        ) !important;
+    border:1px solid rgba(255,23,68,.32) !important;
     font-size:11px;
     font-weight:900;
-    box-shadow:
-        inset 0 0 12px rgba(255,23,68,.03),
-        0 0 0 rgba(255,23,68,0);
     transition:
+        transform .25s ease,
         color .25s ease,
         background .25s ease,
         border-color .25s ease,
-        transform .25s ease,
         box-shadow .25s ease
 }
 
-.mini .remove::before{
-    content:"";
-    width:8px;
-    height:9px;
-    border:1.5px solid currentColor;
-    border-top:0;
-    border-radius:0 0 2px 2px;
-    transition:.25s ease
-}
-
-.mini .remove::after{
+.remove:before{
     content:"";
     position:absolute;
     top:0;
     left:-120%;
-    width:65%;
+    width:70%;
     height:100%;
     transform:skewX(-25deg);
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,.3),
+            rgba(255,255,255,.28),
             transparent
         );
     transition:left .5s ease
 }
 
-.mini .remove:hover{
-    color:#fff;
-    background:var(--red);
-    border-color:var(--red);
+.remove:hover{
+    color:#fff !important;
+    background:var(--red) !important;
+    border-color:var(--red) !important;
     transform:translateY(-2px) scale(1.04);
     box-shadow:
         0 0 12px rgba(255,23,68,.45),
         0 0 28px rgba(255,23,68,.18)
 }
 
-.mini .remove:hover::after{
+.remove:hover:before{
     left:140%
 }
 
-.mini .remove:active{
-    transform:scale(.9)
+.remove:active{
+    transform:scale(.92)
 }
 
-.mini .remove:disabled{
-    opacity:.55;
-    cursor:not-allowed;
-    transform:none
+.remove:disabled{
+    opacity:.6;
+    cursor:not-allowed
+}
+
+.cart-item.removing{
+    animation:
+        cartItemRemove
+        .38s
+        cubic-bezier(.68,-.55,.27,1.55)
+        forwards;
+    pointer-events:none
+}
+
+@keyframes cartItemRemove{
+
+    0%{
+        opacity:1;
+        transform:translateX(0) scale(1);
+        max-height:140px;
+        margin-bottom:10px
+    }
+
+    55%{
+        opacity:.3;
+        transform:translateX(45px) scale(.96)
+    }
+
+    100%{
+        opacity:0;
+        transform:translateX(120px) scale(.82);
+        max-height:0;
+        margin-bottom:0;
+        padding-top:0;
+        padding-bottom:0
+    }
+
 }
 
 .summary{
@@ -1431,8 +1421,6 @@ footer{
     width:100%;
     margin-top:12px
 }
-
-/* TOAST */
 
 .toast{
     position:fixed;
@@ -1463,8 +1451,6 @@ footer{
     box-shadow:0 0 28px rgba(255,23,68,.15)
 }
 
-/* RESPONSIVE */
-
 @media(max-width:900px){
 
     nav{
@@ -1483,12 +1469,8 @@ footer{
 
 @media(max-width:600px){
 
-    :root{
-        --header-height:73px
-    }
-
     header{
-        padding:12px 4%;
+        padding:12px 4%
     }
 
     .logo{
@@ -1500,7 +1482,7 @@ footer{
     }
 
     .hero{
-        min-height:570px
+        min-height:600px
     }
 
     .hero h1{
@@ -1509,10 +1491,6 @@ footer{
 
     .section{
         padding:65px 4%
-    }
-
-    .categories-wrap{
-        border-radius:15px
     }
 
     .models{
@@ -1545,67 +1523,67 @@ footer{
 
 <header>
 
-    <div class="head-right">
+<div class="head-right">
 
-        <div class="logo">
-            CSGO <span>SHOP</span>
-        </div>
+<div class="logo">
+CSGO <span>SHOP</span>
+</div>
 
-        <nav>
+<nav>
 
-            <a href="#home">
-                خانه
-            </a>
+<a href="#home">
+خانه
+</a>
 
-            <a href="#shop">
-                شاپ
-            </a>
+<a href="#shop">
+شاپ
+</a>
 
-            <a href="#features">
-                مزایا
-            </a>
+<a href="#features">
+مزایا
+</a>
 
-            <a href="#contact">
-                تماس
-            </a>
+<a href="#contact">
+تماس
+</a>
 
-        </nav>
+</nav>
 
-    </div>
+</div>
 
-    <div class="head-left">
+<div class="head-left">
 
-        <button
-            class="cart-btn"
-            id="cartButton"
-        >
+<button
+class="cart-btn"
+id="cartButton"
+>
 
-            <span>
-                سبد خرید
-            </span>
+<span>
+سبد خرید
+</span>
 
-            <span
-                class="cart-count"
-                id="cartCount"
-            >
-                0
-            </span>
+<span
+class="cart-count"
+id="cartCount"
+>
+0
+</span>
 
-        </button>
+</button>
 
-        <button
-            class="profile-btn"
-            id="profileButton"
-        >
+<button
+class="profile-btn"
+id="profileButton"
+>
 
-            <img
-                id="headerAvatar"
-                alt="Profile"
-            >
+<img
+id="headerAvatar"
+alt="Profile"
+>
 
-        </button>
+</button>
 
-    </div>
+</div>
 
 </header>
 
@@ -1613,178 +1591,176 @@ footer{
 
 <section class="hero">
 
-    <div class="hero-tag">
-        CS2 SKINS MARKET
-    </div>
+<div class="hero-tag">
+CS2 SKINS MARKET
+</div>
 
-    <h1>
-        <span>CSGO</span> SHOP
-    </h1>
+<h1>
+<span>CSGO</span> SHOP
+</h1>
 
-    <p>
-        فروشگاه حرفه‌ای Counter-Strike 2 برای اسکین‌ها
-        با انتخاب مدل، سبد خرید و ثبت سفارش تلگرامی.
-    </p>
+<p>
+فروشگاه حرفه‌ای Counter-Strike 2 برای اسکین‌ها با انتخاب مدل، سبد خرید و ثبت سفارش تلگرامی.
+</p>
 
-    <div class="hero-actions">
+<div class="hero-actions">
 
-        <button
-            class="btn btn-red"
-            id="shopButton"
-        >
-            مشاهده محصولات
-        </button>
+<button
+class="btn btn-red"
+id="shopButton"
+>
+مشاهده محصولات
+</button>
 
-        <button
-            class="btn btn-dark"
-            id="profileHeroButton"
-        >
-            پروفایل من
-        </button>
+<button
+class="btn btn-dark"
+id="profileHeroButton"
+>
+پروفایل من
+</button>
 
-    </div>
+</div>
 
 </section>
 
 <section
-    class="section"
-    id="shop"
+class="section"
+id="shop"
 >
 
-    <div class="section-head">
+<div class="section-head">
 
-        <h2>
-            فروشگاه <span>CS2</span>
-        </h2>
+<h2>
+فروشگاه <span>CS2</span>
+</h2>
 
-        <p>
-            دسته‌بندی مورد نظرت را انتخاب کن.
-        </p>
+<p>
+دسته‌بندی مورد نظرت را انتخاب کن.
+</p>
 
-    </div>
+</div>
 
-    <div class="categories-wrap">
+<div class="categories-wrap">
 
-        <div
-            class="categories"
-            id="categories"
-        >
+<div
+class="categories"
+id="categories"
+>
 
-            <button
-                class="category-btn active"
-                data-category="all"
-            >
-                همه
-            </button>
+<button
+class="category-btn active"
+data-category="all"
+>
+همه
+</button>
 
-            <button
-                class="category-btn"
-                data-category="skins"
-            >
-                اسکین‌ها
-            </button>
+<button
+class="category-btn"
+data-category="skins"
+>
+اسکین‌ها
+</button>
 
-            <button
-                class="category-btn"
-                data-category="prime"
-            >
-                Prime
-            </button>
+<button
+class="category-btn"
+data-category="prime"
+>
+Prime
+</button>
 
-            <button
-                class="category-btn"
-                data-category="agents"
-            >
-                Agents
-            </button>
+<button
+class="category-btn"
+data-category="agents"
+>
+Agents
+</button>
 
-            <button
-                class="category-btn"
-                data-category="cases"
-            >
-                Cases
-            </button>
+<button
+class="category-btn"
+data-category="cases"
+>
+Cases
+</button>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
-    <div
-        class="products"
-        id="productsGrid"
-    ></div>
+<div
+class="products"
+id="productsGrid"
+></div>
 
 </section>
 
 <section
-    class="section"
-    id="features"
+class="section"
+id="features"
 >
 
-    <div class="section-head">
+<div class="section-head">
 
-        <h2>
-            امکانات <span>SHOP</span>
-        </h2>
+<h2>
+امکانات <span>SHOP</span>
+</h2>
 
-        <p>
-            طراحی مدرن برای تجربه خرید سریع.
-        </p>
+<p>
+طراحی مدرن برای تجربه خرید سریع.
+</p>
 
-    </div>
+</div>
 
-    <div class="features">
+<div class="features">
 
-        <div class="feature">
+<div class="feature">
 
-            <div class="feature-num">
-                01
-            </div>
+<div class="feature-num">
+01
+</div>
 
-            <h3>
-                اسکین‌ها
-            </h3>
+<h3>
+دسته‌بندی
+</h3>
 
-            <p>
-                اسکین‌های اصلی فروشگاه با انتخاب Wear و تعداد قابل خرید هستند.
-            </p>
+<p>
+اسکین، Prime، Agent و Case در دسته‌های جداگانه با جابه‌جایی انیمیشنی.
+</p>
 
-        </div>
+</div>
 
-        <div class="feature">
+<div class="feature">
 
-            <div class="feature-num">
-                02
-            </div>
+<div class="feature-num">
+02
+</div>
 
-            <h3>
-                انتخاب Wear
-            </h3>
+<h3>
+انتخاب Wear
+</h3>
 
-            <p>
-                Factory New، Minimal Wear، Field-Tested،
-                Well-Worn و Battle-Scarred.
-            </p>
+<p>
+برای اسکین‌ها Factory New، Minimal Wear، Field-Tested، Well-Worn و Battle-Scarred.
+</p>
 
-        </div>
+</div>
 
-        <div class="feature">
+<div class="feature">
 
-            <div class="feature-num">
-                03
-            </div>
+<div class="feature-num">
+03
+</div>
 
-            <h3>
-                ثبت سفارش
-            </h3>
+<h3>
+ثبت سفارش
+</h3>
 
-            <p>
-                محصولات را به سبد اضافه کن و سفارش را برای پشتیبانی تلگرام آماده کن.
-            </p>
+<p>
+محصولات را به سبد اضافه کن و با یک کلیک سفارش آماده را در تلگرام باز کن.
+</p>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
@@ -1792,356 +1768,350 @@ footer{
 
 <footer id="contact">
 
-    <div>
-        © 2026 CSGO SHOP
-    </div>
+<div>
+© 2026 CSGO SHOP
+</div>
 
-    <div>
+<div>
+پشتیبانی:
 
-        پشتیبانی:
+<a
+class="telegram-link"
+href="https://t.me/AghoJavaad"
+target="_blank"
+rel="noopener noreferrer"
+>
+@AghoJavaad
+</a>
 
-        <a
-            class="telegram-link"
-            href="https://t.me/AghoJavaad"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            @AghoJavaad
-        </a>
-
-    </div>
+</div>
 
 </footer>
 
 <div
-    class="overlay"
-    id="overlay"
+class="overlay"
+id="overlay"
 ></div>
 
-<!-- PRODUCT MODAL -->
-
 <div
-    class="modal"
-    id="productModal"
+class="modal"
+id="productModal"
 >
 
-    <div class="modal-head">
+<div class="modal-head">
 
-        <h3 id="detailTitle">
-            انتخاب محصول
-        </h3>
+<h3
+id="detailTitle"
+>
+انتخاب محصول
+</h3>
 
-        <button
-            class="close-btn"
-            onclick="closeAll()"
-        >
-            ×
-        </button>
-
-    </div>
-
-    <div class="product-detail">
-
-        <div
-            class="detail-visual"
-            id="detailVisual"
-        ></div>
-
-        <div>
-
-            <label class="detail-label">
-                انتخاب مدل
-            </label>
-
-            <div
-                class="models"
-                id="modelOptions"
-            ></div>
-
-            <p
-                class="detail-desc"
-                id="detailDescription"
-            ></p>
-
-            <div class="quantity">
-
-                <strong>
-                    تعداد
-                </strong>
-
-                <div class="qty-controls">
-
-                    <button
-                        class="qty"
-                        id="minusQty"
-                    >
-                        −
-                    </button>
-
-                    <span
-                        class="qty-n"
-                        id="qtyNumber"
-                    >
-                        1
-                    </span>
-
-                    <button
-                        class="qty"
-                        id="plusQty"
-                    >
-                        +
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="selected-price">
-
-                قیمت:
-
-                <span
-                    id="selectedPrice"
-                >
-                    0 تومان
-                </span>
-
-            </div>
-
-            <button
-                class="btn btn-red full"
-                id="addCartButton"
-            >
-                افزودن به سبد
-            </button>
-
-        </div>
-
-    </div>
+<button
+class="close-btn"
+onclick="closeAll()"
+>
+×
+</button>
 
 </div>
 
-<!-- PROFILE MODAL -->
+<div class="product-detail">
 
 <div
-    class="modal profile-modal"
-    id="profileModal"
+class="detail-visual"
+id="detailVisual"
+></div>
+
+<div>
+
+<label class="detail-label">
+انتخاب مدل
+</label>
+
+<div
+class="models"
+id="modelOptions"
+></div>
+
+<p
+class="detail-desc"
+id="detailDescription"
+></p>
+
+<div class="quantity">
+
+<strong>
+تعداد
+</strong>
+
+<div class="qty-controls">
+
+<button
+class="qty"
+id="minusQty"
 >
+−
+</button>
 
-    <div class="modal-head">
+<span
+class="qty-n"
+id="qtyNumber"
+>
+1
+</span>
 
-        <h3>
-            پروفایل من
-        </h3>
-
-        <button
-            class="close-btn"
-            onclick="closeAll()"
-        >
-            ×
-        </button>
-
-    </div>
-
-    <div class="avatar-upload">
-
-        <label
-            class="avatar"
-            for="avatarInput"
-        >
-
-            <img
-                id="profileAvatar"
-                alt="Avatar"
-            >
-
-            <span>
-                تغییر عکس
-            </span>
-
-        </label>
-
-        <input
-            id="avatarInput"
-            type="file"
-            accept="image/*"
-        >
-
-    </div>
-
-    <div class="group">
-
-        <label>
-            نام
-        </label>
-
-        <input
-            id="firstName"
-            type="text"
-            placeholder="نام"
-        >
-
-        <span
-            class="error"
-            id="firstNameError"
-        ></span>
-
-    </div>
-
-    <div class="group">
-
-        <label>
-            نام خانوادگی
-        </label>
-
-        <input
-            id="lastName"
-            type="text"
-            placeholder="نام خانوادگی"
-        >
-
-        <span
-            class="error"
-            id="lastNameError"
-        ></span>
-
-    </div>
-
-    <div class="group">
-
-        <label>
-            شماره موبایل
-        </label>
-
-        <input
-            id="phone"
-            type="tel"
-            inputmode="numeric"
-            maxlength="11"
-            placeholder="09123456789"
-        >
-
-        <span
-            class="error"
-            id="phoneError"
-        ></span>
-
-    </div>
-
-    <div class="group">
-
-        <label>
-            آیدی تلگرام
-        </label>
-
-        <input
-            id="telegram"
-            type="text"
-            placeholder="@username"
-        >
-
-        <span
-            class="error"
-            id="telegramError"
-        ></span>
-
-    </div>
-
-    <button
-        class="btn btn-red full"
-        id="saveProfileButton"
-    >
-        ذخیره پروفایل
-    </button>
+<button
+class="qty"
+id="plusQty"
+>
++
+</button>
 
 </div>
 
-<!-- CART -->
+</div>
+
+<div class="selected-price">
+
+قیمت:
+
+<span
+id="selectedPrice"
+>
+0 تومان
+</span>
+
+</div>
+
+<button
+class="btn btn-red full"
+id="addCartButton"
+>
+افزودن به سبد
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div
+class="modal profile-modal"
+id="profileModal"
+>
+
+<div class="modal-head">
+
+<h3>
+پروفایل من
+</h3>
+
+<button
+class="close-btn"
+onclick="closeAll()"
+>
+×
+</button>
+
+</div>
+
+<div class="avatar-upload">
+
+<label
+class="avatar"
+for="avatarInput"
+>
+
+<img
+id="profileAvatar"
+alt="Avatar"
+>
+
+<span>
+تغییر عکس
+</span>
+
+</label>
+
+<input
+id="avatarInput"
+type="file"
+accept="image/*"
+>
+
+</div>
+
+<div class="group">
+
+<label>
+نام
+</label>
+
+<input
+id="firstName"
+type="text"
+placeholder="نام"
+>
+
+<span
+class="error"
+id="firstNameError"
+></span>
+
+</div>
+
+<div class="group">
+
+<label>
+نام خانوادگی
+</label>
+
+<input
+id="lastName"
+type="text"
+placeholder="نام خانوادگی"
+>
+
+<span
+class="error"
+id="lastNameError"
+></span>
+
+</div>
+
+<div class="group">
+
+<label>
+شماره موبایل
+</label>
+
+<input
+id="phone"
+type="tel"
+inputmode="numeric"
+maxlength="11"
+placeholder="09123456789"
+>
+
+<span
+class="error"
+id="phoneError"
+></span>
+
+</div>
+
+<div class="group">
+
+<label>
+آیدی تلگرام
+</label>
+
+<input
+id="telegram"
+type="text"
+placeholder="@username"
+>
+
+<span
+class="error"
+id="telegramError"
+></span>
+
+</div>
+
+<button
+class="btn btn-red full"
+id="saveProfileButton"
+>
+ذخیره پروفایل
+</button>
+
+</div>
 
 <aside
-    class="cart-drawer"
-    id="cartDrawer"
+class="cart-drawer"
+id="cartDrawer"
 >
 
-    <div class="cart-head">
+<div class="cart-head">
 
-        <h3>
-            سبد خرید
-        </h3>
+<h3>
+سبد خرید
+</h3>
 
-        <button
-            class="close-btn"
-            onclick="closeAll()"
-        >
-            ×
-        </button>
+<button
+class="close-btn"
+onclick="closeAll()"
+>
+×
+</button>
 
-    </div>
+</div>
 
-    <div
-        class="cart-items"
-        id="cartItems"
-    ></div>
+<div
+class="cart-items"
+id="cartItems"
+></div>
 
-    <div class="summary">
+<div class="summary">
 
-        <div class="sum-row">
+<div class="sum-row">
 
-            <span>
-                تعداد کل
-            </span>
+<span>
+تعداد کل
+</span>
 
-            <strong
-                id="summaryCount"
-            >
-                0
-            </strong>
+<strong
+id="summaryCount"
+>
+0
+</strong>
 
-        </div>
+</div>
 
-        <div class="sum-row">
+<div class="sum-row">
 
-            <span>
-                مبلغ کل
-            </span>
+<span>
+مبلغ کل
+</span>
 
-            <strong
-                class="sum-total"
-                id="summaryTotal"
-            >
-                0 تومان
-            </strong>
+<strong
+class="sum-total"
+id="summaryTotal"
+>
+0 تومان
+</strong>
 
-        </div>
+</div>
 
-        <button
-            class="btn btn-red checkout"
-            id="checkoutButton"
-        >
-            نهایی کردن سفارش
-        </button>
+<button
+class="btn btn-red checkout"
+id="checkoutButton"
+>
+نهایی کردن سفارش
+</button>
 
-    </div>
+</div>
 
 </aside>
 
 <div
-    class="toast"
-    id="toast"
+class="toast"
+id="toast"
 ></div>
 
 <script>
 
 const TELEGRAM_USERNAME =
-    "AghoJavaad";
+"AghoJavaad";
 
 const DEFAULT_AVATAR =
-    "data:image/svg+xml;charset=UTF-8," +
-    encodeURIComponent(`
-
+"data:image/svg+xml;charset=UTF-8," +
+encodeURIComponent(`
 <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 500 500"
+xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 500 500"
 >
 
 <defs>
@@ -2149,33 +2119,33 @@ const DEFAULT_AVATAR =
 <radialGradient id="bg">
 
 <stop
-    offset="0%"
-    stop-color="#37131d"
+offset="0%"
+stop-color="#37131d"
 />
 
 <stop
-    offset="100%"
-    stop-color="#050507"
+offset="100%"
+stop-color="#050507"
 />
 
 </radialGradient>
 
 <linearGradient
-    id="coat"
-    x1="0"
-    y1="0"
-    x2="1"
-    y2="1"
+id="coat"
+x1="0"
+y1="0"
+x2="1"
+y2="1"
 >
 
 <stop
-    offset="0%"
-    stop-color="#25272c"
+offset="0%"
+stop-color="#25272c"
 />
 
 <stop
-    offset="100%"
-    stop-color="#08090b"
+offset="100%"
+stop-color="#08090b"
 />
 
 </linearGradient>
@@ -2183,2499 +2153,2379 @@ const DEFAULT_AVATAR =
 </defs>
 
 <rect
-    width="500"
-    height="500"
-    fill="url(#bg)"
+width="500"
+height="500"
+fill="url(#bg)"
 />
 
 <circle
-    cx="250"
-    cy="250"
-    r="205"
-    fill="none"
-    stroke="#ff1744"
-    stroke-width="5"
-    opacity=".25"
+cx="250"
+cy="250"
+r="205"
+fill="none"
+stroke="#ff1744"
+stroke-width="5"
+opacity=".25"
 />
 
 <path
-    d="M143 210Q150 85 250 65Q350 85 357 210L320 174Q300 120 250 111Q200 120 180 174Z"
-    fill="#090a0d"
+d="M143 210Q150 85 250 65Q350 85 357 210L320 174Q300 120 250 111Q200 120 180 174Z"
+fill="#090a0d"
 />
 
 <path
-    d="M168 188Q175 112 250 91Q325 112 332 188L305 292Q250 323 195 292Z"
-    fill="#1a1c21"
+d="M168 188Q175 112 250 91Q325 112 332 188L305 292Q250 323 195 292Z"
+fill="#1a1c21"
 />
 
 <path
-    d="M188 181Q250 160 312 181L302 262Q250 294 198 262Z"
-    fill="#26282e"
+d="M188 181Q250 160 312 181L302 262Q250 294 198 262Z"
+fill="#26282e"
 />
 
 <rect
-    x="187"
-    y="195"
-    width="63"
-    height="29"
-    rx="8"
-    fill="#040507"
-    stroke="#5d6068"
-    stroke-width="4"
+x="187"
+y="195"
+width="63"
+height="29"
+rx="8"
+fill="#040507"
+stroke="#5d6068"
+stroke-width="4"
 />
 
 <rect
-    x="250"
-    y="195"
-    width="63"
-    height="29"
-    rx="8"
-    fill="#040507"
-    stroke="#5d6068"
-    stroke-width="4"
+x="250"
+y="195"
+width="63"
+height="29"
+rx="8"
+fill="#040507"
+stroke="#5d6068"
+stroke-width="4"
 />
 
 <rect
-    x="199"
-    y="202"
-    width="39"
-    height="8"
-    rx="4"
-    fill="#ff1744"
-    opacity=".58"
+x="199"
+y="202"
+width="39"
+height="8"
+rx="4"
+fill="#ff1744"
+opacity=".58"
 />
 
 <rect
-    x="262"
-    y="202"
-    width="39"
-    height="8"
-    rx="4"
-    fill="#ff1744"
-    opacity=".58"
+x="262"
+y="202"
+width="39"
+height="8"
+rx="4"
+fill="#ff1744"
+opacity=".58"
 />
 
 <path
-    d="M186 240Q250 226 314 240L301 278Q250 300 199 278Z"
-    fill="#090a0c"
+d="M186 240Q250 226 314 240L301 278Q250 300 199 278Z"
+fill="#090a0c"
 />
 
 <path
-    d="M219 262Q250 251 281 262"
-    fill="none"
-    stroke="#ff1744"
-    stroke-width="4"
-    opacity=".72"
+d="M219 262Q250 251 281 262"
+fill="none"
+stroke="#ff1744"
+stroke-width="4"
+opacity=".72"
 />
 
 <path
-    d="M116 485Q120 347 178 313Q250 290 322 313Q380 347 384 485Z"
-    fill="url(#coat)"
+d="M116 485Q120 347 178 313Q250 290 322 313Q380 347 384 485Z"
+fill="url(#coat)"
 />
 
 <path
-    d="M171 323L250 350L329 323L314 485L186 485Z"
-    fill="#15171b"
+d="M171 323L250 350L329 323L314 485L186 485Z"
+fill="#15171b"
 />
 
 <rect
-    x="207"
-    y="352"
-    width="86"
-    height="19"
-    rx="7"
-    fill="#25272c"
+x="207"
+y="352"
+width="86"
+height="19"
+rx="7"
+fill="#25272c"
 />
 
 <rect
-    x="208"
-    y="382"
-    width="39"
-    height="44"
-    rx="6"
-    fill="#202227"
+x="208"
+y="382"
+width="39"
+height="44"
+rx="6"
+fill="#202227"
 />
 
 <rect
-    x="253"
-    y="382"
-    width="39"
-    height="44"
-    rx="6"
-    fill="#202227"
+x="253"
+y="382"
+width="39"
+height="44"
+rx="6"
+fill="#202227"
 />
 
 <circle
-    cx="250"
-    cy="449"
-    r="22"
-    fill="#ff1744"
+cx="250"
+cy="449"
+r="22"
+fill="#ff1744"
 />
 
 <text
-    x="250"
-    y="457"
-    text-anchor="middle"
-    font-family="Arial"
-    font-size="22"
-    font-weight="900"
-    fill="white"
+x="250"
+y="457"
+text-anchor="middle"
+font-family="Arial"
+font-size="22"
+font-weight="900"
+fill="white"
 >
 T
 </text>
 
 <path
-    d="M95 485L405 485"
-    stroke="#ff1744"
-    stroke-width="4"
-    opacity=".8"
+d="M95 485L405 485"
+stroke="#ff1744"
+stroke-width="4"
+opacity=".8"
 />
 
 </svg>
-
 `);
 
 const WEAPON_IMAGES = {
 
-    "AK-47":
-        "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_ak47_png.png",
+"AK-47":
+"https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_ak47_png.png",
 
-    "AWP":
-        "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_awp_png.png",
+"AWP":
+"https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_awp_png.png",
 
-    "M4A4":
-        "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_m4a4_png.png",
+"M4A4":
+"https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_m4a4_png.png",
 
-    "M4A1-S":
-        "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_m4a1_s_png.png",
+"M4A1-S":
+"https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_m4a1_s_png.png",
 
-    "Desert Eagle":
-        "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_deagle_png.png",
+"Desert Eagle":
+"https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_deagle_png.png",
 
-    "USP-S":
-        "https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_usp_silencer_png.png"
+"USP-S":
+"https://cdn.cs2c.app/images/econ/weapons/base_weapons/weapon_usp_silencer_png.png"
 
 };
 
 const PRODUCTS = [
 
 {
-    id:1,
-    category:"skins",
-    name:"AK-47",
-    skin:"Redline",
-    tag:"RIFLE",
-    image:WEAPON_IMAGES["AK-47"],
-    description:"AK-47 | Redline با پنج وضعیت مختلف Wear.",
-    models:[
-        {
-            name:"Factory New",
-            subtitle:"0.00 - 0.07",
-            price:1200000
-        },
-        {
-            name:"Minimal Wear",
-            subtitle:"0.07 - 0.15",
-            price:1050000
-        },
-        {
-            name:"Field-Tested",
-            subtitle:"0.15 - 0.37",
-            price:850000
-        },
-        {
-            name:"Well-Worn",
-            subtitle:"0.37 - 0.44",
-            price:700000
-        },
-        {
-            name:"Battle-Scarred",
-            subtitle:"0.44 - 1.00",
-            price:600000
-        }
-    ]
+id:1,
+category:"skins",
+name:"AK-47",
+skin:"Redline",
+tag:"RIFLE",
+image:WEAPON_IMAGES["AK-47"],
+description:"AK-47 | Redline با پنج وضعیت مختلف Wear.",
+models:[
+
+{
+name:"Factory New",
+subtitle:"0.00 - 0.07",
+price:1200000
 },
 
 {
-    id:2,
-    category:"skins",
-    name:"AWP",
-    skin:"Asiimov",
-    tag:"SNIPER",
-    image:WEAPON_IMAGES["AWP"],
-    description:"AWP | Asiimov برای پلیرهای اسنایپر.",
-    models:[
-        {
-            name:"Factory New",
-            subtitle:"Premium",
-            price:3500000
-        },
-        {
-            name:"Minimal Wear",
-            subtitle:"Premium",
-            price:2800000
-        },
-        {
-            name:"Field-Tested",
-            subtitle:"Popular",
-            price:2200000
-        },
-        {
-            name:"Well-Worn",
-            subtitle:"0.37 - 0.44",
-            price:1900000
-        },
-        {
-            name:"Battle-Scarred",
-            subtitle:"0.44 - 1.00",
-            price:1600000
-        }
-    ]
+name:"Minimal Wear",
+subtitle:"0.07 - 0.15",
+price:1050000
 },
 
 {
-    id:3,
-    category:"skins",
-    name:"M4A4",
-    skin:"Asiimov",
-    tag:"RIFLE",
-    image:WEAPON_IMAGES["M4A4"],
-    description:"M4A4 | Asiimov با استایل نارنجی و مشکی.",
-    models:[
-        {
-            name:"Factory New",
-            subtitle:"Premium",
-            price:3000000
-        },
-        {
-            name:"Minimal Wear",
-            subtitle:"Premium",
-            price:2500000
-        },
-        {
-            name:"Field-Tested",
-            subtitle:"Popular",
-            price:2000000
-        },
-        {
-            name:"Well-Worn",
-            subtitle:"0.37 - 0.44",
-            price:1600000
-        },
-        {
-            name:"Battle-Scarred",
-            subtitle:"0.44 - 1.00",
-            price:1350000
-        }
-    ]
+name:"Field-Tested",
+subtitle:"0.15 - 0.37",
+price:850000
 },
 
 {
-    id:4,
-    category:"skins",
-    name:"M4A1-S",
-    skin:"Printstream",
-    tag:"RIFLE",
-    image:WEAPON_IMAGES["M4A1-S"],
-    description:"M4A1-S | Printstream برای ست‌های حرفه‌ای.",
-    models:[
-        {
-            name:"Factory New",
-            subtitle:"0.00 - 0.07",
-            price:2600000
-        },
-        {
-            name:"Minimal Wear",
-            subtitle:"0.07 - 0.15",
-            price:2200000
-        },
-        {
-            name:"Field-Tested",
-            subtitle:"0.15 - 0.37",
-            price:1800000
-        },
-        {
-            name:"Well-Worn",
-            subtitle:"0.37 - 0.44",
-            price:1550000
-        },
-        {
-            name:"Battle-Scarred",
-            subtitle:"0.44 - 1.00",
-            price:1300000
-        }
-    ]
+name:"Well-Worn",
+subtitle:"0.37 - 0.44",
+price:700000
 },
 
 {
-    id:5,
-    category:"skins",
-    name:"Desert Eagle",
-    skin:"Printstream",
-    tag:"PISTOL",
-    image:WEAPON_IMAGES["Desert Eagle"],
-    description:"Desert Eagle | Printstream با ظاهر سفید و مشکی.",
-    models:[
-        {
-            name:"Factory New",
-            subtitle:"Premium",
-            price:1900000
-        },
-        {
-            name:"Minimal Wear",
-            subtitle:"Premium",
-            price:1500000
-        },
-        {
-            name:"Field-Tested",
-            subtitle:"Popular",
-            price:1100000
-        },
-        {
-            name:"Well-Worn",
-            subtitle:"Used",
-            price:850000
-        },
-        {
-            name:"Battle-Scarred",
-            subtitle:"Heavy Wear",
-            price:650000
-        }
-    ]
+name:"Battle-Scarred",
+subtitle:"0.44 - 1.00",
+price:600000
+}
+
+]
 },
 
 {
-    id:6,
-    category:"skins",
-    name:"USP-S",
-    skin:"Kill Confirmed",
-    tag:"PISTOL",
-    image:WEAPON_IMAGES["USP-S"],
-    description:"USP-S | Kill Confirmed برای ست‌های جذاب.",
-    models:[
-        {
-            name:"Factory New",
-            subtitle:"Premium",
-            price:1500000
-        },
-        {
-            name:"Minimal Wear",
-            subtitle:"Premium",
-            price:1200000
-        },
-        {
-            name:"Field-Tested",
-            subtitle:"Popular",
-            price:950000
-        },
-        {
-            name:"Well-Worn",
-            subtitle:"Used",
-            price:750000
-        },
-        {
-            name:"Battle-Scarred",
-            subtitle:"Heavy Wear",
-            price:550000
-        }
-    ]
+id:2,
+category:"skins",
+name:"AWP",
+skin:"Asiimov",
+tag:"SNIPER",
+image:WEAPON_IMAGES["AWP"],
+description:"AWP | Asiimov برای پلیرهای اسنایپر.",
+models:[
+
+{
+name:"Factory New",
+subtitle:"Premium",
+price:3500000
+},
+
+{
+name:"Minimal Wear",
+subtitle:"Premium",
+price:2800000
+},
+
+{
+name:"Field-Tested",
+subtitle:"Popular",
+price:2200000
+},
+
+{
+name:"Well-Worn",
+subtitle:"0.37 - 0.44",
+price:1900000
+},
+
+{
+name:"Battle-Scarred",
+subtitle:"0.44 - 1.00",
+price:1600000
+}
+
+]
+},
+
+{
+id:3,
+category:"skins",
+name:"M4A4",
+skin:"Asiimov",
+tag:"RIFLE",
+image:WEAPON_IMAGES["M4A4"],
+description:"M4A4 | Asiimov با استایل نارنجی و مشکی.",
+models:[
+
+{
+name:"Factory New",
+subtitle:"Premium",
+price:3000000
+},
+
+{
+name:"Minimal Wear",
+subtitle:"Premium",
+price:2500000
+},
+
+{
+name:"Field-Tested",
+subtitle:"Popular",
+price:2000000
+},
+
+{
+name:"Well-Worn",
+subtitle:"0.37 - 0.44",
+price:1600000
+},
+
+{
+name:"Battle-Scarred",
+subtitle:"0.44 - 1.00",
+price:1350000
+}
+
+]
+},
+
+{
+id:4,
+category:"skins",
+name:"M4A1-S",
+skin:"Printstream",
+tag:"RIFLE",
+image:WEAPON_IMAGES["M4A1-S"],
+description:"M4A1-S | Printstream برای ست‌های حرفه‌ای.",
+models:[
+
+{
+name:"Factory New",
+subtitle:"0.00 - 0.07",
+price:2600000
+},
+
+{
+name:"Minimal Wear",
+subtitle:"0.07 - 0.15",
+price:2200000
+},
+
+{
+name:"Field-Tested",
+subtitle:"0.15 - 0.37",
+price:1800000
+},
+
+{
+name:"Well-Worn",
+subtitle:"0.37 - 0.44",
+price:1550000
+},
+
+{
+name:"Battle-Scarred",
+subtitle:"0.44 - 1.00",
+price:1300000
+}
+
+]
+},
+
+{
+id:5,
+category:"skins",
+name:"Desert Eagle",
+skin:"Printstream",
+tag:"PISTOL",
+image:WEAPON_IMAGES["Desert Eagle"],
+description:"Desert Eagle | Printstream با ظاهر سفید و مشکی.",
+models:[
+
+{
+name:"Factory New",
+subtitle:"Premium",
+price:1900000
+},
+
+{
+name:"Minimal Wear",
+subtitle:"Premium",
+price:1500000
+},
+
+{
+name:"Field-Tested",
+subtitle:"Popular",
+price:1100000
+},
+
+{
+name:"Well-Worn",
+subtitle:"Used",
+price:850000
+},
+
+{
+name:"Battle-Scarred",
+subtitle:"Heavy Wear",
+price:650000
+}
+
+]
+},
+
+{
+id:6,
+category:"skins",
+name:"USP-S",
+skin:"Kill Confirmed",
+tag:"PISTOL",
+image:WEAPON_IMAGES["USP-S"],
+description:"USP-S | Kill Confirmed برای ست‌های جذاب.",
+models:[
+
+{
+name:"Factory New",
+subtitle:"Premium",
+price:1500000
+},
+
+{
+name:"Minimal Wear",
+subtitle:"Premium",
+price:1200000
+},
+
+{
+name:"Field-Tested",
+subtitle:"Popular",
+price:950000
+},
+
+{
+name:"Well-Worn",
+subtitle:"Used",
+price:750000
+},
+
+{
+name:"Battle-Scarred",
+subtitle:"Heavy Wear",
+price:550000
+}
+
+]
 }
 
 ];
 
 let activeCategory =
-    "all";
+"all";
 
 let activeProduct =
-    null;
+null;
 
 let activeModelIndex =
-    0;
+0;
 
 let currentQuantity =
-    1;
+1;
 
 let cart =
-    [];
+[];
 
 const productsGrid =
-    document.getElementById(
-        "productsGrid"
-    );
+document.getElementById(
+"productsGrid"
+);
 
 const productModal =
-    document.getElementById(
-        "productModal"
-    );
+document.getElementById(
+"productModal"
+);
 
 const profileModal =
-    document.getElementById(
-        "profileModal"
-    );
+document.getElementById(
+"profileModal"
+);
 
 const cartDrawer =
-    document.getElementById(
-        "cartDrawer"
-    );
+document.getElementById(
+"cartDrawer"
+);
 
 const overlay =
-    document.getElementById(
-        "overlay"
-    );
+document.getElementById(
+"overlay"
+);
 
-function formatPrice(
-    value
-){
+function formatPrice(value){
 
-    return new Intl.NumberFormat(
-        "fa-IR"
-    ).format(
-        value
-    ) +
-    " تومان";
+return new Intl.NumberFormat(
+"fa-IR"
+).format(value) +
+" تومان";
 
 }
 
-function escapeHtml(
-    value
-){
+function escapeHtml(value){
 
-    return String(value)
-        .replaceAll(
-            "&",
-            "&amp;"
-        )
-        .replaceAll(
-            "<",
-            "&lt;"
-        )
-        .replaceAll(
-            ">",
-            "&gt;"
-        )
-        .replaceAll(
-            '"',
-            "&quot;"
-        )
-        .replaceAll(
-            "'",
-            "&#039;"
-        );
+return String(value)
+.replaceAll(
+"&",
+"&amp;"
+)
+.replaceAll(
+"<",
+"&lt;"
+)
+.replaceAll(
+">",
+"&gt;"
+)
+.replaceAll(
+'"',
+"&quot;"
+)
+.replaceAll(
+"'",
+"&#039;"
+);
 
 }
 
-function fallbackImage(
-    name
-){
+function fallbackImage(name){
 
-    return (
-        "https://placehold.co/900x500/0d0d13/ff1744?text=" +
-        encodeURIComponent(name)
-    );
+return "https://placehold.co/900x500/0d0d13/ff1744?text=" +
+encodeURIComponent(name);
 
 }
 
-/* PARTICLES */
+for(let i=0;i<38;i++){
 
-for(
-    let i=0;
-    i<38;
-    i++
-){
+const p =
+document.createElement("div");
 
-    const p =
-        document.createElement(
-            "div"
-        );
+p.className =
+"particle";
 
-    p.className =
-        "particle";
+p.style.left =
+Math.random()*100+"%";
 
-    p.style.left =
-        Math.random()*100+
-        "%";
+p.style.animationDuration =
+5+Math.random()*8+"s";
 
-    p.style.animationDuration =
-        5+
-        Math.random()*8+
-        "s";
+p.style.animationDelay =
+Math.random()*8+"s";
 
-    p.style.animationDelay =
-        Math.random()*8+
-        "s";
+p.style.width =
+p.style.height =
+2+Math.random()*3+"px";
 
-    const size =
-        2+
-        Math.random()*3+
-        "px";
-
-    p.style.width =
-        size;
-
-    p.style.height =
-        size;
-
-    document
-        .getElementById(
-            "particles"
-        )
-        .appendChild(p);
+document
+.getElementById(
+"particles"
+)
+.appendChild(
+p
+);
 
 }
-
-/* PRODUCTS */
 
 function productVisual(
-    product
+product
 ){
 
-    if(product.image){
+if(product.image){
 
-        return `
-            <img
-                src="${product.image}"
-                alt="${escapeHtml(product.name)}"
-                onerror="this.src='${fallbackImage(product.name)}'"
-            >
-        `;
+return `
+<img
+src="${product.image}"
+alt="${escapeHtml(product.name)}"
+onerror="this.src='${fallbackImage(product.name)}'"
+>
+`;
 
-    }
+}
 
-    return `
-        <div class="visual-box">
-            ${escapeHtml(
-                product.iconText || ""
-            )}
-        </div>
-    `;
+return `
+<div class="visual-box">
+${escapeHtml(product.iconText || "")}
+</div>
+`;
 
 }
 
 function minPrice(
-    product
+product
 ){
 
-    return Math.min(
-        ...product.models.map(
-            x => x.price
-        )
-    );
+return Math.min(
+...product.models.map(
+x=>x.price
+)
+);
 
 }
 
 function renderProducts(
-    animated=true
+animated=true
 ){
 
-    productsGrid.classList.remove(
-        "switching"
-    );
+productsGrid.classList.remove(
+"switching"
+);
 
-    void productsGrid.offsetWidth;
+void productsGrid.offsetWidth;
 
-    if(animated){
+if(animated){
 
-        productsGrid.classList.add(
-            "switching"
-        );
-
-    }
-
-    const items =
-        activeCategory === "all"
-
-        ? PRODUCTS
-
-        : PRODUCTS.filter(
-            x =>
-                x.category ===
-                activeCategory
-        );
-
-    productsGrid.innerHTML =
-        "";
-
-    if(
-        items.length === 0 &&
-        activeCategory !== "all"
-    ){
-
-        const unavailable =
-            document.createElement(
-                "div"
-            );
-
-        unavailable.className =
-            "unavailable-card";
-
-        const labels = {
-
-            prime:"Prime",
-
-            agents:"Agents",
-
-            cases:"Cases"
-
-        };
-
-        const label =
-            labels[
-                activeCategory
-            ] ||
-            "این بخش";
-
-        unavailable.innerHTML = `
-
-            <div class="unavailable-mark">
-                ${escapeHtml(label)}
-            </div>
-
-            <h3>
-                فعلاً موجود نیست
-            </h3>
-
-            <p>
-                این بخش فعلاً محصولی برای فروش ندارد.
-                به‌محض موجود شدن، محصولات در همین قسمت اضافه می‌شوند.
-            </p>
-
-        `;
-
-        productsGrid.appendChild(
-            unavailable
-        );
-
-        return;
-
-    }
-
-    items.forEach(
-        (product,index) => {
-
-            const card =
-                document.createElement(
-                    "article"
-                );
-
-            card.className =
-                "product-card";
-
-            card.innerHTML = `
-
-                <div class="product-visual">
-                    ${productVisual(product)}
-                </div>
-
-                <div class="product-content">
-
-                    <span class="tag">
-                        ${escapeHtml(
-                            product.tag
-                        )}
-                    </span>
-
-                    <h3>
-                        ${escapeHtml(
-                            product.name
-                        )}
-                    </h3>
-
-                    <div class="skin-name">
-                        ${escapeHtml(
-                            product.skin
-                        )}
-                    </div>
-
-                    <p>
-                        ${escapeHtml(
-                            product.description
-                        )}
-                    </p>
-
-                    <div class="product-bottom">
-
-                        <div class="price">
-                            از ${formatPrice(
-                                minPrice(product)
-                            )}
-                        </div>
-
-                        <button
-                            class="buy-btn"
-                            type="button"
-                        >
-                            خرید
-                        </button>
-
-                    </div>
-
-                </div>
-
-            `;
-
-            card
-                .querySelector(
-                    ".buy-btn"
-                )
-                .addEventListener(
-                    "click",
-                    () =>
-                        openProduct(
-                            product.id
-                        )
-                );
-
-            productsGrid.appendChild(
-                card
-            );
-
-            setTimeout(
-                () =>
-                    card.classList.add(
-                        "visible"
-                    ),
-                index*55
-            );
-
-        }
-    );
+productsGrid.classList.add(
+"switching"
+);
 
 }
 
-/* PRODUCT MODAL */
+const items =
+activeCategory === "all"
 
-function openProduct(
-    productId
+? PRODUCTS
+
+: PRODUCTS.filter(
+x =>
+x.category ===
+activeCategory
+);
+
+productsGrid.innerHTML =
+"";
+
+if(
+items.length === 0 &&
+activeCategory !== "all"
 ){
 
-    activeProduct =
-        PRODUCTS.find(
-            x =>
-                x.id ===
-                productId
-        );
+const unavailable =
+document.createElement(
+"div"
+);
 
-    if(
-        !activeProduct
-    ){
-        return;
-    }
+unavailable.className =
+"unavailable-card";
 
-    activeModelIndex =
-        0;
+const labels = {
 
-    currentQuantity =
-        1;
+prime:"Prime",
 
-    document
-        .getElementById(
-            "detailTitle"
-        )
-        .textContent =
-            activeProduct.name+
-            " | "+
-            activeProduct.skin;
+agents:"Agents",
 
-    document
-        .getElementById(
-            "detailDescription"
-        )
-        .textContent =
-            activeProduct.description;
+cases:"Cases"
 
-    document
-        .getElementById(
-            "qtyNumber"
-        )
-        .textContent =
-            "1";
+};
 
-    renderDetailVisual();
+const label =
+labels[activeCategory] ||
+"این بخش";
 
-    renderModels();
+unavailable.innerHTML = `
 
-    updateSelectedPrice();
+<div class="unavailable-mark">
+${escapeHtml(label)}
+</div>
 
-    productModal.classList.add(
-        "active"
-    );
+<h3>
+فعلاً موجود نیست
+</h3>
 
-    overlay.classList.add(
-        "active"
-    );
+<p>
+این بخش فعلاً محصولی برای فروش ندارد.
+به‌محض موجود شدن، محصولات در همین قسمت اضافه می‌شوند.
+</p>
 
-    document.body.classList.add(
-        "lock"
-    );
+`;
+
+productsGrid.appendChild(
+unavailable
+);
+
+return;
+
+}
+
+items.forEach(
+(product,index)=>{
+
+const card =
+document.createElement(
+"article"
+);
+
+card.className =
+"product-card";
+
+card.innerHTML = `
+
+<div class="product-visual">
+${productVisual(product)}
+</div>
+
+<div class="product-content">
+
+<span class="tag">
+${escapeHtml(product.tag)}
+</span>
+
+<h3>
+${escapeHtml(product.name)}
+</h3>
+
+<div class="skin-name">
+${escapeHtml(product.skin)}
+</div>
+
+<p>
+${escapeHtml(product.description)}
+</p>
+
+<div class="product-bottom">
+
+<div class="price">
+از ${formatPrice(
+minPrice(product)
+)}
+</div>
+
+<button class="buy-btn">
+خرید
+</button>
+
+</div>
+
+</div>
+
+`;
+
+card
+.querySelector(
+".buy-btn"
+)
+.addEventListener(
+"click",
+()=>openProduct(
+product.id
+)
+);
+
+productsGrid.appendChild(
+card
+);
+
+setTimeout(
+()=>{
+card.classList.add(
+"visible"
+)
+},
+index*55
+);
+
+}
+);
+
+}
+
+function openProduct(
+productId
+){
+
+activeProduct =
+PRODUCTS.find(
+x=>x.id===productId
+);
+
+if(!activeProduct){
+return;
+}
+
+activeModelIndex =
+0;
+
+currentQuantity =
+1;
+
+document
+.getElementById(
+"detailTitle"
+)
+.textContent =
+activeProduct.name +
+" | " +
+activeProduct.skin;
+
+renderDetailVisual();
+
+document
+.getElementById(
+"detailDescription"
+)
+.textContent =
+activeProduct.description;
+
+document
+.getElementById(
+"qtyNumber"
+)
+.textContent =
+"1";
+
+renderModels();
+
+updateSelectedPrice();
+
+productModal.classList.add(
+"active"
+);
+
+overlay.classList.add(
+"active"
+);
+
+document.body.classList.add(
+"lock"
+);
 
 }
 
 function renderDetailVisual(){
 
-    const box =
-        document.getElementById(
-            "detailVisual"
-        );
+const box =
+document.getElementById(
+"detailVisual"
+);
 
-    if(
-        activeProduct.image
-    ){
+if(activeProduct.image){
 
-        box.innerHTML = `
+box.innerHTML = `
 
-            <img
-                id="detailImage"
-                src="${activeProduct.image}"
-                alt="${escapeHtml(
-                    activeProduct.name
-                )}"
-            >
+<img
+id="detailImage"
+src="${activeProduct.image}"
+alt="${escapeHtml(
+activeProduct.name
+)}"
+>
 
-        `;
+`;
 
-        document
-            .getElementById(
-                "detailImage"
-            )
-            .onerror =
-                function(){
+document
+.getElementById(
+"detailImage"
+)
+.onerror =
+function(){
 
-                    this.src =
-                        fallbackImage(
-                            activeProduct.name
-                        );
+this.src =
+fallbackImage(
+activeProduct.name
+);
 
-                };
+};
 
-    }
-    else{
+}
 
-        box.innerHTML = `
+else{
 
-            <div class="detail-text-visual">
-                ${escapeHtml(
-                    activeProduct.iconText || ""
-                )}
-            </div>
+box.innerHTML = `
 
-        `;
+<div class="detail-text-visual">
+${escapeHtml(
+activeProduct.iconText || ""
+)}
+</div>
 
-    }
+`;
+
+}
 
 }
 
 function renderModels(){
 
-    const wrap =
-        document.getElementById(
-            "modelOptions"
-        );
+const wrap =
+document.getElementById(
+"modelOptions"
+);
 
-    wrap.innerHTML =
-        "";
+wrap.innerHTML =
+"";
 
-    activeProduct.models.forEach(
-        (model,index) => {
+activeProduct.models.forEach(
+(model,index)=>{
 
-            const button =
-                document.createElement(
-                    "button"
-                );
+const button =
+document.createElement(
+"button"
+);
 
-            button.type =
-                "button";
+button.type =
+"button";
 
-            button.className =
-                "model" +
-                (
-                    index ===
-                    activeModelIndex
-                        ? " selected"
-                        : ""
-                );
+button.className =
+"model" +
+(
+index ===
+activeModelIndex
+? " selected"
+: ""
+);
 
-            button.innerHTML = `
+button.innerHTML = `
 
-                <strong>
-                    ${escapeHtml(
-                        model.name
-                    )}
-                </strong>
+<strong>
+${escapeHtml(
+model.name
+)}
+</strong>
 
-                <span>
-                    ${escapeHtml(
-                        model.subtitle
-                    )}
-                </span>
+<span>
+${escapeHtml(
+model.subtitle
+)}
+</span>
 
-                <span>
-                    ${formatPrice(
-                        model.price
-                    )}
-                </span>
+<span>
+${formatPrice(
+model.price
+)}
+</span>
 
-            `;
+`;
 
-            button.addEventListener(
-                "click",
-                () => {
+button.addEventListener(
+"click",
+()=>{
 
-                    activeModelIndex =
-                        index;
+activeModelIndex =
+index;
 
-                    renderModels();
+renderModels();
 
-                    updateSelectedPrice();
+updateSelectedPrice();
 
-                }
-            );
+}
+);
 
-            wrap.appendChild(
-                button
-            );
+wrap.appendChild(
+button
+);
 
-        }
-    );
+}
+);
 
 }
 
 function updateSelectedPrice(){
 
-    if(
-        !activeProduct
-    ){
-        return;
-    }
+if(!activeProduct){
+return;
+}
 
-    const model =
-        activeProduct.models[
-            activeModelIndex
-        ];
+const model =
+activeProduct.models[
+activeModelIndex
+];
 
-    document
-        .getElementById(
-            "selectedPrice"
-        )
-        .textContent =
-            formatPrice(
-                model.price*
-                currentQuantity
-            );
+document
+.getElementById(
+"selectedPrice"
+)
+.textContent =
+formatPrice(
+model.price *
+currentQuantity
+);
 
 }
 
 document
-    .getElementById(
-        "minusQty"
-    )
-    .addEventListener(
-        "click",
-        () => {
+.getElementById(
+"minusQty"
+)
+.addEventListener(
+"click",
+()=>{
 
-            if(
-                currentQuantity >
-                1
-            ){
+if(currentQuantity > 1){
 
-                currentQuantity--;
-
-                document
-                    .getElementById(
-                        "qtyNumber"
-                    )
-                    .textContent =
-                        currentQuantity;
-
-                updateSelectedPrice();
-
-            }
-
-        }
-    );
+currentQuantity--;
 
 document
-    .getElementById(
-        "plusQty"
-    )
-    .addEventListener(
-        "click",
-        () => {
+.getElementById(
+"qtyNumber"
+)
+.textContent =
+currentQuantity;
 
-            if(
-                currentQuantity <
-                99
-            ){
+updateSelectedPrice();
 
-                currentQuantity++;
+}
 
-                document
-                    .getElementById(
-                        "qtyNumber"
-                    )
-                    .textContent =
-                        currentQuantity;
-
-                updateSelectedPrice();
-
-            }
-
-        }
-    );
-
-/* ADD TO CART */
+}
+);
 
 document
-    .getElementById(
-        "addCartButton"
-    )
-    .addEventListener(
-        "click",
-        () => {
+.getElementById(
+"plusQty"
+)
+.addEventListener(
+"click",
+()=>{
 
-            if(
-                !activeProduct
-            ){
-                return;
-            }
+if(currentQuantity < 99){
 
-            const model =
-                activeProduct.models[
-                    activeModelIndex
-                ];
+currentQuantity++;
 
-            const cartId =
-                activeProduct.id+
-                "-" +
-                model.name;
+document
+.getElementById(
+"qtyNumber"
+)
+.textContent =
+currentQuantity;
 
-            const existing =
-                cart.find(
-                    x =>
-                        x.cartId ===
-                        cartId
-                );
+updateSelectedPrice();
 
-            if(existing){
+}
 
-                existing.quantity +=
-                    currentQuantity;
+}
+);
 
-            }
-            else{
+document
+.getElementById(
+"addCartButton"
+)
+.addEventListener(
+"click",
+()=>{
 
-                cart.push({
+if(!activeProduct){
+return;
+}
 
-                    cartId,
+const model =
+activeProduct.models[
+activeModelIndex
+];
 
-                    productId:
-                        activeProduct.id,
+const cartId =
+activeProduct.id +
+"-" +
+model.name;
 
-                    name:
-                        activeProduct.name,
+const existing =
+cart.find(
+x =>
+x.cartId ===
+cartId
+);
 
-                    skin:
-                        activeProduct.skin,
+if(existing){
 
-                    model:
-                        model.name,
+existing.quantity +=
+currentQuantity;
 
-                    subtitle:
-                        model.subtitle,
+}
 
-                    price:
-                        model.price,
+else{
 
-                    quantity:
-                        currentQuantity,
+cart.push({
 
-                    image:
-                        activeProduct.image ||
-                        "",
+cartId,
 
-                    iconText:
-                        activeProduct.iconText ||
-                        ""
+productId:
+activeProduct.id,
 
-                });
+name:
+activeProduct.name,
 
-            }
+skin:
+activeProduct.skin,
 
-            saveCart();
+model:
+model.name,
 
-            updateCart();
+subtitle:
+model.subtitle,
 
-            closeAll();
+price:
+model.price,
 
-            bumpCart();
+quantity:
+currentQuantity,
 
-            showToast(
-                "محصول به سبد اضافه شد"
-            );
+image:
+activeProduct.image ||
+"",
 
-        }
-    );
+iconText:
+activeProduct.iconText ||
+""
 
-/* CART */
+});
+
+}
+
+saveCart();
+
+updateCart();
+
+closeAll();
+
+bumpCart();
+
+showToast(
+"محصول به سبد اضافه شد"
+);
+
+}
+);
+
+function updateCart(){
+
+const list =
+document.getElementById(
+"cartItems"
+);
+
+const count =
+getCartCount();
+
+document
+.getElementById(
+"cartCount"
+)
+.textContent =
+count;
+
+document
+.getElementById(
+"summaryCount"
+)
+.textContent =
+count;
+
+if(cart.length === 0){
+
+list.innerHTML =
+'<div class="empty">سبد خرید خالی است.</div>';
+
+}
+
+else{
+
+list.innerHTML =
+"";
+
+cart.forEach(
+item=>{
+
+const row =
+document.createElement(
+"div"
+);
+
+row.className =
+"cart-item";
+
+row.dataset.cartId =
+item.cartId;
+
+const visual =
+item.image
+
+?
+
+`
+<img
+src="${item.image}"
+alt="${escapeHtml(
+item.name
+)}"
+>
+`
+
+:
+
+`
+<div
+class="visual-box"
+style="
+width:55px;
+height:42px;
+border-radius:12px;
+font-size:14px;
+"
+>
+${escapeHtml(
+item.iconText || ""
+)}
+</div>
+`;
+
+row.innerHTML = `
+
+<div class="cart-top">
+
+<div class="cart-img">
+${visual}
+</div>
+
+<div class="cart-text">
+
+<strong>
+${escapeHtml(
+item.name
+)}
+</strong>
+
+<span>
+${escapeHtml(
+item.skin
+)}
+<br>
+${escapeHtml(
+item.model
+)}
+</span>
+
+</div>
+
+<div class="cart-price">
+${formatPrice(
+item.price *
+item.quantity
+)}
+</div>
+
+</div>
+
+<div class="cart-bottom">
+
+<div class="mini">
+
+<button class="minus">
+−
+</button>
+
+<strong>
+${item.quantity}
+</strong>
+
+<button class="plus">
++
+</button>
+
+</div>
+
+<button
+class="mini remove"
+>
+حذف
+</button>
+
+</div>
+
+`;
+
+row
+.querySelector(
+".minus"
+)
+.addEventListener(
+"click",
+()=>changeQty(
+item.cartId,
+-1
+)
+);
+
+row
+.querySelector(
+".plus"
+)
+.addEventListener(
+"click",
+()=>changeQty(
+item.cartId,
+1
+)
+);
+
+row
+.querySelector(
+".remove"
+)
+.addEventListener(
+"click",
+()=>removeItem(
+item.cartId,
+row
+)
+);
+
+list.appendChild(
+row
+);
+
+}
+);
+
+}
+
+document
+.getElementById(
+"summaryTotal"
+)
+.textContent =
+formatPrice(
+getCartTotal()
+);
+
+}
 
 function getCartCount(){
 
-    return cart.reduce(
-        (sum,item) =>
-            sum+
-            item.quantity,
-        0
-    );
+return cart.reduce(
+(s,x)=>
+s +
+x.quantity,
+0
+);
 
 }
 
 function getCartTotal(){
 
-    return cart.reduce(
-        (sum,item) =>
-            sum+
-            item.price*
-            item.quantity,
-        0
-    );
-
-}
-
-function saveCart(){
-
-    localStorage.setItem(
-        "csgoShopCart",
-        JSON.stringify(cart)
-    );
-
-}
-
-function loadCart(){
-
-    const saved =
-        localStorage.getItem(
-            "csgoShopCart"
-        );
-
-    if(saved){
-
-        try{
-
-            cart =
-                JSON.parse(
-                    saved
-                );
-
-        }
-        catch{
-
-            cart =
-                [];
-
-        }
-
-    }
-
-    updateCart();
-
-}
-
-function updateCart(){
-
-    const list =
-        document.getElementById(
-            "cartItems"
-        );
-
-    const count =
-        getCartCount();
-
-    document
-        .getElementById(
-            "cartCount"
-        )
-        .textContent =
-            count;
-
-    document
-        .getElementById(
-            "summaryCount"
-        )
-        .textContent =
-            count;
-
-    if(
-        cart.length ===
-        0
-    ){
-
-        list.innerHTML =
-            `
-            <div class="empty">
-                سبد خرید خالی است.
-            </div>
-            `;
-
-    }
-    else{
-
-        list.innerHTML =
-            "";
-
-        cart.forEach(
-            item => {
-
-                const row =
-                    document.createElement(
-                        "div"
-                    );
-
-                row.className =
-                    "cart-item";
-
-                row.dataset.cartId =
-                    item.cartId;
-
-                const visual =
-                    item.image
-
-                    ?
-
-                    `
-                    <img
-                        src="${item.image}"
-                        alt="${escapeHtml(
-                            item.name
-                        )}"
-                    >
-                    `
-
-                    :
-
-                    `
-                    <div
-                        class="visual-box"
-                        style="
-                            width:55px;
-                            height:42px;
-                            border-radius:12px;
-                            font-size:14px;
-                        "
-                    >
-                        ${escapeHtml(
-                            item.iconText ||
-                            ""
-                        )}
-                    </div>
-                    `;
-
-                row.innerHTML = `
-
-                    <div class="cart-top">
-
-                        <div class="cart-img">
-                            ${visual}
-                        </div>
-
-                        <div class="cart-text">
-
-                            <strong>
-                                ${escapeHtml(
-                                    item.name
-                                )}
-                            </strong>
-
-                            <span>
-                                ${escapeHtml(
-                                    item.skin
-                                )}
-                                <br>
-                                ${escapeHtml(
-                                    item.model
-                                )}
-                            </span>
-
-                        </div>
-
-                        <div class="cart-price">
-                            ${formatPrice(
-                                item.price*
-                                item.quantity
-                            )}
-                        </div>
-
-                    </div>
-
-                    <div class="cart-bottom">
-
-                        <div class="mini">
-
-                            <button
-                                class="minus"
-                                type="button"
-                            >
-                                −
-                            </button>
-
-                            <strong>
-                                ${item.quantity}
-                            </strong>
-
-                            <button
-                                class="plus"
-                                type="button"
-                            >
-                                +
-                            </button>
-
-                        </div>
-
-                        <button
-                            class="mini remove"
-                            type="button"
-                        >
-                            حذف
-                        </button>
-
-                    </div>
-
-                `;
-
-                row
-                    .querySelector(
-                        ".minus"
-                    )
-                    .addEventListener(
-                        "click",
-                        () =>
-                            changeQty(
-                                item.cartId,
-                                -1
-                            )
-                    );
-
-                row
-                    .querySelector(
-                        ".plus"
-                    )
-                    .addEventListener(
-                        "click",
-                        () =>
-                            changeQty(
-                                item.cartId,
-                                1
-                            )
-                    );
-
-                row
-                    .querySelector(
-                        ".remove"
-                    )
-                    .addEventListener(
-                        "click",
-                        () =>
-                            removeItem(
-                                item.cartId,
-                                row
-                            )
-                    );
-
-                list.appendChild(
-                    row
-                );
-
-            }
-        );
-
-    }
-
-    document
-        .getElementById(
-            "summaryTotal"
-        )
-        .textContent =
-            formatPrice(
-                getCartTotal()
-            );
+return cart.reduce(
+(s,x)=>
+s +
+x.price *
+x.quantity,
+0
+);
 
 }
 
 function changeQty(
-    id,
-    amount
+id,
+amount
 ){
 
-    const item =
-        cart.find(
-            x =>
-                x.cartId ===
-                id
-        );
+const item =
+cart.find(
+x =>
+x.cartId ===
+id
+);
 
-    if(
-        !item
-    ){
-        return;
-    }
+if(!item){
+return;
+}
 
-    item.quantity +=
-        amount;
+item.quantity +=
+amount;
 
-    if(
-        item.quantity <=
-        0
-    ){
+if(item.quantity <= 0){
 
-        cart =
-            cart.filter(
-                x =>
-                    x.cartId !==
-                    id
-            );
-
-    }
-
-    if(
-        item.quantity >
-        99
-    ){
-
-        item.quantity =
-            99;
-
-    }
-
-    saveCart();
-
-    updateCart();
+cart =
+cart.filter(
+x =>
+x.cartId !==
+id
+);
 
 }
 
-/*
-    حذف انیمیشنی واقعی:
-    اول ارتفاع آیتم را اندازه می‌گیرد،
-    بعد آن را به صفر جمع می‌کند،
-    محو می‌شود،
-    به کنار حرکت می‌کند،
-    بعد از اتمام انیمیشن از cart حذف می‌شود.
-*/
+if(item.quantity > 99){
+
+item.quantity =
+99;
+
+}
+
+saveCart();
+
+updateCart();
+
+}
 
 function removeItem(
-    id,
-    row
+id,
+row
 ){
 
-    if(
-        !row ||
-        row.dataset.removing ===
-        "true"
-    ){
-        return;
-    }
+if(row){
 
-    row.dataset.removing =
-        "true";
+const button =
+row.querySelector(
+".remove"
+);
 
-    const button =
-        row.querySelector(
-            ".remove"
-        );
+if(button){
+button.disabled =
+true;
+}
 
-    if(button){
+row.classList.add(
+"removing"
+);
 
-        button.disabled =
-            true;
+setTimeout(
+()=>{
 
-    }
+cart =
+cart.filter(
+x =>
+x.cartId !==
+id
+);
 
-    const height =
-        row.offsetHeight;
+saveCart();
 
-    row.style.height =
-        height+
-        "px";
+updateCart();
 
-    row.style.overflow =
-        "hidden";
+showToast(
+"محصول از سبد حذف شد"
+);
 
-    requestAnimationFrame(
-        () => {
+},
+360
+);
 
-            row.classList.add(
-                "removing"
-            );
+return;
 
-            row.style.height =
-                "0px";
+}
 
-            row.style.paddingTop =
-                "0px";
+cart =
+cart.filter(
+x =>
+x.cartId !==
+id
+);
 
-            row.style.paddingBottom =
-                "0px";
+saveCart();
 
-            row.style.marginBottom =
-                "0px";
+updateCart();
 
-        }
-    );
-
-    setTimeout(
-        () => {
-
-            cart =
-                cart.filter(
-                    x =>
-                        x.cartId !==
-                        id
-                );
-
-            saveCart();
-
-            updateCart();
-
-            showToast(
-                "محصول از سبد حذف شد"
-            );
-
-        },
-        440
-    );
+showToast(
+"محصول از سبد حذف شد"
+);
 
 }
 
 function bumpCart(){
 
-    const button =
-        document.getElementById(
-            "cartButton"
-        );
+const b =
+document.getElementById(
+"cartButton"
+);
 
-    button.classList.remove(
-        "bump"
-    );
+b.classList.remove(
+"bump"
+);
 
-    void button.offsetWidth;
+void b.offsetWidth;
 
-    button.classList.add(
-        "bump"
-    );
+b.classList.add(
+"bump"
+);
 
 }
-
-/* CART OPEN */
 
 function openCart(){
 
-    closeModalsOnly();
+closeModalsOnly();
 
-    cartDrawer.classList.add(
-        "active"
-    );
+cartDrawer.classList.add(
+"active"
+);
 
-    overlay.classList.add(
-        "active"
-    );
+overlay.classList.add(
+"active"
+);
 
-    document.body.classList.add(
-        "lock"
-    );
+document.body.classList.add(
+"lock"
+);
 
 }
 
 document
-    .getElementById(
-        "cartButton"
-    )
-    .addEventListener(
-        "click",
-        openCart
-    );
-
-/* CATEGORIES */
+.getElementById(
+"cartButton"
+)
+.addEventListener(
+"click",
+openCart
+);
 
 document
-    .querySelectorAll(
-        ".category-btn"
-    )
-    .forEach(
-        button => {
+.querySelectorAll(
+".category-btn"
+)
+.forEach(
+btn =>
+btn.addEventListener(
+"click",
+()=>{
 
-            button.addEventListener(
-                "click",
-                () => {
+document
+.querySelectorAll(
+".category-btn"
+)
+.forEach(
+x =>
+x.classList.remove(
+"active"
+)
+);
 
-                    document
-                        .querySelectorAll(
-                            ".category-btn"
-                        )
-                        .forEach(
-                            x =>
-                                x.classList.remove(
-                                    "active"
-                                )
-                        );
+btn.classList.add(
+"active"
+);
 
-                    button.classList.add(
-                        "active"
-                    );
+activeCategory =
+btn.dataset.category;
 
-                    activeCategory =
-                        button.dataset.category;
+renderProducts(
+true
+);
 
-                    renderProducts(
-                        true
-                    );
-
-                }
-            );
-
-        }
-    );
-
-/* PROFILE */
+}
+)
+);
 
 function openProfile(){
 
-    closeCart();
+closeCart();
 
-    profileModal.classList.add(
-        "active"
-    );
+profileModal.classList.add(
+"active"
+);
 
-    overlay.classList.add(
-        "active"
-    );
+overlay.classList.add(
+"active"
+);
 
-    document.body.classList.add(
-        "lock"
-    );
+document.body.classList.add(
+"lock"
+);
 
 }
 
 document
-    .getElementById(
-        "profileButton"
-    )
-    .addEventListener(
-        "click",
-        openProfile
-    );
+.getElementById(
+"profileButton"
+)
+.addEventListener(
+"click",
+openProfile
+);
 
 document
-    .getElementById(
-        "profileHeroButton"
-    )
-    .addEventListener(
-        "click",
-        openProfile
-    );
+.getElementById(
+"profileHeroButton"
+)
+.addEventListener(
+"click",
+openProfile
+);
 
 document
-    .getElementById(
-        "shopButton"
-    )
-    .addEventListener(
-        "click",
-        () => {
+.getElementById(
+"shopButton"
+)
+.addEventListener(
+"click",
+()=>{
 
-            document
-                .getElementById(
-                    "shop"
-                )
-                .scrollIntoView({
-                    behavior:"smooth"
-                });
+document
+.getElementById(
+"shop"
+)
+.scrollIntoView({
+behavior:"smooth"
+});
 
-        }
-    );
-
-/* PROFILE VALIDATION */
+}
+);
 
 function setFieldError(
-    input,
-    error,
-    message
+input,
+error,
+msg
 ){
 
-    input.classList.add(
-        "error"
-    );
+input.classList.add(
+"error"
+);
 
-    error.textContent =
-        message;
+error.textContent =
+msg;
 
-    error.classList.add(
-        "show"
-    );
+error.classList.add(
+"show"
+);
 
-    input.style.animation =
-        "none";
+input.style.animation =
+"none";
 
-    void input.offsetWidth;
+void input.offsetWidth;
 
-    input.style.animation =
-        "shake .4s ease";
+input.style.animation =
+"shake .4s ease";
 
 }
 
 function clearFieldError(
-    input,
-    error
+input,
+error
 ){
 
-    input.classList.remove(
-        "error"
-    );
+input.classList.remove(
+"error"
+);
 
-    error.textContent =
-        "";
+error.textContent =
+"";
 
-    error.classList.remove(
-        "show"
-    );
+error.classList.remove(
+"show"
+);
 
 }
 
 function validateNames(){
 
-    const first =
-        document.getElementById(
-            "firstName"
-        );
+const f =
+document.getElementById(
+"firstName"
+);
 
-    const last =
-        document.getElementById(
-            "lastName"
-        );
+const l =
+document.getElementById(
+"lastName"
+);
 
-    const firstError =
-        document.getElementById(
-            "firstNameError"
-        );
+const fe =
+document.getElementById(
+"firstNameError"
+);
 
-    const lastError =
-        document.getElementById(
-            "lastNameError"
-        );
+const le =
+document.getElementById(
+"lastNameError"
+);
 
-    let valid =
-        true;
+let ok =
+true;
 
-    if(
-        first.value.trim().length <
-        2
-    ){
+if(
+f.value.trim().length <
+2
+){
 
-        setFieldError(
-            first,
-            firstError,
-            "نام را درست وارد کن"
-        );
+setFieldError(
+f,
+fe,
+"نام را درست وارد کن"
+);
 
-        valid =
-            false;
+ok =
+false;
 
-    }
-    else{
+}
 
-        clearFieldError(
-            first,
-            firstError
-        );
+else{
 
-    }
+clearFieldError(
+f,
+fe
+);
 
-    if(
-        last.value.trim().length <
-        2
-    ){
+}
 
-        setFieldError(
-            last,
-            lastError,
-            "نام خانوادگی را درست وارد کن"
-        );
+if(
+l.value.trim().length <
+2
+){
 
-        valid =
-            false;
+setFieldError(
+l,
+le,
+"نام خانوادگی را درست وارد کن"
+);
 
-    }
-    else{
+ok =
+false;
 
-        clearFieldError(
-            last,
-            lastError
-        );
+}
 
-    }
+else{
 
-    return valid;
+clearFieldError(
+l,
+le
+);
+
+}
+
+return ok;
 
 }
 
 function validatePhone(){
 
-    const input =
-        document.getElementById(
-            "phone"
-        );
+const i =
+document.getElementById(
+"phone"
+);
 
-    const error =
-        document.getElementById(
-            "phoneError"
-        );
+const e =
+document.getElementById(
+"phoneError"
+);
 
-    if(
-        !/^09\d{9}$/.test(
-            input.value.trim()
-        )
-    ){
+if(
+!/^09\d{9}$/.test(
+i.value.trim()
+)
+){
 
-        setFieldError(
-            input,
-            error,
-            "شماره باید ۱۱ رقم باشد؛ مثل 09123456789"
-        );
+setFieldError(
+i,
+e,
+"شماره باید ۱۱ رقم باشد؛ مثل 09123456789"
+);
 
-        return false;
+return false;
 
-    }
+}
 
-    clearFieldError(
-        input,
-        error
-    );
+clearFieldError(
+i,
+e
+);
 
-    return true;
+return true;
 
 }
 
 function validateTelegram(){
 
-    const input =
-        document.getElementById(
-            "telegram"
-        );
+const i =
+document.getElementById(
+"telegram"
+);
 
-    const error =
-        document.getElementById(
-            "telegramError"
-        );
+const e =
+document.getElementById(
+"telegramError"
+);
 
-    if(
-        !/^@[A-Za-z0-9_]{5,32}$/.test(
-            input.value.trim()
-        )
-    ){
+if(
+!/^@[A-Za-z0-9_]{5,32}$/.test(
+i.value.trim()
+)
+){
 
-        setFieldError(
-            input,
-            error,
-            "آیدی را مثل @username وارد کن"
-        );
+setFieldError(
+i,
+e,
+"آیدی را مثل @username وارد کن"
+);
 
-        return false;
+return false;
 
-    }
+}
 
-    clearFieldError(
-        input,
-        error
-    );
+clearFieldError(
+i,
+e
+);
 
-    return true;
+return true;
 
 }
 
 function validateProfile(){
 
-    return (
-        validateNames() &&
-        validatePhone() &&
-        validateTelegram()
-    );
+return (
+validateNames() &&
+validatePhone() &&
+validateTelegram()
+);
 
 }
 
-/* PHONE */
+document
+.getElementById(
+"phone"
+)
+.addEventListener(
+"input",
+function(){
+
+this.value =
+this.value.replace(
+/\D/g,
+""
+);
+
+if(
+this.value.length <
+11
+){
+
+clearFieldError(
+this,
+document.getElementById(
+"phoneError"
+)
+);
+
+return;
+
+}
+
+validatePhone();
+
+}
+);
 
 document
-    .getElementById(
-        "phone"
-    )
-    .addEventListener(
-        "input",
-        function(){
+.getElementById(
+"telegram"
+)
+.addEventListener(
+"input",
+function(){
 
-            this.value =
-                this.value.replace(
-                    /\D/g,
-                    ""
-                );
+this.value =
+this.value.replace(
+/\s/g,
+""
+);
 
-            if(
-                this.value.length <
-                11
-            ){
+clearFieldError(
+this,
+document.getElementById(
+"telegramError"
+)
+);
 
-                clearFieldError(
-                    this,
-                    document.getElementById(
-                        "phoneError"
-                    )
-                );
-
-                return;
-
-            }
-
-            validatePhone();
-
-        }
-    );
-
-/* TELEGRAM */
+}
+);
 
 document
-    .getElementById(
-        "telegram"
-    )
-    .addEventListener(
-        "input",
-        function(){
+.getElementById(
+"telegram"
+)
+.addEventListener(
+"blur",
+function(){
 
-            this.value =
-                this.value.replace(
-                    /\s/g,
-                    ""
-                );
+if(
+this.value.trim()
+){
 
-            clearFieldError(
-                this,
-                document.getElementById(
-                    "telegramError"
-                )
-            );
+validateTelegram();
 
-        }
-    );
+}
+
+}
+);
 
 document
-    .getElementById(
-        "telegram"
-    )
-    .addEventListener(
-        "blur",
-        function(){
+.getElementById(
+"saveProfileButton"
+)
+.addEventListener(
+"click",
+()=>{
 
-            if(
-                this.value.trim()
-            ){
+if(
+!validateProfile()
+){
 
-                validateTelegram();
+showToast(
+"اطلاعات پروفایل اشتباه است",
+true
+);
 
-            }
+return;
 
-        }
-    );
+}
 
-/* SAVE PROFILE */
+const profile = {
+
+firstName:
+document
+.getElementById(
+"firstName"
+)
+.value.trim(),
+
+lastName:
+document
+.getElementById(
+"lastName"
+)
+.value.trim(),
+
+phone:
+document
+.getElementById(
+"phone"
+)
+.value.trim(),
+
+telegram:
+document
+.getElementById(
+"telegram"
+)
+.value.trim()
+
+};
+
+localStorage.setItem(
+"csgoShopProfile",
+JSON.stringify(
+profile
+)
+);
+
+showToast(
+"پروفایل ذخیره شد"
+);
+
+setTimeout(
+closeAll,
+650
+);
+
+}
+);
 
 document
-    .getElementById(
-        "saveProfileButton"
-    )
-    .addEventListener(
-        "click",
-        () => {
+.getElementById(
+"avatarInput"
+)
+.addEventListener(
+"change",
+function(){
 
-            if(
-                !validateProfile()
-            ){
+const file =
+this.files[0];
 
-                showToast(
-                    "اطلاعات پروفایل اشتباه است",
-                    true
-                );
+if(!file){
+return;
+}
 
-                return;
+if(
+!file.type.startsWith(
+"image/"
+)
+){
 
-            }
+showToast(
+"فایل باید تصویر باشد",
+true
+);
 
-            const profile = {
+return;
 
-                firstName:
-                    document
-                        .getElementById(
-                            "firstName"
-                        )
-                        .value
-                        .trim(),
+}
 
-                lastName:
-                    document
-                        .getElementById(
-                            "lastName"
-                        )
-                        .value
-                        .trim(),
+const reader =
+new FileReader();
 
-                phone:
-                    document
-                        .getElementById(
-                            "phone"
-                        )
-                        .value
-                        .trim(),
-
-                telegram:
-                    document
-                        .getElementById(
-                            "telegram"
-                        )
-                        .value
-                        .trim()
-
-            };
-
-            localStorage.setItem(
-                "csgoShopProfile",
-                JSON.stringify(
-                    profile
-                )
-            );
-
-            showToast(
-                "پروفایل ذخیره شد"
-            );
-
-            setTimeout(
-                closeAll,
-                650
-            );
-
-        }
-    );
-
-/* AVATAR */
+reader.onload =
+e => {
 
 document
-    .getElementById(
-        "avatarInput"
-    )
-    .addEventListener(
-        "change",
-        function(){
+.getElementById(
+"headerAvatar"
+)
+.src =
+e.target.result;
 
-            const file =
-                this.files[0];
+document
+.getElementById(
+"profileAvatar"
+)
+.src =
+e.target.result;
 
-            if(
-                !file
-            ){
-                return;
-            }
+localStorage.setItem(
+"csgoShopImage",
+e.target.result
+);
 
-            if(
-                !file.type.startsWith(
-                    "image/"
-                )
-            ){
+showToast(
+"عکس پروفایل تغییر کرد"
+);
 
-                showToast(
-                    "فایل باید تصویر باشد",
-                    true
-                );
+};
 
-                return;
+reader.readAsDataURL(
+file
+);
 
-            }
-
-            const reader =
-                new FileReader();
-
-            reader.onload =
-                e => {
-
-                    const image =
-                        e.target.result;
-
-                    document
-                        .getElementById(
-                            "headerAvatar"
-                        )
-                        .src =
-                            image;
-
-                    document
-                        .getElementById(
-                            "profileAvatar"
-                        )
-                        .src =
-                            image;
-
-                    localStorage.setItem(
-                        "csgoShopImage",
-                        image
-                    );
-
-                    showToast(
-                        "عکس پروفایل تغییر کرد"
-                    );
-
-                };
-
-            reader.readAsDataURL(
-                file
-            );
-
-        }
-    );
-
-/* LOAD PROFILE */
+}
+);
 
 function loadProfile(){
 
-    document
-        .getElementById(
-            "headerAvatar"
-        )
-        .src =
-            DEFAULT_AVATAR;
-
-    document
-        .getElementById(
-            "profileAvatar"
-        )
-        .src =
-            DEFAULT_AVATAR;
-
-    const saved =
-        localStorage.getItem(
-            "csgoShopProfile"
-        );
-
-    if(saved){
-
-        try{
-
-            const profile =
-                JSON.parse(
-                    saved
-                );
-
-            document
-                .getElementById(
-                    "firstName"
-                )
-                .value =
-                    profile.firstName ||
-                    "";
-
-            document
-                .getElementById(
-                    "lastName"
-                )
-                .value =
-                    profile.lastName ||
-                    "";
-
-            document
-                .getElementById(
-                    "phone"
-                )
-                .value =
-                    profile.phone ||
-                    "";
-
-            document
-                .getElementById(
-                    "telegram"
-                )
-                .value =
-                    profile.telegram ||
-                    "";
-
-        }
-        catch{}
-
-    }
-
-    const image =
-        localStorage.getItem(
-            "csgoShopImage"
-        );
-
-    if(image){
-
-        document
-            .getElementById(
-                "headerAvatar"
-            )
-            .src =
-                image;
-
-        document
-            .getElementById(
-                "profileAvatar"
-            )
-            .src =
-                image;
-
-    }
-
-}
-
-/* TELEGRAM ORDER */
-
-function buildTelegramMessage(){
-
-    let profile =
-        {};
-
-    try{
-
-        profile =
-            JSON.parse(
-                localStorage.getItem(
-                    "csgoShopProfile"
-                ) ||
-                "{}"
-            );
-
-    }
-    catch{}
-
-    let message =
-        "سفارش جدید از CSGO SHOP\n\n";
-
-    message +=
-        "نام: " +
-        (profile.firstName || "") +
-        " " +
-        (profile.lastName || "") +
-        "\n";
-
-    message +=
-        "شماره: " +
-        (profile.phone || "") +
-        "\n";
-
-    message +=
-        "تلگرام: " +
-        (profile.telegram || "") +
-        "\n\n";
-
-    message +=
-        "محصولات:\n";
-
-    cart.forEach(
-        (item,index) => {
-
-            message +=
-                (index+1) +
-                ". " +
-                item.name +
-                " | " +
-                item.skin +
-                " | " +
-                item.model +
-                " | تعداد: " +
-                item.quantity +
-                " | " +
-                formatPrice(
-                    item.price*
-                    item.quantity
-                ) +
-                "\n";
-
-        }
-    );
-
-    message +=
-        "\nمبلغ کل: " +
-        formatPrice(
-            getCartTotal()
-        );
-
-    return message;
-
-}
+document
+.getElementById(
+"headerAvatar"
+)
+.src =
+DEFAULT_AVATAR;
 
 document
-    .getElementById(
-        "checkoutButton"
-    )
-    .addEventListener(
-        "click",
-        () => {
+.getElementById(
+"profileAvatar"
+)
+.src =
+DEFAULT_AVATAR;
 
-            if(
-                cart.length ===
-                0
-            ){
-
-                showToast(
-                    "سبد خرید خالی است",
-                    true
-                );
-
-                return;
-
-            }
-
-            if(
-                !validateProfile()
-            ){
-
-                openProfile();
-
-                showToast(
-                    "ابتدا پروفایل را کامل و درست کن",
-                    true
-                );
-
-                return;
-
-            }
-
-            const url =
-                "https://t.me/" +
-                TELEGRAM_USERNAME +
-                "?text=" +
-                encodeURIComponent(
-                    buildTelegramMessage()
-                );
-
-            window.open(
-                url,
-                "_blank",
-                "noopener,noreferrer"
-            );
-
-        }
-    );
-
-/* CLOSE */
-
-function closeCart(){
-
-    cartDrawer.classList.remove(
-        "active"
-    );
-
-}
-
-function closeModalsOnly(){
-
-    productModal.classList.remove(
-        "active"
-    );
-
-    profileModal.classList.remove(
-        "active"
-    );
-
-}
-
-function closeAll(){
-
-    productModal.classList.remove(
-        "active"
-    );
-
-    profileModal.classList.remove(
-        "active"
-    );
-
-    cartDrawer.classList.remove(
-        "active"
-    );
-
-    overlay.classList.remove(
-        "active"
-    );
-
-    document.body.classList.remove(
-        "lock"
-    );
-
-}
-
-overlay.addEventListener(
-    "click",
-    closeAll
+const saved =
+localStorage.getItem(
+"csgoShopProfile"
 );
 
-document.addEventListener(
-    "keydown",
-    event => {
+if(saved){
 
-        if(
-            event.key ===
-            "Escape"
-        ){
+try{
 
-            closeAll();
-
-        }
-
-    }
+const profile =
+JSON.parse(
+saved
 );
 
-/* TOAST */
+document
+.getElementById(
+"firstName"
+)
+.value =
+profile.firstName ||
+"";
 
-let toastTimer;
+document
+.getElementById(
+"lastName"
+)
+.value =
+profile.lastName ||
+"";
 
-function showToast(
-    message,
-    error=false
-){
+document
+.getElementById(
+"phone"
+)
+.value =
+profile.phone ||
+"";
 
-    const toast =
-        document.getElementById(
-            "toast"
-        );
+document
+.getElementById(
+"telegram"
+)
+.value =
+profile.telegram ||
+"";
 
-    clearTimeout(
-        toastTimer
-    );
-
-    toast.textContent =
-        message;
-
-    toast.classList.toggle(
-        "error",
-        error
-    );
-
-    toast.classList.add(
-        "show"
-    );
-
-    toastTimer =
-        setTimeout(
-            () => {
-
-                toast.classList.remove(
-                    "show"
-                );
-
-            },
-            2600
-        );
+}
+catch{}
 
 }
 
-/* START */
+const image =
+localStorage.getItem(
+"csgoShopImage"
+);
+
+if(image){
+
+document
+.getElementById(
+"headerAvatar"
+)
+.src =
+image;
+
+document
+.getElementById(
+"profileAvatar"
+)
+.src =
+image;
+
+}
+
+}
+
+function saveCart(){
+
+localStorage.setItem(
+"csgoShopCart",
+JSON.stringify(
+cart
+)
+);
+
+}
+
+function loadCart(){
+
+const saved =
+localStorage.getItem(
+"csgoShopCart"
+);
+
+if(saved){
+
+try{
+
+cart =
+JSON.parse(
+saved
+);
+
+}
+catch{
+
+cart = [];
+
+}
+
+}
+
+updateCart();
+
+}
 
 loadProfile();
 
 loadCart();
 
 renderProducts(
-    false
+false
 );
+
+function buildTelegramMessage(){
+
+let profile =
+{};
+
+try{
+
+profile =
+JSON.parse(
+localStorage.getItem(
+"csgoShopProfile"
+) ||
+"{}"
+);
+
+}
+catch{}
+
+let message =
+"سفارش جدید از CSGO SHOP\n\n";
+
+message +=
+"نام: " +
+(profile.firstName || "") +
+" " +
+(profile.lastName || "") +
+"\n";
+
+message +=
+"شماره: " +
+(profile.phone || "") +
+"\n";
+
+message +=
+"تلگرام: " +
+(profile.telegram || "") +
+"\n\n";
+
+message +=
+"محصولات:\n";
+
+cart.forEach(
+(item,index)=>{
+
+message +=
+(index + 1) +
+". " +
+item.name +
+" | " +
+item.skin +
+" | " +
+item.model +
+" | تعداد: " +
+item.quantity +
+" | " +
+formatPrice(
+item.price *
+item.quantity
+) +
+"\n";
+
+}
+);
+
+message +=
+"\nمبلغ کل: " +
+formatPrice(
+getCartTotal()
+);
+
+return message;
+
+}
+
+document
+.getElementById(
+"checkoutButton"
+)
+.addEventListener(
+"click",
+()=>{
+
+if(
+cart.length ===
+0
+){
+
+showToast(
+"سبد خرید خالی است",
+true
+);
+
+return;
+
+}
+
+if(
+!validateProfile()
+){
+
+openProfile();
+
+showToast(
+"ابتدا پروفایل را کامل و درست کن",
+true
+);
+
+return;
+
+}
+
+const url =
+"https://t.me/" +
+TELEGRAM_USERNAME +
+"?text=" +
+encodeURIComponent(
+buildTelegramMessage()
+);
+
+window.open(
+url,
+"_blank",
+"noopener,noreferrer"
+);
+
+}
+);
+
+function closeCart(){
+
+cartDrawer.classList.remove(
+"active"
+);
+
+}
+
+function closeModalsOnly(){
+
+productModal.classList.remove(
+"active"
+);
+
+profileModal.classList.remove(
+"active"
+);
+
+}
+
+function closeAll(){
+
+productModal.classList.remove(
+"active"
+);
+
+profileModal.classList.remove(
+"active"
+);
+
+cartDrawer.classList.remove(
+"active"
+);
+
+overlay.classList.remove(
+"active"
+);
+
+document.body.classList.remove(
+"lock"
+);
+
+}
+
+overlay.addEventListener(
+"click",
+closeAll
+);
+
+document.addEventListener(
+"keydown",
+e=>{
+
+if(
+e.key ===
+"Escape"
+){
+
+closeAll();
+
+}
+
+}
+);
+
+let toastTimer;
+
+function showToast(
+message,
+error=false
+){
+
+const toast =
+document.getElementById(
+"toast"
+);
+
+clearTimeout(
+toastTimer
+);
+
+toast.textContent =
+message;
+
+toast.classList.toggle(
+"error",
+error
+);
+
+toast.classList.add(
+"show"
+);
+
+toastTimer =
+setTimeout(
+()=>{
+toast.classList.remove(
+"show"
+)
+},
+2600
+);
+
+}
 
 </script>
 
